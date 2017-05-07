@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,17 +90,18 @@
 
 
 
-<meta name="description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去github注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：https://github.com/u">
+<meta name="description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去 github 注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：https://github.com">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+github建立个人博客">
 <meta property="og:url" content="http://yoursite.com/2017/05/07/hexo-blog/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去github注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：https://github.com/u">
+<meta property="og:description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去 github 注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：https://github.com">
 <meta property="og:image" content="http://yoursite.com/2017/05/07/hexo-blog/hello-world.jpg">
-<meta property="og:updated_time" content="2017-05-07T06:36:20.152Z">
+<meta property="og:image" content="http://yoursite.com/2017/05/07/hexo-blog/leancloudc.jpg">
+<meta property="og:updated_time" content="2017-05-07T07:55:39.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github建立个人博客">
-<meta name="twitter:description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去github注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：https://github.com/u">
+<meta name="twitter:description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去 github 注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：https://github.com">
 <meta name="twitter:image" content="http://yoursite.com/2017/05/07/hexo-blog/hello-world.jpg">
 
 
@@ -109,7 +110,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -319,15 +320,24 @@
 
       
         <p><em>环境： windows10 64bits</em><br><em>所需软件： </em><br>　　1. <a href="https://nodejs.org/en/" title="Java Script运行环境" target="_blank" rel="external">Node.js</a>　基于Chrome V8引擎的JavaScript运行环境；<br>　　2. <a href="https://github.com/git-for-windows/git/releases" title="git for windows" target="_blank" rel="external">Git-for-windows</a>　windows平台下git 运行环境；<br>　　3. <a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>　博客撰写工具</p>
-<p>　　<em>开始之前先去<a href="www.github.com">github</a>注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：<a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a>  注：username替换为自己的用户名</em></p>
-<h1 id="一-hexo安装与配置"><a href="#一-hexo安装与配置" class="headerlink" title="一　hexo安装与配置"></a>一　hexo安装与配置</h1><p>　　首先在本地建立自己的博客文件夹，比如 <em>F:\github\hexo</em>，进入该文件夹内，右键点击<em>Git Bash Here</em>,打开<em>git for windows</em>环境，开始安装<a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　$npm install hexo-cli -g //注: -g表示全局安装</div><div class="line">　　$npm install hexo-server -g //注： hexo3.0之后server模块是独立的,需要单独安装</div></pre></td></tr></table></figure></p>
+<p>　　<em>开始之前先去 <a href="www.github.com">github</a> 注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：<a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a>  注：username替换为自己的用户名</em></p>
+<h1 id="hexo安装与配置"><a href="#hexo安装与配置" class="headerlink" title="hexo安装与配置"></a>hexo安装与配置</h1><p>　　首先在本地建立自己的博客文件夹，比如 <em>F:\github\hexo</em>，进入该文件夹内，右键点击<em>Git Bash Here</em>,打开<em>git for windows</em>环境，开始安装 <a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　$npm install hexo-cli -g //注: -g表示全局安装</div><div class="line">　　$npm install hexo-server -g //注： hexo3.0之后server模块是独立的,需要单独安装</div></pre></td></tr></table></figure></p>
 <p>　　完成之后可以通过命令查看hexo是否安装成功：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$hexo -v</div></pre></td></tr></table></figure></p>
+<p>　　<a id="more"></a></p>
 <h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><p>　　hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　$hexo g //等同于hexo generate,用于生成静态文件</div><div class="line">　　$hexo s //等同于hexo server,用于启动本地服务器，预览网页</div><div class="line">　　$hexo d //等同于hexo deploy,用于部署文件到github</div></pre></td></tr></table></figure></p>
 <h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>　　在自己的博客文件夹下<em>F:\github\hexo</em>,执行命令：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　$hexo init //初始化，自动下载搭建网站所需的所有文件</div><div class="line">　　$npm install //安装依赖包</div><div class="line">　　$hexo g //产生静态文件</div><div class="line">　　$hexo s //启动本地服务器，开启预览功能</div></pre></td></tr></table></figure></p>
 <p>　　这个时候在浏览器输入localhost:4000即可查看到生成的静态网页：<img src="/2017/05/07/hexo-blog/hello-world.jpg" alt="Alt text"></p>
-<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>　　在hexo根目录下找到配置文件_config.yml，使用<a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　deploy:</div><div class="line">　　　type: git //注意冒号&apos;:&apos;后面的空格一定要有</div><div class="line">　　　repository: https://github.com/username/username.github.io.git</div><div class="line">　　　branch: master</div></pre></td></tr></table></figure></p>
+<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>　　在hexo根目录下找到配置文件_config.yml，使用<a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a> 打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　deploy:</div><div class="line">　　　type: git //注意冒号&apos;:&apos;后面的空格一定要有</div><div class="line">　　　repository: https://github.com/username/username.github.io.git</div><div class="line">　　　branch: master</div></pre></td></tr></table></figure></p>
 <p>　　重新生成一下静态文件：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　$hexo clean //清除缓存文件db.json和已生成的静态文件public</div><div class="line">　　$hexo g //产生静态文件</div><div class="line">　　$hexo d //部署到github</div></pre></td></tr></table></figure></p>
-<p>　　在运行<em>hexo d</em>之前需要安装git部署工具<br>　　<code>$npm install hexo-deployer-git -g</code>　<br>  第一次执行<em>hexo d</em>会弹出对话框提示输入github的用户名和密码。此时在浏览器输入：<br>  <em><a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a></em>即可看到自己的博客已经搭建成功。<br>　　注: username替换为自己的用户名.</p>
+<p>　　在运行<em>hexo d</em>之前需要安装git部署工具<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$npm install hexo-deployer-git -g</div></pre></td></tr></table></figure></p>
+<p>  第一次执行<em>hexo d</em>会弹出对话框提示输入github的用户名和密码。此时在浏览器输入：<br>  <em><a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a></em>即可看到自己的博客已经搭建成功。<br>　　注: username替换为自己的用户名.</p>
+<h1 id="nexT主题"><a href="#nexT主题" class="headerlink" title="nexT主题"></a>nexT主题</h1><p>　　hexo安装完成后，默认的主题是landscape，保存在hexo/themes/文件夹下。<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">nexT</a> 主题需要自行下载。在博客文件目录下F:\github\hexo右键单击Git Bash Here，输入命令:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git clone https://github.com/iissnan/hexo-theme-next.git themes/nexT</div></pre></td></tr></table></figure></p>
+<p>　　下载后的nexT主题会保存在themes目录下。修改hexo根目录下的配置文件_config.yml使主题生效:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　# Extensions</div><div class="line">　　## Plugins: https://hexo.io/plugins/</div><div class="line">　　## Themes: https://hexo.io/themes/</div><div class="line">　　theme: nexT</div></pre></td></tr></table></figure></p>
+<p>　　接下来选择nexT的Scheme，打开nexT的配置文件，<br>在目录F:\github\hexo\themes\nexT中，修改:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　# Schemes</div><div class="line">　　#scheme: Muse //默认Scheme，黑白主调，大量留白</div><div class="line">　　#scheme: Mist //紧凑版本，整洁有序</div><div class="line">　　scheme: Pisces //双栏显示，清新</div></pre></td></tr></table></figure></p>
+<h2 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h2><p>　　打开hexo的配置文件F:\github\hexo_config.yml，修改:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　language: zh-Hans //中文汉字</div></pre></td></tr></table></figure></p>
+<h1 id="访问量统计"><a href="#访问量统计" class="headerlink" title="访问量统计"></a>访问量统计</h1><h2 id="文章阅读量统计"><a href="#文章阅读量统计" class="headerlink" title="文章阅读量统计"></a>文章阅读量统计</h2><p>　　使用 <a href="https://leancloud.cn" target="_blank" rel="external">leancloud</a> 实现文章阅读次数统计。注册完成后，点击访问控制台，选择创建新应用:<img src="/2017/05/07/hexo-blog/leancloudc.jpg" alt="Alt-text"></p>
+<p>创建名为Counter的class。之后找到该应用的AppID、AppKey，将这两个值写入到nexT的主题配置文件中_config.yml:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　　# Show number of visitors to each article.</div><div class="line">　　# You can visit https://leancloud.cn get AppID and AppKey.</div><div class="line">　　leancloud_visitors:</div><div class="line">  　　enable: true</div><div class="line">  　　app_id: #&lt;app_id&gt; //复制刚才创建的应用的AppID</div><div class="line">  　　app_key: #&lt;app_key&gt; //复制刚才创建的应用的AppKey</div></pre></td></tr></table></figure></p>
+<p>为了安全，将自己的域名加入安全中心-&gt;web安全域名中，防止恶意修改。完成后部署网站，看效果是不是已经有了文章阅读量显示了。</p>
 <p>　　
 　　</p>
 <p>　　</p>
@@ -470,7 +480,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-hexo安装与配置"><span class="nav-number">1.</span> <span class="nav-text">一　hexo安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo常用命令"><span class="nav-number">1.1.</span> <span class="nav-text">hexo常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">1.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">1.3.</span> <span class="nav-text">部署到github</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo安装与配置"><span class="nav-number">1.</span> <span class="nav-text">hexo安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo常用命令"><span class="nav-number">1.1.</span> <span class="nav-text">hexo常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">1.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">1.3.</span> <span class="nav-text">部署到github</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nexT主题"><span class="nav-number">2.</span> <span class="nav-text">nexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置语言"><span class="nav-number">2.1.</span> <span class="nav-text">设置语言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问量统计"><span class="nav-number">3.</span> <span class="nav-text">访问量统计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章阅读量统计"><span class="nav-number">3.1.</span> <span class="nav-text">文章阅读量统计</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -508,7 +518,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -587,6 +597,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
