@@ -96,12 +96,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/07/hexo-blog/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去github注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：https://github.com/u">
-<meta property="og:image" content="http://yoursite.com/F:/github/pic/hello-world.jpg">
-<meta property="og:updated_time" content="2017-05-07T05:42:54.075Z">
+<meta property="og:image" content="f:/github/pic/hello-world.jpg">
+<meta property="og:updated_time" content="2017-05-07T06:23:53.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github建立个人博客">
 <meta name="twitter:description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去github注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：https://github.com/u">
-<meta name="twitter:image" content="http://yoursite.com/F:/github/pic/hello-world.jpg">
+<meta name="twitter:image" content="f:/github/pic/hello-world.jpg">
 
 
 
@@ -324,10 +324,10 @@
 <p>　　完成之后可以通过命令查看hexo是否安装成功：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$hexo -v</div></pre></td></tr></table></figure></p>
 <h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><p>　　hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　$hexo g //等同于hexo generate,用于生成静态文件</div><div class="line">　　$hexo s //等同于hexo server,用于启动本地服务器，预览网页</div><div class="line">　　$hexo d //等同于hexo deploy,用于部署文件到github</div></pre></td></tr></table></figure></p>
 <h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>　　在自己的博客文件夹下<em>F:\github\hexo</em>,执行命令：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　$hexo init //初始化，自动下载搭建网站所需的所有文件</div><div class="line">　　$npm install //安装依赖包</div><div class="line">　　$hexo g //产生静态文件</div><div class="line">　　$hexo s //启动本地服务器，开启预览功能</div></pre></td></tr></table></figure></p>
-<p>　　这个时候在浏览器输入localhost:4000即可查看到生成的静态网页：<img src="/F:\github\pic\hello-world.jpg" alt="Alt text" title="hello world"></p>
-<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>　　在hexo根目录下找到配置文件_config.yml，使用<a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　deploy:</div><div class="line">　　　type: git //注意冒号&apos;:&apos;后面的空格一定要有</div><div class="line">　　　repository: github.com/username/username.github.io.git</div><div class="line">　　　branch: master</div></pre></td></tr></table></figure></p>
+<p>　　这个时候在浏览器输入localhost:4000即可查看到生成的静态网页：<img src="F:\github\pic\hello-world.jpg" alt="Alt text" title="hello world"></p>
+<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>　　在hexo根目录下找到配置文件_config.yml，使用<a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　deploy:</div><div class="line">　　　type: git //注意冒号&apos;:&apos;后面的空格一定要有</div><div class="line">　　　repository: https://github.com/username/username.github.io.git</div><div class="line">　　　branch: master</div></pre></td></tr></table></figure></p>
 <p>　　重新生成一下静态文件：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　$hexo clean //清除缓存文件db.json和已生成的静态文件public</div><div class="line">　　$hexo g //产生静态文件</div><div class="line">　　$hexo d //部署到github</div></pre></td></tr></table></figure></p>
-<p>　　第一次执行<em>hexo d</em>会弹出对话框提示输入github的用户名和密码。此时在浏览器输入：<br>  <em><a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a></em>即可看到自己的博客已经搭建成功。注: username替换为自己的用户名.</p>
+<p>　　在运行<em>hexo d</em>之前需要安装git部署工具<br>　　<code>$npm install hexo-deployer-git -g</code>　<br>  第一次执行<em>hexo d</em>会弹出对话框提示输入github的用户名和密码。此时在浏览器输入：<br>  <em><a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a></em>即可看到自己的博客已经搭建成功。<br>　　注: username替换为自己的用户名.</p>
 <p>　　
 　　</p>
 <p>　　</p>
