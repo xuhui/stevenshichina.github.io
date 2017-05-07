@@ -69,7 +69,8 @@ theme: nexT
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: http://github.com/StevenShiChina/stevenshichina.github.io.git
+  repository: https://github.com/stevenshichina/stevenshichina.github.io.git
   branch: master
+
 
 
