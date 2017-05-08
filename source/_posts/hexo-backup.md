@@ -4,20 +4,17 @@ date: 2017-05-07 21:25:07
 tags:
 ---
 # 前言
-　　在公司电脑中做好了hexo博客撰写，也将文章推送到了github并且发布了;回到家中在自己的电脑上想给自己的博客添加一篇文章，按照hexo建站流程，又建了一遍，但写完文章后发现，之前在公司写得博客被覆盖了......想哭的感觉有木有......
+　　在公司电脑中做好了hexo博客撰写，也将文章推送到了github并且发布了;回到家中在自己的电脑上想给自己的博客添加一篇文章，按照hexo建站流程，又建了一遍，但写完文章后发现，之前在公司写得博客被覆盖了，想哭的感觉有木有。
 
 　　当使用不同的电脑撰写博客时，会涉及到博客资源的备份和更新，如果简单的拷贝会比较麻烦，当然也可以tar整个hexo工作目录;单纯的push到github会有部分文件不全,由于主题文件目录也是git管理方式，当push后，主题默认是不会被推送到github上的。所以，必须稍作修改，才能正确的备份。
 # 解决方案
-　　在自己的github仓库中默认有master分支，比如username目录下的username.github.io仓库。使用master分支保存自己的hexo博客静态文件，新建hexo分支用于保存hexo资源文件。每次撰写完博客后，顺便将自己的hexo工作目录push到远程仓库的hexo分支;当在另外一台电脑上写博客时，先获取远程仓库的分支，之后就可以编辑了......
+　　在自己的github仓库中默认有master分支，比如username目录下的username.github.io仓库。使用master分支保存自己的hexo博客静态文件，新建hexo分支用于保存hexo资源文件。每次撰写完博客后，顺便将自己的hexo工作目录push到远程仓库的hexo分支;当在另外一台电脑上写博客时，先获取远程仓库的分支，之后就可以编辑了
 ## 推送到远程
-　　进入到自己的博客工作目录比如*github\hexo*　
-先查看远程主机
-
+　　进入到自己的博客工作目录比如*github\hexo*,先查看远程主机
 　　```
 　　$git remote -v
 　　```
 　　如果有输出，查看下是否是自己远程仓库的名字，如果不是username.github.io则删除：
-
 　　```
 　　$git remote rm origin
 　　```
@@ -29,7 +26,7 @@ tags:
 　　<!--more-->
 　　删除掉*theme\nexT*目录下的*.git*文件夹，因为我们要将主题配置一同推送。如果删除后还是不能推送nexT主题，就将nexT改个名字，但要注意在hexo的_config.yml中对应的主题名字与这个文件夹名字要保持一致。
 　　```
-　　$git add --all
+　　$git add --all //add之后可以用*git status*查看刚刚改过的文件状态
 　　$git commit -m "backup hexo"
 　　*$git config --global user.name "yourusername" //这两步之前已经做好了，不需要再配置*
 　　*$git config --global user.email "yourusername@xxx.com"*
@@ -76,3 +73,15 @@ tags:
 　　$git checkout hexo
 　　```
 此时就可以在该目录下进行博客的撰写工作了，撰写完可以将最新更新提交，并push到远程仓库的hexo分支，至此完成多个电脑同步的问题。
+当再次回到公司电脑时，进入到博客目录使用*git pull*即可同步更新。
+　　```
+　　$git pull
+　　$hexo n post "new blog"
+　　$hexo clean
+　　$hexo g
+　　$hexo d
+　　$git commit -m "add new blog"
+　　$git push origin hexo
+　　```
+
+
