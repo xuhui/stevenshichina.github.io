@@ -9,7 +9,7 @@ tags:
 　　2. [Git-for-windows](https://github.com/git-for-windows/git/releases "git for windows")　windows平台下git 运行环境；
 　　3. [MarkdownPad](http://markdownpad.com/ "markdown Editor for Windows")　博客撰写工具
 
-　　*开始之前先去 [github](www.github.com) 注册一个账户，并新建一个与自己用户名同名的仓库，最后生成的仓库地址：https://github.com/username/username.github.io  注：username替换为自己的用户名*
+　　*开始之前先去 [github](www.github.com) 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：https://github.com/username/username.github.io  注：username替换为自己的用户名*
 # hexo安装与配置
 　　首先在本地建立自己的博客文件夹，比如 *F:\github\hexo*，进入该文件夹内，右键点击*Git Bash Here*,打开*git for windows*环境，开始安装 [hexo](https://hexo.io/zh-cn/docs/ "hexo说明")：
 　　```
@@ -106,7 +106,7 @@ tags:
 　　<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 　　</script>
 　　```
-#备份
+
 　　
 
 　　
