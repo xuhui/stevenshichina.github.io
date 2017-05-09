@@ -74,11 +74,13 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hexo," />
 
 
 
 
+
+  <link rel="alternate" href="/atom.xml" title="Steven's blog" type="application/atom+xml" />
 
 
 
@@ -90,19 +92,20 @@
 
 
 
-<meta name="description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去 github 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：https:">
+<meta name="description" content="前言hexo是一个高效简洁的静态博客框架，基于Node.js使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。 #环境：windows10 64bits #所需软件：　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+github建立个人博客">
-<meta property="og:url" content="http://yoursite.com/2017/05/07/hexo-blog/index.html">
+<meta property="og:url" content="http://stevenshi.me/2017/05/07/hexo-blog/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去 github 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：https:">
-<meta property="og:image" content="http://yoursite.com/2017/05/07/hexo-blog/hello-world.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/05/07/hexo-blog/leancloudc.jpg">
-<meta property="og:updated_time" content="2017-05-08T08:07:56.608Z">
+<meta property="og:description" content="前言hexo是一个高效简洁的静态博客框架，基于Node.js使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。 #环境：windows10 64bits #所需软件：　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具">
+<meta property="og:image" content="http://stevenshi.me/2017/05/07/hexo-blog/hello-world.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/07/hexo-blog/leancloudc.jpg">
+<meta property="og:updated_time" content="2017-05-09T08:00:08.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github建立个人博客">
-<meta name="twitter:description" content="环境： windows10 64bits所需软件： 　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具 　　开始之前先去 github 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：https:">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/07/hexo-blog/hello-world.jpg">
+<meta name="twitter:description" content="前言hexo是一个高效简洁的静态博客框架，基于Node.js使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。 #环境：windows10 64bits #所需软件：　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；　　3. MarkdownPad　博客撰写工具">
+<meta name="twitter:image" content="http://stevenshi.me/2017/05/07/hexo-blog/hello-world.jpg">
 
 
 
@@ -130,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/07/hexo-blog/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/05/07/hexo-blog/"/>
 
 
 
@@ -177,7 +180,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">学无止境 记录点滴</p>
       
   </div>
 
@@ -207,6 +210,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -228,9 +251,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -255,12 +312,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/hexo-blog/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/07/hexo-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -330,26 +387,32 @@
       
 
       
-        <p><em>环境： windows10 64bits</em><br><em>所需软件： </em><br>　　1. <a href="https://nodejs.org/en/" title="Java Script运行环境" target="_blank" rel="external">Node.js</a>　基于Chrome V8引擎的JavaScript运行环境；<br>　　2. <a href="https://github.com/git-for-windows/git/releases" title="git for windows" target="_blank" rel="external">Git-for-windows</a>　windows平台下git 运行环境；<br>　　3. <a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>　博客撰写工具</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><em>hexo</em>是一个高效简洁的静态博客框架，基于<em>Node.js</em>使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。</p>
+<p>#环境：<br><em>windows10 64bits</em></p>
+<p>#所需软件：<br>　　1. <a href="https://nodejs.org/en/" title="Java Script运行环境" target="_blank" rel="external">Node.js</a>　基于Chrome V8引擎的JavaScript运行环境；<br>　　2. <a href="https://github.com/git-for-windows/git/releases" title="git for windows" target="_blank" rel="external">Git-for-windows</a>　windows平台下git 运行环境；<br>　　3. <a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>　博客撰写工具</p>
 <p>　　<em>开始之前先去 <a href="www.github.com">github</a> 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：<a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a>  注：username替换为自己的用户名</em></p>
-<h1 id="hexo安装与配置"><a href="#hexo安装与配置" class="headerlink" title="hexo安装与配置"></a>hexo安装与配置</h1><p>　　首先在本地建立自己的博客文件夹，比如 <em>F:\github\hexo</em>，进入该文件夹内，右键点击<em>Git Bash Here</em>,打开<em>git for windows</em>环境，开始安装 <a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　$npm install hexo-cli -g //注: -g表示全局安装</div><div class="line">　　$npm install hexo-server -g //注： hexo3.0之后server模块是独立的,需要单独安装</div></pre></td></tr></table></figure></p>
-<p>　　完成之后可以通过命令查看hexo是否安装成功：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$hexo -v</div></pre></td></tr></table></figure></p>
-<p>　　<a id="more"></a></p>
-<h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><p>　　hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　$hexo g //等同于hexo generate,用于生成静态文件</div><div class="line">　　$hexo s //等同于hexo server,用于启动本地服务器，预览网页</div><div class="line">　　$hexo d //等同于hexo deploy,用于部署文件到github</div></pre></td></tr></table></figure></p>
-<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>　　在自己的博客文件夹下<em>F:\github\hexo</em>,执行命令：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　$hexo init //初始化，自动下载搭建网站所需的所有文件</div><div class="line">　　$npm install //安装依赖包</div><div class="line">　　$hexo g //产生静态文件</div><div class="line">　　$hexo s //启动本地服务器，开启预览功能</div></pre></td></tr></table></figure></p>
+<h1 id="hexo安装与配置"><a href="#hexo安装与配置" class="headerlink" title="hexo安装与配置"></a>hexo安装与配置</h1><p>　　首先在本地建立自己的博客文件夹，比如 <em>F:\github\hexo</em>，进入该文件夹内，右键点击<em>Git Bash Here</em>,打开<em>git for windows</em>环境，开始安装 <a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>：<br>　　<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　<span class="variable">$npm</span> install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span> <span class="comment">//注: -g表示全局安装</span></div><div class="line">　　<span class="variable">$npm</span> install hexo-server -<span class="keyword">g</span> <span class="comment">//注： hexo3.0之后server模块是独立的,需要单独安装</span></div></pre></td></tr></table></figure></p>
+<p>　　完成之后可以通过命令查看<em>hexo</em>是否安装成功：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　$</span><span class="bash">hexo -v</span></div></pre></td></tr></table></figure></p>
+<p>　　<a id="more"></a><br> <em>hexo</em>根目录下的<em>_config.yml</em>文件是全局配置文件，修改该文件实现自己的配置。具体可参考<a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>官网。</p>
+<h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><p>　　hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　<span class="variable">$hexo</span> g <span class="regexp">//</span>等同于hexo generate,用于生成静态文件</div><div class="line">　　<span class="variable">$hexo</span> s <span class="regexp">//</span>等同于hexo server,用于启动本地服务器，预览网页</div><div class="line">　　<span class="variable">$hexo</span> d <span class="regexp">//</span>等同于hexo deploy,用于部署文件到github</div></pre></td></tr></table></figure></p>
+<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>　　在自己的博客文件夹下<em>F:\github\hexo</em>,执行命令：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　<span class="variable">$hexo</span> init <span class="regexp">//</span>初始化，自动下载搭建网站所需的所有文件</div><div class="line">　　<span class="variable">$npm</span> install <span class="regexp">//</span>安装依赖包</div><div class="line">　　<span class="variable">$hexo</span> g <span class="regexp">//</span>产生静态文件</div><div class="line">　　<span class="variable">$hexo</span> s <span class="regexp">//</span>启动本地服务器，开启预览功能</div></pre></td></tr></table></figure></p>
 <p>　　这个时候在浏览器输入localhost:4000即可查看到生成的静态网页：<img src="/2017/05/07/hexo-blog/hello-world.jpg" alt="Alt text"></p>
-<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>　　在hexo根目录下找到配置文件_config.yml，使用<a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a> 打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　deploy:</div><div class="line">　　　type: git //注意冒号&apos;:&apos;后面的空格一定要有</div><div class="line">　　　repository: https://github.com/username/username.github.io.git</div><div class="line">　　　branch: master</div></pre></td></tr></table></figure></p>
-<p>　　重新生成一下静态文件：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　$hexo clean //清除缓存文件db.json和已生成的静态文件public</div><div class="line">　　$hexo g //产生静态文件</div><div class="line">　　$hexo d //部署到github</div></pre></td></tr></table></figure></p>
-<p>　　在运行<em>hexo d</em>之前需要安装git部署工具<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$npm install hexo-deployer-git -g</div></pre></td></tr></table></figure></p>
+<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>　　在hexo根目录下找到配置文件_config.yml，使用<a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a> 打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：<br>　　<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　<span class="attribute">deploy</span>:</div><div class="line">　　　<span class="attribute">type</span>: git <span class="comment">//注意冒号':'后面的空格一定要有</span></div><div class="line">　　　<span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/username/username.github.io.git</span></div><div class="line">　　　<span class="attribute">branch</span>: master</div></pre></td></tr></table></figure></p>
+<h3 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h3><p> 在桌面空白处鼠标右键选择<em>Git Bash Here</em>,输入以下命令配置SSH Key:<br>　　<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ssh-keygen -t rsa -C <span class="string">"your_email@youremail.com"</span></div></pre></td></tr></table></figure></p>
+<p> 引号里面的内容输入邮箱地址，然后回车，会提示文件保存的路径，这时候按回车键确认<br> 然后会提示你输入密码，然后会确认输入一次，在<em>c:/user/username/.ssh/</em>文件夹内看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，打开id_rsa.pub然后选中里面的全部内容，复制下来。登录<a href="https://github.com/login" target="_blank" rel="external">github</a>,点击<em>setting</em>,左边有一个<em>SSH and GPG keys</em>选项，进入<em>New SSH</em>选项，<em>title</em>随意，将之前复制的内容粘贴到key里面去。回到<em>Git bash</em>命令行，输入以下命令验证:<br>　　<figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ssh -T git<span class="symbol">@github</span>.com</div></pre></td></tr></table></figure></p>
+<h3 id="配置用户名和密码"><a href="#配置用户名和密码" class="headerlink" title="配置用户名和密码"></a>配置用户名和密码</h3><p>　　<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> config --global user<span class="selector-class">.name</span> <span class="string">"your username"</span>  </div><div class="line"><span class="variable">$git</span> config --global user<span class="selector-class">.email</span> <span class="string">"your_email@youremail.com"</span></div></pre></td></tr></table></figure></p>
+<p>　　重新生成一下静态文件：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　<span class="variable">$hexo</span> clean <span class="regexp">//</span>清除缓存文件db.json和已生成的静态文件public</div><div class="line">　　<span class="variable">$hexo</span> g <span class="regexp">//</span>产生静态文件</div><div class="line">　　<span class="variable">$hexo</span> d <span class="regexp">//</span>部署到github</div></pre></td></tr></table></figure></p>
+<p>　　在运行<em>hexo d</em>之前需要安装git部署工具<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　$</span><span class="bash">npm install hexo-deployer-git -g</span></div></pre></td></tr></table></figure></p>
 <p>  第一次执行<em>hexo d</em>会弹出对话框提示输入github的用户名和密码。此时在浏览器输入：<br>  <em><a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a></em>即可看到自己的博客已经搭建成功。<br>　　注: username替换为自己的用户名.</p>
-<h1 id="nexT主题"><a href="#nexT主题" class="headerlink" title="nexT主题"></a>nexT主题</h1><p>　　hexo安装完成后，默认的主题是landscape，保存在hexo/themes/文件夹下。<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">nexT</a> 主题需要自行下载。在博客文件目录下F:\github\hexo右键单击Git Bash Here，输入命令:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git clone https://github.com/iissnan/hexo-theme-next.git themes/nexT</div></pre></td></tr></table></figure></p>
-<p>　　下载后的nexT主题会保存在themes目录下。修改hexo根目录下的配置文件_config.yml使主题生效:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　# Extensions</div><div class="line">　　## Plugins: https://hexo.io/plugins/</div><div class="line">　　## Themes: https://hexo.io/themes/</div><div class="line">　　theme: nexT</div></pre></td></tr></table></figure></p>
-<p>　　接下来选择nexT的Scheme，打开nexT的配置文件，<br>在目录F:\github\hexo\themes\nexT中，修改:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　# Schemes</div><div class="line">　　#scheme: Muse //默认Scheme，黑白主调，大量留白</div><div class="line">　　#scheme: Mist //紧凑版本，整洁有序</div><div class="line">　　scheme: Pisces //双栏显示，清新</div></pre></td></tr></table></figure></p>
-<h2 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h2><p>　　打开hexo的配置文件F:\github\hexo_config.yml，修改:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　language: zh-Hans //中文汉字</div></pre></td></tr></table></figure></p>
+<h1 id="nexT主题"><a href="#nexT主题" class="headerlink" title="nexT主题"></a>nexT主题</h1><p>　　hexo安装完成后，默认的主题是landscape，保存在hexo/themes/文件夹下。<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">nexT</a> 主题需要自行下载。在博客文件目录下F:\github\hexo右键单击Git Bash Here，输入命令:<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　<span class="variable">$git</span> clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/iissnan/</span>hexo-theme-<span class="keyword">next</span>.git themes<span class="regexp">/nexT</span></div></pre></td></tr></table></figure></p>
+<p>　　下载后的nexT主题会保存在themes目录下。修改hexo根目录下的配置文件_config.yml使主题生效:<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　#</span><span class="bash"> Extensions</span></div><div class="line"><span class="meta">　　#</span><span class="bash"><span class="comment"># Plugins: https://hexo.io/plugins/</span></span></div><div class="line"><span class="meta">　　#</span><span class="bash"><span class="comment"># Themes: https://hexo.io/themes/</span></span></div><div class="line">　　theme: nexT</div></pre></td></tr></table></figure></p>
+<p>　　接下来选择nexT的Scheme，打开nexT的配置文件，<br>在目录F:\github\hexo\themes\nexT中，修改:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　<span class="meta"># Schemes</span></div><div class="line">　　<span class="meta">#scheme: Muse <span class="comment">//默认Scheme，黑白主调，大量留白</span></span></div><div class="line">　　<span class="meta">#scheme: Mist <span class="comment">//紧凑版本，整洁有序</span></span></div><div class="line"><span class="symbol">　　scheme:</span> Pisces <span class="comment">//双栏显示，清新</span></div></pre></td></tr></table></figure></p>
+<p>更多的设置请参考: <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">nexT</a></p>
+<h2 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h2><p>　　打开hexo的配置文件F:\github\hexo_config.yml，修改:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">　　language:</span> zh-Hans <span class="comment">//中文汉字</span></div></pre></td></tr></table></figure></p>
 <h1 id="访问量统计"><a href="#访问量统计" class="headerlink" title="访问量统计"></a>访问量统计</h1><h3 id="文章阅读量统计"><a href="#文章阅读量统计" class="headerlink" title="文章阅读量统计"></a>文章阅读量统计</h3><p>　　使用 <a href="https://leancloud.cn" target="_blank" rel="external">leancloud</a> 实现文章阅读次数统计。注册完成后，点击访问控制台，选择创建新应用:<img src="/2017/05/07/hexo-blog/leancloudc.jpg" alt="Alt-text"></p>
-<p>创建名为Counter的class。之后找到该应用的AppID、AppKey，将这两个值写入到nexT的主题配置文件中_config.yml:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　　# Show number of visitors to each article.</div><div class="line">　　# You can visit https://leancloud.cn get AppID and AppKey.</div><div class="line">　　leancloud_visitors:</div><div class="line">  　　enable: true</div><div class="line">  　　app_id: #&lt;app_id&gt; //复制刚才创建的应用的AppID</div><div class="line">  　　app_key: #&lt;app_key&gt; //复制刚才创建的应用的AppKey</div></pre></td></tr></table></figure></p>
+<p>创建名为Counter的class。之后找到该应用的AppID、AppKey，将这两个值写入到nexT的主题配置文件中_config.yml:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　　<span class="meta"># Show number of visitors to each article.</span></div><div class="line">　　<span class="meta"># You can visit https:<span class="comment">//leancloud.cn get AppID and AppKey.</span></span></div><div class="line"><span class="symbol">　　leancloud_visitors:</span></div><div class="line"><span class="symbol">  　　enable:</span> true</div><div class="line"><span class="symbol">  　　app_id:</span> <span class="meta">#&lt;app_id&gt; <span class="comment">//复制刚才创建的应用的AppID</span></span></div><div class="line"><span class="symbol">  　　app_key:</span> <span class="meta">#&lt;app_key&gt; <span class="comment">//复制刚才创建的应用的AppKey</span></span></div></pre></td></tr></table></figure></p>
 <p>为了安全，将自己的域名加入安全中心-&gt;web安全域名中，防止恶意修改。完成后部署网站，看效果是不是已经有了文章阅读量显示了。</p>
-<h3 id="站点访问统计"><a href="#站点访问统计" class="headerlink" title="站点访问统计"></a>站点访问统计</h3><p>　　使用 <a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a> 脚本实现。<br>在themes\nexT\layout_partials目录下找到文件footer.swig，在文件的头部添加:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;</div><div class="line">　　&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="站点访问统计"><a href="#站点访问统计" class="headerlink" title="站点访问统计"></a>站点访问统计</h3><p>　　使用 <a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a> 脚本实现。<br>在themes\nexT\layout_partials目录下找到文件footer.swig，在文件的头部添加:<br>　　<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　<span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span></div><div class="line">　　<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>　　</p>
 <p>　　
 　　</p>
@@ -380,6 +443,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
       
 
       
@@ -458,7 +527,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/avatar.jpg"
                alt="Steven Shi" />
           <p class="site-author-name" itemprop="name">Steven Shi</p>
            
@@ -470,12 +539,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
           
 
           
@@ -483,7 +561,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -492,8 +570,26 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/stevenshichina" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
           
         </div>
 
@@ -518,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo安装与配置"><span class="nav-number">1.</span> <span class="nav-text">hexo安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo常用命令"><span class="nav-number">1.1.</span> <span class="nav-text">hexo常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">1.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">1.3.</span> <span class="nav-text">部署到github</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nexT主题"><span class="nav-number">2.</span> <span class="nav-text">nexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置语言"><span class="nav-number">2.1.</span> <span class="nav-text">设置语言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问量统计"><span class="nav-number">3.</span> <span class="nav-text">访问量统计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章阅读量统计"><span class="nav-number">3.0.1.</span> <span class="nav-text">文章阅读量统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点访问统计"><span class="nav-number">3.0.2.</span> <span class="nav-text">站点访问统计</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo安装与配置"><span class="nav-number">2.</span> <span class="nav-text">hexo安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo常用命令"><span class="nav-number">2.1.</span> <span class="nav-text">hexo常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">2.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">2.3.</span> <span class="nav-text">部署到github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH-Key"><span class="nav-number">2.3.1.</span> <span class="nav-text">配置SSH Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置用户名和密码"><span class="nav-number">2.3.2.</span> <span class="nav-text">配置用户名和密码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nexT主题"><span class="nav-number">3.</span> <span class="nav-text">nexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置语言"><span class="nav-number">3.1.</span> <span class="nav-text">设置语言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问量统计"><span class="nav-number">4.</span> <span class="nav-text">访问量统计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章阅读量统计"><span class="nav-number">4.0.1.</span> <span class="nav-text">文章阅读量统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点访问统计"><span class="nav-number">4.0.2.</span> <span class="nav-text">站点访问统计</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -698,6 +794,323 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -812,6 +1225,21 @@
 
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 

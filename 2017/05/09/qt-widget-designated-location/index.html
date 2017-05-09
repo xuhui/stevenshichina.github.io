@@ -80,6 +80,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Steven's blog" type="application/atom+xml" />
+
 
 
 
@@ -94,19 +96,19 @@
 <meta name="keywords" content="Qt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt如何在指定位置显示控件">
-<meta property="og:url" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/index.html">
+<meta property="og:url" content="http://stevenshi.me/2017/05/09/qt-widget-designated-location/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="前言　　假如窗体背景为一张图片，想要在图片的某一个位置放置一个Qlabel，用于显示一个实时变量，但又不知道这个位置的精确坐标，这个时候该如何实现呢？ 思路　　一种方法是借用图片工具，找到指定位置的相对坐标，然后将控件放置在该坐标处;另一种方法可以将图片用网格划分，然后添加一个网格布局，查看指定的位置位于哪一行哪一列，然后将控件放置到布局中。这种方式不能做到精确的定位，但大体上可以使用。考虑到简单">
-<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/qrc.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/res-qrc.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/linux.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/grid.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/final.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/09/qt-widget-designated-location/qrc.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/09/qt-widget-designated-location/res-qrc.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/09/qt-widget-designated-location/linux.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/09/qt-widget-designated-location/grid.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/09/qt-widget-designated-location/final.jpg">
 <meta property="og:updated_time" content="2017-05-09T04:33:13.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt如何在指定位置显示控件">
 <meta name="twitter:description" content="前言　　假如窗体背景为一张图片，想要在图片的某一个位置放置一个Qlabel，用于显示一个实时变量，但又不知道这个位置的精确坐标，这个时候该如何实现呢？ 思路　　一种方法是借用图片工具，找到指定位置的相对坐标，然后将控件放置在该坐标处;另一种方法可以将图片用网格划分，然后添加一个网格布局，查看指定的位置位于哪一行哪一列，然后将控件放置到布局中。这种方式不能做到精确的定位，但大体上可以使用。考虑到简单">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/qrc.jpg">
+<meta name="twitter:image" content="http://stevenshi.me/2017/05/09/qt-widget-designated-location/qrc.jpg">
 
 
 
@@ -134,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/09/qt-widget-designated-location/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/05/09/qt-widget-designated-location/"/>
 
 
 
@@ -181,7 +183,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">学无止境 记录点滴</p>
       
   </div>
 
@@ -211,6 +213,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -232,9 +254,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -259,12 +315,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/qt-widget-designated-location/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/09/qt-widget-designated-location/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -338,13 +394,13 @@
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>　　一种方法是借用图片工具，找到指定位置的相对坐标，然后将控件放置在该坐标处;另一种方法可以将图片用网格划分，然后添加一个网格布局，查看指定的位置位于哪一行哪一列，然后将控件放置到布局中。这种方式不能做到精确的定位，但大体上可以使用。考虑到简单实用，选择第二种方法。</p>
 <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="添加资源文件"><a href="#添加资源文件" class="headerlink" title="添加资源文件"></a>添加资源文件</h2><p>　　首先创建一个<em>QWidget</em>，并设置背景图片。在工程目录下创建一个名为<em>icons</em>的文件夹，将图片放置到这个位置。回到<em>Qt</em>工程目录，右键自己的工程选择添加新文件-&gt;<em>qt</em>资源文件: <img src="/2017/05/09/qt-widget-designated-location/qrc.jpg" alt="Alt text"></p>
 <p>假如建立后的资源文件为<em>res.qrc</em>,打开后，选择添加前缀，并添加刚才放置的图片文件，添加后的<em>res.qrc</em>如下:<img src="/2017/05/09/qt-widget-designated-location/res-qrc.jpg" alt="Alt text"></p>
-<h2 id="设置背景图片"><a href="#设置背景图片" class="headerlink" title="设置背景图片"></a>设置背景图片</h2><p>　　在设置背景图片后要保证窗口变化时，背景图片能够随着窗口的变化而变化。因此需要重写窗口的<em>resizeEvent</em>事件。<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">void MainWindow::resizeEvent(QResizeEvent *event)</div><div class="line">&#123;</div><div class="line">　QWidget::resizeEvent(event);</div><div class="line">　QImage image;</div><div class="line">　image.load(&quot;:/icons/linux.jpeg&quot;);</div><div class="line">　QPalette palette;</div><div class="line">　palette.setBrush(this-&gt;backgroundRole(),QBrush(image.scaled(event-&gt;size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation)));</div><div class="line">　this-&gt;setPalette(palette);</div><div class="line">　&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="设置背景图片"><a href="#设置背景图片" class="headerlink" title="设置背景图片"></a>设置背景图片</h2><p>　　在设置背景图片后要保证窗口变化时，背景图片能够随着窗口的变化而变化。因此需要重写窗口的<em>resizeEvent</em>事件。<br>　　<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> MainWindow::resizeEvent(QResizeEvent *event)</div><div class="line">&#123;</div><div class="line">　QWidget::resizeEvent(event);</div><div class="line">　QImage <span class="built_in">image</span>;</div><div class="line">　<span class="built_in">image</span>.load(<span class="string">":/icons/linux.jpeg"</span>);</div><div class="line">　QPalette palette;</div><div class="line">　palette.setBrush(<span class="keyword">this</span>-&gt;backgroundRole(),QBrush(<span class="built_in">image</span>.scaled(event-&gt;<span class="built_in">size</span>(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation)));</div><div class="line">　<span class="keyword">this</span>-&gt;setPalette(palette);</div><div class="line">　&#125;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>显示效果如下：<img src="/2017/05/09/qt-widget-designated-location/linux.jpg" alt="Alt text"></p>
-<h2 id="将窗体网格化"><a href="#将窗体网格化" class="headerlink" title="将窗体网格化"></a>将窗体网格化</h2><p>假如我想在X字符下面显示一个<em>Qlabel</em>，现将窗体分成9行8列，并显示所画的网格线，重写窗体的<em>paintEvent</em>事件：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">　void MainWindow::paintEvent(QPaintEvent *event)</div><div class="line">　&#123;</div><div class="line">　//画网格线</div><div class="line">　　QPainter painter(this);</div><div class="line">　　drawMyGrid(&amp;painter);</div><div class="line">　　painter.setPen(Qt::black);</div><div class="line">　　painter.drawLine(0,0,0,0);</div><div class="line">　&#125;</div><div class="line">　void MainWindow::drawMyGrid(QPainter *painter)</div><div class="line">　&#123;</div><div class="line">　　int Margin=1;</div><div class="line">　　QRect rect;</div><div class="line"></div><div class="line">　　rect=QRect(Margin,Margin,width()-2*Margin,height()-2*Margin);</div><div class="line">　　for(int i=0;i&lt;=8;i++)//8列</div><div class="line">　　&#123;</div><div class="line">　　　int x=rect.left()+(i*(rect.width()-1)/8);</div><div class="line">　　　painter-&gt;drawLine(x,rect.top(),x,rect.bottom());</div><div class="line">　　&#125;</div><div class="line">　　for(int j=0;j&lt;=9;j++)//9行</div><div class="line">　　&#123;</div><div class="line">　　　int y=rect.bottom()-(j*(rect.height()-1)/9);</div><div class="line">　　　painter-&gt;drawLine(rect.left(),y,rect.right(),y);</div><div class="line">　　&#125;</div><div class="line">　&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="将窗体网格化"><a href="#将窗体网格化" class="headerlink" title="将窗体网格化"></a>将窗体网格化</h2><p>假如我想在X字符下面显示一个<em>Qlabel</em>，现将窗体分成9行8列，并显示所画的网格线，重写窗体的<em>paintEvent</em>事件：<br>　　<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">　<span class="keyword">void</span> MainWindow::paintEvent(QPaintEvent *event)</div><div class="line">　&#123;</div><div class="line">　<span class="comment">//画网格线</span></div><div class="line">　　QPainter painter(<span class="keyword">this</span>);</div><div class="line">　　drawMyGrid(&amp;painter);</div><div class="line">　　painter.setPen(Qt::black);</div><div class="line">　　painter.drawLine(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">　&#125;</div><div class="line">　<span class="keyword">void</span> MainWindow::drawMyGrid(QPainter *painter)</div><div class="line">　&#123;</div><div class="line">　　<span class="keyword">int</span> Margin=<span class="number">1</span>;</div><div class="line">　　QRect <span class="built_in">rect</span>;</div><div class="line"></div><div class="line">　　<span class="built_in">rect</span>=QRect(Margin,Margin,<span class="built_in">width</span>()<span class="number">-2</span>*Margin,<span class="built_in">height</span>()<span class="number">-2</span>*Margin);</div><div class="line">　　<span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">8</span>;i++)<span class="comment">//8列</span></div><div class="line">　　&#123;</div><div class="line">　　　<span class="keyword">int</span> x=<span class="built_in">rect</span>.left()+(i*(<span class="built_in">rect</span>.<span class="built_in">width</span>()<span class="number">-1</span>)/<span class="number">8</span>);</div><div class="line">　　　painter-&gt;drawLine(x,<span class="built_in">rect</span>.top(),x,<span class="built_in">rect</span>.bottom());</div><div class="line">　　&#125;</div><div class="line">　　<span class="built_in">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">9</span>;j++)<span class="comment">//9行</span></div><div class="line">　　&#123;</div><div class="line">　　　<span class="keyword">int</span> y=<span class="built_in">rect</span>.bottom()-(j*(<span class="built_in">rect</span>.<span class="built_in">height</span>()<span class="number">-1</span>)/<span class="number">9</span>);</div><div class="line">　　　painter-&gt;drawLine(<span class="built_in">rect</span>.left(),y,<span class="built_in">rect</span>.right(),y);</div><div class="line">　　&#125;</div><div class="line">　&#125;</div></pre></td></tr></table></figure></p>
 <p>显示效果：<img src="/2017/05/09/qt-widget-designated-location/grid.jpg" alt="Alt text"></p>
-<h2 id="在指定位置放置控件"><a href="#在指定位置放置控件" class="headerlink" title="在指定位置放置控件"></a>在指定位置放置控件</h2><p>字符X下方的位置为第六行第七列。首先给窗体安装一个<em>QGridLayout</em>布局，将<em>Qlabel</em>放置到该布局中。<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">　label1  = new QLabel(tr(&quot;Text&quot;));</div><div class="line">　label1-&gt;setStyleSheet(&quot;color:white;font:bold;font-size:30&quot;);</div><div class="line">　QGridLayout *mylayout     = new QGridLayout;</div><div class="line">　mylayout-&gt;addWidget(label1,5,6,1,1);//第六行第七列，占用1行1列</div><div class="line">　QWidget * widget = new QWidget(this);</div><div class="line">　widget-&gt;setLayout(mylayout);//安装布局</div><div class="line">　setCentralWidget(widget);</div></pre></td></tr></table></figure></p>
-<p>也可以通过以下代码设置行列的宽高比例:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mylayout-&gt;setColumnStretch(0,1);//设置第一列的宽度比例</div><div class="line">mylayout-&gt;setRowStretch(0,1);//设置第一行的高度比例</div></pre></td></tr></table></figure></p>
+<h2 id="在指定位置放置控件"><a href="#在指定位置放置控件" class="headerlink" title="在指定位置放置控件"></a>在指定位置放置控件</h2><p>字符X下方的位置为第六行第七列。首先给窗体安装一个<em>QGridLayout</em>布局，将<em>Qlabel</em>放置到该布局中。<br>　　<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">　label1  = new QLabel(<span class="name">tr</span>(<span class="string">"Text"</span>))<span class="comment">;</span></div><div class="line">　label1-&gt;setStyleSheet(<span class="string">"color:white;font:bold;font-size:30"</span>)<span class="comment">;</span></div><div class="line">　QGridLayout *mylayout     = new QGridLayout<span class="comment">;</span></div><div class="line">　mylayout-&gt;addWidget(<span class="name">label1</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">1</span>)<span class="comment">;//第六行第七列，占用1行1列</span></div><div class="line">　QWidget * widget = new QWidget(<span class="name">this</span>)<span class="comment">;</span></div><div class="line">　widget-&gt;setLayout(<span class="name">mylayout</span>)<span class="comment">;//安装布局</span></div><div class="line">　setCentralWidget(<span class="name">widget</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>也可以通过以下代码设置行列的宽高比例:<br>　　<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mylayout-&gt;setColumnStretch(<span class="number">0</span>,<span class="number">1</span>);<span class="comment">//设置第一列的宽度比例</span></div><div class="line">mylayout-&gt;setRowStretch(<span class="number">0</span>,<span class="number">1</span>);<span class="comment">//设置第一行的高度比例</span></div></pre></td></tr></table></figure></p>
 <p>最后效果:<img src="/2017/05/09/qt-widget-designated-location/final.jpg" alt="Alt text"></p>
 
       
@@ -397,6 +453,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/09/hexo-advance/" rel="prev" title="hexo进阶">
+                hexo进阶 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -456,7 +516,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/avatar.jpg"
                alt="Steven Shi" />
           <p class="site-author-name" itemprop="name">Steven Shi</p>
            
@@ -468,12 +528,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
           
 
           
@@ -481,7 +550,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -490,8 +559,26 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/stevenshichina" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
           
         </div>
 
@@ -696,6 +783,323 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -810,6 +1214,21 @@
 
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 

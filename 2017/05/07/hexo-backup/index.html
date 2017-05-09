@@ -80,6 +80,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Steven's blog" type="application/atom+xml" />
+
 
 
 
@@ -93,7 +95,7 @@
 <meta name="description" content="前言　　在公司电脑中做好了hexo博客撰写，也将文章推送到了github并且发布了;回到家中在自己的电脑上想给自己的博客添加一篇文章，按照hexo建站流程，又建了一遍，但写完文章后发现，之前在公司写得博客被覆盖了，想哭的感觉有木有。 　　当使用不同的电脑撰写博客时，会涉及到博客资源的备份和更新，如果简单的拷贝会比较麻烦，当然也可以tar整个hexo工作目录;单纯的push到github会有部分文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo 博客备份">
-<meta property="og:url" content="http://yoursite.com/2017/05/07/hexo-backup/index.html">
+<meta property="og:url" content="http://stevenshi.me/2017/05/07/hexo-backup/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="前言　　在公司电脑中做好了hexo博客撰写，也将文章推送到了github并且发布了;回到家中在自己的电脑上想给自己的博客添加一篇文章，按照hexo建站流程，又建了一遍，但写完文章后发现，之前在公司写得博客被覆盖了，想哭的感觉有木有。 　　当使用不同的电脑撰写博客时，会涉及到博客资源的备份和更新，如果简单的拷贝会比较麻烦，当然也可以tar整个hexo工作目录;单纯的push到github会有部分文件">
 <meta property="og:updated_time" content="2017-05-08T07:54:21.902Z">
@@ -127,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/07/hexo-backup/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/05/07/hexo-backup/"/>
 
 
 
@@ -174,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">学无止境 记录点滴</p>
       
   </div>
 
@@ -204,6 +206,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -225,9 +247,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -252,12 +308,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/hexo-backup/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/07/hexo-backup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -330,19 +386,19 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　在公司电脑中做好了hexo博客撰写，也将文章推送到了github并且发布了;回到家中在自己的电脑上想给自己的博客添加一篇文章，按照hexo建站流程，又建了一遍，但写完文章后发现，之前在公司写得博客被覆盖了，想哭的感觉有木有。</p>
 <p>　　当使用不同的电脑撰写博客时，会涉及到博客资源的备份和更新，如果简单的拷贝会比较麻烦，当然也可以tar整个hexo工作目录;单纯的push到github会有部分文件不全,由于主题文件目录也是git管理方式，当push后，主题默认是不会被推送到github上的。所以，必须稍作修改，才能正确的备份。</p>
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>　　在自己的github仓库中默认有master分支，比如username目录下的username.github.io仓库。使用master分支保存自己的hexo博客静态文件，新建hexo分支用于保存hexo资源文件。每次撰写完博客后，顺便将自己的hexo工作目录push到远程仓库的hexo分支;当在另外一台电脑上写博客时，先获取远程仓库的分支，之后就可以编辑了</p>
-<h2 id="推送到远程"><a href="#推送到远程" class="headerlink" title="推送到远程"></a>推送到远程</h2><p>　　进入到自己的博客工作目录比如<em>github\hexo</em>,先查看远程主机<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git remote -v</div></pre></td></tr></table></figure></p>
-<p>　　如果有输出，查看下是否是自己远程仓库的名字，如果不是username.github.io则删除：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git remote rm origin</div></pre></td></tr></table></figure></p>
-<p>　　添加远程主机：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　$git remote add origin https://github.com/yourusername/yourusername.github.io.git</div><div class="line">　　$git init</div></pre></td></tr></table></figure></p>
-<p>　　<a id="more"></a><br>　　删除掉<em>theme\nexT</em>目录下的<em>.git</em>文件夹，因为我们要将主题配置一同推送。如果删除后还是不能推送nexT主题，就将nexT改个名字，但要注意在hexo的_config.yml中对应的主题名字与这个文件夹名字要保持一致。<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　　$git add --all //add之后可以用*git status*查看刚刚改过的文件状态</div><div class="line">　　$git commit -m &quot;backup hexo&quot;</div><div class="line">　　*$git config --global user.name &quot;yourusername&quot; //这两步之前已经做好了，不需要再配置*</div><div class="line">　　*$git config --global user.email &quot;yourusername@xxx.com&quot;*</div><div class="line">　　$git push origin hexo //将本地文件push到远程仓库的hexo分支，没有则建立该分支</div></pre></td></tr></table></figure></p>
-<p>　　在远程仓库查看，username.github.io的仓库下已经有了两个分支，一个叫master,一个叫hexo。但发现有些不想推送的文件也被推送到了远程，比如hexo根目录下的public文件夹，这个文件夹是生成的博客静态文件，它是在博客部署后被推送到username.github.io的master分支的，我们这里并不需要保存该文件夹。编辑hexo根目录下的.gitignore文件，添加不需要推送的文件或文件夹：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　　.DS_Store</div><div class="line">　　Thumbs.db</div><div class="line">　　*.log</div><div class="line">　　node_modules/</div><div class="line">　　public/</div><div class="line">　　.deploy*/</div></pre></td></tr></table></figure></p>
-<p>由于之前推送过，可能.gitignore没有起作用，.gitignore只能忽略那些原来没有被追踪的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。这个时候就需要删除缓存改变未被追踪状态，重新提交：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　$git rm -r --cached .</div><div class="line">　　$git add --all</div><div class="line">　　$git commit -m &quot;update .gitignore&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="推送到远程"><a href="#推送到远程" class="headerlink" title="推送到远程"></a>推送到远程</h2><p>　　进入到自己的博客工作目录比如<em>github\hexo</em>,先查看远程主机<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　$</span><span class="bash">git remote -v</span></div></pre></td></tr></table></figure></p>
+<p>　　如果有输出，查看下是否是自己远程仓库的名字，如果不是username.github.io则删除：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　$</span><span class="bash">git remote rm origin</span></div></pre></td></tr></table></figure></p>
+<p>　　添加远程主机：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　<span class="variable">$git</span> remote add origin https:<span class="regexp">//gi</span>thub.com<span class="regexp">/yourusername/y</span>ourusername.github.io.git</div><div class="line">　　<span class="variable">$git</span> init</div></pre></td></tr></table></figure></p>
+<p>　　<a id="more"></a><br>　　删除掉<em>theme\nexT</em>目录下的<em>.git</em>文件夹，因为我们要将主题配置一同推送。如果删除后还是不能推送nexT主题，就将nexT改个名字，但要注意在hexo的_config.yml中对应的主题名字与这个文件夹名字要保持一致。<br>　　<figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">　　$git add --all <span class="comment">//add之后可以用*git status*查看刚刚改过的文件状态</span></div><div class="line">　　$git commit -m <span class="string">"backup hexo"</span></div><div class="line">　　*$git config --<span class="keyword">global</span> user.name <span class="string">"yourusername"</span> <span class="comment">//这两步之前已经做好了，不需要再配置*</span></div><div class="line">　　*$git config --<span class="keyword">global</span> user.email <span class="string">"yourusername@xxx.com"</span>*</div><div class="line">　　$git push origin hexo <span class="comment">//将本地文件push到远程仓库的hexo分支，没有则建立该分支</span></div></pre></td></tr></table></figure></p>
+<p>　　在远程仓库查看，username.github.io的仓库下已经有了两个分支，一个叫master,一个叫hexo。但发现有些不想推送的文件也被推送到了远程，比如hexo根目录下的public文件夹，这个文件夹是生成的博客静态文件，它是在博客部署后被推送到username.github.io的master分支的，我们这里并不需要保存该文件夹。编辑hexo根目录下的.gitignore文件，添加不需要推送的文件或文件夹：<br>　　<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　　<span class="selector-class">.DS_Store</span></div><div class="line">　　Thumbs<span class="selector-class">.db</span></div><div class="line">　　*<span class="selector-class">.log</span></div><div class="line">　　node_modules/</div><div class="line">　　public/</div><div class="line">　　.deploy*/</div></pre></td></tr></table></figure></p>
+<p>由于之前推送过，可能.gitignore没有起作用，.gitignore只能忽略那些原来没有被追踪的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。这个时候就需要删除缓存改变未被追踪状态，重新提交：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　$</span><span class="bash">git rm -r --cached .</span></div><div class="line"><span class="meta">　　$</span><span class="bash">git add --all</span></div><div class="line"><span class="meta">　　$</span><span class="bash">git commit -m <span class="string">"update .gitignore"</span></span></div></pre></td></tr></table></figure></p>
 <p>　　之后再次推送即可。</p>
-<h2 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h2><p>　　前面已经将写好的博客资源文件推送到远程仓库username.github.io的分支hexo,无论在哪里都可以获取远程分支至本地进行博客撰写，并且保持文章的更新状态。<br>假如我在家中的电脑的目录<em>F:\github\home</em>下想撰写一篇新博客文章，首先要做的是进入到该目录下，进行hexo环境的安装，参考我的前一篇博客。当环境建立好后，首先克隆自己的远程代码仓库至本地：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git clone https://github.com/username/username.github.io.git</div></pre></td></tr></table></figure></p>
-<p>　　进入到username.github.io中，查看远程仓库所有分支：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git branch -r</div></pre></td></tr></table></figure></p>
-<p>　　一般输出为：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　*origin/HEAD -&gt; origin/master*</div><div class="line">　　*origin/hexo*</div><div class="line">　　*origin/master*</div></pre></td></tr></table></figure></p>
-<p>此时可以看到远程仓库有两个分支，但默认的分支为master,我们需要的是hexo分支，所以需要将默认分支修改为hexo，如果不修改则需要获取分支hexo到本地：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git fetch origin hexo:hexo</div></pre></td></tr></table></figure></p>
-<p>切换到hexo分支：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git checkout hexo</div></pre></td></tr></table></figure></p>
-<p>此时就可以在该目录下进行博客的撰写工作了，撰写完可以将最新更新提交，并push到远程仓库的hexo分支，至此完成多个电脑同步的问题。<br>当再次回到公司电脑时，进入到博客目录使用<em>git pull</em>即可同步更新。<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">　　$git pull</div><div class="line">　　$hexo n post &quot;new blog&quot;</div><div class="line">　　$hexo clean</div><div class="line">　　$hexo g</div><div class="line">　　$hexo d</div><div class="line">　　$git commit -m &quot;add new blog&quot;</div><div class="line">　　$git push origin hexo</div></pre></td></tr></table></figure></p>
+<h2 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h2><p>　　前面已经将写好的博客资源文件推送到远程仓库username.github.io的分支hexo,无论在哪里都可以获取远程分支至本地进行博客撰写，并且保持文章的更新状态。<br>假如我在家中的电脑的目录<em>F:\github\home</em>下想撰写一篇新博客文章，首先要做的是进入到该目录下，进行hexo环境的安装，参考我的前一篇博客。当环境建立好后，首先克隆自己的远程代码仓库至本地：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　<span class="variable">$git</span> clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/username/u</span>sername.github.io.git</div></pre></td></tr></table></figure></p>
+<p>　　进入到username.github.io中，查看远程仓库所有分支：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　$</span><span class="bash">git branch -r</span></div></pre></td></tr></table></figure></p>
+<p>　　一般输出为：<br>　　<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　*<span class="built_in">origin</span>/HEAD -&gt; <span class="built_in">origin</span>/master*</div><div class="line">　　*<span class="built_in">origin</span>/hexo*</div><div class="line">　　*<span class="built_in">origin</span>/master*</div></pre></td></tr></table></figure></p>
+<p>此时可以看到远程仓库有两个分支，但默认的分支为master,我们需要的是hexo分支，所以需要将默认分支修改为hexo，如果不修改则需要获取分支hexo到本地：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　$</span><span class="bash">git fetch origin hexo:hexo</span></div></pre></td></tr></table></figure></p>
+<p>切换到hexo分支：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　$</span><span class="bash">git checkout hexo</span></div></pre></td></tr></table></figure></p>
+<p>此时就可以在该目录下进行博客的撰写工作了，撰写完可以将最新更新提交，并push到远程仓库的hexo分支，至此完成多个电脑同步的问题。<br>当再次回到公司电脑时，进入到博客目录使用<em>git pull</em>即可同步更新。<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　　$</span><span class="bash">git pull</span></div><div class="line"><span class="meta">　　$</span><span class="bash">hexo n post <span class="string">"new blog"</span></span></div><div class="line"><span class="meta">　　$</span><span class="bash">hexo clean</span></div><div class="line"><span class="meta">　　$</span><span class="bash">hexo g</span></div><div class="line"><span class="meta">　　$</span><span class="bash">hexo d</span></div><div class="line"><span class="meta">　　$</span><span class="bash">git commit -m <span class="string">"add new blog"</span></span></div><div class="line"><span class="meta">　　$</span><span class="bash">git push origin hexo</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -451,7 +507,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/avatar.jpg"
                alt="Steven Shi" />
           <p class="site-author-name" itemprop="name">Steven Shi</p>
            
@@ -463,12 +519,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
           
 
           
@@ -476,7 +541,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -485,8 +550,26 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/stevenshichina" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
           
         </div>
 
@@ -691,6 +774,323 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -805,6 +1205,21 @@
 
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
