@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Qt," />
 
 
 
@@ -90,12 +90,23 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Steven&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="前言　　假如窗体背景为一张图片，想要在图片的某一个位置放置一个Qlabel，用于显示一个实时变量，但又不知道这个位置的精确坐标，这个时候该如何实现呢？ 思路　　一种方法是借用图片工具，找到指定位置的相对坐标，然后将控件放置在该坐标处;另一种方法可以将图片用网格划分，然后添加一个网格布局，查看指定的位置位于哪一行哪一列，然后将控件放置到布局中。这种方式不能做到精确的定位，但大体上可以使用。考虑到简单">
+<meta name="keywords" content="Qt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt如何在指定位置显示控件">
+<meta property="og:url" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
+<meta property="og:description" content="前言　　假如窗体背景为一张图片，想要在图片的某一个位置放置一个Qlabel，用于显示一个实时变量，但又不知道这个位置的精确坐标，这个时候该如何实现呢？ 思路　　一种方法是借用图片工具，找到指定位置的相对坐标，然后将控件放置在该坐标处;另一种方法可以将图片用网格划分，然后添加一个网格布局，查看指定的位置位于哪一行哪一列，然后将控件放置到布局中。这种方式不能做到精确的定位，但大体上可以使用。考虑到简单">
+<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/qrc.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/res-qrc.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/linux.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/grid.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/final.jpg">
+<meta property="og:updated_time" content="2017-05-09T04:33:13.449Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Steven&#39;s blog">
+<meta name="twitter:title" content="Qt如何在指定位置显示控件">
+<meta name="twitter:description" content="前言　　假如窗体背景为一张图片，想要在图片的某一个位置放置一个Qlabel，用于显示一个实时变量，但又不知道这个位置的精确坐标，这个时候该如何实现呢？ 思路　　一种方法是借用图片工具，找到指定位置的相对坐标，然后将控件放置在该坐标处;另一种方法可以将图片用网格划分，然后添加一个网格布局，查看指定的位置位于哪一行哪一列，然后将控件放置到布局中。这种方式不能做到精确的定位，但大体上可以使用。考虑到简单">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/09/qt-widget-designated-location/qrc.jpg">
 
 
 
@@ -123,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/09/qt-widget-designated-location/"/>
 
 
 
 
 
-  <title>Steven's blog</title>
+  <title>Qt如何在指定位置显示控件 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -267,9 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/09/qt-widget-designated-location/" itemprop="url">Qt如何在指定位置显示控件</a></h1>
+          <h1 class="post-title" itemprop="name headline">Qt如何在指定位置显示控件</h1>
         
 
         <div class="post-meta">
@@ -327,318 +334,85 @@
       
 
       
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　假如窗体背景为一张图片，想要在图片的某一个位置放置一个<em>Qlabel</em>，用于显示一个实时变量，但又不知道这个位置的精确坐标，这个时候该如何实现呢？</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　假如窗体背景为一张图片，想要在图片的某一个位置放置一个<em>Qlabel</em>，用于显示一个实时变量，但又不知道这个位置的精确坐标，这个时候该如何实现呢？</p>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>　　一种方法是借用图片工具，找到指定位置的相对坐标，然后将控件放置在该坐标处;另一种方法可以将图片用网格划分，然后添加一个网格布局，查看指定的位置位于哪一行哪一列，然后将控件放置到布局中。这种方式不能做到精确的定位，但大体上可以使用。考虑到简单实用，选择第二种方法。</p>
 <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="添加资源文件"><a href="#添加资源文件" class="headerlink" title="添加资源文件"></a>添加资源文件</h2><p>　　首先创建一个<em>QWidget</em>，并设置背景图片。在工程目录下创建一个名为<em>icons</em>的文件夹，将图片放置到这个位置。回到<em>Qt</em>工程目录，右键自己的工程选择添加新文件-&gt;<em>qt</em>资源文件: <img src="/2017/05/09/qt-widget-designated-location/qrc.jpg" alt="Alt text"></p>
 <p>假如建立后的资源文件为<em>res.qrc</em>,打开后，选择添加前缀，并添加刚才放置的图片文件，添加后的<em>res.qrc</em>如下:<img src="/2017/05/09/qt-widget-designated-location/res-qrc.jpg" alt="Alt text"></p>
 <h2 id="设置背景图片"><a href="#设置背景图片" class="headerlink" title="设置背景图片"></a>设置背景图片</h2><p>　　在设置背景图片后要保证窗口变化时，背景图片能够随着窗口的变化而变化。因此需要重写窗口的<em>resizeEvent</em>事件。<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">void MainWindow::resizeEvent(QResizeEvent *event)</div><div class="line">&#123;</div><div class="line">　QWidget::resizeEvent(event);</div><div class="line">　QImage image;</div><div class="line">　image.load(&quot;:/icons/linux.jpeg&quot;);</div><div class="line">　QPalette palette;</div><div class="line">　palette.setBrush(this-&gt;backgroundRole(),QBrush(image.scaled(event-&gt;size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation)));</div><div class="line">　this-&gt;setPalette(palette);</div><div class="line">　&#125;</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/09/qt-widget-designated-location/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<a id="more"></a>
+<p>显示效果如下：<img src="/2017/05/09/qt-widget-designated-location/linux.jpg" alt="Alt text"></p>
+<h2 id="将窗体网格化"><a href="#将窗体网格化" class="headerlink" title="将窗体网格化"></a>将窗体网格化</h2><p>假如我想在X字符下面显示一个<em>Qlabel</em>，现将窗体分成9行8列，并显示所画的网格线，重写窗体的<em>paintEvent</em>事件：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">　void MainWindow::paintEvent(QPaintEvent *event)</div><div class="line">　&#123;</div><div class="line">　//画网格线</div><div class="line">　　QPainter painter(this);</div><div class="line">　　drawMyGrid(&amp;painter);</div><div class="line">　　painter.setPen(Qt::black);</div><div class="line">　　painter.drawLine(0,0,0,0);</div><div class="line">　&#125;</div><div class="line">　void MainWindow::drawMyGrid(QPainter *painter)</div><div class="line">　&#123;</div><div class="line">　　int Margin=1;</div><div class="line">　　QRect rect;</div><div class="line"></div><div class="line">　　rect=QRect(Margin,Margin,width()-2*Margin,height()-2*Margin);</div><div class="line">　　for(int i=0;i&lt;=8;i++)//8列</div><div class="line">　　&#123;</div><div class="line">　　　int x=rect.left()+(i*(rect.width()-1)/8);</div><div class="line">　　　painter-&gt;drawLine(x,rect.top(),x,rect.bottom());</div><div class="line">　　&#125;</div><div class="line">　　for(int j=0;j&lt;=9;j++)//9行</div><div class="line">　　&#123;</div><div class="line">　　　int y=rect.bottom()-(j*(rect.height()-1)/9);</div><div class="line">　　　painter-&gt;drawLine(rect.left(),y,rect.right(),y);</div><div class="line">　　&#125;</div><div class="line">　&#125;</div></pre></td></tr></table></figure></p>
+<p>显示效果：<img src="/2017/05/09/qt-widget-designated-location/grid.jpg" alt="Alt text"></p>
+<h2 id="在指定位置放置控件"><a href="#在指定位置放置控件" class="headerlink" title="在指定位置放置控件"></a>在指定位置放置控件</h2><p>字符X下方的位置为第六行第七列。首先给窗体安装一个<em>QGridLayout</em>布局，将<em>Qlabel</em>放置到该布局中。<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">　label1  = new QLabel(tr(&quot;Text&quot;));</div><div class="line">　label1-&gt;setStyleSheet(&quot;color:white;font:bold;font-size:30&quot;);</div><div class="line">　QGridLayout *mylayout     = new QGridLayout;</div><div class="line">　mylayout-&gt;addWidget(label1,5,6,1,1);//第六行第七列，占用1行1列</div><div class="line">　QWidget * widget = new QWidget(this);</div><div class="line">　widget-&gt;setLayout(mylayout);//安装布局</div><div class="line">　setCentralWidget(widget);</div></pre></td></tr></table></figure></p>
+<p>也可以通过以下代码设置行列的宽高比例:<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mylayout-&gt;setColumnStretch(0,1);//设置第一列的宽度比例</div><div class="line">mylayout-&gt;setRowStretch(0,1);//设置第一行的高度比例</div></pre></td></tr></table></figure></p>
+<p>最后效果:<img src="/2017/05/09/qt-widget-designated-location/final.jpg" alt="Alt text"></p>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/hexo-backup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Steven Shi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Steven's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/07/hexo-backup/" itemprop="url">hexo 博客备份</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T21:25:07+08:00">
-                2017-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Qt/" rel="tag"># Qt</a>
           
-            
-          
-
-          
-          
-             <span id="/2017/05/07/hexo-backup/" class="leancloud_visitors" data-flag-title="hexo 博客备份">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　在公司电脑中做好了hexo博客撰写，也将文章推送到了github并且发布了;回到家中在自己的电脑上想给自己的博客添加一篇文章，按照hexo建站流程，又建了一遍，但写完文章后发现，之前在公司写得博客被覆盖了，想哭的感觉有木有。</p>
-<p>　　当使用不同的电脑撰写博客时，会涉及到博客资源的备份和更新，如果简单的拷贝会比较麻烦，当然也可以tar整个hexo工作目录;单纯的push到github会有部分文件不全,由于主题文件目录也是git管理方式，当push后，主题默认是不会被推送到github上的。所以，必须稍作修改，才能正确的备份。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>　　在自己的github仓库中默认有master分支，比如username目录下的username.github.io仓库。使用master分支保存自己的hexo博客静态文件，新建hexo分支用于保存hexo资源文件。每次撰写完博客后，顺便将自己的hexo工作目录push到远程仓库的hexo分支;当在另外一台电脑上写博客时，先获取远程仓库的分支，之后就可以编辑了</p>
-<h2 id="推送到远程"><a href="#推送到远程" class="headerlink" title="推送到远程"></a>推送到远程</h2><p>　　进入到自己的博客工作目录比如<em>github\hexo</em>,先查看远程主机<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git remote -v</div></pre></td></tr></table></figure></p>
-<p>　　如果有输出，查看下是否是自己远程仓库的名字，如果不是username.github.io则删除：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$git remote rm origin</div></pre></td></tr></table></figure></p>
-<p>　　添加远程主机：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　$git remote add origin https://github.com/yourusername/yourusername.github.io.git</div><div class="line">　　$git init</div></pre></td></tr></table></figure></p>
-<p></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/07/hexo-backup/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/07/hexo-backup/" rel="next" title="hexo 博客备份">
+                <i class="fa fa-chevron-left"></i> hexo 博客备份
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/hexo-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Steven Shi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Steven's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/07/hexo-blog/" itemprop="url">hexo+github建立个人博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T11:07:34+08:00">
-                2017-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/07/hexo-blog/" class="leancloud_visitors" data-flag-title="hexo+github建立个人博客">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p><em>环境： windows10 64bits</em><br><em>所需软件： </em><br>　　1. <a href="https://nodejs.org/en/" title="Java Script运行环境" target="_blank" rel="external">Node.js</a>　基于Chrome V8引擎的JavaScript运行环境；<br>　　2. <a href="https://github.com/git-for-windows/git/releases" title="git for windows" target="_blank" rel="external">Git-for-windows</a>　windows平台下git 运行环境；<br>　　3. <a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>　博客撰写工具</p>
-<p>　　<em>开始之前先去 <a href="www.github.com">github</a> 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：<a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a>  注：username替换为自己的用户名</em></p>
-<h1 id="hexo安装与配置"><a href="#hexo安装与配置" class="headerlink" title="hexo安装与配置"></a>hexo安装与配置</h1><p>　　首先在本地建立自己的博客文件夹，比如 <em>F:\github\hexo</em>，进入该文件夹内，右键点击<em>Git Bash Here</em>,打开<em>git for windows</em>环境，开始安装 <a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　　$npm install hexo-cli -g //注: -g表示全局安装</div><div class="line">　　$npm install hexo-server -g //注： hexo3.0之后server模块是独立的,需要单独安装</div></pre></td></tr></table></figure></p>
-<p>　　完成之后可以通过命令查看hexo是否安装成功：<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　$hexo -v</div></pre></td></tr></table></figure></p>
-<p></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/07/hexo-blog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -646,6 +420,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -665,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -719,6 +506,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">3.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加资源文件"><span class="nav-number">3.1.</span> <span class="nav-text">添加资源文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置背景图片"><span class="nav-number">3.2.</span> <span class="nav-text">设置背景图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将窗体网格化"><span class="nav-number">3.3.</span> <span class="nav-text">将窗体网格化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在指定位置放置控件"><span class="nav-number">3.4.</span> <span class="nav-text">在指定位置放置控件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -846,6 +649,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
