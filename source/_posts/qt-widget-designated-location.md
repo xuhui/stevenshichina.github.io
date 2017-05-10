@@ -28,33 +28,32 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 <!--more-->
 显示效果如下：![Alt text](qt-widget-designated-location/linux.jpg)
 ## 将窗体网格化
-假如我想在X字符下面显示一个*Qlabel*，现将窗体分成9行8列，并显示所画的网格线，重写窗体的*paintEvent*事件：
+假如我想在X字符下面显示一个*Qlabel*，现将窗体分成8行9列因为我的显示器是16:9尺寸，并显示所画的网格线，重写窗体的*paintEvent*事件：
 　　```
-　void MainWindow::paintEvent(QPaintEvent *event)
-　{
+ void MainWindow::paintEvent(QPaintEvent *event)
+ {
 　//画网格线
-　　QPainter painter(this);
-　　drawMyGrid(&painter);
-　　painter.setPen(Qt::black);
-　　painter.drawLine(0,0,0,0);
+  QPainter painter(this);
+  drawMyGrid(&painter,8,9);
+  painter.setPen(Qt::black);
 　}
-　void MainWindow::drawMyGrid(QPainter *painter)
-　{
-　　int Margin=1;
-　　QRect rect;
-
-　　rect=QRect(Margin,Margin,width()-2*Margin,height()-2*Margin);
-　　for(int i=0;i<=8;i++)//8列
-　　{
-　　　int x=rect.left()+(i*(rect.width()-1)/8);
-　　　painter->drawLine(x,rect.top(),x,rect.bottom());
-　　}
-　　for(int j=0;j<=9;j++)//9行
-　　{
-　　　int y=rect.bottom()-(j*(rect.height()-1)/9);
-　　　painter->drawLine(rect.left(),y,rect.right(),y);
-　　}
-　}
+ void MainWindow::drawMyGrid(QPainter *painter,int row,int col)
+ {
+  int Margin=1;
+  QRect rect;
+  int i,j,x,y;
+  rect=QRect(Margin,Margin,width()-2*Margin,height()-2*Margin);
+  for(i=0;i<=col;i++)//列
+  {
+   x=rect.left()+(i*(rect.width()-1)/col);
+   painter->drawLine(x,rect.top(),x,rect.bottom());
+  }
+  for( j=0;j<=row;j++)//行
+  {
+   y=rect.bottom()-(j*(rect.height()-1)/row);
+   painter->drawLine(rect.left(),y,rect.right(),y);
+  }
+}
 　　```
 显示效果：![Alt text](qt-widget-designated-location/grid.jpg)
 ## 在指定位置放置控件
@@ -73,4 +72,5 @@ void MainWindow::resizeEvent(QResizeEvent *event)
  mylayout->setColumnStretch(0,1);//设置第一列的宽度比例
  mylayout->setRowStretch(0,1);//设置第一行的高度比例
 　　```
+如果不设置默认为1:1
 最后效果:![Alt text](qt-widget-designated-location/final.jpg)
