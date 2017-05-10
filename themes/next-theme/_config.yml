@@ -142,6 +142,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   Github: https://github.com/stevenshichina
+  知乎: 
 
 
 # Social Links Icons
@@ -206,11 +207,12 @@ sidebar:
 
 
 # Blog rolls
-#links_title: Links
+links_title: Friendly links
 #links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com/
+links:
+  hexo: https://hexo.io/zh-cn/docs
+  nexT: http://theme-next.iissnan.com/
 
 
 # ---------------------------------------------------------------
@@ -590,3 +592,7 @@ images: images
 
 # Theme version
 version: 5.1.1
+# 文章末尾显示打赏功能
+reward_comment: 您的支持是我原创的动力
+wechatpay: /images/wechat.jpg
+alipay: /images/alipay.jpg

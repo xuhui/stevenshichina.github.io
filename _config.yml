@@ -78,3 +78,11 @@ search:
  path: search.xml
  field: post
 
+#RSS 订阅支持
+plugin:
+- hexo-generator-feed
+#feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
