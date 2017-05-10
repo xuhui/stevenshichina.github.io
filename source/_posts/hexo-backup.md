@@ -84,9 +84,9 @@ tags:
 　　```
   $git pull //获取更新
   $hexo n post "new blog"
-  $hexo clean
-  $hexo g
-  $hexo d
+  $hexo clean //清除生成的静态文件
+  $hexo g //生成静态文件
+  $hexo d //部署到远程
   $git add --all //添加所有文件
   $git commit -m "add new blog"
   $git push origin hexo //推送到远程分支hexo
@@ -96,5 +96,46 @@ tags:
   $git log //查看记录
   $git reset --hard HEAD^ //恢复到前一个记录
 　　```
+ 当每次git commit提交更改时，总是提示以下错误：
+　　```
+ On branch hexo
+ Changes not staged for commit:
+       
+ Untracked files:
+　　```
+ 通过输入git status查看提示：
+　　```
+ $ git status
+On branch hexo
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
 
+        
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
 
+        
+no changes added to commit (use "git add" and/or "git commit -a")
+ 
+　　```
+ Changes not staged for commit说明git已经跟踪到这些文件的修改，但还没有放到暂存区，需要使用git add命令提交更新到暂存区。之后再通过git status查看状态：
+　　```
+$git status
+On branch hexo
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+       
+　　```
+ 状态已经变成了Changes to be committed。提示未被跟踪的文件Untracked files说明是新建立的文件，在git之前的提交中没有这些文件，git不会自动将它们纳入跟踪范围，必须手动添加这些文件。使用git add命令跟踪新文件：
+　　```
+$git add "file" //添加未被跟踪的文件
+　　```
+如果还有错误，直接清除缓存:
+　　```
+$git rm -r --cached .
+$git add --all //跟踪所有文件
+$git commit -m "your commit" //提交更新
+$git push origin "yourbranch" //推送到远程分支yourbranch
+　　```
