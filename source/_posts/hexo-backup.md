@@ -64,7 +64,10 @@ tags:
   *origin/hexo*
   *origin/master*
 　　```
-此时可以看到远程仓库有两个分支，但默认的分支为master,我们需要的是hexo分支，所以需要将默认分支修改为hexo，如果不修改则需要获取分支hexo到本地：
+此时可以看到远程仓库有两个分支，但默认的分支为master,我们需要的是hexo分支，所以需要将默认分支修改为hexo:
+![Alt text](hexo-backup/setbranch.jpg)
+
+如果不修改则需要获取分支hexo到本地：
 　　```
   $git fetch origin hexo:hexo
 　　```
