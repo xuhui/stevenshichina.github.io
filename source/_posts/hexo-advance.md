@@ -147,4 +147,8 @@ tags:
   hexo: https://hexo.io/zh-cn/docs
   nexT: http://theme-next.iissnan.com/
 　　```
- 
+# 开启动画背景
+ [nexT](http://theme-next.iissnan.com/theme-settings.html) 自带两种背景动画效果，canvas_nest以及three_waves,在主题配置文件*themes/next/_config.yml*中设置为true即可开启：
+　　```
+
+　　```
