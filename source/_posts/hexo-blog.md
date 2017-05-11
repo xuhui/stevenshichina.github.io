@@ -1,6 +1,7 @@
 ---
 title: hexo+github建立个人博客
 date: 2017-05-07 11:07:34
+categories: hexo
 tags: hexo
 ---
 # 前言

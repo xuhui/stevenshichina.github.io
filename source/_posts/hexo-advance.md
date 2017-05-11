@@ -24,13 +24,23 @@ menu:
 　　```
  设置自己的标签页面位于*hexo/source/tags*:
   ```
- title: 标签
-date: 
+title: 标签
+date: 2017-05-05 12:30:52
+type: "tags"
+comments: false
 tags:
  - Qt
  - Linux
  - Hexo
  - ROS
+　```
+可以在上面添加自己的标签。
+ 分类页的示例如下:
+　```
+ title: 分类
+ date: 2017-05-05 12:30:42
+ type: "categories"
+ comments: false
 　```
 <!--more-->
 # 发表文章
@@ -38,6 +48,13 @@ tags:
 　　```
  $hexo new post "文章名" 或者 hexo n "文章名"
 　　```
+ 一个文章的开头应包含:
+　```
+ title: #文章题目
+ date: #日期
+ tags: #标签
+ categories: #分类
+　```
  文章存储在*hexo/source/_posts*目录下，后缀为*.md*。可以在适当位置插入以下符号用于部分显示:
 　　```
    <!--more-->
