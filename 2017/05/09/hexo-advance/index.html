@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="添加页面　　页面指的是分类页categories、标签页tags、关于页about等。使用以下命令生成以上页面参考nexT:　　123$hexo new page categories$hexo new page tags$hexo new page about 　　在 hexo 配置文件 _config.yml 文件中设置 post_asset_folder 为true,当新建页面后会自动生成一">
 <meta property="og:image" content="http://stevenshi.me/2017/05/09/hexo-advance/pay.jpg">
-<meta property="og:updated_time" content="2017-05-11T00:38:06.119Z">
+<meta property="og:updated_time" content="2017-05-11T01:50:36.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo进阶">
 <meta name="twitter:description" content="添加页面　　页面指的是分类页categories、标签页tags、关于页about等。使用以下命令生成以上页面参考nexT:　　123$hexo new page categories$hexo new page tags$hexo new page about 　　在 hexo 配置文件 _config.yml 文件中设置 post_asset_folder 为true,当新建页面后会自动生成一">
@@ -432,6 +432,8 @@
 <h1 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h1><p> 修改主题配置文件<em>themes/next/_config.yml</em><br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># Blog rolls</span></div><div class="line"><span class="symbol">links_title:</span> 友情链接</div><div class="line"><span class="meta">#links_layout: block</span></div><div class="line"><span class="meta">#links_layout: inline</span></div><div class="line"><span class="symbol">links:</span></div><div class="line"><span class="symbol"> hexo:</span> https:<span class="comment">//hexo.io/zh-cn/docs</span></div><div class="line"><span class="symbol"> nexT:</span> http:<span class="comment">//theme-next.iissnan.com/</span></div></pre></td></tr></table></figure></p>
 <h1 id="开启动画背景"><a href="#开启动画背景" class="headerlink" title="开启动画背景"></a>开启动画背景</h1><p> <a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">nexT</a> 自带两种背景动画效果，canvas_nest以及three_waves,在主题配置文件:<br> <em>themes/next/_config.yml</em>中设置为true即可开启,<br>　　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Canvas-nest</span></div><div class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span></div></pre></td></tr></table></figure></p>
 <h1 id="开启JiaThis分享"><a href="#开启JiaThis分享" class="headerlink" title="开启JiaThis分享"></a>开启JiaThis分享</h1><p> <a href="http://www.jiathis.com/" target="_blank" rel="external">Jiathis</a>为文章提供社会化分享功能。修改主题配置文件<em>themes/next/_config.yml</em>:<br>　　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Share</span></div><div class="line"><span class="attr">jiathis:</span> <span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<h1 id="百度分享"><a href="#百度分享" class="headerlink" title="百度分享"></a>百度分享</h1><p> 两种分享只能同时开启一种，百度分享需要在站点配置文件<em>hexo/_config.yml</em>中添加：<br>　　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># baidu share</span></div><div class="line"><span class="attr">baidushare:</span> <span class="literal">true</span> <span class="comment">#百度分享功能</span></div></pre></td></tr></table></figure></p>
+<p> 另外需要在主题配置文件<em>themes/next/_config.yml</em>中开启百度分享功能：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> Baidu Share</span></div><div class="line"><span class="meta">#</span><span class="bash"> Available value:</span></div><div class="line"><span class="meta">#</span><span class="bash">    button | slide</span></div><div class="line"><span class="meta">#</span><span class="bash"> Warning: Baidu Share does not support https.</span></div><div class="line">baidushare: </div><div class="line"> type: button</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -518,27 +520,42 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 </script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
 
       
     </div>
@@ -700,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#添加页面"><span class="nav-number">1.</span> <span class="nav-text">添加页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发表文章"><span class="nav-number">2.</span> <span class="nav-text">发表文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加RSS"><span class="nav-number">3.</span> <span class="nav-text">添加RSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加sitemap"><span class="nav-number">4.</span> <span class="nav-text">添加sitemap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加侧栏社交链接"><span class="nav-number">5.</span> <span class="nav-text">添加侧栏社交链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加本地搜索"><span class="nav-number">6.</span> <span class="nav-text">添加本地搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置头像"><span class="nav-number">7.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成网站二维码"><span class="nav-number">8.</span> <span class="nav-text">生成网站二维码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置代码高亮主题"><span class="nav-number">9.</span> <span class="nav-text">设置代码高亮主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启打赏功能"><span class="nav-number">10.</span> <span class="nav-text">开启打赏功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#友情链接"><span class="nav-number">11.</span> <span class="nav-text">友情链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启动画背景"><span class="nav-number">12.</span> <span class="nav-text">开启动画背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启JiaThis分享"><span class="nav-number">13.</span> <span class="nav-text">开启JiaThis分享</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#添加页面"><span class="nav-number">1.</span> <span class="nav-text">添加页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发表文章"><span class="nav-number">2.</span> <span class="nav-text">发表文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加RSS"><span class="nav-number">3.</span> <span class="nav-text">添加RSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加sitemap"><span class="nav-number">4.</span> <span class="nav-text">添加sitemap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加侧栏社交链接"><span class="nav-number">5.</span> <span class="nav-text">添加侧栏社交链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加本地搜索"><span class="nav-number">6.</span> <span class="nav-text">添加本地搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置头像"><span class="nav-number">7.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成网站二维码"><span class="nav-number">8.</span> <span class="nav-text">生成网站二维码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置代码高亮主题"><span class="nav-number">9.</span> <span class="nav-text">设置代码高亮主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启打赏功能"><span class="nav-number">10.</span> <span class="nav-text">开启打赏功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#友情链接"><span class="nav-number">11.</span> <span class="nav-text">友情链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启动画背景"><span class="nav-number">12.</span> <span class="nav-text">开启动画背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启JiaThis分享"><span class="nav-number">13.</span> <span class="nav-text">开启JiaThis分享</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#百度分享"><span class="nav-number">14.</span> <span class="nav-text">百度分享</span></a></li></ol></div>
             
 
           </div>
