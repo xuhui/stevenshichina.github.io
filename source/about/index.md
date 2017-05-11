@@ -2,6 +2,7 @@
 title: 关于
 ---
 ......
+
 程序猿/架构狮
 
 专注于嵌入式linux、物联网、智能硬件.
@@ -10,6 +11,8 @@ title: 关于
 
 本站永久链接:http://stevenshi.me
 ![Alt text](qrh.png)
+Email: 1554116385@qq.com
+
 ......
 
 
