@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stevenshi.me/"/>
-  <updated>2017-05-11T06:12:55.079Z</updated>
+  <updated>2017-05-11T06:23:22.609Z</updated>
   <id>http://stevenshi.me/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://stevenshi.me/2017/05/11/float-to-byte/"/>
     <id>http://stevenshi.me/2017/05/11/float-to-byte/</id>
     <published>2017-05-11T05:35:03.000Z</published>
-    <updated>2017-05-11T06:12:55.079Z</updated>
+    <updated>2017-05-11T06:23:22.609Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> 在嵌入式中经常会遇到浮点数的传输问题，一般将浮点数转换成4字节的16进制传输，这里的浮点数仅限于单精度浮点。大多数人的做法都是使用指针实现强制类型转换，其实浮点数在CPU里就是以4字节存储，既然在同一块内存，那我们能不能使用联合体呢？答案是肯定的。除了强制类型转换，这里介绍使用联合体实现浮点和16进制的转换，简单易用，你绝对会爱上这种方法。</p>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> 在嵌入式中经常会遇到浮点数的传输问题，一般将浮点数转换成4字节的16进制传输，这里的浮点数仅限于单精度浮点。大多数人的做法都是使用指针实现强制类型转换，其实浮点数在CPU里就是以4字节存储，既然在同一块内存，那我们能不能使用联合体呢？答案是肯定的。除了强制类型转换，这里介绍使用联合体实现浮点和16进制的转换，简单易用，你绝对会爱上这种方法。<br><a id="more"></a></p>
 <h1 id="强制转换法"><a href="#强制转换法" class="headerlink" title="强制转换法"></a>强制转换法</h1><p> 浮点转换成4字节16进制:<br>　　<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">float2bytes</span><span class="params">(<span class="keyword">float</span> p,<span class="keyword">unsigned</span> <span class="keyword">char</span> *bytes)</span></span></div><div class="line">&#123;</div><div class="line"> <span class="keyword">unsigned</span> <span class="keyword">char</span> *pchar = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)&amp;p;</div><div class="line"> <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i &lt; <span class="keyword">sizeof</span>(<span class="keyword">float</span>);i++)</div><div class="line"> &#123;</div><div class="line">   *bytes = *pchar;</div><div class="line">   pchar++;</div><div class="line">   bytes++;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p> 16进制4字节转换成浮点：<br>　　<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">bytes2float</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> *bytes)</span></span></div><div class="line">&#123;</div><div class="line"> <span class="keyword">return</span> *((<span class="keyword">float</span>*)bytes);<span class="comment">//强制转换</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="联合体法"><a href="#联合体法" class="headerlink" title="联合体法"></a>联合体法</h1><p> 话不多说，直接上代码：<br>　<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">typedef <span class="class"><span class="keyword">union</span>&#123;</span></div><div class="line"></div><div class="line">unsigned char cvalue[<span class="number">4</span>];</div><div class="line">float fvalue;</div><div class="line"></div><div class="line">&#125;float_union;</div></pre></td></tr></table></figure></p>
@@ -34,7 +34,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt; 在嵌入式中经常会遇到浮点数的传输问题，一般将浮点数转换成4字节的16进制传输，这里的浮点数仅限于单精度浮点。大多数人的做法都是使用指针实现
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt; 在嵌入式中经常会遇到浮点数的传输问题，一般将浮点数转换成4字节的16进制传输，这里的浮点数仅限于单精度浮点。大多数人的做法都是使用指针实现强制类型转换，其实浮点数在CPU里就是以4字节存储，既然在同一块内存，那我们能不能使用联合体呢？答案是肯定的。除了强制类型转换，这里介绍使用联合体实现浮点和16进制的转换，简单易用，你绝对会爱上这种方法。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
