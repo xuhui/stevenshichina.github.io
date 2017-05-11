@@ -3,6 +3,7 @@ title: hexo进阶
 date: 2017-05-09 14:32:38
 categories: hexo
 tags: hexo
+comments: true
 ---
 # 添加页面
 　　页面指的是分类页*categories*、标签页*tags*、关于页*about*等。使用以下命令生成以上页面参考[nexT](http://theme-next.iissnan.com/theme-settings.html):
@@ -203,4 +204,7 @@ tags:
   shortname:
   count: true
 　　```
- 去[DISQUS](https://disqus.com/)官网注册，并获取自己的shortname,填写至主题配置文件中的对应字段中。
+ 去[DISQUS](https://disqus.com/)官网注册，并获取自己的shortname,填写至主题配置文件中的对应字段中。取消一篇文章的评论只需要在文章的头部修改：
+　　```
+ comments: false
+　　```

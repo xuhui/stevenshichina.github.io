@@ -3,6 +3,7 @@ title: hexo+github建立个人博客
 date: 2017-05-07 11:07:34
 categories: hexo
 tags: hexo
+comments: true
 ---
 # 前言
 *hexo*是一个高效简洁的静态博客框架，基于*Node.js*使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。
