@@ -103,6 +103,7 @@ tags:
  social:
    Github: https://github.com/username
    知乎: http://www.zhihu.com/people/username
+   Email: mailto: user@xx.com
 　　```
  设置链接的图标，对应的字段是*social_icons*在主题配置文件中:
 　```
@@ -111,9 +112,9 @@ tags:
   enable: true
   # Icon Mappings
   GitHub: github
-  Twitter: twitter
-  微博: weibo
+  Email: envelope
 　　```
+ nexT使用的图标来自[FontAwesome](http://fontawesome.io/)，只要上面有的都可以配置到nexT使用。
 # 添加本地搜索
  安装*hexo-generator-serarch*
 　　```
@@ -193,3 +194,13 @@ tags:
   type: button
 
 　　```
+# 添加DISQUS评论
+ 修改主题配置文件开启[DISQUS](https://disqus.com/)功能：
+　　```
+ # Disqus
+ disqus:
+  enable: true
+  shortname:
+  count: true
+　　```
+ 去[DISQUS](https://disqus.com/)官网注册，并获取自己的shortname,填写至主题配置文件中的对应字段中。

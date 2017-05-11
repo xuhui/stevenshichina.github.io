@@ -143,8 +143,8 @@ font:
 social:
   Github: https://github.com/stevenshichina
   知乎: https://www.zhihu.com/people/stevenshichina
-
-
+  Email: 
+  #wechat: 
 # Social Links Icons
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
@@ -155,8 +155,9 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
-  Weibo: weibo
+  #Twitter: twitter
+  #wechat: wechat
+  Email: envelope
 
 
 # Sidebar Avatar
@@ -308,8 +309,8 @@ han: false
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: stevenshi-me
   count: true
 
 # Hypercomments
