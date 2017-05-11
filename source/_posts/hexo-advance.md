@@ -160,3 +160,19 @@ tags:
  # Share
  jiathis: true
 　　```
+# 百度分享
+ 两种分享只能同时开启一种，百度分享需要在站点配置文件*hexo/_config.yml*中添加：
+　　```
+ # baidu share
+ baidushare: true #百度分享功能
+　　```
+ 另外需要在主题配置文件*themes/next/_config.yml*中开启百度分享功能：
+　　```
+ # Baidu Share
+ # Available value:
+ #    button | slide
+ # Warning: Baidu Share does not support https.
+ baidushare: 
+  type: button
+
+　　```

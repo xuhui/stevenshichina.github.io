@@ -86,3 +86,5 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
+# baidu share
+baidushare: true #百度分享功能
