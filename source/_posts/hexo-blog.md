@@ -56,8 +56,7 @@ tags: hexo
 　　```
  $ssh-keygen -t rsa -C "your_email@youremail.com"
 　　```
- 引号里面的内容输入邮箱地址，然后回车，会提示文件保存的路径，这时候按回车键确认
- 然后会提示你输入密码，然后会确认输入一次，在*c:/user/username/.ssh/*文件夹内看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，打开id_rsa.pub然后选中里面的全部内容，复制下来。登录[github](https://github.com/login),点击*setting*,左边有一个*SSH and GPG keys*选项，进入*New SSH*选项，*title*随意，将之前复制的内容粘贴到key里面去。回到*Git bash*命令行，输入以下命令验证:
+ 引号里面的内容输入邮箱地址，然后回车，会提示文件保存的路径，这时候按回车键确认，然后会提示你输入密码，然后会确认输入一次，在*c:/user/username/.ssh/*文件夹内看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，打开id_rsa.pub然后选中里面的全部内容，复制下来。登录[github](https://github.com/login),点击*setting*,左边有一个*SSH and GPG keys*选项，进入*New SSH*选项，*title*随意，将之前复制的内容粘贴到key里面去。回到*Git bash*命令行，输入以下命令验证:
 　　```
  $ssh -T git@github.com
 　　```
@@ -92,8 +91,7 @@ tags: hexo
 　　## Themes: https://hexo.io/themes/
 　　theme: nexT
 　　```
-　　接下来选择nexT的Scheme，打开nexT的配置文件，
-在目录F:\github\hexo\themes\nexT中，修改:
+　　接下来选择nexT的Scheme，打开nexT的配置文件themes/nexT/_config.yml中，修改:
 　　```
 　　# Schemes
 　　#scheme: Muse //默认Scheme，黑白主调，大量留白

@@ -8,7 +8,8 @@ tags:
 
 　　当使用不同的电脑撰写博客时，会涉及到博客资源的备份和更新，如果简单的拷贝会比较麻烦，当然也可以tar整个hexo工作目录;单纯的push到github会有部分文件不全,由于主题文件目录也是git管理方式，当push后，主题默认是不会被推送到github上的。所以，必须稍作修改，才能正确的备份。
 # 解决方案
-　　在自己的github仓库中默认有master分支，比如username目录下的username.github.io仓库。使用master分支保存自己的hexo博客静态文件，新建hexo分支用于保存hexo资源文件。每次撰写完博客后，顺便将自己的hexo工作目录push到远程仓库的hexo分支;当在另外一台电脑上写博客时，先获取远程仓库的分支，之后就可以编辑了
+　　在自己的github仓库中默认有master分支，比如username目录下的：
+username.github.io仓库。使用master分支保存自己的hexo博客静态文件，新建hexo分支用于保存hexo资源文件。每次撰写完博客后，顺便将自己的hexo工作目录push到远程仓库的hexo分支;当在另外一台电脑上写博客时，先获取远程仓库的分支，之后就可以编辑了
 ## 推送到远程
 　　进入到自己的博客工作目录比如*github\hexo*,先查看远程主机
 　　```
@@ -32,7 +33,8 @@ tags:
   *$git config --global user.email "yourusername@xxx.com"*
   $git push origin hexo //将本地文件push到远程仓库的hexo分支，没有则建立该分支
 　　```
-　　在远程仓库查看，username.github.io的仓库下已经有了两个分支，一个叫master,一个叫hexo。但发现有些不想推送的文件也被推送到了远程，比如hexo根目录下的public文件夹，这个文件夹是生成的博客静态文件，它是在博客部署后被推送到username.github.io的master分支的，我们这里并不需要保存该文件夹。编辑hexo根目录下的.gitignore文件，添加不需要推送的文件或文件夹：
+　　在远程仓库查看，username.github.io的仓库下已经有了两个分支，一个叫master,一个叫hexo。但发现有些不想推送的文件也被推送到了远程，比如hexo根目录下的public文件夹，这个文件夹是生成的博客静态文件，它是在博客部署后被推送到：
+username.github.io的master分支的，我们这里并不需要保存该文件夹。编辑hexo根目录下的.gitignore文件，添加不需要推送的文件或文件夹：
 　　```
   .DS_Store
   Thumbs.db

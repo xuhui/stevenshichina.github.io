@@ -39,19 +39,20 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 　}
  void MainWindow::drawMyGrid(QPainter *painter,int row,int col)
  {
-  int Margin=1;
+  int mgin=1;//边界
   QRect rect;
   int i,j,x,y;
-  rect=QRect(Margin,Margin,width()-2*Margin,height()-2*Margin);
-  for(i=0;i<=col;i++)//列
-  {
-   x=rect.left()+(i*(rect.width()-1)/col);
-   painter->drawLine(x,rect.top(),x,rect.bottom());
-  }
+  rect=QRect(mgin,mgin,width()-mgin,height()-mgin);
+
   for( j=0;j<=row;j++)//行
   {
-   y=rect.bottom()-(j*(rect.height()-1)/row);
+   y=rect.bottom()-(j*(rect.height()-mgin)/row);
    painter->drawLine(rect.left(),y,rect.right(),y);
+  }
+  for(i=0;i<=col;i++)//列
+  {
+   x=rect.left()+(i*(rect.width()-mgin)/col);
+   painter->drawLine(x,rect.top(),x,rect.bottom());
   }
 }
 　　```

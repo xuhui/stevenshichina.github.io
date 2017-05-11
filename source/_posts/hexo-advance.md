@@ -22,7 +22,7 @@ menu:
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 　　```
- 设置自己的标签页面:
+ 设置自己的标签页面位于*hexo/source/tags*:
   ```
  title: 标签
 date: 
@@ -38,7 +38,7 @@ tags:
 　　```
  $hexo new post "文章名" 或者 hexo n "文章名"
 　　```
- 文章存储在*hexo\source\_posts*目录下，后缀为*.md*。可以在适当位置插入以下符号用于部分显示:
+ 文章存储在*hexo/source/_posts*目录下，后缀为*.md*。可以在适当位置插入以下符号用于部分显示:
 　　```
    <!--more-->
 　　```
@@ -52,7 +52,7 @@ tags:
 　　```
  $npm install hexo-generator-feed --save
 　　```
- 修改*hexo\_config.yml*根目录下的全局配置文件，添加以下内容:
+ 修改*hexo/_config.yml*根目录下的全局配置文件，添加以下内容:
 　　```
  #RSS 订阅支持
  plugin:
@@ -63,7 +63,7 @@ tags:
    path: atom.xml
    limit: 20
 　　```
- 修改主题目录下的配置文件*themes、nexT/_config.yml*
+ 修改主题目录下的配置文件*themes/nexT/_config.yml*
 　　```
  rss: /atom.xml
 　　```
@@ -148,13 +148,14 @@ tags:
   nexT: http://theme-next.iissnan.com/
 　　```
 # 开启动画背景
- [nexT](http://theme-next.iissnan.com/theme-settings.html) 自带两种背景动画效果，canvas_nest以及three_waves,在主题配置文件*themes/next/_config.yml*中设置为true即可开启：
+ [nexT](http://theme-next.iissnan.com/theme-settings.html) 自带两种背景动画效果，canvas_nest以及three_waves,在主题配置文件:
+ *themes/next/_config.yml*中设置为true即可开启,
 　　```
  # Canvas-nest
  canvas_nest: true
 　　```
 # 开启JiaThis分享
- 修改主题配置文件*themes/next/_config.yml*:
+ [Jiathis](http://www.jiathis.com/)为文章提供社会化分享功能。修改主题配置文件*themes/next/_config.yml*:
 　　```
  # Share
  jiathis: true
