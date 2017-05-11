@@ -7,9 +7,11 @@
       <url>/2017/05/09/hexo-advance/</url>
       <content type="html"><![CDATA[<h1 id="添加页面"><a href="#添加页面" class="headerlink" title="添加页面"></a>添加页面</h1><p>　　页面指的是分类页<em>categories</em>、标签页<em>tags</em>、关于页<em>about</em>等。使用以下命令生成以上页面参考<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">nexT</a>:<br>　　<figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">$hexo</span> <span class="keyword">new</span> page categories</div><div class="line"><span class="built_in">$hexo</span> <span class="keyword">new</span> page tags</div><div class="line"><span class="built_in">$hexo</span> <span class="keyword">new</span> page about</div></pre></td></tr></table></figure></p>
 <p>　　在 <em>hexo</em> 配置文件 <em>_config.yml</em> 文件中设置 <em>post_asset_folder</em> 为true,当新建页面后会自动生成一个同名文件夹，用于存储所需的资源图片等。生成以上页面后在主题配置文件中 <em>themes/nexT/_config.yml</em> 打开相关配置项:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">menu:</span></div><div class="line"><span class="symbol">  home:</span> /</div><div class="line"><span class="symbol">  categories:</span> /categories</div><div class="line"><span class="symbol">  about:</span> /about</div><div class="line"><span class="symbol">  archives:</span> /archives</div><div class="line"><span class="symbol">  tags:</span> /tags</div><div class="line">  <span class="meta">#sitemap: /sitemap.xml</span></div><div class="line">  <span class="meta">#commonweal: /404.html</span></div></pre></td></tr></table></figure></p>
-<p> 设置自己的标签页面位于<em>hexo/source/tags</em>:<br>  <figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> title: 标签</div><div class="line">date: </div><div class="line"><span class="keyword">tags:</span></div><div class="line"> - Qt</div><div class="line"> - Linux</div><div class="line"> - Hexo</div><div class="line"> - ROS</div></pre></td></tr></table></figure></p>
+<p> 设置自己的标签页面位于<em>hexo/source/tags</em>:<br>  <figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">title: 标签</div><div class="line">date: 2017<span class="string">-05</span><span class="string">-05</span> 12:30:52</div><div class="line">type: "tags"</div><div class="line">comments: false</div><div class="line"><span class="keyword">tags:</span></div><div class="line"> - Qt</div><div class="line"> - Linux</div><div class="line"> - Hexo</div><div class="line"> - ROS</div></pre></td></tr></table></figure></p>
+<p>可以在上面添加自己的标签。<br> 分类页的示例如下:<br>　<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">title:</span> 分类</div><div class="line"><span class="string">date:</span> <span class="number">2017</span><span class="number">-05</span><span class="number">-05</span> <span class="number">12</span>:<span class="number">30</span>:<span class="number">42</span></div><div class="line"><span class="string">type:</span> <span class="string">"categories"</span></div><div class="line"><span class="string">comments:</span> <span class="literal">false</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <h1 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h1><p> 新文章的发表使用以下命令：<br>　　<figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">$hexo</span> <span class="keyword">new</span> post <span class="string">"文章名"</span> 或者 hexo n <span class="string">"文章名"</span></div></pre></td></tr></table></figure></p>
+<p> 一个文章的开头应包含:<br>　<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: </div><div class="line">date: </div><div class="line"><span class="keyword">tags:</span> </div><div class="line">categories:</div></pre></td></tr></table></figure></p>
 <p> 文章存储在<em>hexo/source/_posts</em>目录下，后缀为<em>.md</em>。可以在适当位置插入以下符号用于部分显示:<br>　　<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--more--&gt;</span></div></pre></td></tr></table></figure></p>
 <p> 插入该符号之前的文字可以直接显示出来，之后的需要鼠标点击<em>阅读全文</em>来显示全部。<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> g <span class="regexp">//</span>生成静态文件</div><div class="line"><span class="variable">$hexo</span> d <span class="regexp">//</span>部署</div></pre></td></tr></table></figure></p>
 <h1 id="添加RSS"><a href="#添加RSS" class="headerlink" title="添加RSS"></a>添加RSS</h1><p> 安装RSS插件：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$npm</span> install hexo-generator-feed --save</span></div></pre></td></tr></table></figure></p>
@@ -65,6 +67,12 @@
 <p>如果不设置默认为1:1<br>最后效果:<img src="/2017/05/09/qt-widget-designated-location/final.jpg" alt="Alt text"></p>
 ]]></content>
       
+        <categories>
+            
+            <category> Qt </category>
+            
+        </categories>
+        
         
         <tags>
             
@@ -102,6 +110,18 @@
 <p>如果还有错误，直接清除缓存:<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">git rm -r --cached .</span></div><div class="line"><span class="meta">$</span><span class="bash">git add --all //跟踪所有文件</span></div><div class="line"><span class="meta">$</span><span class="bash">git commit -m <span class="string">"your commit"</span> //提交更新</span></div><div class="line"><span class="meta">$</span><span class="bash">git push origin <span class="string">"yourbranch"</span> //推送到远程分支yourbranch</span></div></pre></td></tr></table></figure></p>
 ]]></content>
       
+        <categories>
+            
+            <category> hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
         
     </entry>
     
@@ -140,6 +160,12 @@
 <p>　　</p>
 ]]></content>
       
+        <categories>
+            
+            <category> hexo </category>
+            
+        </categories>
+        
         
         <tags>
             
