@@ -217,6 +217,12 @@ tags:
 　　```
  comments: false
 　　```
+# 设置网站图标
+  图标制作网站[faviconer](http://www.faviconer.com/)，制作完成自己的网站图标后放到*hexo/source*根目录下，并修改主题配置文件：
+　　```
+# Put your favicon.ico into `hexo-site/source/` directory.
+favicon: /favicon.ico
+　　```
 # 可能出现的错误
 ## Unable to call `the return value of (posts["first"])["updated"]["toISOString"]`, which is undefined or falsey
  运行*hexo g*生成静态文件时提示错误：
