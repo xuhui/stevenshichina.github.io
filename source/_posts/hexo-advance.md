@@ -227,7 +227,7 @@ tags:
  Template render error: (unknown path) [Line 7, Column 23]
   Error: Unable to call `the return value of (posts["first"])["updated"]["toISOString"]`, which is undefined or falsey
 　　```
- 在win7 32bits平台上出现该错误，在win7 64bits上并未发现该错误。当移除掉插件：
+ 当移除掉插件：
  hexo-generator-feed和hexo-generator-sitemap后错误消失，怀疑该插件与hexo兼容性不好
 　　```
  $npm uninstall hexo-generator-feed
@@ -244,3 +244,23 @@ tags:
  Username for 'https://github.com':
 　　```
  多数是网络问题，重来一次即可。
+## Cannot GET /
+ 当启动服务器后，浏览器输入*http://localhost:4000*，却提示错误：*Cannot GET*
+ 一般是配置文件错误，当在其他电脑从远程clone下来代码仓后，安装必要的工具使用 *hexo clean* 以及 *hexo g* 后产生的 *public* 文件与本地电脑原有源码仓生成的 *public* 不一样，查看里面并没有生成以日期命名的文章文件，怀疑是配置文件出了问题，对比两个配置文件都一样，最后发现 *node_modules* 文件夹问题，就是hexo的配置和安装问题，其他文件都推送到远程仓库，唯独没有推送这个文件夹，它保存有hexo的一些可执行文件。按照hexo安装教程在clone下来的代码仓重新安装一遍hexo，最后还是不行。使用[WinMerge](http://winmerge.org/)比较原电脑中和现在电脑中的两个node_modules文件的不同，发现hexo的很多二进制文件都不同。无语-
+ 当使用 *hexo init* 后，再把远程仓库的配置文件覆盖到本地电脑后，可以正常生成静态网页。肯定是 *hexo* 安装不完整缺少某些依赖项。
+ 所以，当在一台新电脑部署 *hexo* 的正确做法是安装好 *hexo* 之后需要 *hexo init* 一下，这样会安装依赖项，得到完整的 *node_modules*文件夹：
+　　```
+ $npm install hexo --save
+ $npm install hexo-server  --save
+ $npm install hexo-generator-search --save
+ $npm install hexo-deployer-git --save
+ $hexo init //
+　　```
+ 初始化之后，保留node_modules文件夹，其它删除，之后获取远程仓库最新更新：
+　　```
+ $git remote add origin https://github.com/yourusername/yourusername.github.io.git
+ $git pull origin hexo
+　　```
+ 
+ 
+ 
