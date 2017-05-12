@@ -71,9 +71,12 @@ deploy:
   type: git
   repository: https://github.com/stevenshichina/stevenshichina.github.io.git
   branch: master
+
 sitemap:
 　path: sitemap.xml
 
+baidusitemap:
+ path: baidusitemap.xml
 search:
  path: search.xml
  field: post

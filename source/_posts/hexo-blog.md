@@ -18,6 +18,7 @@ comments: true
 　　*开始之前先去 [github](www.github.com) 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：https://github.com/username/username.github.io  注：username替换为自己的用户名*
 # hexo安装与配置
 　　首先在本地建立自己的博客文件夹，比如 *F:\github\hexo*，进入该文件夹内，右键点击*Git Bash Here*,打开*git for windows*环境，开始安装 [hexo](https://hexo.io/zh-cn/docs/ "hexo说明")：
+<!--more-->
 　　```
 　　$npm install hexo-cli -g //注: -g表示全局安装
 　　$npm install hexo-server -g //注： hexo3.0之后server模块是独立的,需要单独安装
@@ -26,7 +27,6 @@ comments: true
 　　```
 　　$hexo -v
 　　```
-　　<!--more-->
  *hexo*根目录下的*_config.yml*文件是全局配置文件，修改该文件实现自己的配置。具体可参考[hexo](https://hexo.io/zh-cn/docs/ "hexo说明")官网。
 ## hexo常用命令
 　　hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令：

@@ -12,6 +12,7 @@ comments: true
 # 解决方案
 　　在自己的github仓库中默认有master分支，比如username目录下的：
 username.github.io仓库。使用master分支保存自己的hexo博客静态文件，新建hexo分支用于保存hexo资源文件。每次撰写完博客后，顺便将自己的hexo工作目录push到远程仓库的hexo分支;当在另外一台电脑上写博客时，先获取远程仓库的分支，之后就可以编辑了
+<!--more-->
 ## 推送到远程
 　　进入到自己的博客工作目录比如*github\hexo*,先查看远程主机
 　　```
@@ -26,7 +27,6 @@ username.github.io仓库。使用master分支保存自己的hexo博客静态文�
   $git remote add origin https://github.com/yourusername/yourusername.github.io.git
   $git init 
 　　```
-　　<!--more-->
 　　删除掉*theme\nexT*目录下的*.git*文件夹，因为我们要将主题配置一同推送。如果删除后还是不能推送nexT主题，就将nexT改个名字，但要注意在hexo的_config.yml中对应的主题名字与这个文件夹名字要保持一致。
 　　```
   $git add --all //add之后可以用*git status*查看刚刚改过的文件状态

@@ -23,6 +23,7 @@ menu:
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 　　```
+<!--more-->
  设置自己的标签页面位于*hexo/source/tags*:
   ```
 title: 标签
@@ -43,7 +44,6 @@ tags:
  type: "categories"
  comments: false
 　```
-<!--more-->
 # 发表文章
  新文章的发表使用以下命令：
 　　```
@@ -94,6 +94,15 @@ tags:
 　　```
  sitemap:
 　　　path: sitemap.xml
+　　```
+ 添加baidusitemap：
+  ```
+ $npm install hexo-generator-baidu-sitemap --save
+  ```
+修改*hexo/_config.yml*根目录下的全局配置文件:
+　　```
+ baidusitemap:
+　　　path: baidusitemap.xml
 　　```
 # 添加侧栏社交链接
  修改主题目录下的配置文件*themes/nexT/_config.yml*
@@ -208,3 +217,30 @@ tags:
 　　```
  comments: false
 　　```
+# 可能出现的错误
+## Unable to call `the return value of (posts["first"])["updated"]["toISOString"]`, which is undefined or falsey
+ 运行*hexo g*生成静态文件时提示错误：
+　　```
+ $ hexo g
+ INFO  Start processing
+ FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
+ Template render error: (unknown path) [Line 7, Column 23]
+  Error: Unable to call `the return value of (posts["first"])["updated"]["toISOString"]`, which is undefined or falsey
+　　```
+ 在win7 32bits平台上出现该错误，在win7 64bits上并未发现该错误。当移除掉插件：
+ hexo-generator-feed和hexo-generator-sitemap后错误消失，怀疑该插件与hexo兼容性不好
+　　```
+ $npm uninstall hexo-generator-feed
+ $npm uninstall hexo-generator-sitemap
+　　```
+## WARN No layout: index.html?
+ 查看主题目录是否为空，如果为空下载主题
+## fatal: AggregateException encountered
+ 当推送至远程分支时提示错误:
+　　```
+ $git push origin hexo
+ fatal: AggregateException encountered
+   •¢ÉúÒ»¸ö»ò¶à¸ö´íÎó¡£
+ Username for 'https://github.com':
+　　```
+ 多数是网络问题，重来一次即可。

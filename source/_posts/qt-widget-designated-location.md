@@ -10,6 +10,7 @@ comments: true
 # 思路
 　　一种方法是借用图片工具，找到指定位置的相对坐标，然后将控件放置在该坐标处;另一种方法可以将图片用网格划分，然后添加一个网格布局，查看指定的位置位于哪一行哪一列，然后将控件放置到布局中。这种方式不能做到精确的定位，但大体上可以使用。考虑到简单实用，选择第二种方法。
 # 开始
+<!--more-->
 ## 添加资源文件
 　　首先创建一个*QWidget*，并设置背景图片。在工程目录下创建一个名为*icons*的文件夹，将图片放置到这个位置。回到*Qt*工程目录，右键自己的工程选择添加新文件->*qt*资源文件: ![Alt text](qt-widget-designated-location/qrc.jpg)
 
@@ -27,7 +28,6 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 　this->setPalette(palette);
 　}
 　　```
-<!--more-->
 显示效果如下：![Alt text](qt-widget-designated-location/linux.jpg)
 ## 将窗体网格化
 假如我想在X字符下面显示一个*Qlabel*，现将窗体分成8行9列因为我的显示器是16:9尺寸，并显示所画的网格线，重写窗体的*paintEvent*事件：
@@ -70,10 +70,10 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 　widget->setLayout(mylayout);//安装布局
 　setCentralWidget(widget);
 　　```
-也可以通过以下代码设置行列的宽高比例:
+通过以下代码设置行列的宽高比例:
 　　```
  mylayout->setColumnStretch(0,1);//设置第一列的宽度比例
  mylayout->setRowStretch(0,1);//设置第一行的高度比例
 　　```
-如果不设置默认为1:1
+必须指定每一行每一列的高度和宽度比。
 最后效果:![Alt text](qt-widget-designated-location/final.jpg)

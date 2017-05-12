@@ -19,11 +19,14 @@
   {{ __('footer.theme') }} -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.{{ theme.scheme }}
-  </a>
+  </a>  
+
 </div>
-<a>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-</a>
+
 {% endif %}
+<div>
+<span id="busuanzi_container_site_pv">
+    total visit <span id="busuanzi_value_site_pv"></span> times
+</span>
+
+</div>
