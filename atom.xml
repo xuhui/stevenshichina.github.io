@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stevenshi.me/"/>
-  <updated>2017-05-14T23:56:22.522Z</updated>
+  <updated>2017-05-15T03:15:49.303Z</updated>
   <id>http://stevenshi.me/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>树莓派3B使用前的配置</title>
+    <link href="http://stevenshi.me/2017/05/15/raspberryPi/"/>
+    <id>http://stevenshi.me/2017/05/15/raspberryPi/</id>
+    <published>2017-05-15T01:32:02.000Z</published>
+    <updated>2017-05-15T03:15:49.303Z</updated>
+    
+    <content type="html"><![CDATA[<p>前段时间入手一块树莓派<a href="https://www.raspberrypi.org/" target="_blank" rel="external">raspberryPi</a>型号为3B。关于它的介绍这里就不多说了，可自行<a href="https://www.google.com" target="_blank" rel="external">google</a>。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装<a href="http://www.ros.org/" target="_blank" rel="external">ROS</a>，考虑到官方支持的稳定性，选用 <em>Raspbian</em> 平台镜像。因为<em>Raspbian</em> 是官方推荐的支持的操作系统，而<a href="http://wiki.ros.org/cn/indigo" target="_blank" rel="external">Ros-indigo</a>也刚好有基于该平台的安装包。</p>
+<h1 id="镜像安装"><a href="#镜像安装" class="headerlink" title="镜像安装"></a>镜像安装</h1><p>参考官网<a href="https://www.raspberrypi.org/documentation/installation/installing-images/" target="_blank" rel="external">Install-Images</a>。我安装的版本为<em>2017-03-02-raspbian-jessie.img</em><br><a id="more"></a></p>
+<h1 id="开启SSH和串口"><a href="#开启SSH和串口" class="headerlink" title="开启SSH和串口"></a>开启SSH和串口</h1><p>该版本默认不开启SSH以及串口功能，需要手动开启。树莓派板子需要连接显示器、键盘、鼠标。在终端中输入:<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> raspi-config</span></div></pre></td></tr></table></figure></p>
+<p>进行配置。树莓派默认的用户名为<em>pi</em>密码为<em>raspberry</em>。<br><img src="/2017/05/15/raspberryPi/config.jpg" alt=""><br>进入第5项开启SSH以及GPIO14 GPIO15对应的串口控制台功能。</p>
+<h1 id="开启VNC远程桌面"><a href="#开启VNC远程桌面" class="headerlink" title="开启VNC远程桌面"></a>开启VNC远程桌面</h1><p>同样在配置菜单的第5项开启:<img src="/2017/05/15/raspberryPi/portconfig.jpg" alt=""><br>在windows上安装<a href="https://www.realvnc.com/" target="_blank" rel="external">VNC Viewer</a>并且输入树莓派的IP地址就可以远程访问树莓派。<img src="/2017/05/15/raspberryPi/vnc.jpg" alt=""><br>如果不知道IP地址，可以使用工具<a href="http://www.eusing.com/ipscan/free_ip_scanner.htm" target="_blank" rel="external">freeIpScanner</a>获取IP地址。或者使用linux下的nmap命令,nmap命令说明：<br>　　<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span>/<span class="number">24</span> //扫描整个子网</div><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span>.x (x:<span class="number">0</span>-<span class="number">255</span>) //扫描单个主机</div><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span>.x <span class="number">192.168</span><span class="meta">.1</span>.y //扫描多个目标</div><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.100</span>-<span class="number">255</span> 扫描某个范围内的目标#<span class="built_in">ip</span>地址在<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.100</span>和<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.255</span>之间 </div><div class="line">$nmap <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span>/<span class="number">24</span> -exclude <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span> 扫描一个网段除了某个主机</div><div class="line">$nmap -p80,<span class="number">21</span>,<span class="number">23</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span> 扫描某个主机下的端口（<span class="number">80</span>端口 <span class="number">21</span>端口 <span class="number">23</span> 端口）</div></pre></td></tr></table></figure></p>
+<h1 id="手动配置wifi"><a href="#手动配置wifi" class="headerlink" title="手动配置wifi"></a>手动配置wifi</h1><p>命令行下启动 <em>wpa_cli</em> 参考 <a href="http://w1.fi/wpa_supplicant/" target="_blank" rel="external">WPA_supplicant</a>：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> wpa_cli</span></div></pre></td></tr></table></figure></p>
+<p><img src="/2017/05/15/raspberryPi/wpacli.jpg" alt=""><br>　 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">status <span class="string">//</span>列出目前的联网状态</div><div class="line">list_networks <span class="string">//</span>记住网络ID</div><div class="line"><span class="keyword">set</span>_network <span class="string">"ID"</span> key_mgmt WPA-PSK  <span class="string">//</span>设置无线网络加密方式</div><div class="line"><span class="keyword">set</span>_network <span class="string">"ID"</span> psk <span class="string">"yourpassword"</span>   <span class="string">//</span>设置密码</div><div class="line">enable_network <span class="string">"ID"</span>   <span class="string">//</span>使能该网络</div><div class="line">save_config <span class="string">//</span>保存配置</div></pre></td></tr></table></figure></p>
+<p>完成之后会在文件/etc/wpa_supplicant/wpa_supplicant.conf看到配置信息已经写入到文件,此时可以查看网络是否连接:<br>  　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$ifconfig</span></span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间入手一块树莓派&lt;a href=&quot;https://www.raspberrypi.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;raspberryPi&lt;/a&gt;型号为3B。关于它的介绍这里就不多说了，可自行&lt;a href=&quot;https://www.google.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;google&lt;/a&gt;。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装&lt;a href=&quot;http://www.ros.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ROS&lt;/a&gt;，考虑到官方支持的稳定性，选用 &lt;em&gt;Raspbian&lt;/em&gt; 平台镜像。因为&lt;em&gt;Raspbian&lt;/em&gt; 是官方推荐的支持的操作系统，而&lt;a href=&quot;http://wiki.ros.org/cn/indigo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ros-indigo&lt;/a&gt;也刚好有基于该平台的安装包。&lt;/p&gt;
+&lt;h1 id=&quot;镜像安装&quot;&gt;&lt;a href=&quot;#镜像安装&quot; class=&quot;headerlink&quot; title=&quot;镜像安装&quot;&gt;&lt;/a&gt;镜像安装&lt;/h1&gt;&lt;p&gt;参考官网&lt;a href=&quot;https://www.raspberrypi.org/documentation/installation/installing-images/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Install-Images&lt;/a&gt;。我安装的版本为&lt;em&gt;2017-03-02-raspbian-jessie.img&lt;/em&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="linux" scheme="http://stevenshi.me/categories/linux/"/>
+    
+    
+      <category term="raspberryPi" scheme="http://stevenshi.me/tags/raspberryPi/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo问题汇总</title>

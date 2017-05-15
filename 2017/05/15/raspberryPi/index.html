@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="raspberryPi," />
 
 
 
@@ -92,17 +92,22 @@
 
 
 
-<meta name="description" content="Unable to call the return value of (posts[“first”])[“updated”][“toISOString”], which is undefined or falsey 运行hexo g生成静态文件时提示错误：　　12345$ hexo gINFO  Start processingFATAL Something&apos;s wrong. Maybe you">
-<meta name="keywords" content="hexo">
+<meta name="description" content="前段时间入手一块树莓派raspberryPi型号为3B。关于它的介绍这里就不多说了，可自行google。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装ROS，考虑到官方支持的稳定性，选用 Raspbian 平台镜像。因为Raspbian 是官方推荐的支持的操作系统，而Ros-indigo也刚好有基于该平台的安装包。 镜像安装参考官网Ins">
+<meta name="keywords" content="raspberryPi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo问题汇总">
-<meta property="og:url" content="http://stevenshi.me/2017/05/13/hexo-error/index.html">
+<meta property="og:title" content="树莓派3B使用前的配置">
+<meta property="og:url" content="http://stevenshi.me/2017/05/15/raspberryPi/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="Unable to call the return value of (posts[“first”])[“updated”][“toISOString”], which is undefined or falsey 运行hexo g生成静态文件时提示错误：　　12345$ hexo gINFO  Start processingFATAL Something&apos;s wrong. Maybe you">
-<meta property="og:updated_time" content="2017-05-14T23:56:22.522Z">
+<meta property="og:description" content="前段时间入手一块树莓派raspberryPi型号为3B。关于它的介绍这里就不多说了，可自行google。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装ROS，考虑到官方支持的稳定性，选用 Raspbian 平台镜像。因为Raspbian 是官方推荐的支持的操作系统，而Ros-indigo也刚好有基于该平台的安装包。 镜像安装参考官网Ins">
+<meta property="og:image" content="http://stevenshi.me/2017/05/15/raspberryPi/config.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/15/raspberryPi/portconfig.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/15/raspberryPi/vnc.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/15/raspberryPi/wpacli.jpg">
+<meta property="og:updated_time" content="2017-05-15T03:15:49.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo问题汇总">
-<meta name="twitter:description" content="Unable to call the return value of (posts[“first”])[“updated”][“toISOString”], which is undefined or falsey 运行hexo g生成静态文件时提示错误：　　12345$ hexo gINFO  Start processingFATAL Something&apos;s wrong. Maybe you">
+<meta name="twitter:title" content="树莓派3B使用前的配置">
+<meta name="twitter:description" content="前段时间入手一块树莓派raspberryPi型号为3B。关于它的介绍这里就不多说了，可自行google。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装ROS，考虑到官方支持的稳定性，选用 Raspbian 平台镜像。因为Raspbian 是官方推荐的支持的操作系统，而Ros-indigo也刚好有基于该平台的安装包。 镜像安装参考官网Ins">
+<meta name="twitter:image" content="http://stevenshi.me/2017/05/15/raspberryPi/config.jpg">
 
 
 
@@ -130,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/2017/05/13/hexo-error/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/05/15/raspberryPi/"/>
 
 
 
 
 
-  <title>hexo问题汇总 | Steven's blog</title>
+  <title>树莓派3B使用前的配置 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -309,7 +314,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/13/hexo-error/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/15/raspberryPi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -326,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo问题汇总</h1>
+          <h1 class="post-title" itemprop="name headline">树莓派3B使用前的配置</h1>
         
 
         <div class="post-meta">
@@ -338,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-13T17:42:11+08:00">
-                2017-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T09:32:02+08:00">
+                2017-05-15
               </time>
             
 
@@ -361,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -379,9 +384,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/13/hexo-error/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/15/raspberryPi/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/13/hexo-error/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/15/raspberryPi/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -389,7 +394,7 @@
 
           
           
-             <span id="/2017/05/13/hexo-error/" class="leancloud_visitors" data-flag-title="hexo问题汇总">
+             <span id="/2017/05/15/raspberryPi/" class="leancloud_visitors" data-flag-title="树莓派3B使用前的配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -417,25 +422,14 @@
       
 
       
-        <h1 id="Unable-to-call-the-return-value-of-posts-“first”-“updated”-“toISOString”-which-is-undefined-or-falsey"><a href="#Unable-to-call-the-return-value-of-posts-“first”-“updated”-“toISOString”-which-is-undefined-or-falsey" class="headerlink" title="Unable to call the return value of (posts[“first”])[“updated”][“toISOString”], which is undefined or falsey"></a>Unable to call the return value of (posts[“first”])[“updated”][“toISOString”], which is undefined or falsey</h1><p> 运行<em>hexo g</em>生成静态文件时提示错误：<br>　　<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">INFO  Start processing</div><div class="line">FATAL Something<span class="comment">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></div><div class="line">Template render <span class="keyword">error</span>: (unknown path) [Line <span class="number">7</span>, Column <span class="number">23</span>]</div><div class="line"><span class="keyword">Error</span>: Unable <span class="keyword">to</span> <span class="keyword">call</span> `the <span class="keyword">return</span> value <span class="keyword">of</span> (posts[<span class="string">"first"</span>])[<span class="string">"updated"</span>][<span class="string">"toISOString"</span>]`, which <span class="keyword">is</span> undefined <span class="keyword">or</span> falsey</div></pre></td></tr></table></figure></p>
- <a id="more"></a>
-<p> 当移除掉插件hexo-generator-feed和hexo-generator-sitemap后错误消失，怀疑该插件与hexo兼容性不好<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$npm</span> uninstall hexo-generator-feed</span></div><div class="line"><span class="meta"><span class="meta-keyword">$npm</span> uninstall hexo-generator-sitemap</span></div></pre></td></tr></table></figure></p>
-<h1 id="WARN-No-layout-index-html"><a href="#WARN-No-layout-index-html" class="headerlink" title="WARN No layout: index.html?"></a>WARN No layout: index.html?</h1><p> 查看主题目录是否为空，如果为空下载主题</p>
-<h1 id="fatal-AggregateException-encountered"><a href="#fatal-AggregateException-encountered" class="headerlink" title="fatal: AggregateException encountered"></a>fatal: AggregateException encountered</h1><p> 当推送至远程分支时提示错误:<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$git</span> push origin hexo</span></div><div class="line">fatal: AggregateException encountered</div><div class="line">  •¢ÉúÒ»¸ö»ò¶à¸ö´íÎó¡£</div><div class="line">Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>:</div></pre></td></tr></table></figure></p>
-<p> 多数是网络问题，重来一次即可。</p>
-<h2 id="Cannot-GET"><a href="#Cannot-GET" class="headerlink" title="Cannot GET /"></a>Cannot GET /</h2><p> 当启动服务器后，浏览器输入<em><a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></em>，却提示错误：<em>Cannot GET</em><br> 一般是配置文件错误，当在其他电脑从远程clone下来代码仓后，安装必要的工具使用 <em>hexo clean</em> 以及 <em>hexo g</em> 后产生的 <em>public</em> 文件与本地电脑原有源码仓生成的 <em>public</em> 不一样，查看里面并没有生成以日期命名的文章文件，怀疑是配置文件出了问题，对比两个配置文件都一样，最后发现 <em>node_modules</em> 文件夹问题，就是hexo的配置和安装问题，其他文件都推送到远程仓库，唯独没有推送这个文件夹，它保存有hexo的一些可执行文件。按照hexo安装教程在clone下来的代码仓重新安装一遍hexo，最后还是不行。使用<a href="http://winmerge.org/" target="_blank" rel="external">WinMerge</a>比较原电脑中和现在电脑中的两个node_modules文件的不同，发现hexo的很多二进制文件都不同。无语-<br> 当使用 <em>hexo init</em> 后，再把远程仓库的配置文件覆盖到本地电脑后，可以正常生成静态网页。肯定是 <em>hexo</em> 安装不完整缺少某些依赖项。<br> 所以，当在一台新电脑部署 <em>hexo</em> 的正确做法是安装好 <em>hexo</em> 之后需要 <em>hexo init</em> 一下，这样会安装依赖项，得到完整的 <em>node_modules</em>文件夹：<br>　　<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$npm</span> install hexo --<span class="keyword">save</span></div><div class="line"><span class="variable">$npm</span> install hexo-server  --<span class="keyword">save</span></div><div class="line"><span class="variable">$npm</span> install hexo-generator-<span class="keyword">search</span> --<span class="keyword">save</span></div><div class="line"><span class="variable">$npm</span> install hexo-deployer-git --<span class="keyword">save</span></div><div class="line"><span class="variable">$hexo</span> init <span class="comment">//</span></div></pre></td></tr></table></figure></p>
-<p> 初始化之后，保留node_modules文件夹，其它删除，之后获取远程仓库最新更新：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> remote add origin https:<span class="regexp">//gi</span>thub.com<span class="regexp">/yourusername/y</span>ourusername.github.io.git</div><div class="line"><span class="variable">$git</span> pull origin hexo</div></pre></td></tr></table></figure></p>
-<h1 id="bash-dev-tty-No-such-device-or-address-error-failed-to-execute-prompt-script-exit-code-1"><a href="#bash-dev-tty-No-such-device-or-address-error-failed-to-execute-prompt-script-exit-code-1" class="headerlink" title="bash: /dev/tty: No such device or address.error: failed to execute prompt script (exit code 1)"></a>bash: /dev/tty: No such device or address.error: failed to execute prompt script (exit code 1)</h1><p> 当部署自己的博客文件时：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$hexo</span> d</span></div></pre></td></tr></table></figure></p>
-<p> 出现以下错误：<br>　　<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">bash: /dev/tty: No such device or address</div><div class="line"><span class="keyword">error: </span>failed to execute prompt script (exit code 1)</div><div class="line">fatal: could not read Username for 'https://github.com': Invalid argument</div><div class="line">FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</div><div class="line"><span class="keyword">Error: </span>bash: /dev/tty: No such device or address</div><div class="line"><span class="keyword">error: </span>failed to execute prompt script (exit code 1)</div><div class="line">fatal: could not read Username for 'https://github.com': Invalid argument.</div></pre></td></tr></table></figure></p>
-<p> 出现该现象是 <em>windows</em> 环境下的<em>git bash shell</em>配置问题，当改用 <em>github for windows</em> 下的<em>git bash shell</em> 再次部署时问题解决。由于国内的网络问题，官网下载很难安装成功，这里附上一个CSDN上的大神的离线安装包地址<a href="http://download.csdn.net/user/devsplash" target="_blank" rel="external">GithubforWindows</a>。</p>
-<h1 id="Permission-denied-publickey"><a href="#Permission-denied-publickey" class="headerlink" title="Permission denied (publickey)."></a>Permission denied (publickey).</h1><p> 当部署博客文件时提示错误：<br>　　<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$hexo d</div><div class="line">The authenticity <span class="keyword">of</span> host <span class="symbol">'github.com</span> (<span class="number">192.30</span>.<span class="number">255.112</span>)' can<span class="symbol">'t</span> be established.</div><div class="line">Permission denied (publickey).</div></pre></td></tr></table></figure></p>
-<p> 本机没有配置SSH Key：<br> 　<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ssh-keygen -t rsa -C <span class="string">"your_email@youremail.com"</span></div></pre></td></tr></table></figure></p>
-<p> 将生成的SSH Key拷贝下来，粘贴到自己的github网站的new ssh key中即可。或者使用原来电脑的SSH Key。完成后查看配置是否成功：<br> 　<figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ssh -T git<span class="symbol">@github</span>.com</div></pre></td></tr></table></figure></p>
-<h1 id="Changes-not-staged-for-commit-Untracked-files"><a href="#Changes-not-staged-for-commit-Untracked-files" class="headerlink" title="Changes not staged for commit: Untracked files:"></a>Changes not staged for commit: Untracked files:</h1><p>当每次git commit提交更改时，总是提示以下错误：<br>　　<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$git <span class="keyword">commit</span> -m <span class="string">""</span></div><div class="line"><span class="keyword">On</span> branch hexo</div><div class="line">Changes <span class="keyword">not</span> staged <span class="keyword">for</span> <span class="keyword">commit</span>:</div><div class="line">      </div><div class="line">Untracked files:</div></pre></td></tr></table></figure></p>
-<p> 通过输入git status查看提示：<br>　　<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ git status</div><div class="line">On branch hexo</div><div class="line">Changes not staged for <span class="keyword">commit</span>:</div><div class="line"> (<span class="keyword">use</span> <span class="string">"git add &lt;file&gt;..."</span> <span class="keyword">to</span> <span class="keyword">update</span> what will be committed)</div><div class="line"> (<span class="keyword">use</span> <span class="string">"git checkout -- &lt;file&gt;..."</span> <span class="keyword">to</span> discard changes <span class="keyword">in</span> working <span class="keyword">directory</span>)</div><div class="line"></div><div class="line">       </div><div class="line">Untracked files:</div><div class="line"> (<span class="keyword">use</span> <span class="string">"git add &lt;file&gt;..."</span> <span class="keyword">to</span> <span class="keyword">include</span> <span class="keyword">in</span> what will be committed)</div><div class="line"></div><div class="line">       </div><div class="line"><span class="keyword">no</span> changes added <span class="keyword">to</span> <span class="keyword">commit</span> (<span class="keyword">use</span> <span class="string">"git add"</span> <span class="keyword">and</span>/<span class="keyword">or</span> <span class="string">"git commit -a"</span>)</div></pre></td></tr></table></figure></p>
-<p> <em>Changes not staged for commit</em> 说明 <em>git</em> 已经跟踪到这些文件的修改，但还没有放到暂存区，需要使用 <em>git add</em> 命令提交更新到暂存区。之后再通过 <em>git status</em> 查看状态：<br>　　<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$git status</div><div class="line"><span class="keyword">On</span> branch hexo</div><div class="line">Changes <span class="keyword">to</span> be committed:</div><div class="line"> (use <span class="string">"git reset HEAD &lt;file&gt;..."</span> <span class="keyword">to</span> unstage)</div></pre></td></tr></table></figure></p>
-<p> 状态已经变成了Changes to be committed。提示未被跟踪的文件Untracked files说明是新建立的文件，在git之前的提交中没有这些文件，git不会自动将它们纳入跟踪范围，必须手动添加这些文件。使用 <em>git add</em> 命令跟踪新文件：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> add <span class="string">"file"</span> <span class="regexp">//</span>添加未被跟踪的文件</div></pre></td></tr></table></figure></p>
-<p> 如果还有错误，直接清除缓存:<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">git rm -r --cached .</span></div><div class="line"><span class="meta">$</span><span class="bash">git add --all //跟踪所有文件</span></div><div class="line"><span class="meta">$</span><span class="bash">git commit -m <span class="string">"your commit"</span> //提交更新</span></div><div class="line"><span class="meta">$</span><span class="bash">git push origin <span class="string">"yourbranch"</span> //推送到远程分支yourbranch</span></div></pre></td></tr></table></figure></p>
+        <p>前段时间入手一块树莓派<a href="https://www.raspberrypi.org/" target="_blank" rel="external">raspberryPi</a>型号为3B。关于它的介绍这里就不多说了，可自行<a href="https://www.google.com" target="_blank" rel="external">google</a>。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装<a href="http://www.ros.org/" target="_blank" rel="external">ROS</a>，考虑到官方支持的稳定性，选用 <em>Raspbian</em> 平台镜像。因为<em>Raspbian</em> 是官方推荐的支持的操作系统，而<a href="http://wiki.ros.org/cn/indigo" target="_blank" rel="external">Ros-indigo</a>也刚好有基于该平台的安装包。</p>
+<h1 id="镜像安装"><a href="#镜像安装" class="headerlink" title="镜像安装"></a>镜像安装</h1><p>参考官网<a href="https://www.raspberrypi.org/documentation/installation/installing-images/" target="_blank" rel="external">Install-Images</a>。我安装的版本为<em>2017-03-02-raspbian-jessie.img</em><br><a id="more"></a></p>
+<h1 id="开启SSH和串口"><a href="#开启SSH和串口" class="headerlink" title="开启SSH和串口"></a>开启SSH和串口</h1><p>该版本默认不开启SSH以及串口功能，需要手动开启。树莓派板子需要连接显示器、键盘、鼠标。在终端中输入:<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> raspi-config</span></div></pre></td></tr></table></figure></p>
+<p>进行配置。树莓派默认的用户名为<em>pi</em>密码为<em>raspberry</em>。<br><img src="/2017/05/15/raspberryPi/config.jpg" alt=""><br>进入第5项开启SSH以及GPIO14 GPIO15对应的串口控制台功能。</p>
+<h1 id="开启VNC远程桌面"><a href="#开启VNC远程桌面" class="headerlink" title="开启VNC远程桌面"></a>开启VNC远程桌面</h1><p>同样在配置菜单的第5项开启:<img src="/2017/05/15/raspberryPi/portconfig.jpg" alt=""><br>在windows上安装<a href="https://www.realvnc.com/" target="_blank" rel="external">VNC Viewer</a>并且输入树莓派的IP地址就可以远程访问树莓派。<img src="/2017/05/15/raspberryPi/vnc.jpg" alt=""><br>如果不知道IP地址，可以使用工具<a href="http://www.eusing.com/ipscan/free_ip_scanner.htm" target="_blank" rel="external">freeIpScanner</a>获取IP地址。或者使用linux下的nmap命令,nmap命令说明：<br>　　<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span>/<span class="number">24</span> //扫描整个子网</div><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span>.x (x:<span class="number">0</span>-<span class="number">255</span>) //扫描单个主机</div><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span>.x <span class="number">192.168</span><span class="meta">.1</span>.y //扫描多个目标</div><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.100</span>-<span class="number">255</span> 扫描某个范围内的目标#<span class="built_in">ip</span>地址在<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.100</span>和<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.255</span>之间 </div><div class="line">$nmap <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span>/<span class="number">24</span> -exclude <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span> 扫描一个网段除了某个主机</div><div class="line">$nmap -p80,<span class="number">21</span>,<span class="number">23</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span> 扫描某个主机下的端口（<span class="number">80</span>端口 <span class="number">21</span>端口 <span class="number">23</span> 端口）</div></pre></td></tr></table></figure></p>
+<h1 id="手动配置wifi"><a href="#手动配置wifi" class="headerlink" title="手动配置wifi"></a>手动配置wifi</h1><p>命令行下启动 <em>wpa_cli</em> 参考 <a href="http://w1.fi/wpa_supplicant/" target="_blank" rel="external">WPA_supplicant</a>：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> wpa_cli</span></div></pre></td></tr></table></figure></p>
+<p><img src="/2017/05/15/raspberryPi/wpacli.jpg" alt=""><br>　 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">status <span class="string">//</span>列出目前的联网状态</div><div class="line">list_networks <span class="string">//</span>记住网络ID</div><div class="line"><span class="keyword">set</span>_network <span class="string">"ID"</span> key_mgmt WPA-PSK  <span class="string">//</span>设置无线网络加密方式</div><div class="line"><span class="keyword">set</span>_network <span class="string">"ID"</span> psk <span class="string">"yourpassword"</span>   <span class="string">//</span>设置密码</div><div class="line">enable_network <span class="string">"ID"</span>   <span class="string">//</span>使能该网络</div><div class="line">save_config <span class="string">//</span>保存配置</div></pre></td></tr></table></figure></p>
+<p>完成之后会在文件/etc/wpa_supplicant/wpa_supplicant.conf看到配置信息已经写入到文件,此时可以查看网络是否连接:<br>  　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$ifconfig</span></span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -486,7 +480,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/raspberryPi/" rel="tag"># raspberryPi</a>
           
         </div>
       
@@ -499,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/11/float-to-byte/" rel="next" title="浮点数与16进制的相互转换">
-                <i class="fa fa-chevron-left"></i> 浮点数与16进制的相互转换
+              <a href="/2017/05/13/hexo-error/" rel="next" title="hexo问题汇总">
+                <i class="fa fa-chevron-left"></i> hexo问题汇总
               </a>
             
           </div>
@@ -508,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/15/raspberryPi/" rel="prev" title="树莓派3B使用前的配置">
-                树莓派3B使用前的配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -739,7 +729,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unable-to-call-the-return-value-of-posts-“first”-“updated”-“toISOString”-which-is-undefined-or-falsey"><span class="nav-number">1.</span> <span class="nav-text">Unable to call the return value of (posts[“first”])[“updated”][“toISOString”], which is undefined or falsey</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WARN-No-layout-index-html"><span class="nav-number">2.</span> <span class="nav-text">WARN No layout: index.html?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fatal-AggregateException-encountered"><span class="nav-number">3.</span> <span class="nav-text">fatal: AggregateException encountered</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cannot-GET"><span class="nav-number">3.1.</span> <span class="nav-text">Cannot GET /</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bash-dev-tty-No-such-device-or-address-error-failed-to-execute-prompt-script-exit-code-1"><span class="nav-number">4.</span> <span class="nav-text">bash: /dev/tty: No such device or address.error: failed to execute prompt script (exit code 1)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Permission-denied-publickey"><span class="nav-number">5.</span> <span class="nav-text">Permission denied (publickey).</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Changes-not-staged-for-commit-Untracked-files"><span class="nav-number">6.</span> <span class="nav-text">Changes not staged for commit: Untracked files:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#镜像安装"><span class="nav-number">1.</span> <span class="nav-text">镜像安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启SSH和串口"><span class="nav-number">2.</span> <span class="nav-text">开启SSH和串口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启VNC远程桌面"><span class="nav-number">3.</span> <span class="nav-text">开启VNC远程桌面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#手动配置wifi"><span class="nav-number">4.</span> <span class="nav-text">手动配置wifi</span></a></li></ol></div>
             
 
           </div>
@@ -903,9 +893,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://stevenshi.me/2017/05/13/hexo-error/';
-          this.page.identifier = '2017/05/13/hexo-error/';
-          this.page.title = 'hexo问题汇总';
+          this.page.url = 'http://stevenshi.me/2017/05/15/raspberryPi/';
+          this.page.identifier = '2017/05/15/raspberryPi/';
+          this.page.title = '树莓派3B使用前的配置';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';
