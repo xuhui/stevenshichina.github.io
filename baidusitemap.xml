@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/15/ros-indigo-raspberry/</loc>
+    <lastmod>2017-05-15T08:12:20.396Z</lastmod>
+    <data>
+        <display>
+        <title>树莓派3b安装ROS-Indigo</title>
+        <pubTime>2017-05-15T03:24:49.000Z</pubTime>
+        
+        <tag>raspberryPi ros-indigo jessie</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/15/raspberryPi/</loc>
-    <lastmod>2017-05-15T03:15:49.303Z</lastmod>
+    <lastmod>2017-05-15T03:22:18.223Z</lastmod>
     <data>
         <display>
         <title>树莓派3B使用前的配置</title>
@@ -64,26 +84,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>Qt如何在指定位置显示控件</title>
-        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
-        
-        <tag>Qt</tag>
-         
-         
-           
-             
-              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -117,6 +117,26 @@
            
              
               <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>Qt如何在指定位置显示控件</title>
+        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
+        
+        <tag>Qt</tag>
+         
+         
+           
+             
+              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
           
         </display>
     </data>
