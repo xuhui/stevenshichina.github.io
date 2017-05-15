@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://stevenshi.me/2017/05/09/hexo-advance/</loc>
-    <lastmod>2017-05-12T07:19:22.328Z</lastmod>
+    <lastmod>2017-05-15T01:22:34.154Z</lastmod>
     <data>
         <display>
         <title>hexo进阶</title>
@@ -25,7 +25,7 @@
     
   <url>
     <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
-    <lastmod>2017-05-12T06:26:06.949Z</lastmod>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
         <title>hexo 博客备份</title>
@@ -44,8 +44,28 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/07/hexo-blog/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo+github建立个人博客</title>
+        <pubTime>2017-05-07T03:07:34.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
-    <lastmod>2017-05-11T07:55:58.209Z</lastmod>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
         <title>Qt如何在指定位置显示控件</title>
@@ -64,12 +84,12 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-blog/</loc>
-    <lastmod>2017-05-11T06:26:20.009Z</lastmod>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
-        <title>hexo+github建立个人博客</title>
-        <pubTime>2017-05-07T03:07:34.000Z</pubTime>
+        <title>hexo问题汇总</title>
+        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
         
         <tag>hexo</tag>
          
