@@ -16,7 +16,7 @@ comments: true
 　　```
 进行配置。树莓派默认的用户名为*pi*密码为*raspberry*。
 ![](raspberryPi/config.jpg)
-进入第5项开启SSH以及GPIO14 GPIO15对应的串口控制台功能。
+进入第5项开启SSH以及GPIO14 GPIO15对应的串口控制台功能。串口功能开启后就可以抛弃鼠标、键盘、显示器直接在控制台访问树莓派。
 # 开启VNC远程桌面
 同样在配置菜单的第5项开启:![](raspberryPi/portconfig.jpg)
 在windows上安装[VNC Viewer](https://www.realvnc.com/)并且输入树莓派的IP地址就可以远程访问树莓派。![](raspberryPi/vnc.jpg)

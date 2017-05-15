@@ -26,7 +26,7 @@
 {% endif %}
 <div>
 <span id="busuanzi_container_site_pv">
-    total visit <span id="busuanzi_value_site_pv"></span> times
+    Total Visit <span id="busuanzi_value_site_pv"></span> Times
 </span>
 
 </div>
