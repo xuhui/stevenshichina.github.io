@@ -223,7 +223,33 @@ NexT 使用[TomorrowTheme](https://github.com/chriskempson/tomorrow-theme)作为
 # Put your favicon.ico into `hexo-site/source/` directory.
 favicon: /favicon.ico
 　　```
+# 页面中插入图片
+图片的插入可以使用[MarkdownPad](http://markdownpad.com/ "markdown Editor for Windows")的语法：
+　　```
+ ![图片名称](图片地址)
+　　```
+图片可以放在本地，也可以放在云端。建议放在云端，因为github的空间有限，云端可以使用[七牛云存储](https://www.qiniu.com/)。
+本地图片的插入有两种方法，早期的[hexo](https://hexo.io/zh-cn/docs/ "hexo说明")需要将图片放在网站根目录下的*source/*文件夹中比如*source/images/*文件夹，将图片放到该处，即可在页面中引用：
+　　```
+ ![test](source/images/test.jgp)
+　　```
+[hexo](https://hexo.io/zh-cn/docs/ "hexo说明")2.0之后，引入新方法，参考[CodeFalling/hexo-asset-image](https://github.com/CodeFalling/hexo-asset-image)
+安装插件：
+　　```
+ $npm install hexo-asset-image --save
+　　```
+ 修改配置文件中的 *post_asset_folder:* 为 *true* ，这样新建文章时，会在 *_post* 目录下生成同名的文件夹，页面需要的各种图片都可以放到此处。比如：
+　　```
+ my-Publish
+ ├── my.jpg
+ ├── logo.jpg
+ └── test.jpg
+ my-Publish.md
+　　```
+新建名为 *my-Publish* 的新文章，文章需要的图片都放到该文件夹中。引用:
+　　```
+ ![xx](my-Publish/my.jpg)
+　　```
+即可插入图片，*xx*可以随意。
 
- 
- 
  
