@@ -6,12 +6,12 @@ tags: ROS serial
 comments: true
 ---
 # 前言
-移植[ROS](http://www.ros.org/)的目的是控制机器人移动或者控制飞行器按既定轨道飞行，那么如何实现[ROS](http://www.ros.org/)与底层的移动控制设备通信呢？底层设备一般都是ARM架构实现，资源有限，不可能跑个ubuntu，当然也可以移植[ROS](http://www.ros.org/)的框架，但这个要对底层设备进行[ROS](http://www.ros.org/)框架的封装，实现起来麻烦一些。普遍来讲，底层设备一般都具备串口，通过串口与底层设备相连，也许是一种方便高效的方法。
+移植 [ROS](http://www.ros.org/) 的目的是控制机器人移动或者控制飞行器按既定轨道飞行，那么如何实现 [ROS](http://www.ros.org/) 与底层的移动控制设备通信呢？底层设备一般都是ARM架构实现，资源有限，不可能跑个ubuntu，当然也可以移植 [ROS](http://www.ros.org/) 的框架，但这个要对底层设备进行 [ROS](http://www.ros.org/) 框架的封装，实现起来麻烦一些。普遍来讲，底层设备一般都具备串口，通过串口与底层设备通讯，也许是一种高效便捷的方法。
 <!--more-->
 # 架构
-在[ROS](http://www.ros.org/)平台下，设计一个串口节点，该节订阅talker控制节点发来的命令主题，将命令通过串口设备发送到移动底座；同时串口节点实时接收移动底座通过串口发送过来的传感器实时数据，并将该数据封装后以sensor主题的模式进行发布，listenner节点可以实现订阅该主题。这样就实现了ROS与移动底座的串口通信过程。![](ros-serial/arch.jpg)
+在 [ROS](http://www.ros.org/) 平台下，设计一个串口节点，该节点订阅talker控制节点发来的命令主题，将命令通过串口设备发送到移动底座也可以是飞控设备；同时串口节点实时接收移动底座通过串口发送过来的传感器实时数据，并将该数据封装后以 *sensor* 主题的模式进行发布， *listenner* 节点可以实现订阅该主题。这样就实现了 [ROS](http://www.ros.org/) 与移动底座的串口通信过程。![](ros-serial/arch.jpg)
 # 串口节点
-linux下的串口有很多现成的例子实现，比如[libcssl](https://github.com/mwheels/libcssl),当然也可以自己编程实现。对于[ROS](http://www.ros.org/)架构的串口也有现成的例子[serial](http://wiki.ros.org/serial),源代码[serial code](https://github.com/wjwwood/serial.git)。也有基于[stm32](https://github.com/bosch-ros-pkg/stm32)的[ROS](http://www.ros.org/)代码框架。避免重复造轮子，这里使用[ROS](http://www.ros.org/)现有的串口源码。
+*linux* 下的串口有很多现成的实现例子，比如 [libcssl](https://github.com/mwheels/libcssl) ,当然也可以自己编程实现。对于 [ROS](http://www.ros.org/) 架构的串口也有现成的例子 [serial](http://wiki.ros.org/serial) ,源代码 [serial code](https://github.com/wjwwood/serial.git) 。也有基于 [stm32](https://github.com/bosch-ros-pkg/stm32) 的 [ROS](http://www.ros.org/) 代码框架。避免重复造轮子，这里使用 [ROS](http://www.ros.org/) 现有的串口源码。
 ## 建立工作目录
 　　```
  $mkdir -p ~/catkin_ws/src/mypackage/
@@ -22,11 +22,11 @@ linux下的串口有很多现成的例子实现，比如[libcssl](https://github
  $git clone https://github.com/wjwwood/serial.git
 　　```
 ## 建立串口节点
-　　在mypackage目录下建立自己的节点程序包：
+　　在 *mypackage* 目录下建立自己的节点程序包：
 　　```
  $catkin_create_pkg my_serial_node std_msgs rospy roscpp
 　　```
-此时会在mypackage/my_serial_node目录下生成两个文件 *CMakeLists.txt* 和 *package.xml* 以及两个文件夹 *include/* 和 *src/*。修改 *CMakeLists.txt* 的内容：
+此时会在 *mypackage/my_serial_node *目录下生成两个文件 *CMakeLists.txt* 和 *package.xml* 以及两个文件夹 *include/* 和 *src/*。修改 *CMakeLists.txt* 的内容：
 　　```
  cmake_minimum_required(VERSION 2.8.3)
  project( my_serial_node )
@@ -54,7 +54,7 @@ linux下的串口有很多现成的例子实现，比如[libcssl](https://github
   )
 
 　　```
-修改package.xml内容添加刚刚下载的serial依赖：
+修改 *package.xml* 内容添加刚刚下载的 *serial* 依赖：
 　　```
  <?xml version="1.0"?>
    <package>
@@ -194,7 +194,7 @@ int main(int argc, char **argv)
  $cd ~/catkin_ws/
  $catkin_make
 　　```
-测试时将底层设备通过串口和运行[ROS](http://www.ros.org/)系统设备的串口连接，并写好底层设备的串口服务程序。在[ROS](http://www.ros.org/)平台上开三个终端运行三个节点：
+测试时将底层设备通过串口与运行 [ROS](http://www.ros.org/) 系统设备的串口连接，并写好底层设备的串口驱动程序。在 [ROS](http://www.ros.org/) 平台上开三个终端运行三个节点：
 　　```
  $roscore //必须先运行
  $rosrun my_serial_node my_serial_node
