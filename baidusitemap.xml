@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <lastmod>2017-05-17T08:10:39.277Z</lastmod>
+    <data>
+        <display>
+        <title>linux串口数据不连续问题</title>
+        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
+        
+        <tag>linux serial</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/17/ros-serial/</loc>
-    <lastmod>2017-05-17T05:29:51.177Z</lastmod>
+    <lastmod>2017-05-17T05:52:53.457Z</lastmod>
     <data>
         <display>
         <title>ROS串口通信</title>

@@ -101,7 +101,7 @@
 <meta property="og:description" content="前言移植 ROS 的目的是控制机器人移动或者控制飞行器按既定轨道飞行，那么如何实现 ROS 与底层的移动控制设备通信呢？底层设备一般都是ARM架构实现，资源有限，不可能跑个ubuntu，当然也可以移植 ROS 的框架，但这个要对底层设备进行 ROS 框架的封装，实现起来麻烦一些。普遍来讲，底层设备一般都具备串口，通过串口与底层设备通讯，也许是一种高效便捷的方法。">
 <meta property="og:image" content="http://stevenshi.me/2017/05/17/ros-serial/arch.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/17/ros-serial/serial.jpg">
-<meta property="og:updated_time" content="2017-05-17T05:29:51.177Z">
+<meta property="og:updated_time" content="2017-05-17T05:52:53.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS串口通信">
 <meta name="twitter:description" content="前言移植 ROS 的目的是控制机器人移动或者控制飞行器按既定轨道飞行，那么如何实现 ROS 与底层的移动控制设备通信呢？底层设备一般都是ARM架构实现，资源有限，不可能跑个ubuntu，当然也可以移植 ROS 的框架，但这个要对底层设备进行 ROS 框架的封装，实现起来麻烦一些。普遍来讲，底层设备一般都具备串口，通过串口与底层设备通讯，也许是一种高效便捷的方法。">
@@ -422,7 +422,7 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>移植 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 的目的是控制机器人移动或者控制飞行器按既定轨道飞行，那么如何实现 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 与底层的移动控制设备通信呢？底层设备一般都是ARM架构实现，资源有限，不可能跑个ubuntu，当然也可以移植 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 的框架，但这个要对底层设备进行 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 框架的封装，实现起来麻烦一些。普遍来讲，底层设备一般都具备串口，通过串口与底层设备通讯，也许是一种高效便捷的方法。<br><a id="more"></a></p>
 <h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p>在 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 平台下，设计一个串口节点，该节点订阅talker控制节点发来的命令主题，将命令通过串口设备发送到移动底座也可以是飞控设备；同时串口节点实时接收移动底座通过串口发送过来的传感器实时数据，并将该数据封装后以 <em>sensor</em> 主题的模式进行发布， <em>listenner</em> 节点可以实现订阅该主题。这样就实现了 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 与移动底座的串口通信过程。<img src="/2017/05/17/ros-serial/arch.jpg" alt=""></p>
-<h1 id="串口节点"><a href="#串口节点" class="headerlink" title="串口节点"></a>串口节点</h1><p><em>linux</em> 下的串口有很多现成的实现例子，比如 <a href="https://github.com/mwheels/libcssl" target="_blank" rel="external">libcssl</a> ,当然也可以自己编程实现。对于 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 架构的串口也有现成的例子 <a href="http://wiki.ros.org/serial" target="_blank" rel="external">serial</a> ,源代码 <a href="https://github.com/wjwwood/serial.git" target="_blank" rel="external">serial code</a> 。也有基于 <a href="https://github.com/bosch-ros-pkg/stm32" target="_blank" rel="external">stm32</a> 的 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 代码框架。避免重复造轮子，这里使用 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 现有的串口源码。</p>
+<h1 id="串口节点"><a href="#串口节点" class="headerlink" title="串口节点"></a>串口节点</h1><p><em>linux</em> 下的串口有很多现成的实现例子，比如 <a href="https://github.com/mwheels/libcssl" target="_blank" rel="external">libcssl</a> ,当然也可以自己编程实现。对于 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 架构的串口也有现成的例子 <a href="http://wiki.ros.org/serial" target="_blank" rel="external">serial</a> ,源代码 <a href="https://github.com/wjwwood/serial.git" target="_blank" rel="external">serial code</a> 。也有基于 <a href="https://github.com/spiralray/stm32f1_rosserial" target="_blank" rel="external">stm32</a> 的 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 串口代码框架。也可以参考 <a href="https://github.com/openrobots-dev/uROSnode" target="_blank" rel="external">uROSnode</a> 避免重复造轮子，这里使用 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 现有的串口源码。</p>
 <h2 id="建立工作目录"><a href="#建立工作目录" class="headerlink" title="建立工作目录"></a>建立工作目录</h2><p>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$mkdir</span> -p ~<span class="regexp">/catkin_ws/</span>src<span class="regexp">/mypackage/</span></div></pre></td></tr></table></figure></p>
 <h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><p>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> ~<span class="regexp">/catkin_ws/</span>src<span class="regexp">/mypackage/</span></div><div class="line"><span class="variable">$git</span> clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/wjwwood/</span>serial.git</div></pre></td></tr></table></figure></p>
 <h2 id="建立串口节点"><a href="#建立串口节点" class="headerlink" title="建立串口节点"></a>建立串口节点</h2><p>　　在 <em>mypackage</em> 目录下建立自己的节点程序包：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$catkin</span>_create_pkg my_serial_node std_msgs rospy roscpp</span></div></pre></td></tr></table></figure></p>
@@ -507,6 +507,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/17/linux-serial/" rel="prev" title="linux串口数据不连续问题">
+                linux串口数据不连续问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -623,7 +627,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -645,7 +649,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
