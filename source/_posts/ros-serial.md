@@ -11,7 +11,7 @@ comments: true
 # 架构
 在 [ROS](http://www.ros.org/) 平台下，设计一个串口节点，该节点订阅talker控制节点发来的命令主题，将命令通过串口设备发送到移动底座也可以是飞控设备；同时串口节点实时接收移动底座通过串口发送过来的传感器实时数据，并将该数据封装后以 *sensor* 主题的模式进行发布， *listenner* 节点可以实现订阅该主题。这样就实现了 [ROS](http://www.ros.org/) 与移动底座的串口通信过程。![](ros-serial/arch.jpg)
 # 串口节点
-*linux* 下的串口有很多现成的实现例子，比如 [libcssl](https://github.com/mwheels/libcssl) ,当然也可以自己编程实现。对于 [ROS](http://www.ros.org/) 架构的串口也有现成的例子 [serial](http://wiki.ros.org/serial) ,源代码 [serial code](https://github.com/wjwwood/serial.git) 。也有基于 [stm32](https://github.com/bosch-ros-pkg/stm32) 的 [ROS](http://www.ros.org/) 代码框架。避免重复造轮子，这里使用 [ROS](http://www.ros.org/) 现有的串口源码。
+*linux* 下的串口有很多现成的实现例子，比如 [libcssl](https://github.com/mwheels/libcssl) ,当然也可以自己编程实现。对于 [ROS](http://www.ros.org/) 架构的串口也有现成的例子 [serial](http://wiki.ros.org/serial) ,源代码 [serial code](https://github.com/wjwwood/serial.git) 。也有基于 [stm32](https://github.com/spiralray/stm32f1_rosserial) 的 [ROS](http://www.ros.org/) 串口代码框架。也可以参考 [uROSnode](https://github.com/openrobots-dev/uROSnode) 避免重复造轮子，这里使用 [ROS](http://www.ros.org/) 现有的串口源码。
 ## 建立工作目录
 　　```
  $mkdir -p ~/catkin_ws/src/mypackage/
