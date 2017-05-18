@@ -3,9 +3,10 @@
 
 
     
+    
   <url>
     <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
-    <lastmod>2017-05-17T08:10:39.277Z</lastmod>
+    <lastmod>2017-05-17T08:36:41.302Z</lastmod>
     <data>
         <display>
         <title>linux串口数据不连续问题</title>
@@ -42,7 +43,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://stevenshi.me/2017/05/15/ros-indigo-raspberry/</loc>
@@ -105,26 +105,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>Qt如何在指定位置显示控件</title>
-        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
-        
-        <tag>Qt</tag>
-         
-         
-           
-             
-              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -178,6 +158,26 @@
            
              
               <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>Qt如何在指定位置显示控件</title>
+        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
+        
+        <tag>Qt</tag>
+         
+         
+           
+             
+              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
           
         </display>
     </data>
