@@ -3,10 +3,9 @@
 
 
     
-    
   <url>
     <loc>http://stevenshi.me/2017/05/18/vim/</loc>
-    <lastmod>2017-05-19T07:27:18.776Z</lastmod>
+    <lastmod>2017-05-19T09:11:08.072Z</lastmod>
     <data>
         <display>
         <title>如何让Vim变的爱不释手</title>
@@ -25,24 +24,45 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
-    <lastmod>2017-05-17T08:36:41.302Z</lastmod>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
         <display>
-        <title>linux串口数据不连续问题</title>
-        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
+        <title>浮点数与16进制的相互转换</title>
+        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
         
-        <tag>linux serial</tag>
+        <tag>Linux</tag>
          
          
            
              
-              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
           
         </display>
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <lastmod>2017-05-19T09:11:08.071Z</lastmod>
+    <data>
+        <display>
+        <title>linux串口数据不连续问题</title>
+        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
+        
+        <tag>Linux serial</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://stevenshi.me/2017/05/17/ros-serial/</loc>
@@ -125,19 +145,19 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-blog/</loc>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
-        <title>hexo+github建立个人博客</title>
-        <pubTime>2017-05-07T03:07:34.000Z</pubTime>
+        <title>Qt如何在指定位置显示控件</title>
+        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>Qt</tag>
          
          
            
              
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
           
         </display>
     </data>
@@ -185,39 +205,19 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <loc>http://stevenshi.me/2017/05/07/hexo-blog/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
-        <title>Qt如何在指定位置显示控件</title>
-        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
+        <title>hexo+github建立个人博客</title>
+        <pubTime>2017-05-07T03:07:34.000Z</pubTime>
         
-        <tag>Qt</tag>
+        <tag>hexo</tag>
          
          
            
              
-              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
-    <lastmod>2017-05-11T06:23:22.609Z</lastmod>
-    <data>
-        <display>
-        <title>浮点数与16进制的相互转换</title>
-        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
           
         </display>
     </data>

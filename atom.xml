@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stevenshi.me/"/>
-  <updated>2017-05-19T07:27:18.776Z</updated>
+  <updated>2017-05-19T09:11:08.072Z</updated>
   <id>http://stevenshi.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://stevenshi.me/2017/05/18/vim/"/>
     <id>http://stevenshi.me/2017/05/18/vim/</id>
     <published>2017-05-18T01:02:06.000Z</published>
-    <updated>2017-05-19T07:27:18.776Z</updated>
+    <updated>2017-05-19T09:11:08.072Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><em>linux</em> 下有很多好用的 IDE，比如常见的 <a href="https://eclipse.org/" target="_blank" rel="external">Eclipse</a>、<a href="http://bluefish.openoffice.nl/index.html" target="_blank" rel="external">Bluefish</a>、<a href="https://netbeans.org/" target="_blank" rel="external">NetBeans</a> 等等，功能很多，有些功能我们不一定用得上,天天面对 <em>terminal</em> 敲命令的我们天生不喜欢鼠标。<em>linux</em> 下的文本编辑器使用最多的还是 <a href="http://www.vim.org/" target="_blank" rel="external">Vim</a> 。可不可以将 <a href="http://www.vim.org/" target="_blank" rel="external">Vim</a> 打造成一个好用的 IDE 来替代或者部分替代这些高大上的 IDE 呢? -程序猿天生喜欢折腾。话不多说先上图：<img src="/2017/05/18/vim/ycm.gif" alt=""><br><a id="more"></a></p>
 <h1 id="vim-插件管理"><a href="#vim-插件管理" class="headerlink" title="vim 插件管理"></a>vim 插件管理</h1><p>首先安装 <a href="https://github.com/vim/vim.git" target="_blank" rel="external">Vim</a>, 确保版本在 7.4 以上。可以源码安装 <a href="https://github.com/vim/vim.git" target="_blank" rel="external">Vim</a> 也可以自动安装：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get install vim</span></div></pre></td></tr></table></figure></p>
@@ -90,7 +90,7 @@
     <link href="http://stevenshi.me/2017/05/17/linux-serial/"/>
     <id>http://stevenshi.me/2017/05/17/linux-serial/</id>
     <published>2017-05-17T06:51:26.000Z</published>
-    <updated>2017-05-17T08:36:41.302Z</updated>
+    <updated>2017-05-19T09:11:08.071Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><em>linux</em> 下编写串口应用程序，无论是中断模式，还是 <em>select/poll</em> 模式，每次接收到的数据不一定是自己希望得到的数据。比如数据帧长度为40，有可能先接收到18个字节，接着接收到了12个字节，最后接收到了10个字节。不管怎么折腾，一帧数据总是不能一次接收完全。查阅相关资料，貌似是串口芯片缓存所致。串口芯片缓存满或着超时时间到都会触发读或写中断，这个说法是否真的如此，暂且不管，能不能用一种机制保证一次读到的是一帧数据呢？只有自己编写协议，先把数据分多次接收过来满足一个有效的帧长度之后，再进行处理。<br><a id="more"></a></p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>关于 <em>linux</em> 串口编程有很多参考例子：<a href="http://www.faqs.org/docs/Linux-HOWTO/Serial-Programming-HOWTO.html" target="_blank" rel="external">serial-how-to</a> <a href="http://digilander.libero.it/robang/rubrica/serial.htm" target="_blank" rel="external">serial-Programming-Guide-For-POSIX-OS</a>。其他读者可自行 <a href="www.google.com">google</a>。为避免重复造轮子，本次采用 <a href="https://github.com/mwheels/libcssl" target="_blank" rel="external">libcssl</a>,也可以从 <a href="https://sourceforge.net/projects/cssl/" target="_blank" rel="external">sourceforge</a> 下载它是基于事件驱动的异步串口驱动库，用该库测试时，即出现上面的现象，一帧数据总是分多次接收。为了避免该现象，修改代码如下：<br>　　<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">static void callback(<span class="keyword">int</span> id,</div><div class="line">              uint8_t *buf,</div><div class="line">              <span class="keyword">int</span> <span class="keyword">length</span>)</div><div class="line"> &#123;</div><div class="line">     <span class="keyword">int</span> i;</div><div class="line">     <span class="regexp">//printf</span>(<span class="string">"length:%d\n"</span>,<span class="keyword">length</span>);</div><div class="line">     <span class="regexp">//printf</span>(<span class="string">"length:%d\n"</span>,<span class="keyword">length</span>);</div><div class="line">     <span class="regexp">//</span>如果数据帧不是一次接收到的</div><div class="line">     //则进行下面的处理，数据包的长度为FRAMELENGTH</div><div class="line">     <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="keyword">length</span>;i++) &#123;</div><div class="line">         data[i+<span class="keyword">pos</span>] = buf[i];</div><div class="line">         <span class="regexp">//printf</span>(<span class="string">"0x%02x "</span>,buf[i]);</div><div class="line">     &#125;</div><div class="line">     //记录位置</div><div class="line">     <span class="keyword">pos</span> += <span class="keyword">length</span>;</div><div class="line">     <span class="regexp">//</span>收到既定的一帧</div><div class="line">     <span class="keyword">if</span>(<span class="keyword">pos</span> &gt;= FRAMELENGTH)&#123;</div><div class="line">         <span class="keyword">pos</span> = <span class="number">0</span>;</div><div class="line">         data_already = <span class="number">1</span>;</div><div class="line">     &#125;</div><div class="line">     //进行处理</div><div class="line">     <span class="keyword">if</span>(data_already == <span class="number">1</span>)&#123;<span class="regexp">//</span></div><div class="line"></div><div class="line">         <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;FRAMELENGTH;i++)</div><div class="line">             <span class="keyword">printf</span>(<span class="string">"0x%02x "</span>,data[i]);</div><div class="line">         memset(data,<span class="number">0</span>,FRAMELENGTH);</div><div class="line">         data_already = <span class="number">0</span> ;<span class="regexp">//</span>数据包准备好信号置零</div><div class="line">         <span class="keyword">printf</span>(<span class="string">"\n"</span>);</div><div class="line">     &#125;</div><div class="line"></div><div class="line"></div><div class="line">     //<span class="keyword">printf</span>(<span class="string">"\n"</span>);</div><div class="line">     <span class="regexp">//fflush</span>(stdout);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
@@ -103,10 +103,10 @@
     
     </summary>
     
-      <category term="linux" scheme="http://stevenshi.me/categories/linux/"/>
+      <category term="Linux" scheme="http://stevenshi.me/categories/Linux/"/>
     
     
-      <category term="linux serial" scheme="http://stevenshi.me/tags/linux-serial/"/>
+      <category term="Linux serial" scheme="http://stevenshi.me/tags/Linux-serial/"/>
     
   </entry>
   
@@ -287,7 +287,7 @@
     <link href="http://stevenshi.me/2017/05/11/float-to-byte/"/>
     <id>http://stevenshi.me/2017/05/11/float-to-byte/</id>
     <published>2017-05-11T05:35:03.000Z</published>
-    <updated>2017-05-11T06:23:22.609Z</updated>
+    <updated>2017-05-19T09:11:08.071Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> 在嵌入式中经常会遇到浮点数的传输问题，一般将浮点数转换成4字节的16进制传输，这里的浮点数仅限于单精度浮点。大多数人的做法都是使用指针实现强制类型转换，其实浮点数在CPU里就是以4字节存储，既然在同一块内存，那我们能不能使用联合体呢？答案是肯定的。除了强制类型转换，这里介绍使用联合体实现浮点和16进制的转换，简单易用，你绝对会爱上这种方法。<br><a id="more"></a></p>
 <h1 id="强制转换法"><a href="#强制转换法" class="headerlink" title="强制转换法"></a>强制转换法</h1><p> 浮点转换成4字节16进制:<br>　　<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">float2bytes</span><span class="params">(<span class="keyword">float</span> p,<span class="keyword">unsigned</span> <span class="keyword">char</span> *bytes)</span></span></div><div class="line">&#123;</div><div class="line"> <span class="keyword">unsigned</span> <span class="keyword">char</span> *pchar = (<span class="keyword">unsigned</span> <span class="keyword">char</span>*)&amp;p;</div><div class="line"> <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i &lt; <span class="keyword">sizeof</span>(<span class="keyword">float</span>);i++)</div><div class="line"> &#123;</div><div class="line">   *bytes = *pchar;</div><div class="line">   pchar++;</div><div class="line">   bytes++;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -305,10 +305,10 @@
     
     </summary>
     
-      <category term="linux" scheme="http://stevenshi.me/categories/linux/"/>
+      <category term="Linux" scheme="http://stevenshi.me/categories/Linux/"/>
     
     
-      <category term="linux" scheme="http://stevenshi.me/tags/linux/"/>
+      <category term="Linux" scheme="http://stevenshi.me/tags/Linux/"/>
     
   </entry>
   
