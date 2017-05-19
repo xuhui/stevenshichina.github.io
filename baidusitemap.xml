@@ -125,46 +125,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo 博客备份</title>
-        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo问题汇总</title>
-        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -185,12 +145,52 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo 博客备份</title>
+        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/07/hexo-blog/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
         <title>hexo+github建立个人博客</title>
         <pubTime>2017-05-07T03:07:34.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo问题汇总</title>
+        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
         
         <tag>hexo</tag>
          
