@@ -6,7 +6,7 @@ tags: Vim
 comments: true
 ---
 # 前言
-*linux* 下有很多好用的 IDE，比如常见的 [Eclipse](https://eclipse.org/)、[Bluefish](http://bluefish.openoffice.nl/index.html)、[NetBeans](https://netbeans.org/) 等等，功能很多，有些功能我们不一定用得上,天天面对 *terminal* 敲命令的我们天生不喜欢鼠标。*linux* 下的文本编辑器使用最多的还是 [Vim](http://www.vim.org/) 。可不可以将 [Vim](http://www.vim.org/) 打造成一个好用的 IDE 来替代或者部分替代这些高大上的 IDE 呢? -程序猿天生喜欢折腾。
+*linux* 下有很多好用的 IDE，比如常见的 [Eclipse](https://eclipse.org/)、[Bluefish](http://bluefish.openoffice.nl/index.html)、[NetBeans](https://netbeans.org/) 等等，功能很多，有些功能我们不一定用得上,天天面对 *terminal* 敲命令的我们天生不喜欢鼠标。*linux* 下的文本编辑器使用最多的还是 [Vim](http://www.vim.org/) 。可不可以将 [Vim](http://www.vim.org/) 打造成一个好用的 IDE 来替代或者部分替代这些高大上的 IDE 呢? -程序猿天生喜欢折腾。话不多说先上图：![](vim/ycm.gif)
 <!--more-->
 # vim 插件管理
 首先安装 [Vim](https://github.com/vim/vim.git), 确保版本在 7.4 以上。可以源码安装 [Vim](https://github.com/vim/vim.git) 也可以自动安装：
@@ -147,7 +147,6 @@ $./install.py --clang-completer --system-libclang
  let g:ycm_error_symbol = '>>' "错误提示符
  let g:ycm_warning_symbol = '>*' "警告提示符
 　　```
-本打算做一张动态效果图，先上一张官方的效果图，抽空再自己做一张![](vim/ycm.gif)
 ## 32位系统安装
 由于我使用的是ubuntu14.04 32bit系统，所以有很多软件需要手动编译，在这里将遇到的问题悉数总结一下，有和我同样配置的小伙伴可以参考。32位系统没有合适的 *clang* 和 *vim*发行包，需要手动编译安装。
 ### Cmake 安装
