@@ -215,7 +215,7 @@
     <link href="http://stevenshi.me/2017/05/15/raspberryPi/"/>
     <id>http://stevenshi.me/2017/05/15/raspberryPi/</id>
     <published>2017-05-15T01:32:02.000Z</published>
-    <updated>2017-05-15T03:22:18.223Z</updated>
+    <updated>2017-05-19T09:13:51.480Z</updated>
     
     <content type="html"><![CDATA[<p>前段时间入手一块树莓派<a href="https://www.raspberrypi.org/" target="_blank" rel="external">raspberryPi</a>型号为3B。关于它的介绍这里就不多说了，可自行<a href="https://www.google.com" target="_blank" rel="external">google</a>。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装<a href="http://www.ros.org/" target="_blank" rel="external">ROS</a>，考虑到官方支持的稳定性，选用 <em>Raspbian</em> 平台镜像。因为<em>Raspbian</em> 是官方推荐的支持的操作系统，而<a href="http://wiki.ros.org/cn/indigo" target="_blank" rel="external">Ros-indigo</a>也刚好有基于该平台的安装包。</p>
 <h1 id="镜像安装"><a href="#镜像安装" class="headerlink" title="镜像安装"></a>镜像安装</h1><p>参考官网<a href="https://www.raspberrypi.org/documentation/installation/installing-images/" target="_blank" rel="external">Install-Images</a>。我安装的版本为<em>2017-03-02-raspbian-jessie.img</em><br><a id="more"></a></p>
@@ -234,7 +234,7 @@
     
     </summary>
     
-      <category term="linux" scheme="http://stevenshi.me/categories/linux/"/>
+      <category term="Linux" scheme="http://stevenshi.me/categories/Linux/"/>
     
     
       <category term="raspberryPi" scheme="http://stevenshi.me/tags/raspberryPi/"/>
