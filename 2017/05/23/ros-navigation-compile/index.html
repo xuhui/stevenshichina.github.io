@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="前言计划在树莓派上仿真一下ROS 的导航功能，需要安装 navigation包，结果编译 navigation包 时提示错误：　　123456– package ‘orocos-bfl’ not found CMake Error at /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake:283 (message): A required packag">
 <meta property="og:image" content="http://stevenshi.me/2017/05/23/ros-navigation-compile/ltierror.jpg">
-<meta property="og:updated_time" content="2017-05-23T06:59:12.699Z">
+<meta property="og:updated_time" content="2017-05-23T23:50:31.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝叶斯滤波库在树莓派上的移植">
 <meta name="twitter:description" content="前言计划在树莓派上仿真一下ROS 的导航功能，需要安装 navigation包，结果编译 navigation包 时提示错误：　　123456– package ‘orocos-bfl’ not found CMake Error at /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake:283 (message): A required packag">
@@ -453,7 +453,7 @@
 <p>系统不存在此文件需要安装：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get install libv4l-dev</span></div></pre></td></tr></table></figure></p>
 <p>指向：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> ln -s <span class="regexp">/usr/i</span>nclude<span class="regexp">/libv4l1-videodev.h /u</span>sr<span class="regexp">/include/</span>linux<span class="regexp">/videodev.h</span></div></pre></td></tr></table></figure></p>
 <h2 id="pwc-ioctl-h-No-such-file-or-directory"><a href="#pwc-ioctl-h-No-such-file-or-directory" class="headerlink" title="pwc-ioctl.h: No such file or directory"></a>pwc-ioctl.h: No such file or directory</h2><p>lit库make 后的错误：<br>　　<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> ..<span class="regexp">/src/</span>io/ltiToUCam.<span class="string">cpp:</span><span class="number">58</span>:<span class="number">23</span>: fatal <span class="string">error:</span> pwc-ioctl.<span class="string">h:</span> No such file or directory</div><div class="line">compilation terminated.</div></pre></td></tr></table></figure></p>
-<p>系统提示不存在文件 <a href="https://saillard.org/linux/pwc/" target="_blank" rel="external">pwc-ioctl.h</a> 这个文件应该是webcamera的驱动文件,下载地址: <a href="https://saillard.org/linux/pwc/files/pwc-10.0.11.tar.bz2" target="_blank" rel="external">https://saillard.org/linux/pwc/files/pwc-10.0.11.tar.bz2</a><br>下载完后，解压并找到 <em>pwc-ioctl.h</em> 文件，拷贝 <em>lti</em> 源代码 的 <em>/src/io/</em> 目录下。</p>
+<p>系统提示不存在文件 <a href="https://saillard.org/linux/pwc/" target="_blank" rel="external">pwc-ioctl.h</a> 这个文件应该是webcamera的驱动文件,下载地址: <a href="https://saillard.org/linux/pwc/files/pwc-10.0.11.tar.bz2" target="_blank" rel="external">https://saillard.org/linux/pwc/files/pwc-10.0.11.tar.bz2</a><br>下载完后，解压并找到 <em>pwc-ioctl.h</em> 文件，拷贝到 <em>lti</em> 源代码 的 <em>/src/io/</em> 目录下。</p>
 
       
     </div>
