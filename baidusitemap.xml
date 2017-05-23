@@ -6,7 +6,7 @@
     
   <url>
     <loc>http://stevenshi.me/2017/05/22/ros-communication/</loc>
-    <lastmod>2017-05-23T00:14:33.367Z</lastmod>
+    <lastmod>2017-05-23T00:23:33.109Z</lastmod>
     <data>
         <display>
         <title>ROS多机通信</title>
@@ -185,6 +185,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo问题汇总</title>
+        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -211,26 +231,6 @@
         <display>
         <title>hexo+github建立个人博客</title>
         <pubTime>2017-05-07T03:07:34.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo问题汇总</title>
-        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
         
         <tag>hexo</tag>
          
