@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stevenshi.me/"/>
-  <updated>2017-05-19T09:11:08.072Z</updated>
+  <updated>2017-05-23T00:14:33.367Z</updated>
   <id>http://stevenshi.me/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ROS多机通信</title>
+    <link href="http://stevenshi.me/2017/05/22/ros-communication/"/>
+    <id>http://stevenshi.me/2017/05/22/ros-communication/</id>
+    <published>2017-05-22T12:43:31.000Z</published>
+    <updated>2017-05-23T00:14:33.367Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>ROS移动平台使用的是树莓派3B，资源有限，只能运行一些低级任务，又不具备显示器，想实时的看到ROS的运行情况只能依靠远程登录的方式。可以让PC负责运行界面，树莓派负责底层的传感器数据采集，比如激光雷达的数据采集，通过网络传给PC，PC上运行界面程序，将树莓派传过来的数据进行处理，并生成地图。要实现类似功能，需要进行多个运行ROS的设备间的通讯。<br><a id="more"></a></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>首先保证 <em>raspberryPi</em> 与 <em>PC</em>在一个局域网内，并获取各自的 <em>IP</em> 地址。假设 <em>PC</em> 的 <em>IP</em>：192.168.2.102；<em>raspberryPi</em> 的 <em>IP</em>：192.168.2.105；之后查看各自的主机名,使用命令：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$hostname</span></span></div></pre></td></tr></table></figure></p>
+<p>假设 <em>PC</em> 的主机名为： <em>steven-laptop</em>,而 <em>raspberryPi</em> 的主机名为 <em>raspberry</em>。我们需要将各自的主机名通知对方。在 <em>raspberryPi</em> 中打开 <em>/etc/hosts</em>文件加入 <em>PC</em> 的主机名以及IP地址：<br>　　<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">192<span class="selector-class">.168</span><span class="selector-class">.2</span><span class="selector-class">.102</span> *<span class="selector-tag">steven-laptop</span>*</div></pre></td></tr></table></figure></p>
+<p>同样在 <em>PC</em> 中告知 <em>raspberryPi</em> 的主机名和 <em>IP</em> 地址,修改<em>/etc/hosts</em>：<br>　　<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">192<span class="selector-class">.168</span><span class="selector-class">.2</span><span class="selector-class">.105</span> <span class="selector-tag">raspberry</span></div></pre></td></tr></table></figure></p>
+<p>此时，可以使用:<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$ping</span> 对方主机名</span></div></pre></td></tr></table></figure></p>
+<p>进行连接测试。完成之后在 <em>PC</em> 中指定ROS通讯的主机名以及ROS服务器的地,让 <em>PC</em> 作为ROS服务器：<br>　　<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> ROS_HOSTNAME=steven-laptop</div><div class="line"><span class="keyword">export</span> ROS_MASTER_URI=http:<span class="comment">//steven-laptop:11311</span></div></pre></td></tr></table></figure></p>
+<p>在 <em>raspberryPi</em> 中指定 <em>PC</em> 作为 <em>ROS Master</em>:<br>　　<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> ROS_MASTER_URI=http:<span class="comment">//steven-laptop:11311</span></div></pre></td></tr></table></figure></p>
+<h1 id="跨机运行talker-listenner"><a href="#跨机运行talker-listenner" class="headerlink" title="跨机运行talker/listenner"></a>跨机运行talker/listenner</h1><p>做完以上配置，即可进行多机通信的测试。先在 <em>PC</em> 上开一个 <em>terminal</em> 运行 <em>roscore</em>:<br> <em>PC</em><br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$roscore</span> &amp; <span class="regexp">//</span><span class="string">'&amp;'</span>指后台运行</div></pre></td></tr></table></figure></p>
+<p>然后运行 <em>beginner_tutorials</em>(参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials" target="_blank" rel="external">ROS tutorial</a>) 中的节点 <em>talker</em>;在  <em>raspberryPi</em> 中运行 <em>beginner_tutorials</em> 中的 <em>listenner</em> 节点。保证两个节点中发布的主题和订阅的主题名字一样。<br>此时可以在 <em>raspberryPi</em> 中收到 <em>PC</em> 传过来的信息：<br><img src="/2017/05/22/ros-communication/talker.jpg" alt=""></p>
+<h1 id="跨机运行turtlesim"><a href="#跨机运行turtlesim" class="headerlink" title="跨机运行turtlesim"></a>跨机运行turtlesim</h1><p>在PC上运行：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$roscore</span> &amp; </span></div><div class="line"><span class="meta"><span class="meta-keyword">$rosrun</span> turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
+<p>在 <em>raspberryPi</em> 上使用键盘进行控制：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$rosrun</span> turtlesim turtle_teleop_key</span></div></pre></td></tr></table></figure></p>
+<p>效果图：<img src="/2017/05/22/ros-communication/turtle.jpg" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;ROS移动平台使用的是树莓派3B，资源有限，只能运行一些低级任务，又不具备显示器，想实时的看到ROS的运行情况只能依靠远程登录的方式。可以让PC负责运行界面，树莓派负责底层的传感器数据采集，比如激光雷达的数据采集，通过网络传给PC，PC上运行界面程序，将树莓派传过来的数据进行处理，并生成地图。要实现类似功能，需要进行多个运行ROS的设备间的通讯。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ROS" scheme="http://stevenshi.me/categories/ROS/"/>
+    
+    
+      <category term="Communication" scheme="http://stevenshi.me/tags/Communication/"/>
+    
+  </entry>
   
   <entry>
     <title>如何让Vim变的爱不释手</title>
