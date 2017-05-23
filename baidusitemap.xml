@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>http://stevenshi.me/2017/05/23/ros-navigation-compile/</loc>
+    <lastmod>2017-05-23T06:59:12.699Z</lastmod>
+    <data>
+        <display>
+        <title>贝叶斯滤波库在树莓派上的移植</title>
+        <pubTime>2017-05-23T05:05:18.000Z</pubTime>
+        
+        <tag>BayesianFiltering</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://stevenshi.me/2017/05/22/ros-communication/</loc>
@@ -165,19 +185,19 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <loc>http://stevenshi.me/2017/05/07/hexo-blog/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
-        <title>Qt如何在指定位置显示控件</title>
-        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
+        <title>hexo+github建立个人博客</title>
+        <pubTime>2017-05-07T03:07:34.000Z</pubTime>
         
-        <tag>Qt</tag>
+        <tag>hexo</tag>
          
          
            
              
-              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
           
         </display>
     </data>
@@ -225,19 +245,19 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-blog/</loc>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
-        <title>hexo+github建立个人博客</title>
-        <pubTime>2017-05-07T03:07:34.000Z</pubTime>
+        <title>Qt如何在指定位置显示控件</title>
+        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>Qt</tag>
          
          
            
              
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
           
         </display>
     </data>
