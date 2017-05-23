@@ -10,9 +10,9 @@ title: 关于
 
 本站文章均属原创，转载请注明出处。
 
-本站永久链接: http://stevenshi.me
+本站永久链接:  http://stevenshi.me
 ![Alt text](qrh.png)
-Email: 1554116385@qq.com
+Email:  1554116385@qq.com
 
 ......
 

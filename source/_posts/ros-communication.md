@@ -15,7 +15,7 @@ ROS移动平台使用的是树莓派3B，资源有限，只能运行一些低级
 　　```
 假设 *PC* 的主机名为： *steven-laptop*,而 *raspberryPi* 的主机名为 *raspberry*。我们需要将各自的主机名通知对方。在 *raspberryPi* 中打开 */etc/hosts*文件加入 *PC* 的主机名以及IP地址：
 　　```
- 192.168.2.102 *steven-laptop*
+ 192.168.2.102 steven-laptop
 　　```
 同样在 *PC* 中告知 *raspberryPi* 的主机名和 *IP* 地址,修改*/etc/hosts*：
 　　```
@@ -36,7 +36,6 @@ export ROS_MASTER_URI=http://steven-laptop:11311
 　　```
 # 跨机运行talker/listenner
 做完以上配置，即可进行多机通信的测试。先在 *PC* 上开一个 *terminal* 运行 *roscore*:
- *PC*
 　　```
  $roscore & //'&'指后台运行
 　　```
