@@ -2,7 +2,7 @@
 title: 树莓派3B使用前的配置
 date: 2017-05-15 09:32:02
 tags: raspberryPi
-categories: linux
+categories: Linux
 comments: true
 ---
 前段时间入手一块树莓派[raspberryPi](https://www.raspberrypi.org/)型号为3B。关于它的介绍这里就不多说了，可自行[google](https://www.google.com)。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装[ROS](http://www.ros.org/)，考虑到官方支持的稳定性，选用 *Raspbian* 平台镜像。因为*Raspbian* 是官方推荐的支持的操作系统，而[Ros-indigo](http://wiki.ros.org/cn/indigo)也刚好有基于该平台的安装包。
