@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="ROS Navigation," />
 
 
 
@@ -92,19 +92,24 @@
 
 
 
-<meta name="description" content="添加页面页面指的是分类页categories、标签页tags、关于页about等。使用以下命令生成以上页面参考nexT:　　123$hexo new page categories$hexo new page tags$hexo new page about 在 hexo 配置文件 _config.yml 文件中设置 post_asset_folder 为true,当新建页面后会自动生成一个同名文">
-<meta name="keywords" content="hexo">
+<meta name="description" content="在进入实际的机器人运动控制之前，先使用空白地图或现有地图进行ROS导航功能的仿真,以便于更进一步了解机器人的导航控制策略。环境: ubuntu 14.04 LTS 32bits ROS: Indigo">
+<meta name="keywords" content="ROS Navigation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo进阶">
-<meta property="og:url" content="http://stevenshi.me/2017/05/09/hexo-advance/index.html">
+<meta property="og:title" content="ROS导航仿真">
+<meta property="og:url" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="添加页面页面指的是分类页categories、标签页tags、关于页about等。使用以下命令生成以上页面参考nexT:　　123$hexo new page categories$hexo new page tags$hexo new page about 在 hexo 配置文件 _config.yml 文件中设置 post_asset_folder 为true,当新建页面后会自动生成一个同名文">
-<meta property="og:image" content="http://stevenshi.me/2017/05/09/hexo-advance/pay.jpg">
-<meta property="og:updated_time" content="2017-05-15T01:22:34.154Z">
+<meta property="og:description" content="在进入实际的机器人运动控制之前，先使用空白地图或现有地图进行ROS导航功能的仿真,以便于更进一步了解机器人的导航控制策略。环境: ubuntu 14.04 LTS 32bits ROS: Indigo">
+<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/movebase.png">
+<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/forward.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/square.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/obstacle.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/amcl.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/amcl-move.jpg">
+<meta property="og:updated_time" content="2017-05-24T06:54:53.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo进阶">
-<meta name="twitter:description" content="添加页面页面指的是分类页categories、标签页tags、关于页about等。使用以下命令生成以上页面参考nexT:　　123$hexo new page categories$hexo new page tags$hexo new page about 在 hexo 配置文件 _config.yml 文件中设置 post_asset_folder 为true,当新建页面后会自动生成一个同名文">
-<meta name="twitter:image" content="http://stevenshi.me/2017/05/09/hexo-advance/pay.jpg">
+<meta name="twitter:title" content="ROS导航仿真">
+<meta name="twitter:description" content="在进入实际的机器人运动控制之前，先使用空白地图或现有地图进行ROS导航功能的仿真,以便于更进一步了解机器人的导航控制策略。环境: ubuntu 14.04 LTS 32bits ROS: Indigo">
+<meta name="twitter:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/movebase.png">
 
 
 
@@ -132,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/2017/05/09/hexo-advance/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/05/24/ros-navigation-simulation/"/>
 
 
 
 
 
-  <title>hexo进阶 | Steven's blog</title>
+  <title>ROS导航仿真 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +316,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/09/hexo-advance/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/24/ros-navigation-simulation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -328,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo进阶</h1>
+          <h1 class="post-title" itemprop="name headline">ROS导航仿真</h1>
         
 
         <div class="post-meta">
@@ -340,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T14:32:38+08:00">
-                2017-05-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T13:36:03+08:00">
+                2017-05-24
               </time>
             
 
@@ -363,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/ROS/" itemprop="url" rel="index">
+                    <span itemprop="name">ROS</span>
                   </a>
                 </span>
 
@@ -381,9 +386,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/09/hexo-advance/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/24/ros-navigation-simulation/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/09/hexo-advance/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/24/ros-navigation-simulation/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -391,7 +396,7 @@
 
           
           
-             <span id="/2017/05/09/hexo-advance/" class="leancloud_visitors" data-flag-title="hexo进阶">
+             <span id="/2017/05/24/ros-navigation-simulation/" class="leancloud_visitors" data-flag-title="ROS导航仿真">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,46 +424,23 @@
       
 
       
-        <h1 id="添加页面"><a href="#添加页面" class="headerlink" title="添加页面"></a>添加页面</h1><p>页面指的是分类页<em>categories</em>、标签页<em>tags</em>、关于页<em>about</em>等。使用以下命令生成以上页面参考<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">nexT</a>:<br>　　<figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">$hexo</span> <span class="keyword">new</span> page categories</div><div class="line"><span class="built_in">$hexo</span> <span class="keyword">new</span> page tags</div><div class="line"><span class="built_in">$hexo</span> <span class="keyword">new</span> page about</div></pre></td></tr></table></figure></p>
-<p>在 <em>hexo</em> 配置文件 <em>_config.yml</em> 文件中设置 <em>post_asset_folder</em> 为true,当新建页面后会自动生成一个同名文件夹，用于存储所需的资源图片等。生成以上页面后在主题配置文件中 <em>themes/nexT/_config.yml</em> 打开相关配置项:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">menu:</span></div><div class="line"><span class="symbol">  home:</span> /</div><div class="line"><span class="symbol">  categories:</span> /categories</div><div class="line"><span class="symbol">  about:</span> /about</div><div class="line"><span class="symbol">  archives:</span> /archives</div><div class="line"><span class="symbol">  tags:</span> /tags</div><div class="line">  <span class="meta">#sitemap: /sitemap.xml</span></div><div class="line">  <span class="meta">#commonweal: /404.html</span></div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>设置自己的标签页面位于<em>hexo/source/tags</em>:<br>  <figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">title: 标签</div><div class="line">date: 2017<span class="string">-05</span><span class="string">-05</span> 12:30:52</div><div class="line">type: "tags"</div><div class="line">comments: false</div><div class="line"><span class="keyword">tags:</span></div><div class="line"> - Qt</div><div class="line"> - Linux</div><div class="line"> - Hexo</div><div class="line"> - ROS</div></pre></td></tr></table></figure></p>
-<p>可以在上面添加自己的标签。<br>分类页的示例如下:<br>　<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">title:</span> 分类</div><div class="line"><span class="string">date:</span> <span class="number">2017</span><span class="number">-05</span><span class="number">-05</span> <span class="number">12</span>:<span class="number">30</span>:<span class="number">42</span></div><div class="line"><span class="string">type:</span> <span class="string">"categories"</span></div><div class="line"><span class="string">comments:</span> <span class="literal">false</span></div></pre></td></tr></table></figure></p>
-<h1 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h1><p>新文章的发表使用以下命令：<br>　　<figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">$hexo</span> <span class="keyword">new</span> post <span class="string">"文章名"</span> 或者 hexo n <span class="string">"文章名"</span></div></pre></td></tr></table></figure></p>
-<p>一个文章的开头应包含:<br>　<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: #文章题目</div><div class="line">date: #日期</div><div class="line"><span class="keyword">tags:</span> #标签</div><div class="line">categories: #分类</div></pre></td></tr></table></figure></p>
-<p>文章存储在<em>hexo/source/_posts</em>目录下，后缀为<em>.md</em>。可以在适当位置插入以下符号用于部分显示:<br>　　<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--more--&gt;</span></div></pre></td></tr></table></figure></p>
-<p>插入该符号之前的文字可以直接显示出来，之后的需要鼠标点击<em>阅读全文</em>来显示全部。<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hexo</span> g <span class="regexp">//</span>生成静态文件</div><div class="line"><span class="variable">$hexo</span> d <span class="regexp">//</span>部署</div></pre></td></tr></table></figure></p>
-<h1 id="添加RSS"><a href="#添加RSS" class="headerlink" title="添加RSS"></a>添加RSS</h1><p>安装RSS插件：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$npm</span> install hexo-generator-feed --save</span></div></pre></td></tr></table></figure></p>
-<p>修改<em>hexo/_config.yml</em>根目录下的全局配置文件，添加以下内容:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#RSS 订阅支持</span></div><div class="line"><span class="symbol">plugin:</span></div><div class="line">- hexo-generator-feed</div><div class="line"><span class="meta">#feed Atom</span></div><div class="line"><span class="symbol">feed:</span></div><div class="line"><span class="symbol">  type:</span> atom</div><div class="line"><span class="symbol">  path:</span> atom.xml</div><div class="line"><span class="symbol">  limit:</span> <span class="number">20</span></div></pre></td></tr></table></figure></p>
-<p>修改主题目录下的配置文件<em>themes/nexT/_config.yml</em><br>　　<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">rss:</span> /atom.xml</div></pre></td></tr></table></figure></p>
-<h1 id="添加sitemap"><a href="#添加sitemap" class="headerlink" title="添加sitemap"></a>添加sitemap</h1><p>安装<em>sitemap</em>插件:<br>　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$npm</span> install hexo-generator-sitemap --save</span></div></pre></td></tr></table></figure></p>
-<p>修改<em>hexo/_config.yml</em>根目录下的全局配置文件:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">sitemap:</span></div><div class="line"><span class="symbol">　　　path:</span> sitemap.xml</div></pre></td></tr></table></figure></p>
-<p>添加baidusitemap：<br>  <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$npm</span> install hexo-generator-baidu-sitemap --save</span></div></pre></td></tr></table></figure></p>
-<p>修改<em>hexo/_config.yml</em>根目录下的全局配置文件:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">baidusitemap:</span></div><div class="line"><span class="symbol">　　　path:</span> baidusitemap.xml</div></pre></td></tr></table></figure></p>
-<h1 id="添加侧栏社交链接"><a href="#添加侧栏社交链接" class="headerlink" title="添加侧栏社交链接"></a>添加侧栏社交链接</h1><p>修改主题目录下的配置文件<em>themes/nexT/_config.yml</em><br>　　<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># <span class="selector-tag">Social</span> <span class="selector-tag">Links</span></div><div class="line"># <span class="selector-tag">Key</span> <span class="selector-tag">is</span> <span class="selector-tag">the</span> <span class="selector-tag">link</span> <span class="selector-tag">label</span> <span class="selector-tag">showing</span> <span class="selector-tag">to</span> <span class="selector-tag">end</span> <span class="selector-tag">users</span>.</div><div class="line"># <span class="selector-tag">Value</span> <span class="selector-tag">is</span> <span class="selector-tag">the</span> <span class="selector-tag">target</span> <span class="selector-tag">link</span> (E.g. <span class="attribute">GitHub</span>: <span class="attribute">https</span>:<span class="comment">//github.com/iissnan)</span></div><div class="line"><span class="attribute">social</span>:</div><div class="line">  <span class="attribute">Github</span>: <span class="attribute">https</span>:<span class="comment">//github.com/username</span></div><div class="line">  知乎: <span class="attribute">http</span>:<span class="comment">//www.zhihu.com/people/username</span></div><div class="line">  <span class="attribute">Email</span>: <span class="attribute">mailto</span>: user<span class="variable">@xx</span>.com</div></pre></td></tr></table></figure></p>
-<p>设置链接的图标，对应的字段是<em>social_icons</em>在主题配置文件中:<br>　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Social Icons</span></div><div class="line"><span class="attr">social_icons:</span></div><div class="line"><span class="attr">enable:</span> <span class="literal">true</span></div><div class="line"><span class="comment"># Icon Mappings</span></div><div class="line"><span class="attr">GitHub:</span> <span class="string">github</span></div><div class="line"><span class="attr">Email:</span> <span class="string">envelope</span></div></pre></td></tr></table></figure></p>
-<p>nexT使用的图标来自<a href="http://fontawesome.io/" target="_blank" rel="external">FontAwesome</a>，只要上面有的都可以配置到nexT使用。</p>
-<h1 id="添加本地搜索"><a href="#添加本地搜索" class="headerlink" title="添加本地搜索"></a>添加本地搜索</h1><p>安装<em>hexo-generator-serarch</em><br>　　<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$npm <span class="keyword">install</span> hexo-generator-<span class="keyword">search</span> <span class="comment">--save</span></div></pre></td></tr></table></figure></p>
-<p>修改<em>hexo/_config.yml</em>根目录下的全局配置文件添加:<br>　　<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line"> path: search.<span class="keyword">xml</span></div><div class="line"> <span class="title">field</span>: post</div></pre></td></tr></table></figure></p>
-<h1 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h1><p>在hexo/source/目录下建立images文件夹，将头像放置在该文件夹下，修改主题目录下的配置文件<em>themes/nexT/_config.yml</em><br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">avatar:</span> <span class="meta-keyword">/images/</span>avatar.jpg</div></pre></td></tr></table></figure></p>
-<h1 id="生成网站二维码"><a href="#生成网站二维码" class="headerlink" title="生成网站二维码"></a>生成网站二维码</h1><p>二维码生成工具很多，这个<a href="https://www.unitag.io/qrcode" target="_blank" rel="external">Custom QR Code Generator</a>比较不错。生成后将二维码添加到关于页面。</p>
-<h1 id="设置代码高亮主题"><a href="#设置代码高亮主题" class="headerlink" title="设置代码高亮主题"></a>设置代码高亮主题</h1><p>NexT 使用<a href="https://github.com/chriskempson/tomorrow-theme" target="_blank" rel="external">TomorrowTheme</a>作为代码高亮，共有5款主题供选择。 打开主题配置文件<em>themes/nexT/_config.yml</em>修改:<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> Code Highlight theme</span></div><div class="line"><span class="meta">#</span><span class="bash"> Available value:</span></div><div class="line"><span class="meta">#</span><span class="bash">    normal | night | night eighties | night blue | night bright</span></div><div class="line"><span class="meta">#</span><span class="bash"> https://github.com/chriskempson/tomorrow-theme</span></div><div class="line">highlight_theme: night bright</div></pre></td></tr></table></figure></p>
-<h1 id="开启打赏功能"><a href="#开启打赏功能" class="headerlink" title="开启打赏功能"></a>开启打赏功能</h1><p>只需要主题配置文件中填入微信和支付宝收款二维码图片地址，即可开启该功能。修改主题配置文件<em>themes/nexT/_config.yml</em><br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">reward_comment:</span> 您的支持是我原创的动力</div><div class="line"><span class="symbol"> wechatpay:</span> <span class="meta-keyword">/path/</span>to/wechat-reward-image</div><div class="line"><span class="symbol"> alipay:</span> <span class="meta-keyword">/path/</span>to/alipay-reward-image</div></pre></td></tr></table></figure></p>
-<p>鼠标放置在二维码上面时，下面的字来回晃眼，修改如下文件:<br><em>themes/next/source/css/_common/components/post/post-reward.styl</em><br>注释掉以下代码：<img src="/2017/05/09/hexo-advance/pay.jpg" alt="Alt text"></p>
-<h1 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h1><p>修改主题配置文件<em>themes/next/_config.yml</em><br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># Blog rolls</span></div><div class="line"><span class="symbol">links_title:</span> 友情链接</div><div class="line"><span class="meta">#links_layout: block</span></div><div class="line"><span class="meta">#links_layout: inline</span></div><div class="line"><span class="symbol">links:</span></div><div class="line"><span class="symbol"> hexo:</span> https:<span class="comment">//hexo.io/zh-cn/docs</span></div><div class="line"><span class="symbol"> nexT:</span> http:<span class="comment">//theme-next.iissnan.com/</span></div></pre></td></tr></table></figure></p>
-<h1 id="开启动画背景"><a href="#开启动画背景" class="headerlink" title="开启动画背景"></a>开启动画背景</h1><p><a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">nexT</a> 自带两种背景动画效果，canvas_nest以及three_waves,在主题配置文件:<br> <em>themes/next/_config.yml</em>中设置为true即可开启,<br>　　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Canvas-nest</span></div><div class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<h1 id="开启JiaThis分享"><a href="#开启JiaThis分享" class="headerlink" title="开启JiaThis分享"></a>开启JiaThis分享</h1><p><a href="http://www.jiathis.com/" target="_blank" rel="external">Jiathis</a>为文章提供社会化分享功能。修改主题配置文件<em>themes/next/_config.yml</em>:<br>　　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Share</span></div><div class="line"><span class="attr">jiathis:</span> <span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<h1 id="百度分享"><a href="#百度分享" class="headerlink" title="百度分享"></a>百度分享</h1><p>两种分享只能同时开启一种，百度分享需要在站点配置文件<em>hexo/_config.yml</em>中添加：<br>　　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># baidu share</span></div><div class="line"><span class="attr">baidushare:</span> <span class="literal">true</span> <span class="comment">#百度分享功能</span></div></pre></td></tr></table></figure></p>
-<p>另外需要在主题配置文件<em>themes/next/_config.yml</em>中开启百度分享功能：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> Baidu Share</span></div><div class="line"><span class="meta">#</span><span class="bash"> Available value:</span></div><div class="line"><span class="meta">#</span><span class="bash">    button | slide</span></div><div class="line"><span class="meta">#</span><span class="bash"> Warning: Baidu Share does not support https.</span></div><div class="line">baidushare: </div><div class="line"> type: button</div></pre></td></tr></table></figure></p>
-<h1 id="添加DISQUS评论"><a href="#添加DISQUS评论" class="headerlink" title="添加DISQUS评论"></a>添加DISQUS评论</h1><p>修改主题配置文件开启<a href="https://disqus.com/" target="_blank" rel="external">DISQUS</a>功能：<br>　　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Disqus</span></div><div class="line"><span class="attr">disqus:</span></div><div class="line"><span class="attr"> enable:</span> <span class="literal">true</span></div><div class="line"><span class="attr"> shortname:</span></div><div class="line"><span class="attr"> count:</span> <span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<p>去<a href="https://disqus.com/" target="_blank" rel="external">DISQUS</a>官网注册，并获取自己的shortname,填写至主题配置文件中的对应字段中。取消一篇文章的评论只需要在文章的头部修改：<br>　　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">comments:</span> <span class="literal">false</span></div></pre></td></tr></table></figure></p>
-<h1 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h1><p>图标制作网站<a href="http://www.faviconer.com/" target="_blank" rel="external">faviconer</a>，制作完成自己的网站图标后放到<em>hexo/source</em>根目录下，并修改主题配置文件：<br>　　<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Put your favicon.ico into `hexo-site/source/` directory.</div><div class="line">favicon: /favicon.ico</div></pre></td></tr></table></figure></p>
-<h1 id="页面中插入图片"><a href="#页面中插入图片" class="headerlink" title="页面中插入图片"></a>页面中插入图片</h1><p>图片的插入可以使用<a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>的语法：<br>　　<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">图片名称</span>](<span class="link">图片地址</span>)</div></pre></td></tr></table></figure></p>
-<p>图片可以放在本地，也可以放在云端。建议放在云端，因为github的空间有限，云端可以使用<a href="https://www.qiniu.com/" target="_blank" rel="external">七牛云存储</a>。<br>本地图片的插入有两种方法，早期的<a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>需要将图片放在网站根目录下的<em>source/</em>文件夹中比如<em>source/images/</em>文件夹，将图片放到该处，即可在页面中引用：<br>　　<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">test</span>](<span class="link">source/images/test.jgp</span>)</div></pre></td></tr></table></figure></p>
-<p><a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>2.0之后，引入新方法，参考<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">CodeFalling/hexo-asset-image</a><br>安装插件：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$npm</span> install hexo-asset-image --save</span></div></pre></td></tr></table></figure></p>
-<p> 修改配置文件中的 <em>post_asset_folder:</em> 为 <em>true</em> ，这样新建文章时，会在 <em>_post</em> 目录下生成同名的文件夹，页面需要的各种图片都可以放到此处。比如：<br>　　<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">my-Publish</div><div class="line">├── my<span class="selector-class">.jpg</span></div><div class="line">├── logo<span class="selector-class">.jpg</span></div><div class="line">└── test<span class="selector-class">.jpg</span></div><div class="line">my-Publish.md</div></pre></td></tr></table></figure></p>
-<p>新建名为 <em>my-Publish</em> 的新文章，文章需要的图片都放到该文件夹中。引用:<br>　　<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">xx</span>](<span class="link">my-Publish/my.jpg</span>)</div></pre></td></tr></table></figure></p>
-<p>即可插入图片，<em>xx</em>可以随意。</p>
+        <p>在进入实际的机器人运动控制之前，先使用空白地图或现有地图进行ROS导航功能的仿真,以便于更进一步了解机器人的导航控制策略。<br><em>环境: ubuntu 14.04 LTS 32bits </em><br><em>ROS</em>: <em>Indigo</em><br><a id="more"></a></p>
+<h1 id="Navigation-安装"><a href="#Navigation-安装" class="headerlink" title="Navigation 安装"></a>Navigation 安装</h1><p>在进行导航仿真之前，需要先下载 <em>ROS</em> 官方提供的 <a href="http://wiki.ros.org/cn/navigation" target="_blank" rel="external">ROS-Navigation</a>，安装下载：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws/src</span></div><div class="line"><span class="meta">$</span><span class="bash">git <span class="built_in">clone</span> https://github.com/ros-planning/navigation.git</span></div><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> navigation　</span></div><div class="line"><span class="meta">$</span><span class="bash">git checkout indigo-devel</span></div><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make</span></div><div class="line"><span class="meta">$</span><span class="bash">rospack profile</span></div></pre></td></tr></table></figure></p>
+<p>可能会报错：<br>   <figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">catkin_ws<span class="meta-keyword">/src/</span>navigation/map_server<span class="meta-keyword">/src/</span>image_loader.cpp:<span class="number">43</span>:<span class="number">27</span>: fatal error: SDL/SDL_image.h: No such file or directory</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SDL/SDL_image.h&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>安装 <a href="https://www.libsdl.org/" target="_blank" rel="external">SDL</a>,SDL（Simple DirectMedia Layer）是一套开放源代码的跨平台多媒体开发库，使用C语言写成。SDL提供了数种控制图像、声音、输出入的函数，让开发者只要用相同或是相似的代码就可以开发出跨多个平台（Linux、Windows、Mac OS X等）的应用软件。参考 <a href="https://zh.wikipedia.org/wiki/SDL" target="_blank" rel="external">SDL</a>:<br>   <figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-<span class="built_in">get</span> install libsdl-image1<span class="number">.2</span>-<span class="built_in">dev</span> libsdl1<span class="number">.2</span>-<span class="built_in">dev</span></div></pre></td></tr></table></figure></p>
+<h1 id="使用-arbotix-测试-move-base"><a href="#使用-arbotix-测试-move-base" class="headerlink" title="使用 arbotix 测试 move_base"></a>使用 arbotix 测试 move_base</h1><p><a href="http://wiki.ros.org/move_base" target="_blank" rel="external">move_base</a> 是导航功能里比较重要的一项，它获取传感器数据并负责路径规划、距离计算、成本计算等。</p>
+<p><img src="/2017/05/24/ros-navigation-simulation/movebase.png" alt=""></p>
+<p><em>move_base</em> 节点运行前需要四个配置文件，它们定义了路径规划需要的一些配置参数，包括越过障碍物的代价、机器人的半径、即时距离计算、机器人移动速度等参数。在 <em>ROS by example</em> 中的示例代码 <em>rbx1</em> 中有关于每个机器人的四个配置文件，它们位于 <em>rbx1/rbx1_nav/config</em> 中，每个机器人下面都有对应的四个配置文件：<br><em>base_local_planner_params.yaml</em><br><em>costmap_common_params.yaml</em><br><em>global_costmap_params.yaml</em><br><em>local_costmap_params.yaml</em><br>里面的参数说明可以参考官方文档<a href=""></a><br>下面的命令启动启动一个机器人，使用 <em>move_base</em>使其向前移动 2m：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$roslaunch</span> rbx1_bringup fake_turtlebot<span class="selector-class">.launch</span> <span class="comment">//启动一个机器人 使用ArbotiX模拟器</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_nav fake_move_base_blank_map<span class="selector-class">.launch</span> <span class="comment">///以空白地图启动move_base节点</span></div><div class="line"><span class="variable">$rosrun</span> rviz rviz -d `rospack find rbx1_nav`/<span class="selector-tag">nav</span><span class="selector-class">.rviz</span> <span class="comment">//启动Rviz</span></div><div class="line">$ rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped <span class="string">'&#123;header: &#123;frame_id: "map"&#125;,pose: &#123;position: &#123;x: 1.0,y: 0,z: 0&#125;,orientation: &#123;x: 0,y: 0,z: 0,w: 2&#125;&#125;&#125;'</span> <span class="comment">//向前运动2m</span></div></pre></td></tr></table></figure></p>
+<p>返回原地：<br>   <figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml">$ rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '</span><span class="template-variable">&#123;header: &#123;frame_id: "map"&#125;</span><span class="xml">,pose: </span><span class="template-variable">&#123;position: &#123;x: 0.0,y: 0,z: 0&#125;</span><span class="xml">,orientation: </span><span class="template-variable">&#123;x: 0,y: 0,z: 0,w: 2&#125;</span><span class="xml">&#125;&#125;' //返回</span></div></pre></td></tr></table></figure></p>
+<p><img src="/2017/05/24/ros-navigation-simulation/forward.jpg" alt=""></p>
+<p>让机器人走一个正方形：<br>   <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$rosrun</span> rbx1_nav move_base_square.py<span class="regexp">//</span>让机器人走正方形</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/05/24/ros-navigation-simulation/square.jpg" alt=""></p>
+<h1 id="带障碍物的导航"><a href="#带障碍物的导航" class="headerlink" title="带障碍物的导航"></a>带障碍物的导航</h1><p>将空白地图换做带障碍物的地图再次使机器人运行一个正方形：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$roscore</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_bringup fake_turtlebot<span class="selector-class">.launch</span> <span class="comment">//加载一个模拟机器人</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_nav fake_move_base_map_with_obstacles<span class="selector-class">.launch</span>  <span class="comment">//加载一张带障碍物的地图</span></div><div class="line"><span class="variable">$rosrun</span>  rviz rviz -d `rospack find rbx1_nav`/nav_obstacles<span class="selector-class">.rviz</span> <span class="comment">//加载rviz  带障碍物的导航</span></div><div class="line"><span class="variable">$rosrun</span> rbx1_nav move_base_square<span class="selector-class">.py</span> <span class="comment">//使其自动走一个正方形</span></div></pre></td></tr></table></figure></p>
+<p><img src="/2017/05/24/ros-navigation-simulation/obstacle.jpg" alt=""></p>
+<h1 id="复杂地图导航与蒙特卡洛定位"><a href="#复杂地图导航与蒙特卡洛定位" class="headerlink" title="复杂地图导航与蒙特卡洛定位"></a>复杂地图导航与蒙特卡洛定位</h1><p>使用ROS导航包里现有的复杂地图结合 <a href="http://wiki.ros.org/amcl" target="_blank" rel="external">ACML</a>-(Adaptive Monte Carlo Localization) 进行导航功能的测试。<a href="http://wiki.ros.org/amcl" target="_blank" rel="external">ACML</a> 即自适应蒙特卡罗定位，关于它的原理回头再仔细分析。<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$roscore</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_bringup fake_turtlebot<span class="selector-class">.launch</span> <span class="comment">//运行一个机器人</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_nav fake_amcl<span class="selector-class">.launch</span> <span class="comment">//运行fake_amcl.launch调用已有的测试地图</span></div><div class="line"><span class="variable">$rosrun</span> rviz rviz -d `rospack find rbx1_nav`/amcl<span class="selector-class">.rviz</span> <span class="comment">//启动rviz 并调用amcl配置文件</span></div></pre></td></tr></table></figure></p>
+<p>也可以手动指定要调用的地图：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$roslaunch</span> rbx1_nav fake_amcl<span class="selector-class">.launch</span> map:=test_map.yaml</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/05/24/ros-navigation-simulation/amcl.jpg" alt=""></p>
+<p>此时点击2D New Goal按钮，让机器人运动到指定目标：<br><img src="/2017/05/24/ros-navigation-simulation/amcl-move.jpg" alt=""></p>
 
       
     </div>
@@ -509,7 +491,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/ROS-Navigation/" rel="tag"># ROS Navigation</a>
           
         </div>
       
@@ -522,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/09/qt-widget-designated-location/" rel="next" title="Qt如何在指定位置显示控件">
-                <i class="fa fa-chevron-left"></i> Qt如何在指定位置显示控件
+              <a href="/2017/05/24/ros-simulation/" rel="next" title="ROS机器人仿真">
+                <i class="fa fa-chevron-left"></i> ROS机器人仿真
               </a>
             
           </div>
@@ -531,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/11/float-to-byte/" rel="prev" title="浮点数与16进制的相互转换">
-                浮点数与16进制的相互转换 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -762,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#添加页面"><span class="nav-number">1.</span> <span class="nav-text">添加页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发表文章"><span class="nav-number">2.</span> <span class="nav-text">发表文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加RSS"><span class="nav-number">3.</span> <span class="nav-text">添加RSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加sitemap"><span class="nav-number">4.</span> <span class="nav-text">添加sitemap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加侧栏社交链接"><span class="nav-number">5.</span> <span class="nav-text">添加侧栏社交链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加本地搜索"><span class="nav-number">6.</span> <span class="nav-text">添加本地搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置头像"><span class="nav-number">7.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成网站二维码"><span class="nav-number">8.</span> <span class="nav-text">生成网站二维码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置代码高亮主题"><span class="nav-number">9.</span> <span class="nav-text">设置代码高亮主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启打赏功能"><span class="nav-number">10.</span> <span class="nav-text">开启打赏功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#友情链接"><span class="nav-number">11.</span> <span class="nav-text">友情链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启动画背景"><span class="nav-number">12.</span> <span class="nav-text">开启动画背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启JiaThis分享"><span class="nav-number">13.</span> <span class="nav-text">开启JiaThis分享</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#百度分享"><span class="nav-number">14.</span> <span class="nav-text">百度分享</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加DISQUS评论"><span class="nav-number">15.</span> <span class="nav-text">添加DISQUS评论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置网站图标"><span class="nav-number">16.</span> <span class="nav-text">设置网站图标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#页面中插入图片"><span class="nav-number">17.</span> <span class="nav-text">页面中插入图片</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Navigation-安装"><span class="nav-number">1.</span> <span class="nav-text">Navigation 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-arbotix-测试-move-base"><span class="nav-number">2.</span> <span class="nav-text">使用 arbotix 测试 move_base</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#带障碍物的导航"><span class="nav-number">3.</span> <span class="nav-text">带障碍物的导航</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复杂地图导航与蒙特卡洛定位"><span class="nav-number">4.</span> <span class="nav-text">复杂地图导航与蒙特卡洛定位</span></a></li></ol></div>
             
 
           </div>
@@ -926,9 +904,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://stevenshi.me/2017/05/09/hexo-advance/';
-          this.page.identifier = '2017/05/09/hexo-advance/';
-          this.page.title = 'hexo进阶';
+          this.page.url = 'http://stevenshi.me/2017/05/24/ros-navigation-simulation/';
+          this.page.identifier = '2017/05/24/ros-navigation-simulation/';
+          this.page.title = 'ROS导航仿真';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';

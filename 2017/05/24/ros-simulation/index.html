@@ -103,7 +103,8 @@
 <meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-simulation/rviz-move.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-simulation/rviz-left.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-simulation/axis.jpg">
-<meta property="og:updated_time" content="2017-05-24T05:02:10.210Z">
+<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-simulation/screw-rule.jpg">
+<meta property="og:updated_time" content="2017-05-24T05:33:51.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS机器人仿真">
 <meta name="twitter:description" content="前言在 PC 环境下进行机器人的运动仿真是 ROS 开发者必经的一个环节，ROS 官方提供了好用且强大的3D可视化工具 rviz-3D visualization tool for ROS。环境: ubuntu 14.04 LTS 32bits ROS: Indigo开启仿真之旅。">
@@ -434,7 +435,10 @@
 <p>效果：<img src="/2017/05/24/ros-simulation/rviz-move.jpg" alt=""><br>需要停止机器人，可以在同一个窗口按下 <em>ctrl-c</em> 或者发布一个空的指令：<br>　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$rostopic</span> pub -<span class="number">1</span> <span class="regexp">/cmd_vel geometry_msgs/</span>Twist <span class="string">'&#123;&#125;'</span></div></pre></td></tr></table></figure></p>
 <h1 id="过程分析"><a href="#过程分析" class="headerlink" title="过程分析"></a>过程分析</h1><p><em>fake_pi_robot.launch</em> 文件是机器人的模型描述文件，功能是生成一个pi类型的机器人模型；<br>　<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"/use_sim_time"</span> <span class="attr">value</span>=<span class="string">"false"</span> /&gt;</span></div><div class="line"> </div><div class="line">    <span class="comment">&lt;!-- Load the URDF/Xacro model of our robot --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"urdf_file"</span> <span class="attr">default</span>=<span class="string">"$(find xacro)/xacro.py '$(find rbx1_description)/urdf/pi_robot.xacro'"</span> /&gt;</span></div><div class="line"> </div><div class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"robot_description"</span> <span class="attr">command</span>=<span class="string">"$(arg urdf_file)"</span> /&gt;</span></div><div class="line"> </div><div class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"arbotix"</span> <span class="attr">pkg</span>=<span class="string">"arbotix_python"</span> <span class="attr">type</span>=<span class="string">"arbotix_driver"</span> <span class="attr">output</span>=<span class="string">"screen"</span> <span class="attr">clear_params</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">rosparam</span> <span class="attr">file</span>=<span class="string">"$(find rbx1_bringup)/config/fake_pi_arbotix.yaml"</span> <span class="attr">command</span>=<span class="string">"load"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"sim"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">node</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"move_fake_pi_arm_start"</span> <span class="attr">pkg</span>=<span class="string">"rbx1_bringup"</span> <span class="attr">type</span>=<span class="string">"move_fake_pi_arm_start.py"</span> <span class="attr">output</span>=<span class="string">"screen"</span> /&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"robot_state_publisher"</span> <span class="attr">pkg</span>=<span class="string">"robot_state_publisher"</span> <span class="attr">type</span>=<span class="string">"state_publisher"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"publish_frequency"</span> <span class="attr">type</span>=<span class="string">"double"</span> <span class="attr">value</span>=<span class="string">"20.0"</span> /&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">node</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="comment">&lt;!-- Run a static transform between /base_link and /base_footprint needed for SLAM --&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"tf"</span> <span class="attr">type</span>=<span class="string">"static_transform_publisher"</span> <span class="attr">name</span>=<span class="string">"base_footprint_broadcaster"</span> <span class="attr">args</span>=<span class="string">"0 0 0 0 0 0 /base_link /base_footprint 100"</span> /&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"> <span class="tag">&lt;/<span class="name">launch</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>大致过程先加载一个 <em>urdf</em>文件，这个文件用于描述机器人的样子，然后启动 <em>arbotix</em> 仿真，启动仿真节点，发布状态，最后是 <em>tf</em> 坐标变换。<em>sim.rviz</em>配置文件描述了 <em>rviz</em> 的配置，位于目录 <em>rbx1/rbx1_nav</em> 中，它的配置代码很长，大致描述的是一些显示配置，即 <em>rviz</em> 左侧那部分：<img src="/2017/05/24/ros-simulation/rviz-left.jpg" alt=""></p>
-<p>速度发布命令一个是角速度，一个是线速度，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingTopics" target="_blank" rel="external">ROStopic</a>。<br>x y z 的方向遵循右手坐标系，机器人正前方为x轴，自地面向上为z轴，y轴垂直于其他两轴位于左方:<br><img src="/2017/05/24/ros-simulation/axis.jpg" alt=""><br>机器人只能贴着地面运动，只能绕Z轴做旋转运动，不可能沿Z轴做直线运动；也不可能绕着x轴或者绕着y轴做旋转运动。机器人只能向前运动或向后运动，即x方向；做旋转运动可以绕z轴顺时针或者逆时针，逆时针为正方向。<br><em>linear: {x: 0.2, y: 0, z: 0}</em>的意思就是机器人沿着x轴正方向，即向前运动，速度为 <em>0.2</em> ;<br><em>angular: {x: 0, y: 0, z: 0.5}</em> 的意思是机器人沿着z轴做逆时针旋转的角速度为 <em>0.5</em>;因此会得出以上机器人运动轨迹。关于速度发布的语法遵循 <a href="http://wiki.ros.org/ROS/YAMLCommandLine" target="_blank" rel="external">YAML</a> 。</p>
+<p>速度发布命令一个是角速度，一个是线速度，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingTopics" target="_blank" rel="external">ROStopic</a>。<br>x y z 的方向遵循右手坐标系，机器人正前方为x轴，自地面向上为z轴，y轴垂直于其他两轴位于左方:</p>
+<p><img src="/2017/05/24/ros-simulation/axis.jpg" alt=""><img src="/2017/05/24/ros-simulation/screw-rule.jpg" alt=""></p>
+<p>机器人只能贴着地面运动，只能绕Z轴做旋转运动，不可能沿Z轴做直线运动；也不可能绕着x轴或者绕着y轴做旋转运动。机器人只能向前运动或向后运动，即x方向；做旋转运动可以绕z轴顺时针或者逆时针，逆时针为正方向。旋转方向遵循右手螺旋法则，逆时针为正，顺时针为负。</p>
+<p><em>linear: {x: 0.2, y: 0, z: 0}</em>的意思就是机器人沿着x轴正方向，即向前运动，速度为 <em>0.2m/s</em> ;<br><em>angular: {x: 0, y: 0, z: 0.5}</em> 的意思是机器人沿着z轴做逆时针旋转的角速度为 <em>0.5rad/s</em>;因此会得出以上机器人运动轨迹。<br>关于速度发布的语法遵循 <a href="http://wiki.ros.org/ROS/YAMLCommandLine" target="_blank" rel="external">YAML</a> 。<br>速度单位 <em>m/s</em>-米/秒<br>角速度单位 <em>rad/s</em>-弧度/秒</p>
 
       
     </div>
@@ -507,6 +511,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/24/ros-navigation-simulation/" rel="prev" title="ROS导航仿真">
+                ROS导航仿真 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -623,7 +631,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -645,7 +653,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
