@@ -16,7 +16,7 @@ comments: true
 　　```
  $sudo apt-get install ros-indigo-rviz
 　　```
-安装模拟器 [Arbotix](http://wiki.ros.org/arbotix), [rviz](http://wiki.ros.org/rviz) 只是一个3D可视化工具，需要安装一个模拟器 [Arbotix](http://wiki.ros.org/arbotix) 才能进行机器人的仿真：
+[rviz](http://wiki.ros.org/rviz) 只是一个3D可视化工具，需要安装一个模拟器 [Arbotix](http://wiki.ros.org/arbotix) 才能进行机器人的仿真，安装模拟器 [Arbotix](http://wiki.ros.org/arbotix)：
 　　```
  $sudo apt-get install ros-indigo-arbotix*
  $rospack profile //更新ros软件包
@@ -94,8 +94,16 @@ comments: true
 
 速度发布命令一个是角速度，一个是线速度，参考 [ROStopic](http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingTopics)。
 x y z 的方向遵循右手坐标系，机器人正前方为x轴，自地面向上为z轴，y轴垂直于其他两轴位于左方:
-![](ros-simulation/axis.jpg)
-机器人只能贴着地面运动，只能绕Z轴做旋转运动，不可能沿Z轴做直线运动；也不可能绕着x轴或者绕着y轴做旋转运动。机器人只能向前运动或向后运动，即x方向；做旋转运动可以绕z轴顺时针或者逆时针。*linear: {x: 0.2, y: 0, z: 0}*的意思就是机器人沿着x轴正方向，即向前运动，速度为 *0.2* ; *angular: {x: 0, y: 0, z: 0.5}* 的意思是机器人沿着z轴做逆时针旋转的角速度为 *0.5*;因此会得出以上机器人运动轨迹。关于速度发布的语法遵循 [YAML](http://wiki.ros.org/ROS/YAMLCommandLine) 。
+
+![](ros-simulation/axis.jpg)![](ros-simulation/screw-rule.jpg)
+
+机器人只能贴着地面运动，只能绕Z轴做旋转运动，不可能沿Z轴做直线运动；也不可能绕着x轴或者绕着y轴做旋转运动。机器人只能向前运动或向后运动，即x方向；做旋转运动可以绕z轴顺时针或者逆时针，逆时针为正方向。旋转方向遵循右手螺旋法则，逆时针为正，顺时针为负。
+
+*linear: {x: 0.2, y: 0, z: 0}*的意思就是机器人沿着x轴正方向，即向前运动，速度为 *0.2m/s* ;
+*angular: {x: 0, y: 0, z: 0.5}* 的意思是机器人沿着z轴做逆时针旋转的角速度为 *0.5rad/s*;因此会得出以上机器人运动轨迹。
+关于速度发布的语法遵循 [YAML](http://wiki.ros.org/ROS/YAMLCommandLine) 。
+速度单位 *m/s*-米/秒 
+角速度单位 *rad/s*-弧度/秒
 
 
 
