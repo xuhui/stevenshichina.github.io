@@ -12,7 +12,7 @@ comments: true
 *windows10 64bits*
 #所需软件： 
 　　1. [Node.js](https://nodejs.org/en/ "Java Script运行环境")　基于Chrome V8引擎的JavaScript运行环境；
-　　2. [Git-for-windows](https://github.com/git-for-windows/git/releases "git for windows")　windows平台下git 运行环境；
+　　2. [Git-for-windows](https://github.com/git-for-windows/git/releases "git for windows")　windows平台下git 运行环境；也可以使用 [github-for-windows](https://github.com/gavincook/githubOfflineInstaller) 里的 *git shell*, 由于在线安装 [github-for-windows](https://github.com/gavincook/githubOfflineInstaller) 在国内不翻墙是不可能成功的，所以上面的链接是离线版的安装版本。
 　　3. [MarkdownPad](http://markdownpad.com/ "markdown Editor for Windows")　博客撰写工具
 
 *开始之前先去 [github](www.github.com) 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：https://github.com/username/username.github.io  注：username替换为自己的用户名*

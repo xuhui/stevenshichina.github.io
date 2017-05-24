@@ -217,7 +217,7 @@ lit库make 后的错误：
 compilation terminated.
 　　```
 系统提示不存在文件 [pwc-ioctl.h](https://saillard.org/linux/pwc/) 这个文件应该是webcamera的驱动文件,下载地址: https://saillard.org/linux/pwc/files/pwc-10.0.11.tar.bz2
-下载完后，解压并找到 *pwc-ioctl.h* 文件，拷贝 *lti* 源代码 的 */src/io/* 目录下。
+下载完后，解压并找到 *pwc-ioctl.h* 文件，拷贝到 *lti* 源代码 的 */src/io/* 目录下。
 
 
 
