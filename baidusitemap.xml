@@ -5,10 +5,10 @@
     
   <url>
     <loc>http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/</loc>
-    <lastmod>2017-05-26T08:08:18.183Z</lastmod>
+    <lastmod>2017-05-26T08:14:38.722Z</lastmod>
     <data>
         <display>
-        <title>ROS 初级<四> 编译 catkin 程序包</title>
+        <title>ROS 初级<四> 编译ROS程序包</title>
         <pubTime>2017-05-26T07:10:04.000Z</pubTime>
         
         <tag>Catkin_make</tag>

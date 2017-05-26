@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[ROS 初级<四> 编译 catkin 程序包]]></title>
+      <title><![CDATA[ROS 初级<四> 编译ROS程序包]]></title>
       <url>/2017/05/26/ros-primary-tutorial-4/</url>
       <content type="html"><![CDATA[<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>Catkin 程序包的编译使用命令 <a href="http://wiki.ros.org/catkin/commands/catkin_make" target="_blank" rel="external">catkin_make</a>。在 catkin 工作空间的根目录下 <em>~/catkin_ws</em> 执行该命令即可编译 catkin 程序包：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
