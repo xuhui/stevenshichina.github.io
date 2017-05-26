@@ -1,13 +1,13 @@
 ---
-title: ROS 学习<一>安装与配置
+title: ROS 初级<一> 安装与配置
 date: 2017-05-26 08:23:23
 categories: ROS
-tags: ROS Tutorials
+tags: ROS Installation
 comments: true
 ---
 一直想记录一下ROS学习过程中的点滴，先从最基础的 ROS-Beginner-Tutorials开始， 以便于帮助更多的人。本篇是ROS学习的开篇，参考 [ROS-Beginner-Tutorials](http://wiki.ros.org/cn/ROS/Tutorials)。
 # ROS安装
-目前ROS官方还在维护的版本有4个,参考 [ROS-Distributions](http://wiki.ros.org/Distributions)：![](ros-primary-tutorial-1/rosv.jpg)
+目前ROS官方还在维护的版本有4个(截至201705),参考 [ROS-Distributions](http://wiki.ros.org/Distributions)：![](ros-primary-tutorial-1/rosv.jpg)
 <!--more-->
 因为我的环境是ubuntu14.04,支持的 ROS 版本为 [ROS-Indigo](http://wiki.ros.org/indigo), 因此我选择安装 [ROS-Indigo](http://wiki.ros.org/indigo)。
 *环境： ubuntu 14.04 Trusty LTS 32bits*
