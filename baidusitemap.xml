@@ -4,14 +4,34 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/</loc>
+    <lastmod>2017-05-26T08:08:18.183Z</lastmod>
+    <data>
+        <display>
+        <title>ROS 初级<四> 编译 catkin 程序包</title>
+        <pubTime>2017-05-26T07:10:04.000Z</pubTime>
+        
+        <tag>Catkin_make</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/26/ros-primary-tutorial-3/</loc>
-    <lastmod>2017-05-26T06:03:12.598Z</lastmod>
+    <lastmod>2017-05-26T07:10:49.960Z</lastmod>
     <data>
         <display>
         <title>ROS 初级<三> 创建ROS程序包</title>
         <pubTime>2017-05-26T03:23:13.000Z</pubTime>
         
-        <tag>Catkin</tag>
+        <tag>catkin_create_pkg</tag>
          
          
            
