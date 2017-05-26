@@ -2,7 +2,7 @@
 title: ROS 初级<三> 创建ROS程序包
 date: 2017-05-26 11:23:13
 categories: ROS
-tags: Catkin
+tags: catkin_create_pkg
 comments: true
 ---
 本篇学习 ROS 程序包的创建，使用工具 [catkin_create_pkg](http://wiki.ros.org/catkin/commands/catkin_create_pkg) 创建新程序包。
