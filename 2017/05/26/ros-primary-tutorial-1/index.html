@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="raspberryPi," />
+  <meta name="keywords" content="ROS Tutorials," />
 
 
 
@@ -92,22 +92,19 @@
 
 
 
-<meta name="description" content="前段时间入手一块树莓派raspberryPi型号为3B。关于它的介绍这里就不多说了，可自行google。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装ROS，考虑到官方支持的稳定性，选用 Raspbian 平台镜像。因为Raspbian 是官方推荐的支持的操作系统，而Ros-indigo也刚好有基于该平台的安装包。 镜像安装参考官网Ins">
-<meta name="keywords" content="raspberryPi">
+<meta name="description" content="一直想记录一下ROS学习过程中的点滴，先从最基础的 ROS-Beginner-Tutorials开始， 以便于帮助更多的人。本篇是ROS学习的开篇，参考 ROS-Beginner-Tutorials。 ROS安装目前ROS官方还在维护的版本有4个,参考 ROS-Distributions：">
+<meta name="keywords" content="ROS Tutorials">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树莓派3B使用前的配置">
-<meta property="og:url" content="http://stevenshi.me/2017/05/15/raspberryPi/index.html">
+<meta property="og:title" content="ROS 学习&lt;一&gt;安装与配置">
+<meta property="og:url" content="http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="前段时间入手一块树莓派raspberryPi型号为3B。关于它的介绍这里就不多说了，可自行google。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装ROS，考虑到官方支持的稳定性，选用 Raspbian 平台镜像。因为Raspbian 是官方推荐的支持的操作系统，而Ros-indigo也刚好有基于该平台的安装包。 镜像安装参考官网Ins">
-<meta property="og:image" content="http://stevenshi.me/2017/05/15/raspberryPi/config.jpg">
-<meta property="og:image" content="http://stevenshi.me/2017/05/15/raspberryPi/portconfig.jpg">
-<meta property="og:image" content="http://stevenshi.me/2017/05/15/raspberryPi/vnc.jpg">
-<meta property="og:image" content="http://stevenshi.me/2017/05/15/raspberryPi/wpacli.jpg">
-<meta property="og:updated_time" content="2017-05-19T09:13:51.480Z">
+<meta property="og:description" content="一直想记录一下ROS学习过程中的点滴，先从最基础的 ROS-Beginner-Tutorials开始， 以便于帮助更多的人。本篇是ROS学习的开篇，参考 ROS-Beginner-Tutorials。 ROS安装目前ROS官方还在维护的版本有4个,参考 ROS-Distributions：">
+<meta property="og:image" content="http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/rosv.jpg">
+<meta property="og:updated_time" content="2017-05-26T01:39:44.066Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树莓派3B使用前的配置">
-<meta name="twitter:description" content="前段时间入手一块树莓派raspberryPi型号为3B。关于它的介绍这里就不多说了，可自行google。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装ROS，考虑到官方支持的稳定性，选用 Raspbian 平台镜像。因为Raspbian 是官方推荐的支持的操作系统，而Ros-indigo也刚好有基于该平台的安装包。 镜像安装参考官网Ins">
-<meta name="twitter:image" content="http://stevenshi.me/2017/05/15/raspberryPi/config.jpg">
+<meta name="twitter:title" content="ROS 学习&lt;一&gt;安装与配置">
+<meta name="twitter:description" content="一直想记录一下ROS学习过程中的点滴，先从最基础的 ROS-Beginner-Tutorials开始， 以便于帮助更多的人。本篇是ROS学习的开篇，参考 ROS-Beginner-Tutorials。 ROS安装目前ROS官方还在维护的版本有4个,参考 ROS-Distributions：">
+<meta name="twitter:image" content="http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/rosv.jpg">
 
 
 
@@ -135,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/2017/05/15/raspberryPi/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/"/>
 
 
 
 
 
-  <title>树莓派3B使用前的配置 | Steven's blog</title>
+  <title>ROS 学习<一>安装与配置 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -314,7 +311,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/15/raspberryPi/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -331,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">树莓派3B使用前的配置</h1>
+          <h1 class="post-title" itemprop="name headline">ROS 学习<一>安装与配置</h1>
         
 
         <div class="post-meta">
@@ -343,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T09:32:02+08:00">
-                2017-05-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T08:23:23+08:00">
+                2017-05-26
               </time>
             
 
@@ -366,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/ROS/" itemprop="url" rel="index">
+                    <span itemprop="name">ROS</span>
                   </a>
                 </span>
 
@@ -384,9 +381,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/15/raspberryPi/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/26/ros-primary-tutorial-1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/15/raspberryPi/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/26/ros-primary-tutorial-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -394,7 +391,7 @@
 
           
           
-             <span id="/2017/05/15/raspberryPi/" class="leancloud_visitors" data-flag-title="树莓派3B使用前的配置">
+             <span id="/2017/05/26/ros-primary-tutorial-1/" class="leancloud_visitors" data-flag-title="ROS 学习<一>安装与配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,14 +419,23 @@
       
 
       
-        <p>前段时间入手一块树莓派<a href="https://www.raspberrypi.org/" target="_blank" rel="external">raspberryPi</a>型号为3B。关于它的介绍这里就不多说了，可自行<a href="https://www.google.com" target="_blank" rel="external">google</a>。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装<a href="http://www.ros.org/" target="_blank" rel="external">ROS</a>，考虑到官方支持的稳定性，选用 <em>Raspbian</em> 平台镜像。因为<em>Raspbian</em> 是官方推荐的支持的操作系统，而<a href="http://wiki.ros.org/cn/indigo" target="_blank" rel="external">Ros-indigo</a>也刚好有基于该平台的安装包。</p>
-<h1 id="镜像安装"><a href="#镜像安装" class="headerlink" title="镜像安装"></a>镜像安装</h1><p>参考官网<a href="https://www.raspberrypi.org/documentation/installation/installing-images/" target="_blank" rel="external">Install-Images</a>。我安装的版本为<em>2017-03-02-raspbian-jessie.img</em><br><a id="more"></a></p>
-<h1 id="开启SSH和串口"><a href="#开启SSH和串口" class="headerlink" title="开启SSH和串口"></a>开启SSH和串口</h1><p>该版本默认不开启SSH以及串口功能，需要手动开启。树莓派板子需要连接显示器、键盘、鼠标。在终端中输入:<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> raspi-config</span></div></pre></td></tr></table></figure></p>
-<p>进行配置。树莓派默认的用户名为<em>pi</em>密码为<em>raspberry</em>。<br><img src="/2017/05/15/raspberryPi/config.jpg" alt=""><br>进入第5项开启SSH以及GPIO14 GPIO15对应的串口控制台功能。串口功能开启后就可以抛弃鼠标、键盘、显示器直接在控制台访问树莓派。</p>
-<h1 id="开启VNC远程桌面"><a href="#开启VNC远程桌面" class="headerlink" title="开启VNC远程桌面"></a>开启VNC远程桌面</h1><p>同样在配置菜单的第5项开启:<img src="/2017/05/15/raspberryPi/portconfig.jpg" alt=""><br>在windows上安装<a href="https://www.realvnc.com/" target="_blank" rel="external">VNC Viewer</a>并且输入树莓派的IP地址就可以远程访问树莓派。<img src="/2017/05/15/raspberryPi/vnc.jpg" alt=""><br>如果不知道IP地址，可以使用工具<a href="http://www.eusing.com/ipscan/free_ip_scanner.htm" target="_blank" rel="external">freeIpScanner</a>获取IP地址。或者使用linux下的nmap命令,nmap命令说明：<br>　　<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span>/<span class="number">24</span> //扫描整个子网</div><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span>.x (x:<span class="number">0</span>-<span class="number">255</span>) //扫描单个主机</div><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span>.x <span class="number">192.168</span><span class="meta">.1</span>.y //扫描多个目标</div><div class="line">$namp <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.100</span>-<span class="number">255</span> 扫描某个范围内的目标#<span class="built_in">ip</span>地址在<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.100</span>和<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.255</span>之间 </div><div class="line">$nmap <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span>/<span class="number">24</span> -exclude <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span> 扫描一个网段除了某个主机</div><div class="line">$nmap -p80,<span class="number">21</span>,<span class="number">23</span> <span class="number">192.168</span><span class="meta">.1</span><span class="meta">.1</span> 扫描某个主机下的端口（<span class="number">80</span>端口 <span class="number">21</span>端口 <span class="number">23</span> 端口）</div></pre></td></tr></table></figure></p>
-<h1 id="手动配置wifi"><a href="#手动配置wifi" class="headerlink" title="手动配置wifi"></a>手动配置wifi</h1><p>命令行下启动 <em>wpa_cli</em> 参考 <a href="http://w1.fi/wpa_supplicant/" target="_blank" rel="external">WPA_supplicant</a>：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> wpa_cli</span></div></pre></td></tr></table></figure></p>
-<p><img src="/2017/05/15/raspberryPi/wpacli.jpg" alt=""><br>　 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">status <span class="string">//</span>列出目前的联网状态</div><div class="line">list_networks <span class="string">//</span>记住网络ID</div><div class="line"><span class="keyword">set</span>_network <span class="string">"ID"</span> key_mgmt WPA-PSK  <span class="string">//</span>设置无线网络加密方式</div><div class="line"><span class="keyword">set</span>_network <span class="string">"ID"</span> psk <span class="string">"yourpassword"</span>   <span class="string">//</span>设置密码</div><div class="line">enable_network <span class="string">"ID"</span>   <span class="string">//</span>使能该网络</div><div class="line">save_config <span class="string">//</span>保存配置</div></pre></td></tr></table></figure></p>
-<p>完成之后会在文件/etc/wpa_supplicant/wpa_supplicant.conf看到配置信息已经写入到文件,此时可以查看网络是否连接:<br>  　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$ifconfig</span></span></div></pre></td></tr></table></figure></p>
+        <p>一直想记录一下ROS学习过程中的点滴，先从最基础的 ROS-Beginner-Tutorials开始， 以便于帮助更多的人。本篇是ROS学习的开篇，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials" target="_blank" rel="external">ROS-Beginner-Tutorials</a>。</p>
+<h1 id="ROS安装"><a href="#ROS安装" class="headerlink" title="ROS安装"></a>ROS安装</h1><p>目前ROS官方还在维护的版本有4个,参考 <a href="http://wiki.ros.org/Distributions" target="_blank" rel="external">ROS-Distributions</a>：<img src="/2017/05/26/ros-primary-tutorial-1/rosv.jpg" alt=""><br><a id="more"></a><br>因为我的环境是ubuntu14.04,支持的 ROS 版本为 <a href="http://wiki.ros.org/indigo" target="_blank" rel="external">ROS-Indigo</a>, 因此我选择安装 <a href="http://wiki.ros.org/indigo" target="_blank" rel="external">ROS-Indigo</a>。<br><em>环境： ubuntu 14.04 Trusty LTS 32bits</em><br>安装可以参考官网: <a href="http://wiki.ros.org/indigo/Installation/Ubuntu" target="_blank" rel="external">ROS-Indigo-Installation-ubuntu</a><br>添加代码仓：<br>   <figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> <span class="keyword">sh</span> -c 'echo <span class="string">"deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main"</span> &gt; /etc/apt/sources.<span class="keyword">list</span>.<span class="keyword">d</span>/ros-latest.<span class="keyword">list</span>'</div></pre></td></tr></table></figure></p>
+<p>设定key:<br>   <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo apt-key adv <span class="params">--keyserver</span> hkp:<span class="string">//ha.pool.sks-keyservers.net</span><span class="function">:80</span> <span class="params">--recv-key</span> 421C365BD9FF1F717815A3895523BAEEB01FA116</div></pre></td></tr></table></figure></p>
+<p>更新：<br>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get update</span></div></pre></td></tr></table></figure></p>
+<p>选择桌面版完全安装：<br>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get install ros-indigo-desktop-full</span></div></pre></td></tr></table></figure></p>
+<p>初始化rosdep:<br>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> rosdep init</span></div><div class="line"><span class="meta"><span class="meta-keyword">$rosdep</span> update</span></div></pre></td></tr></table></figure></p>
+<p>设定环境变量让系统能找到ROS：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">echo</span> <span class="string">"source /opt/ros/indigo/setup.bash"</span> &gt;&gt; ~/.bashrc</span></div><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">source</span> ~/.bashrc</span></div></pre></td></tr></table></figure></p>
+<p>安装rosinstall工具，方便下载ROS：<br>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get install python-rosinstall</span></div></pre></td></tr></table></figure></p>
+<h1 id="管理环境"><a href="#管理环境" class="headerlink" title="管理环境"></a>管理环境</h1><p>检查我们是否配置好了环境变量：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">export</span> | grep ROS</span></div></pre></td></tr></table></figure></p>
+<p>检查是否有 <a href="http://wiki.ros.org/ROS/EnvironmentVariables#ROS_ROOT" target="_blank" rel="external">ROS_ROOT</a> 和 <a href="http://wiki.ros.org/ROS/EnvironmentVariables#ROS_PACKAGE_PATH" target="_blank" rel="external">ROS_PACKAGE_PATH</a> 的配置。</p>
+<h1 id="创建ROS工作空间"><a href="#创建ROS工作空间" class="headerlink" title="创建ROS工作空间"></a>创建ROS工作空间</h1><p><a href="http://wiki.ros.org/catkin/commands/catkin_make" target="_blank" rel="external">catkin_make</a> 命令只适用于 ROS Groovy 及其以后的版本。</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">mkdir -p ~/catkin_ws/src</span></div><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws/src</span></div></pre></td></tr></table></figure>
+<p>这就创建了一个 <a href="http://wiki.ros.org/catkin/workspaces" target="_blank" rel="external">catkin 工作空间</a>, 里面是空的，只有一个 <a href="http://wiki.ros.org/catkin/CMakeLists.txt" target="_blank" rel="external">CMakeLists.txt</a>, 但依然可以编译它：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws/</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make</span></div></pre></td></tr></table></figure></p>
+<p>当前目录下会生成 <em>build</em> 和 <em>devel</em> 这两个文件夹。在 <em>devel</em> 文件夹里面可以看到几个 setup.*sh 文件。 source 这些文件中的任何一个都可以将当前工作空间设置在ROS工作环境的最顶层，参考 <a href="http://wiki.ros.org/catkin" target="_blank" rel="external">catkin</a>文档。接下来首先 source 一下新生成的 setup.bash 文件：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">source</span> ~/catkin_ws/devel/setup.bash</span></div></pre></td></tr></table></figure></p>
+<p>也可以将这句命令加入到 ~/.bashrc 中，这样每次打开一个 <em>terminal</em> 会自动 <em>source</em> 。<br>确保工作空间已经正确配置可以通过以下命令查看：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">echo</span> <span class="variable">$ROS_PACKAGE_PATH</span></span></div></pre></td></tr></table></figure></p>
+<p>正确的输出一般为：<br>   <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/home/</span>yourusername<span class="regexp">/catkin_ws/</span><span class="string">src:</span><span class="regexp">/opt/</span>ros<span class="regexp">/indigo/</span><span class="string">share:</span><span class="regexp">/opt/</span>ros<span class="regexp">/indigo/</span>stacks</div></pre></td></tr></table></figure></p>
+<p>至此，ROS的安装与配置已经搭建完成。</p>
 
       
     </div>
@@ -480,7 +486,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/raspberryPi/" rel="tag"># raspberryPi</a>
+            <a href="/tags/ROS-Tutorials/" rel="tag"># ROS Tutorials</a>
           
         </div>
       
@@ -493,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/13/hexo-error/" rel="next" title="hexo问题汇总">
-                <i class="fa fa-chevron-left"></i> hexo问题汇总
+              <a href="/2017/05/24/ros-navigation-simulation/" rel="next" title="ROS导航仿真">
+                <i class="fa fa-chevron-left"></i> ROS导航仿真
               </a>
             
           </div>
@@ -502,10 +508,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/15/ros-indigo-raspberry/" rel="prev" title="树莓派3b安装ROS-Indigo">
-                树莓派3b安装ROS-Indigo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -733,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#镜像安装"><span class="nav-number">1.</span> <span class="nav-text">镜像安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启SSH和串口"><span class="nav-number">2.</span> <span class="nav-text">开启SSH和串口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启VNC远程桌面"><span class="nav-number">3.</span> <span class="nav-text">开启VNC远程桌面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#手动配置wifi"><span class="nav-number">4.</span> <span class="nav-text">手动配置wifi</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ROS安装"><span class="nav-number">1.</span> <span class="nav-text">ROS安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#管理环境"><span class="nav-number">2.</span> <span class="nav-text">管理环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建ROS工作空间"><span class="nav-number">3.</span> <span class="nav-text">创建ROS工作空间</span></a></li></ol></div>
             
 
           </div>
@@ -897,9 +899,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://stevenshi.me/2017/05/15/raspberryPi/';
-          this.page.identifier = '2017/05/15/raspberryPi/';
-          this.page.title = '树莓派3B使用前的配置';
+          this.page.url = 'http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/';
+          this.page.identifier = '2017/05/26/ros-primary-tutorial-1/';
+          this.page.title = 'ROS 学习<一>安装与配置';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';
