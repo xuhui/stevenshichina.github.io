@@ -1,13 +1,13 @@
 ---
-title: ROS 初级<三> 创建ROS程序包
+title: ROS初级<三> 创建ROS程序包
 date: 2017-05-26 11:23:13
 categories: ROS
 tags: catkin_create_pkg
 comments: true
 ---
 本篇学习 ROS 程序包的创建，使用工具 [catkin_create_pkg](http://wiki.ros.org/catkin/commands/catkin_create_pkg) 创建新程序包。
-# catkin 程序包的组成
- catkin 程序包必须包含 [package.xml](http://wiki.ros.org/catkin/package.xml) 文件和 [CMakeLists.txt](http://wiki.ros.org/catkin/CMakeLists.txt) 文件。*package.xml* 提供有关程序包的元信息，每个目录下只能有一个程序包：
+# ROS程序包的组成
+ ROS 程序包必须包含 [package.xml](http://wiki.ros.org/catkin/package.xml) 文件和 [CMakeLists.txt](http://wiki.ros.org/catkin/CMakeLists.txt) 文件。*package.xml* 提供有关程序包的元信息，每个目录下只能有一个程序包：
    ```
  beginner_tutorials/     
   include/                   

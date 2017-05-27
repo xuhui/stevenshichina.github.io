@@ -1,12 +1,12 @@
 ---
-title: ROS 初级<四> 编译ROS程序包
+title: ROS初级<四> 编译ROS程序包
 date: 2017-05-26 15:10:04
 categories: ROS
 tags: Catkin_make
 comments: true
 ---
 # 编译
-Catkin 程序包的编译使用命令 [catkin_make](http://wiki.ros.org/catkin/commands/catkin_make)。在 catkin 工作空间的根目录下 *~/catkin_ws* 执行该命令即可编译 catkin 程序包：
+ROS 程序包的编译使用命令 [catkin_make](http://wiki.ros.org/catkin/commands/catkin_make)。在 catkin 工作空间的根目录下 *~/catkin_ws* 执行该命令即可编译 catkin 程序包：
    ```
  $cd ~/catkin_ws
  $catkin_make
