@@ -1,5 +1,5 @@
 ---
-title: ROS 初级<四> 编译 catkin 程序包
+title: ROS 初级<四> 编译ROS程序包
 date: 2017-05-26 15:10:04
 categories: ROS
 tags: Catkin_make
