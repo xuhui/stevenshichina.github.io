@@ -92,17 +92,17 @@
 
 
 
-<meta name="description" content="编译Catkin 程序包的编译使用命令 catkin_make。在 catkin 工作空间的根目录下 ~/catkin_ws 执行该命令即可编译 catkin 程序包：   12$cd ~/catkin_ws$catkin_make">
+<meta name="description" content="编译ROS 程序包的编译使用命令 catkin_make。在 catkin 工作空间的根目录下 ~/catkin_ws 执行该命令即可编译 catkin 程序包：   12$cd ~/catkin_ws$catkin_make">
 <meta name="keywords" content="Catkin_make">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ROS 初级&lt;四&gt; 编译ROS程序包">
+<meta property="og:title" content="ROS初级&lt;四&gt; 编译ROS程序包">
 <meta property="og:url" content="http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="编译Catkin 程序包的编译使用命令 catkin_make。在 catkin 工作空间的根目录下 ~/catkin_ws 执行该命令即可编译 catkin 程序包：   12$cd ~/catkin_ws$catkin_make">
-<meta property="og:updated_time" content="2017-05-26T08:14:38.722Z">
+<meta property="og:description" content="编译ROS 程序包的编译使用命令 catkin_make。在 catkin 工作空间的根目录下 ~/catkin_ws 执行该命令即可编译 catkin 程序包：   12$cd ~/catkin_ws$catkin_make">
+<meta property="og:updated_time" content="2017-05-27T05:16:45.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ROS 初级&lt;四&gt; 编译ROS程序包">
-<meta name="twitter:description" content="编译Catkin 程序包的编译使用命令 catkin_make。在 catkin 工作空间的根目录下 ~/catkin_ws 执行该命令即可编译 catkin 程序包：   12$cd ~/catkin_ws$catkin_make">
+<meta name="twitter:title" content="ROS初级&lt;四&gt; 编译ROS程序包">
+<meta name="twitter:description" content="编译ROS 程序包的编译使用命令 catkin_make。在 catkin 工作空间的根目录下 ~/catkin_ws 执行该命令即可编译 catkin 程序包：   12$cd ~/catkin_ws$catkin_make">
 
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <title>ROS 初级<四> 编译ROS程序包 | Steven's blog</title>
+  <title>ROS初级<四> 编译ROS程序包 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ROS 初级<四> 编译ROS程序包</h1>
+          <h1 class="post-title" itemprop="name headline">ROS初级<四> 编译ROS程序包</h1>
         
 
         <div class="post-meta">
@@ -389,7 +389,7 @@
 
           
           
-             <span id="/2017/05/26/ros-primary-tutorial-4/" class="leancloud_visitors" data-flag-title="ROS 初级<四> 编译ROS程序包">
+             <span id="/2017/05/26/ros-primary-tutorial-4/" class="leancloud_visitors" data-flag-title="ROS初级<四> 编译ROS程序包">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -417,7 +417,7 @@
       
 
       
-        <h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>Catkin 程序包的编译使用命令 <a href="http://wiki.ros.org/catkin/commands/catkin_make" target="_blank" rel="external">catkin_make</a>。在 catkin 工作空间的根目录下 <em>~/catkin_ws</em> 执行该命令即可编译 catkin 程序包：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make</span></div></pre></td></tr></table></figure></p>
+        <h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>ROS 程序包的编译使用命令 <a href="http://wiki.ros.org/catkin/commands/catkin_make" target="_blank" rel="external">catkin_make</a>。在 catkin 工作空间的根目录下 <em>~/catkin_ws</em> 执行该命令即可编译 catkin 程序包：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>该命令会在 <em>~/catkin_ws</em> 目录下生成 <em>build </em> 和 <em>devel</em> 文件夹，<em>build </em>是 <em>cmake</em> 和 <em>make</em> 命令执行的地方，<em>devel</em> 文件夹内部用于保存编译生成文件，目标文件以及配置文件 setup.*sh等。该命令等价于：<br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> src</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_init_workspace</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ..</span></div><div class="line"><span class="meta">$</span><span class="bash"> mkdir build</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> build</span></div><div class="line"><span class="meta">$</span><span class="bash"> cmake ../src -DCMAKE_INSTALL_PREFIX=../install -DCATKIN_DEVEL_PREFIX=../devel</span></div><div class="line"><span class="meta">$</span><span class="bash"> make</span></div></pre></td></tr></table></figure></p>
 <p>如果只想编译指定的某个包或几个包可以使用以下命令：<br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">catkin_make -DCATKIN_WHITELIST_PACKAGES=<span class="string">"package1;package2"</span></span></div></pre></td></tr></table></figure></p>
@@ -494,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/26/ros-primary-tutorial-3/" rel="next" title="ROS 初级<三> 创建ROS程序包">
-                <i class="fa fa-chevron-left"></i> ROS 初级<三> 创建ROS程序包
+              <a href="/2017/05/26/ros-primary-tutorial-3/" rel="next" title="ROS初级<三> 创建ROS程序包">
+                <i class="fa fa-chevron-left"></i> ROS初级<三> 创建ROS程序包
               </a>
             
           </div>
@@ -623,7 +623,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -645,7 +645,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -900,7 +900,7 @@
         var disqus_config = function () {
           this.page.url = 'http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/';
           this.page.identifier = '2017/05/26/ros-primary-tutorial-4/';
-          this.page.title = 'ROS 初级<四> 编译ROS程序包';
+          this.page.title = 'ROS初级<四> 编译ROS程序包';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';
