@@ -92,22 +92,22 @@
 
 
 
-<meta name="description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包：   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get install ros-indigo-rqt-commo">
+<meta name="description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包，参考 UsingRqtconsoleRoslaunch :   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get">
 <meta name="keywords" content="rqt_console">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ROS初级&lt;八&gt; 使用rqt_console 和 roslaunch">
 <meta property="og:url" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包：   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get install ros-indigo-rqt-commo">
+<meta property="og:description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包，参考 UsingRqtconsoleRoslaunch :   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/rqtconsole.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/rqtloglevel.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/info.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/two.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/rqtgraph.jpg">
-<meta property="og:updated_time" content="2017-05-31T05:20:17.166Z">
+<meta property="og:updated_time" content="2017-05-31T05:30:00.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS初级&lt;八&gt; 使用rqt_console 和 roslaunch">
-<meta name="twitter:description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包：   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get install ros-indigo-rqt-commo">
+<meta name="twitter:description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包，参考 UsingRqtconsoleRoslaunch :   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get">
 <meta name="twitter:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/rqtconsole.jpg">
 
 
@@ -423,7 +423,7 @@
       
 
       
-        <p>本篇学习 <a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 与 <a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 的使用。<a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 属于 ROS 日志框架的一部分，用来显示节点的输出信息。<a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 用于节点的运行，可以同时运行多个节点。<br>使用之前先安装以下程序包：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt-common-plugins</span></div></pre></td></tr></table></figure></p>
+        <p>本篇学习 <a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 与 <a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 的使用。<a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 属于 ROS 日志框架的一部分，用来显示节点的输出信息。<a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 用于节点的运行，可以同时运行多个节点。<br>使用之前先安装以下程序包，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UsingRqtconsoleRoslaunch" target="_blank" rel="external">UsingRqtconsoleRoslaunch</a> :<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt-common-plugins</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>如果之前已安装，也可忽略。</p>
 <h1 id="rqt-console-与-rqt-logger-level"><a href="#rqt-console-与-rqt-logger-level" class="headerlink" title="rqt_console 与 rqt_logger_level"></a>rqt_console 与 rqt_logger_level</h1><p><a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 显示节点信息， <a href="http://wiki.ros.org/rqt_logger_level" target="_blank" rel="external">rqt_logger_level</a> 用于修改节点运行时输出信息的日志等级。<br>开启 rqt_console 窗口与 rqt_logger_level 窗口：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun rqt_console rqt_console</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun rqt_logger_level rqt_logger_level</span></div></pre></td></tr></table></figure></p>
@@ -432,7 +432,7 @@
 <p>因为默认的日志等级为 info 所以 <a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 的输出为：<br><img src="/2017/05/31/ros-primary-tutorial-8/info.jpg" alt=""></p>
 <p>现在刷新一下 <a href="http://wiki.ros.org/rqt_logger_level" target="_blank" rel="external">rqt_logger_level</a> 窗口，并将日志等级修改为 Warn 并且让 turtle 做旋转动作：<br>   <figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist -r <span class="number">1</span> -- '[<span class="number">2.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>]' '[<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">1.8</span>]'</div></pre></td></tr></table></figure></p>
 <p> 这里我的日志等级并没有修改过来，原因未知，待查。<br>日志等级按以下优先顺序排列：<br>   <figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Fatal</div><div class="line"><span class="keyword">Error</span></div><div class="line">Warn</div><div class="line">Info</div><div class="line">Debug</div></pre></td></tr></table></figure></p>
-<p>Fatal是最高优先级，Debug是最低优先级。通过设置日志等级你可以获取该等级及其以上优先等级的所有日志消息。比如，将日志等级设为Warn时，会得到Warn、Error和Fatal这三个等级的所有日志消息。</p>
+<p>Fatal是最高优先级，Debug是最低优先级。通过设置日志等级可以获取该等级及其以上优先等级的所有日志消息。比如，将日志等级设为Warn时，会得到Warn、Error和Fatal这三个等级的所有日志消息。</p>
 <h1 id="roslaunch"><a href="#roslaunch" class="headerlink" title="roslaunch"></a>roslaunch</h1><p><a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 可以用来启动定义在 launch 文件中的多个节点，用法：<br>   <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ roslaunch <span class="string">[package]</span> <span class="string">[filename.launch]</span></div></pre></td></tr></table></figure></p>
 <p>进入 beginner_tutorials 目录,建立一个 launch 文件，<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscd beginner_tutorials</span></div><div class="line"><span class="meta">$</span><span class="bash"> mkdir launch</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> launch/</span></div><div class="line"><span class="meta">$</span><span class="bash"> vim turtlemimic.launch</span></div></pre></td></tr></table></figure></p>
 <p>在 turtlemimic.launch 文件中输入以下内容：<br>   <figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;launch&gt;</div><div class="line"></div><div class="line">    &lt;<span class="built_in">group</span> ns=<span class="string">"turtlesim1"</span>&gt;</div><div class="line">      &lt;node pkg=<span class="string">"turtlesim"</span> <span class="built_in">name</span>=<span class="string">"sim"</span> <span class="built_in">type</span>=<span class="string">"turtlesim_node"</span>/&gt;</div><div class="line">   &lt;/<span class="built_in">group</span>&gt;</div><div class="line"></div><div class="line">    &lt;<span class="built_in">group</span> ns=<span class="string">"turtlesim2"</span>&gt;</div><div class="line">      &lt;node pkg=<span class="string">"turtlesim"</span> <span class="built_in">name</span>=<span class="string">"sim"</span> <span class="built_in">type</span>=<span class="string">"turtlesim_node"</span>/&gt;</div><div class="line">    &lt;/<span class="built_in">group</span>&gt;</div><div class="line"> </div><div class="line">   &lt;node pkg=<span class="string">"turtlesim"</span> <span class="built_in">name</span>=<span class="string">"mimic"</span> <span class="built_in">type</span>=<span class="string">"mimic"</span>&gt;</div><div class="line">     &lt;remap <span class="keyword">from</span>=<span class="string">"input"</span> <span class="keyword">to</span>=<span class="string">"turtlesim1/turtle1"</span>/&gt;</div><div class="line">     &lt;remap <span class="keyword">from</span>=<span class="string">"output"</span> <span class="keyword">to</span>=<span class="string">"turtlesim2/turtle1"</span>/&gt;</div><div class="line">   &lt;/node&gt;</div><div class="line"> </div><div class="line">&lt;/launch&gt;</div></pre></td></tr></table></figure></p>
@@ -513,6 +513,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/31/ros-primary-tutorial-9/" rel="prev" title="ROS初级<九> 创建 ROS 消息和 ROS 服务">
+                ROS初级<九> 创建 ROS 消息和 ROS 服务 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -629,7 +633,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -651,7 +655,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
