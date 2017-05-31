@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ROS Services," />
 
 
 
@@ -92,12 +92,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Steven&#39;s blog">
-<meta property="og:url" content="http://stevenshi.me/page/3/index.html">
+<meta name="description" content="本篇学习 ROS 的服务和参数，参考 UnderstandingServicesParams。 ROS 服务Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。rosservice 命令可以使用 ROS 客户端/服务器框架提供的服务，rosservice 提供了很多可以在 topic 上使用的命令：   12345ross">
+<meta name="keywords" content="ROS Services">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROS初级&lt;七&gt; 理解ROS服务和参数">
+<meta property="og:url" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
+<meta property="og:description" content="本篇学习 ROS 的服务和参数，参考 UnderstandingServicesParams。 ROS 服务Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。rosservice 命令可以使用 ROS 客户端/服务器框架提供的服务，rosservice 提供了很多可以在 topic 上使用的命令：   12345ross">
+<meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/spawn.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/rosparam.jpg">
+<meta property="og:updated_time" content="2017-05-31T02:15:28.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Steven&#39;s blog">
+<meta name="twitter:title" content="ROS初级&lt;七&gt; 理解ROS服务和参数">
+<meta name="twitter:description" content="本篇学习 ROS 的服务和参数，参考 UnderstandingServicesParams。 ROS 服务Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。rosservice 命令可以使用 ROS 客户端/服务器框架提供的服务，rosservice 提供了很多可以在 topic 上使用的命令：   12345ross">
+<meta name="twitter:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/spawn.jpg">
 
 
 
@@ -125,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/page/3/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/"/>
 
 
 
 
 
-  <title>Steven's blog</title>
+  <title>ROS初级<七> 理解ROS服务和参数 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,9 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,9 +301,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -306,7 +312,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/09/qt-widget-designated-location/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -323,9 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/09/qt-widget-designated-location/" itemprop="url">Qt如何在指定位置显示控件</a></h1>
+          <h1 class="post-title" itemprop="name headline">ROS初级<七> 理解ROS服务和参数</h1>
         
 
         <div class="post-meta">
@@ -337,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T09:20:14+08:00">
-                2017-05-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T08:23:36+08:00">
+                2017-05-31
               </time>
             
 
@@ -360,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Qt/" itemprop="url" rel="index">
-                    <span itemprop="name">Qt</span>
+                  <a href="/categories/ROS/" itemprop="url" rel="index">
+                    <span itemprop="name">ROS</span>
                   </a>
                 </span>
 
@@ -378,9 +382,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/09/qt-widget-designated-location/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/31/ros-primary-tutorial-7/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/09/qt-widget-designated-location/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/31/ros-primary-tutorial-7/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,7 +392,7 @@
 
           
           
-             <span id="/2017/05/09/qt-widget-designated-location/" class="leancloud_visitors" data-flag-title="Qt如何在指定位置显示控件">
+             <span id="/2017/05/31/ros-primary-tutorial-7/" class="leancloud_visitors" data-flag-title="ROS初级<七> 理解ROS服务和参数">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -416,381 +420,160 @@
       
 
       
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>假如窗体背景为一张图片，想要在图片的某一个位置放置一个<em>Qlabel</em>，用于显示一个实时变量，但又不知道这个位置的精确坐标，这个时候该如何实现呢？</p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>一种方法是借用图片工具，找到指定位置的相对坐标，然后将控件放置在该坐标处;另一种方法可以将图片用网格划分，然后添加一个网格布局，查看指定的位置位于哪一行哪一列，然后将控件放置到布局中。这种方式不能做到精确的定位，但大体上可以使用。考虑到简单实用，选择第二种方法。</p>
-<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/09/qt-widget-designated-location/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>本篇学习 ROS 的服务和参数，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingServicesParams" target="_blank" rel="external">UnderstandingServicesParams</a>。</p>
+<h1 id="ROS-服务"><a href="#ROS-服务" class="headerlink" title="ROS 服务"></a>ROS 服务</h1><p>Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。<a href="http://wiki.ros.org/rosservice" target="_blank" rel="external">rosservice</a> 命令可以使用 ROS 客户端/服务器框架提供的服务，<a href="http://wiki.ros.org/rosservice" target="_blank" rel="external">rosservice</a> 提供了很多可以在 topic 上使用的命令：<br>   <figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">rosservice <span class="built_in">list</span>         输出可用服务的信息</div><div class="line">rosservice <span class="built_in">call</span>         调用带参数的服务</div><div class="line">rosservice <span class="built_in">type</span>         输出服务类型</div><div class="line">rosservice <span class="built_in">find</span>         依据类型寻找服务<span class="built_in">find</span> services by service <span class="built_in">type</span></div><div class="line">rosservice uri          输出服务的ROSRPC uri</div></pre></td></tr></table></figure></p>
+<p>测试上述命令之前先运行 turtlesim 节点:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
+<p>并用键盘进行控制，显示出运动轨迹。<br><a id="more"></a></p>
+<h2 id="rosserice-list"><a href="#rosserice-list" class="headerlink" title="rosserice list"></a>rosserice list</h2>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosservice  list</span></div></pre></td></tr></table></figure>
+<p>rosservice list 命令显示出 turtlesim 节点提供的一些服务，其中 rosout 为 roscore 提供的服务：<br>   <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="string">/clear</span> <span class="string">//</span>清除</div><div class="line"><span class="string">/kill</span>  <span class="string">//</span>终止</div><div class="line"><span class="string">/reset</span> <span class="string">//</span>重置</div><div class="line"><span class="string">/rosout/get_loggers</span></div><div class="line"><span class="string">/rosout/set_logger_level</span></div><div class="line"><span class="string">/spawn</span> <span class="string">//</span>再生</div><div class="line"><span class="string">/turtle1/set_pen</span> <span class="string">//</span>设定画笔包括颜色、线条宽度、开关等</div><div class="line"><span class="string">/turtle1/teleport_absolute</span> <span class="string">//</span>绝对参数</div><div class="line"><span class="string">/turtle1/teleport_relative</span> <span class="string">//</span>相对参数</div><div class="line"><span class="string">/turtlesim/get_loggers</span> <span class="string">//</span>日志</div><div class="line"><span class="string">/turtlesim/set_logger_level</span> <span class="string">//</span>日志等级</div></pre></td></tr></table></figure></p>
+<p>参数的详细说明参阅 <a href="http://wiki.ros.org/turtlesim" target="_blank" rel="external">turtlesim</a>。</p>
+<h2 id="rosservice-type"><a href="#rosservice-type" class="headerlink" title="rosservice type"></a>rosservice type</h2><p>rosservice type 用于显示某个服务的类型，使用方法：<br>   <figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">rosservice</span> <span class="keyword">type</span> [service]</div></pre></td></tr></table></figure></p>
+<p>比如我们想查看 turtlesim 节点提供的 clear 服务：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosservice <span class="built_in">type</span> clear</span></div></pre></td></tr></table></figure></p>
+<p>输出：<br>   <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">std_srvs/<span class="keyword">Empty</span></div></pre></td></tr></table></figure></p>
+<p>服务的类型为空Empty,这表明在调用这个服务时不需要参数。那我们调用一次这个参数看下效果，使用方法：<br>   <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rosservice call <span class="string">[service]</span> <span class="string">[args]</span></div></pre></td></tr></table></figure></p>
+<p>测试：<br>   <figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rosservice <span class="keyword">call</span> <span class="keyword">clear</span></div></pre></td></tr></table></figure></p>
+<p>之前 turtule 运行的轨迹被清除。上面是不带参数的服务，我们查看一下带参数的服务 spwan:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosservice <span class="built_in">type</span> spawn| rossrv show</span></div></pre></td></tr></table></figure></p>
+<p>输出：<br>   <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">float32 x</div><div class="line">float32 y</div><div class="line">float32 theta</div><div class="line"><span class="section">string name</span></div><div class="line">---</div><div class="line">string name</div></pre></td></tr></table></figure></p>
+<p>以上可以看出 spawn 服务需要的参数有 x y 坐标值、角度以及名字等参数。我们使用 spawn 服务在指定位置再生成一个 turtle :<br>   <figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rosservice call spawn <span class="number">3</span> <span class="number">3</span> <span class="number">1.8</span> <span class="string">"another turtle"</span></div></pre></td></tr></table></figure></p>
+<p>上面命令在坐标(3,3) 方位角为 1.8 生成一个名字为 “anotherturtle” 的 turtle,注意名字之间不能有空格。<br><img src="/2017/05/31/ros-primary-tutorial-7/spawn.jpg" alt=""></p>
+<h1 id="ROS-参数"><a href="#ROS-参数" class="headerlink" title="ROS 参数"></a>ROS 参数</h1><p><a href="http://wiki.ros.org/rosparam" target="_blank" rel="external">rosparam</a> 使得我们能够存储并操作 ROS 参数服务器 <a href="http://wiki.ros.org/Parameter%20Server" target="_blank" rel="external">Parameter Server</a> 上的数据。参数服务器能够存储整型、浮点、布尔、字符串、字典和列表等数据类型。<a href="http://wiki.ros.org/rosparam" target="_blank" rel="external">rosparam</a> 使用 <a href="https://zh.wikipedia.org/wiki/YAML" target="_blank" rel="external">YAML</a> 标记语言的语法。一般而言，<a href="https://zh.wikipedia.org/wiki/YAML" target="_blank" rel="external">YAML</a> 的表述很自然：1 是整型, 1.0 是浮点型, one 是字符串, true 是布尔, [1, 2, 3]是整型列表, {a: b, c: d}是字典。 <a href="http://wiki.ros.org/rosparam" target="_blank" rel="external">rosparam</a> 有很多指令可以用来操作参数:<br>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">rosparam <span class="keyword">set</span>            设置参数</div><div class="line">rosparam <span class="comment">get</span>            获取参数</div><div class="line">rosparam <span class="comment">load</span>           从文件读取参数</div><div class="line">rosparam <span class="comment">dump</span>           向文件中写入参数</div><div class="line">rosparam <span class="comment">delete</span>         删除参数</div><div class="line">rosparam <span class="comment">list</span>           列出参数名</div></pre></td></tr></table></figure></p>
+<p>rosparam list 命令可列出某个节点在参数服务器上的各种参数：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosparam list</span></div></pre></td></tr></table></figure></p>
+<p>输出：<br>   <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">/background_b</span> <span class="string">//</span>背景颜色 </div><div class="line"><span class="string">/background_g</span> <span class="string">//</span>背景颜色</div><div class="line"><span class="string">/background_r</span> <span class="string">//</span>背景颜色</div><div class="line"><span class="string">/rosdistro</span></div><div class="line"><span class="string">/roslaunch/uris/host_ubuntu__39737</span></div><div class="line"><span class="string">/rosversion</span></div><div class="line"><span class="string">/run_id</span></div></pre></td></tr></table></figure></p>
+<p>设置背景颜色通过命令 rosparam set 获取背景颜色使用命令 rosparam get<br>   <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rosparam set <span class="string">[param_name]</span></div><div class="line">rosparam get <span class="string">[param_name]</span></div></pre></td></tr></table></figure></p>
+<p>我们修改一下红色值：<br>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">$</span> rosparam <span class="keyword">set</span> background_r <span class="comment">200</span></div></pre></td></tr></table></figure></p>
+<p>调用清除命令参数才能生效：<br>   <figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rosservice <span class="keyword">call</span> <span class="keyword">clear</span></div></pre></td></tr></table></figure></p>
+<p><img src="/2017/05/31/ros-primary-tutorial-7/rosparam.jpg" alt=""><br>获取参数值：<br>   <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rosparam <span class="keyword">get</span> /  <span class="comment">//显示服务器上所有参数内容</span></div></pre></td></tr></table></figure></p>
+<p>输出：<br>   <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">background_b</span>: <span class="number">255</span></div><div class="line"><span class="attribute">background_g</span>: <span class="number">10</span></div><div class="line"><span class="attribute">background_r</span>: <span class="number">200</span></div><div class="line"><span class="attribute">rosdistro</span>: 'indigo</div><div class="line"></div><div class="line"> '</div><div class="line"><span class="attribute">roslaunch</span>:</div><div class="line"> <span class="attribute">uris</span>: &#123;<span class="attribute">host_ubuntu__39737</span>: <span class="string">'http://ubuntu:39737/'</span>&#125;</div><div class="line"><span class="attribute">rosversion</span>: '<span class="number">1.11</span>.<span class="number">20</span></div><div class="line"></div><div class="line"> '</div><div class="line"><span class="attribute">run_id</span>: <span class="number">0</span>efaaffc-<span class="number">4599</span>-<span class="number">11</span>e7-a400-<span class="number">000</span>c2915ac77</div></pre></td></tr></table></figure></p>
+<p>获取某个参数值，比如获取红色通道的值：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosparam get background_r</span></div></pre></td></tr></table></figure></p>
+<p>可以使用 rosparam dump 命令将所有参数进行存储，使用 rosparam load 命令读取所有参数：<br>使用方法：<br>   <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rosparam dump <span class="string">[file_name]</span></div><div class="line">rosparam load <span class="string">[file_name]</span> <span class="string">[namespace]</span></div></pre></td></tr></table></figure></p>
+<p>将所有参数写入文件 myparams.yaml 中：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosparam dump myparams.yaml</span></div></pre></td></tr></table></figure></p>
+<p>载入参数：<br>   <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rosparam load params.yaml <span class="keyword">copy</span><span class="bash">  //将参数载入 copy 空间</span></div><div class="line">$ rosparam get <span class="keyword">copy</span><span class="bash">/background_r</span></div></pre></td></tr></table></figure></p>
+
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
       
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/07/hexo-backup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Steven Shi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Steven's blog">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/07/hexo-backup/" itemprop="url">hexo 博客备份</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T21:25:07+08:00">
-                2017-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/07/hexo-backup/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/07/hexo-backup/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/05/07/hexo-backup/" class="leancloud_visitors" data-flag-title="hexo 博客备份">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持是我原创的动力</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="Steven Shi WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
       
       
-
-      
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在公司电脑中做好了hexo博客撰写，也将文章推送到了github并且发布了;回到家中在自己的电脑上想给自己的博客添加一篇文章，按照hexo建站流程，又建了一遍，但写完文章后发现，之前在公司写得博客被覆盖了，想哭的感觉有木有。当使用不同的电脑撰写博客时，会涉及到博客资源的备份和更新，如果简单的拷贝会比较麻烦，当然也可以tar整个hexo工作目录;单纯的push到github会有部分文件不全,由于主题文件目录也是git管理方式，当push后，主题默认是不会被推送到github上的。所以，必须稍作修改，才能正确的备份。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>在自己的github仓库中默认有master分支，比如username目录下的：<br>username.github.io仓库。使用master分支保存自己的hexo博客静态文件，新建hexo分支用于保存hexo资源文件。每次撰写完博客后，顺便将自己的hexo工作目录push到远程仓库的hexo分支;当在另外一台电脑上写博客时，先获取远程仓库的分支，之后就可以编辑了<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/07/hexo-backup/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/07/hexo-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Steven Shi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Steven's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/07/hexo-blog/" itemprop="url">hexo+github建立个人博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T11:07:34+08:00">
-                2017-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/07/hexo-blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/07/hexo-blog/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/05/07/hexo-blog/" class="leancloud_visitors" data-flag-title="hexo+github建立个人博客">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Steven Shi Alipay"/>
+          <p>支付宝打赏</p>
         </div>
-      </header>
-    
+      
+    </div>
+  </div>
 
-    <div class="post-body" itemprop="articleBody">
 
       
-      
+    </div>
 
+    <div>
       
         
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><em>hexo</em>是一个高效简洁的静态博客框架，基于<em>Node.js</em>使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。</p>
-<p>#环境：<br><em>windows10 64bits</em></p>
-<p>#所需软件：<br>　　1. <a href="https://nodejs.org/en/" title="Java Script运行环境" target="_blank" rel="external">Node.js</a>　基于Chrome V8引擎的JavaScript运行环境；<br>　　2. <a href="https://github.com/git-for-windows/git/releases" title="git for windows" target="_blank" rel="external">Git-for-windows</a>　windows平台下git 运行环境；也可以使用 <a href="https://github.com/gavincook/githubOfflineInstaller" target="_blank" rel="external">github-for-windows</a> 里的 <em>git shell</em>, 由于在线安装 <a href="https://github.com/gavincook/githubOfflineInstaller" target="_blank" rel="external">github-for-windows</a> 在国内不翻墙是不可能成功的，所以上面的链接是离线版的安装版本。<br>　　3. <a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>　博客撰写工具</p>
-<p><em>开始之前先去 <a href="www.github.com">github</a> 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：<a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a>  注：username替换为自己的用户名</em></p>
-<h1 id="hexo安装与配置"><a href="#hexo安装与配置" class="headerlink" title="hexo安装与配置"></a>hexo安装与配置</h1><p>首先在本地建立自己的博客文件夹，比如 <em>F:\github\hexo</em>，进入该文件夹内，右键点击<em>Git Bash Here</em>,打开<em>git for windows</em>环境，开始安装 <a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>：<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/07/hexo-blog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/ROS-Services/" rel="tag"># ROS Services</a>
+          
+        </div>
       
 
       
+        
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/27/ros-primary-tutorial-6/" rel="next" title="ROS初级<六> 理解ROS话题">
+                <i class="fa fa-chevron-left"></i> ROS初级<六> 理解ROS话题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
 
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -798,6 +581,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -817,8 +611,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -934,6 +737,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ROS-服务"><span class="nav-number">1.</span> <span class="nav-text">ROS 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rosserice-list"><span class="nav-number">1.1.</span> <span class="nav-text">rosserice list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rosservice-type"><span class="nav-number">1.2.</span> <span class="nav-text">rosservice type</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ROS-参数"><span class="nav-number">2.</span> <span class="nav-text">ROS 参数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1068,6 +887,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
@@ -1085,6 +908,18 @@
       <script id="dsq-count-scr" src="https://stevenshi-me.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/';
+          this.page.identifier = '2017/05/31/ros-primary-tutorial-7/';
+          this.page.title = 'ROS初级<七> 理解ROS服务和参数';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://stevenshi-me.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
