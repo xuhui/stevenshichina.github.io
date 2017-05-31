@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-10/</loc>
+    <lastmod>2017-05-31T08:51:13.842Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级<十> 简单的ROS发布器和订阅器</title>
+        <pubTime>2017-05-31T07:27:20.000Z</pubTime>
+        
+        <tag>Publisher</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-9/</loc>
     <lastmod>2017-05-31T07:08:31.453Z</lastmod>
     <data>
@@ -445,6 +465,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo 博客备份</title>
+        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -471,26 +511,6 @@
         <display>
         <title>hexo问题汇总</title>
         <pubTime>2017-05-13T09:42:11.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo 博客备份</title>
-        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
         
         <tag>hexo</tag>
          
