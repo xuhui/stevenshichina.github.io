@@ -6,7 +6,7 @@ tags: rqt_console
 comments: true
 ---
 本篇学习 [rqt_console](http://wiki.ros.org/rqt_console) 与 [roslaunch](http://wiki.ros.org/roslaunch) 的使用。[rqt_console](http://wiki.ros.org/rqt_console) 属于 ROS 日志框架的一部分，用来显示节点的输出信息。[roslaunch](http://wiki.ros.org/roslaunch) 用于节点的运行，可以同时运行多个节点。
-使用之前先安装以下程序包：
+使用之前先安装以下程序包，参考 [UsingRqtconsoleRoslaunch](http://wiki.ros.org/cn/ROS/Tutorials/UsingRqtconsoleRoslaunch) :
    ```
  $ sudo apt-get install ros-indigo-rqt
  $ sudo apt-get install ros-indigo-rqt-common-plugins
@@ -43,7 +43,7 @@ comments: true
  Info
  Debug
    ```
-Fatal是最高优先级，Debug是最低优先级。通过设置日志等级你可以获取该等级及其以上优先等级的所有日志消息。比如，将日志等级设为Warn时，会得到Warn、Error和Fatal这三个等级的所有日志消息。
+Fatal是最高优先级，Debug是最低优先级。通过设置日志等级可以获取该等级及其以上优先等级的所有日志消息。比如，将日志等级设为Warn时，会得到Warn、Error和Fatal这三个等级的所有日志消息。
 # roslaunch
 [roslaunch](http://wiki.ros.org/roslaunch) 可以用来启动定义在 launch 文件中的多个节点，用法：
    ```
