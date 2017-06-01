@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="ServiceClient," />
 
 
 
@@ -92,20 +92,19 @@
 
 
 
-<meta name="description" content="前言hexo是一个高效简洁的静态博客框架，基于Node.js使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。 #环境：windows10 64bits #所需软件：　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；也可以使用 github-for-windows 里">
-<meta name="keywords" content="hexo">
+<meta name="description" content="本篇学习简单的 ROS 服务器和客户端的编写，参考 WritingServiceClient。服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。">
+<meta name="keywords" content="ServiceClient">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo+github建立个人博客">
-<meta property="og:url" content="http://stevenshi.me/2017/05/07/hexo-blog/index.html">
+<meta property="og:title" content="ROS初级&lt;十一&gt; 简单的ROS服务器和客户端">
+<meta property="og:url" content="http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="前言hexo是一个高效简洁的静态博客框架，基于Node.js使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。 #环境：windows10 64bits #所需软件：　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；也可以使用 github-for-windows 里">
-<meta property="og:image" content="http://stevenshi.me/2017/05/07/hexo-blog/hello-world.jpg">
-<meta property="og:image" content="http://stevenshi.me/2017/05/07/hexo-blog/leancloudc.jpg">
-<meta property="og:updated_time" content="2017-05-23T23:55:18.148Z">
+<meta property="og:description" content="本篇学习简单的 ROS 服务器和客户端的编写，参考 WritingServiceClient。服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。">
+<meta property="og:image" content="http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/service.jpg">
+<meta property="og:updated_time" content="2017-06-01T03:11:34.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo+github建立个人博客">
-<meta name="twitter:description" content="前言hexo是一个高效简洁的静态博客框架，基于Node.js使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。 #环境：windows10 64bits #所需软件：　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；也可以使用 github-for-windows 里">
-<meta name="twitter:image" content="http://stevenshi.me/2017/05/07/hexo-blog/hello-world.jpg">
+<meta name="twitter:title" content="ROS初级&lt;十一&gt; 简单的ROS服务器和客户端">
+<meta name="twitter:description" content="本篇学习简单的 ROS 服务器和客户端的编写，参考 WritingServiceClient。服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。">
+<meta name="twitter:image" content="http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/service.jpg">
 
 
 
@@ -133,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/2017/05/07/hexo-blog/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/"/>
 
 
 
 
 
-  <title>hexo+github建立个人博客 | Steven's blog</title>
+  <title>ROS初级<十一> 简单的ROS服务器和客户端 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -312,7 +311,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/07/hexo-blog/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -329,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo+github建立个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">ROS初级<十一> 简单的ROS服务器和客户端</h1>
         
 
         <div class="post-meta">
@@ -341,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T11:07:34+08:00">
-                2017-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T10:17:27+08:00">
+                2017-06-01
               </time>
             
 
@@ -364,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/ROS/" itemprop="url" rel="index">
+                    <span itemprop="name">ROS</span>
                   </a>
                 </span>
 
@@ -382,9 +381,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/07/hexo-blog/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/01/ros-primary-tutorial-11/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/07/hexo-blog/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/01/ros-primary-tutorial-11/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -392,7 +391,7 @@
 
           
           
-             <span id="/2017/05/07/hexo-blog/" class="leancloud_visitors" data-flag-title="hexo+github建立个人博客">
+             <span id="/2017/06/01/ros-primary-tutorial-11/" class="leancloud_visitors" data-flag-title="ROS初级<十一> 简单的ROS服务器和客户端">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -420,36 +419,15 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><em>hexo</em>是一个高效简洁的静态博客框架，基于<em>Node.js</em>使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。</p>
-<p>#环境：<br><em>windows10 64bits</em></p>
-<p>#所需软件：<br>　　1. <a href="https://nodejs.org/en/" title="Java Script运行环境" target="_blank" rel="external">Node.js</a>　基于Chrome V8引擎的JavaScript运行环境；<br>　　2. <a href="https://github.com/git-for-windows/git/releases" title="git for windows" target="_blank" rel="external">Git-for-windows</a>　windows平台下git 运行环境；也可以使用 <a href="https://github.com/gavincook/githubOfflineInstaller" target="_blank" rel="external">github-for-windows</a> 里的 <em>git shell</em>, 由于在线安装 <a href="https://github.com/gavincook/githubOfflineInstaller" target="_blank" rel="external">github-for-windows</a> 在国内不翻墙是不可能成功的，所以上面的链接是离线版的安装版本。<br>　　3. <a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>　博客撰写工具</p>
-<p><em>开始之前先去 <a href="www.github.com">github</a> 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：<a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a>  注：username替换为自己的用户名</em></p>
-<h1 id="hexo安装与配置"><a href="#hexo安装与配置" class="headerlink" title="hexo安装与配置"></a>hexo安装与配置</h1><p>首先在本地建立自己的博客文件夹，比如 <em>F:\github\hexo</em>，进入该文件夹内，右键点击<em>Git Bash Here</em>,打开<em>git for windows</em>环境，开始安装 <a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>：<br><a id="more"></a><br>　　<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$npm</span> install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span> <span class="comment">//注: -g表示全局安装</span></div><div class="line">　<span class="variable">$npm</span> install hexo-server -<span class="keyword">g</span> <span class="comment">//注： hexo3.0之后server模块是独立的,需要单独安装</span></div></pre></td></tr></table></figure></p>
-<p>完成之后可以通过命令查看<em>hexo</em>是否安装成功：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　$</span><span class="bash">hexo -v</span></div></pre></td></tr></table></figure></p>
-<p><em>hexo</em>根目录下的<em>_config.yml</em>文件是全局配置文件，修改该文件实现自己的配置。具体可参考<a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>官网。</p>
-<h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><p>hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$hexo</span> g <span class="regexp">//</span>等同于hexo generate,用于生成静态文件</div><div class="line">　<span class="variable">$hexo</span> s <span class="regexp">//</span>等同于hexo server,用于启动本地服务器，预览网页</div><div class="line">　<span class="variable">$hexo</span> d <span class="regexp">//</span>等同于hexo deploy,用于部署文件到github</div></pre></td></tr></table></figure></p>
-<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>在自己的博客文件夹下<em>F:\github\hexo</em>,执行命令：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$hexo</span> init <span class="regexp">//</span>初始化，自动下载搭建网站所需的所有文件</div><div class="line">　<span class="variable">$npm</span> install <span class="regexp">//</span>安装依赖包</div><div class="line">　<span class="variable">$hexo</span> g <span class="regexp">//</span>产生静态文件</div><div class="line">　<span class="variable">$hexo</span> s <span class="regexp">//</span>启动本地服务器，开启预览功能</div></pre></td></tr></table></figure></p>
-<p>这个时候在浏览器输入localhost:4000即可查看到生成的静态网页：<img src="/2017/05/07/hexo-blog/hello-world.jpg" alt="Alt text"></p>
-<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>在hexo根目录下找到配置文件_config.yml，使用<a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a> 打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：<br>　　<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　<span class="attribute">deploy</span>:</div><div class="line">　　　<span class="attribute">type</span>: git <span class="comment">//注意冒号':'后面的空格一定要有</span></div><div class="line">　　　<span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/username/username.github.io.git</span></div><div class="line">　　　<span class="attribute">branch</span>: master</div></pre></td></tr></table></figure></p>
-<h3 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h3><p>在桌面空白处鼠标右键选择<em>Git Bash Here</em>,输入以下命令配置SSH Key:<br>　　<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ssh-keygen -t rsa -C <span class="string">"your_email@youremail.com"</span></div></pre></td></tr></table></figure></p>
-<p>引号里面的内容输入邮箱地址，然后回车，会提示文件保存的路径，这时候按回车键确认，然后会提示你输入密码，然后会确认输入一次，在<em>c:/user/username/.ssh/</em>文件夹内看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，打开id_rsa.pub然后选中里面的全部内容，复制下来。登录<a href="https://github.com/login" target="_blank" rel="external">github</a>,点击<em>setting</em>,左边有一个<em>SSH and GPG keys</em>选项，进入<em>New SSH</em>选项，<em>title</em>随意，将之前复制的内容粘贴到key里面去。回到<em>Git bash</em>命令行，输入以下命令验证:<br>　　<figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ssh -T git<span class="symbol">@github</span>.com</div></pre></td></tr></table></figure></p>
-<h3 id="配置用户名和密码"><a href="#配置用户名和密码" class="headerlink" title="配置用户名和密码"></a>配置用户名和密码</h3><p>　　<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> config --global user<span class="selector-class">.name</span> <span class="string">"your username"</span>  </div><div class="line"><span class="variable">$git</span> config --global user<span class="selector-class">.email</span> <span class="string">"your_email@youremail.com"</span></div></pre></td></tr></table></figure></p>
-<p>重新生成一下静态文件：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$hexo</span> clean <span class="regexp">//</span>清除缓存文件db.json和已生成的静态文件public</div><div class="line">　<span class="variable">$hexo</span> g <span class="regexp">//</span>产生静态文件</div><div class="line">　<span class="variable">$hexo</span> d <span class="regexp">//</span>部署到github</div></pre></td></tr></table></figure></p>
-<p>在运行<em>hexo d</em>之前需要安装git部署工具<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　$</span><span class="bash">npm install hexo-deployer-git -g</span></div></pre></td></tr></table></figure></p>
-<p>第一次执行<em>hexo d</em>会弹出对话框提示输入github的用户名和密码。此时在浏览器输入：<br><em><a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a></em>即可看到自己的博客已经搭建成功。<br>注: username替换为自己的用户名.</p>
-<h1 id="nexT主题"><a href="#nexT主题" class="headerlink" title="nexT主题"></a>nexT主题</h1><p>hexo安装完成后，默认的主题是landscape，保存在hexo/themes/文件夹下。<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">nexT</a> 主题需要自行下载。在博客文件目录下F:\github\hexo右键单击Git Bash Here，输入命令:<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$git</span> clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/iissnan/</span>hexo-theme-<span class="keyword">next</span>.git themes<span class="regexp">/nexT</span></div></pre></td></tr></table></figure></p>
-<p>下载后的nexT主题会保存在themes目录下。修改hexo根目录下的配置文件_config.yml使主题生效:<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　#</span><span class="bash"> Extensions</span></div><div class="line"><span class="meta">　#</span><span class="bash"><span class="comment"># Plugins: https://hexo.io/plugins/</span></span></div><div class="line"><span class="meta">　#</span><span class="bash"><span class="comment"># Themes: https://hexo.io/themes/</span></span></div><div class="line">　theme: nexT</div></pre></td></tr></table></figure></p>
-<p>接下来选择nexT的Scheme，打开nexT的配置文件themes/nexT/_config.yml中，修改:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　<span class="meta"># Schemes</span></div><div class="line">　<span class="meta">#scheme: Muse <span class="comment">//默认Scheme，黑白主调，大量留白</span></span></div><div class="line">　<span class="meta">#scheme: Mist <span class="comment">//紧凑版本，整洁有序</span></span></div><div class="line"><span class="symbol">　scheme:</span> Pisces <span class="comment">//双栏显示，清新</span></div></pre></td></tr></table></figure></p>
-<p>更多的设置请参考: <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">nexT</a></p>
-<h2 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h2><p>打开hexo的配置文件F:\github\hexo_config.yml，修改:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">　language:</span> zh-Hans <span class="comment">//中文汉字</span></div></pre></td></tr></table></figure></p>
-<h1 id="访问量统计"><a href="#访问量统计" class="headerlink" title="访问量统计"></a>访问量统计</h1><h3 id="文章阅读量统计"><a href="#文章阅读量统计" class="headerlink" title="文章阅读量统计"></a>文章阅读量统计</h3><p>使用 <a href="https://leancloud.cn" target="_blank" rel="external">leancloud</a> 实现文章阅读次数统计。注册完成后，点击访问控制台，选择创建新应用:<img src="/2017/05/07/hexo-blog/leancloudc.jpg" alt="Alt-text"></p>
-<p>创建名为Counter的class。之后找到该应用的AppID、AppKey，将这两个值写入到nexT的主题配置文件中_config.yml:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　<span class="meta"># Show number of visitors to each article.</span></div><div class="line">　<span class="meta"># You can visit https:<span class="comment">//leancloud.cn get AppID and AppKey.</span></span></div><div class="line"><span class="symbol">　leancloud_visitors:</span></div><div class="line"><span class="symbol">  　　enable:</span> true</div><div class="line"><span class="symbol">  　　app_id:</span> <span class="meta">#&lt;app_id&gt; <span class="comment">//复制刚才创建的应用的AppID</span></span></div><div class="line"><span class="symbol">  　　app_key:</span> <span class="meta">#&lt;app_key&gt; <span class="comment">//复制刚才创建的应用的AppKey</span></span></div></pre></td></tr></table></figure></p>
-<p>为了安全，将自己的域名加入安全中心-&gt;web安全域名中，防止恶意修改。完成后部署网站，看效果是不是已经有了文章阅读量显示了。</p>
-<h3 id="站点访问统计"><a href="#站点访问统计" class="headerlink" title="站点访问统计"></a>站点访问统计</h3><p>使用 <a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a> 脚本实现。<br>在themes\nexT\layout_partials目录下找到文件footer.swig，在文件的头部添加:<br>　　<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　<span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span></div><div class="line">　<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>　　</p>
-<p>　　
-　　</p>
-<p>　　</p>
+        <p>本篇学习简单的 ROS 服务器和客户端的编写，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29" target="_blank" rel="external">WritingServiceClient</a>。<br>服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。<br><a id="more"></a></p>
+<h1 id="服务器节点"><a href="#服务器节点" class="headerlink" title="服务器节点"></a>服务器节点</h1><p>我们将创建一个 service 节点 (add_two_ints_server)，该节点接收两个整形数字，并返回它们的和。客户端可以给服务器发送请求。<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscd beginner_tutorials/src</span></div></pre></td></tr></table></figure></p>
+<p>下载文件 <a href="https://github.com/ros/catkin_tutorials/blob/master/create_package_srvclient/catkin_ws/src/beginner_tutorials/src/add_two_ints_server.cpp" target="_blank" rel="external">add_two_ints_server.cpp</a>,将文件放置于 beginner_tutorials/src 目录下。源码说明：<br>   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ros/ros.h"</span></span></div><div class="line"></div><div class="line"><span class="comment">/*beginner_tutorials/AddTwoInts.h由编译系统自动根据我们先前创建的srv文件</span></div><div class="line"> 生成的对应该srv文件的头文件*/</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"beginner_tutorials/AddTwoInts.h"</span></span></div><div class="line"></div><div class="line"><span class="comment">/*add函数提供两个int值求和的服务，int值从request里面获取，</span></div><div class="line"> 而返回数据装入response内，这些数据类型都定义在srv文件内部，</div><div class="line"> 函数返回一个boolean值*/</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">add</span><span class="params">(beginner_tutorials::AddTwoInts::Request  &amp;req,</span></span></div><div class="line">        beginner_tutorials::AddTwoInts::Response &amp;res)</div><div class="line">&#123;</div><div class="line"> res.sum = req.a + req.b;</div><div class="line"> ROS_INFO(<span class="string">"request: x=%ld, y=%ld"</span>, (<span class="keyword">long</span> <span class="keyword">int</span>)req.a, (<span class="keyword">long</span> <span class="keyword">int</span>)req.b);</div><div class="line"> ROS_INFO(<span class="string">"sending back response: [%ld]"</span>, (<span class="keyword">long</span> <span class="keyword">int</span>)res.sum);</div><div class="line"> <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></div><div class="line">&#123;</div><div class="line"> ros::init(argc, argv, <span class="string">"add_two_ints_server"</span>);</div><div class="line"> ros::NodeHandle n;</div><div class="line"></div><div class="line"><span class="comment">/*service 服务建立*/</span></div><div class="line"> ros::ServiceServer service = n.advertiseService(<span class="string">"add_two_ints"</span>, add);</div><div class="line"> ROS_INFO(<span class="string">"Ready to add two ints."</span>);</div><div class="line"> ros::spin();</div><div class="line"></div><div class="line"> <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="客户端节点"><a href="#客户端节点" class="headerlink" title="客户端节点"></a>客户端节点</h1><p>同样将源码下载到目录 beginner_tutorials/src 下，下载 <a href="https://github.com/ros/catkin_tutorials/blob/master/create_package_srvclient/catkin_ws/src/beginner_tutorials/src/add_two_ints_client.cpp" target="_blank" rel="external">add_two_ints_client.cpp</a>。<br>源码及说明：<br>   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ros/ros.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"beginner_tutorials/AddTwoInts.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></div><div class="line">&#123;</div><div class="line">  ros::init(argc, argv, <span class="string">"add_two_ints_client"</span>);</div><div class="line">  <span class="keyword">if</span> (argc != <span class="number">3</span>)</div><div class="line">  &#123;</div><div class="line">    ROS_INFO(<span class="string">"usage: add_two_ints_client X Y"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  ros::NodeHandle n;</div><div class="line">  </div><div class="line">  <span class="comment">/*为add_two_ints service创建一个client。ros::ServiceClient 对象待会用来调用service*/</span></div><div class="line"></div><div class="line">  ros::ServiceClient client = n.serviceClient&lt;beginner_tutorials::AddTwoInts&gt;(<span class="string">"add_two_ints"</span>);</div><div class="line"></div><div class="line"> <span class="comment">/*实例化一个由ROS编译系统自动生成的service类，并给其request成员赋值。</span></div><div class="line">  一个service类包含两个成员request和response。同时也包括两个类定义Request和Response*/</div><div class="line"></div><div class="line">  beginner_tutorials::AddTwoInts srv;</div><div class="line">  srv.request.a = atoll(argv[<span class="number">1</span>]);</div><div class="line">  srv.request.b = atoll(argv[<span class="number">2</span>]);</div><div class="line"></div><div class="line">  <span class="comment">/*调用service。由于service的调用是模态过程（调用的时候占用进程阻止其他代码的执行），</span></div><div class="line">  一旦调用完成，将返回调用结果。如果service调用成功，call()函数将返回true，</div><div class="line">  srv.response里面的值将是合法的值。如果调用失败，call()函数将返回false，</div><div class="line">  srv.response里面的值将是非法的*/</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (client.call(srv))</div><div class="line">  &#123;</div><div class="line">    ROS_INFO(<span class="string">"Sum: %ld"</span>, (<span class="keyword">long</span> <span class="keyword">int</span>)srv.response.sum);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span></div><div class="line">  &#123;</div><div class="line">    ROS_ERROR(<span class="string">"Failed to call service add_two_ints"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="编译测试"><a href="#编译测试" class="headerlink" title="编译测试"></a>编译测试</h1><p>编译之前先修改下 CMakeLists.txt ,文件位于:<br> ~/catkin_ws/src/beginner_tutorials/CMakeLists.txt，参考 <a href="https://raw.github.com/ros/catkin_tutorials/master/create_package_srvclient/catkin_ws/src/beginner_tutorials/CMakeLists.txt" target="_blank" rel="external">CMakeLists.txt</a>:<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">add_executable</span><span class="params">(add_two_ints_server src/add_two_ints_server.cpp)</span></span></div><div class="line"><span class="function"><span class="title">target_link_libraries</span><span class="params">(add_two_ints_server $&#123;catkin_LIBRARIES&#125;)</span></span></div><div class="line"><span class="function"><span class="title">add_dependencies</span><span class="params">(add_two_ints_server beginner_tutorials_gencpp)</span></span></div><div class="line"><span class="function"><span class="title">add_executable</span><span class="params">(add_two_ints_client src/add_two_ints_client.cpp)</span></span></div><div class="line"><span class="function"><span class="title">target_link_libraries</span><span class="params">(add_two_ints_client $&#123;catkin_LIBRARIES&#125;)</span></span></div><div class="line"><span class="function"><span class="title">add_dependencies</span><span class="params">(add_two_ints_client beginner_tutorials_gencpp)</span></span></div></pre></td></tr></table></figure></p>
+<p>生成两个可执行程序 add_two_ints_server 和 add_two_ints_client ，这两个可执行程序默认被放在的 devel space 下的包目录下。可以直接调用可执行程序，或者使用 rosrun 命令去调用它们。它们不会被装在usr/bin目录下，如果希望在安装的时候可执行程序在PATH变量里面，需要设置一下install target，请参考：<a href="http://wiki.ros.org/catkin/CMakeLists.txt" target="_blank" rel="external">catkin/CMakeLists.txt</a><br>编译：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_make</span></div></pre></td></tr></table></figure></p>
+<p>编译完成后会在目录 ~/catkin_ws/devel/lib/beginner_tutorials 下生成两个可执行文件 add_two_ints_client  和 add_two_ints_server 现在可以运行并测试它们：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun beginner_tutorials add_two_ints_server</span></div></pre></td></tr></table></figure></p>
+<p>如果运行时找不到程序包，运行一下 <em>rospack profile</em> 另外开启一个terminal 运行客户端:<br>   <figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rosrun <span class="keyword">beginner_tutorials </span><span class="keyword">add_two_ints_client </span> <span class="number">188</span> <span class="number">102</span></div></pre></td></tr></table></figure></p>
+<p>输出结果看图：<img src="/2017/06/01/ros-primary-tutorial-11/service.jpg" alt=""></p>
 
       
     </div>
@@ -500,7 +478,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/ServiceClient/" rel="tag"># ServiceClient</a>
           
         </div>
       
@@ -513,15 +491,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/31/ros-primary-tutorial-10/" rel="next" title="ROS初级<十> 简单的ROS发布器和订阅器">
+                <i class="fa fa-chevron-left"></i> ROS初级<十> 简单的ROS发布器和订阅器
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/07/hexo-backup/" rel="prev" title="hexo 博客备份">
-                hexo 博客备份 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -749,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo安装与配置"><span class="nav-number">2.</span> <span class="nav-text">hexo安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo常用命令"><span class="nav-number">2.1.</span> <span class="nav-text">hexo常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">2.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">2.3.</span> <span class="nav-text">部署到github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH-Key"><span class="nav-number">2.3.1.</span> <span class="nav-text">配置SSH Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置用户名和密码"><span class="nav-number">2.3.2.</span> <span class="nav-text">配置用户名和密码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nexT主题"><span class="nav-number">3.</span> <span class="nav-text">nexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置语言"><span class="nav-number">3.1.</span> <span class="nav-text">设置语言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问量统计"><span class="nav-number">4.</span> <span class="nav-text">访问量统计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章阅读量统计"><span class="nav-number">4.0.1.</span> <span class="nav-text">文章阅读量统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点访问统计"><span class="nav-number">4.0.2.</span> <span class="nav-text">站点访问统计</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器节点"><span class="nav-number">1.</span> <span class="nav-text">服务器节点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端节点"><span class="nav-number">2.</span> <span class="nav-text">客户端节点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译测试"><span class="nav-number">3.</span> <span class="nav-text">编译测试</span></a></li></ol></div>
             
 
           </div>
@@ -913,9 +891,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://stevenshi.me/2017/05/07/hexo-blog/';
-          this.page.identifier = '2017/05/07/hexo-blog/';
-          this.page.title = 'hexo+github建立个人博客';
+          this.page.url = 'http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/';
+          this.page.identifier = '2017/06/01/ros-primary-tutorial-11/';
+          this.page.title = 'ROS初级<十一> 简单的ROS服务器和客户端';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';
