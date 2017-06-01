@@ -36,7 +36,7 @@ src 文件夹用于放置 beginner_tutorials 包的所有源代码，下载 talk
    ros::NodeHandle n;
 
    /*告诉 master 我们将要在 command（话题名） 上发布 std_msgs/String 类型的消息。
-   这样 master 就会告诉所有订阅了 chatter 话题的节点，将要有数据发布。第二个参数是发布序列的大小。
+   这样 master 就会告诉所有订阅了 command 话题的节点，将要有数据发布。第二个参数是发布序列的大小。
    如果我们发布的消息的频率太高，缓冲区中的消息在大于 1000 个的时候就会开始丢弃先前发布的消息。 
    NodeHandle::advertise() 返回一个 ros::Publisher 对象,它有两个作用：
    1) 它有一个 publish() 成员函数可以让你在topic上发布消息； 
