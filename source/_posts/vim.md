@@ -6,7 +6,7 @@ tags: Vim
 comments: true
 ---
 # 前言
-*linux* 下有很多好用的 IDE，比如常见的 [Eclipse](https://eclipse.org/)、[Bluefish](http://bluefish.openoffice.nl/index.html)、[NetBeans](https://netbeans.org/) 等等，功能很多，有些功能我们不一定用得上,天天面对 *terminal* 敲命令的我们天生不喜欢鼠标。*linux* 下的文本编辑器使用最多的还是 [Vim](http://www.vim.org/) 。可不可以将 [Vim](http://www.vim.org/) 打造成一个好用的 IDE 来替代或者部分替代这些高大上的 IDE 呢? -程序猿天生喜欢折腾。话不多说先上图：![](vim/ycm.gif)
+*linux* 下有很多好用的 IDE，比如常见的 [Eclipse](https://eclipse.org/)、[Bluefish](http://bluefish.openoffice.nl/index.html)、[NetBeans](https://netbeans.org/) 等等，功能很多，有些功能我们不一定用得上,天天面对 *terminal* 敲命令的我们天生不喜欢鼠标。*linux* 下的文本编辑器使用最多的还是 [Vim](http://www.vim.org/) 。可不可以将 [Vim](http://www.vim.org/) 打造成一个好用的 IDE 来替代或者部分替代这些高大上的 IDE 呢? -程序猿天生喜欢折腾。话不多说先上图：![](vim/ycm.jpg)
 <!--more-->
 # vim 插件管理
 首先安装 [Vim](https://github.com/vim/vim.git), 确保版本在 7.4 以上。可以源码安装 [Vim](https://github.com/vim/vim.git) 也可以自动安装：
