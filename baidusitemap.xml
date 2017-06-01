@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/18/vim/</loc>
+    <lastmod>2017-06-01T04:21:52.515Z</lastmod>
+    <data>
+        <display>
+        <title>如何让Vim变的爱不释手</title>
+        <pubTime>2017-05-18T01:02:06.000Z</pubTime>
+        
+        <tag>Vim</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/</loc>
     <lastmod>2017-06-01T03:11:34.671Z</lastmod>
     <data>
@@ -365,26 +385,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/18/vim/</loc>
-    <lastmod>2017-05-19T09:11:08.072Z</lastmod>
-    <data>
-        <display>
-        <title>如何让Vim变的爱不释手</title>
-        <pubTime>2017-05-18T01:02:06.000Z</pubTime>
-        
-        <tag>Vim</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
@@ -485,26 +485,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo 博客备份</title>
-        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -538,6 +518,26 @@
            
              
               <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo 博客备份</title>
+        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
           
         </display>
     </data>
