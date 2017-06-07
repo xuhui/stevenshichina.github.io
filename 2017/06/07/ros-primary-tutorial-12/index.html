@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Catkin_make," />
+  <meta name="keywords" content="ROS tf," />
 
 
 
@@ -92,17 +92,23 @@
 
 
 
-<meta name="description" content="编译ROS 程序包的编译使用命令 catkin_make。在 catkin 工作空间的根目录下 ~/catkin_ws 执行该命令即可编译 catkin 程序包：   12$cd ~/catkin_ws$catkin_make">
-<meta name="keywords" content="Catkin_make">
+<meta name="description" content="一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 tf 。参考 Introduction tf。">
+<meta name="keywords" content="ROS tf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ROS初级&lt;四&gt; 编译ROS程序包">
-<meta property="og:url" content="http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/index.html">
+<meta property="og:title" content="ROS初级&lt;十二&gt; 理解 ROS 坐标转换 一">
+<meta property="og:url" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="编译ROS 程序包的编译使用命令 catkin_make。在 catkin 工作空间的根目录下 ~/catkin_ws 执行该命令即可编译 catkin 程序包：   12$cd ~/catkin_ws$catkin_make">
-<meta property="og:updated_time" content="2017-05-27T05:16:45.292Z">
+<meta property="og:description" content="一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 tf 。参考 Introduction tf。">
+<meta property="og:image" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/tf.png">
+<meta property="og:image" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/follow.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/pdf.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/runtime.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/rviz.jpg">
+<meta property="og:updated_time" content="2017-06-07T05:28:46.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ROS初级&lt;四&gt; 编译ROS程序包">
-<meta name="twitter:description" content="编译ROS 程序包的编译使用命令 catkin_make。在 catkin 工作空间的根目录下 ~/catkin_ws 执行该命令即可编译 catkin 程序包：   12$cd ~/catkin_ws$catkin_make">
+<meta name="twitter:title" content="ROS初级&lt;十二&gt; 理解 ROS 坐标转换 一">
+<meta name="twitter:description" content="一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 tf 。参考 Introduction tf。">
+<meta name="twitter:image" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/tf.png">
 
 
 
@@ -130,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/"/>
 
 
 
 
 
-  <title>ROS初级<四> 编译ROS程序包 | Steven's blog</title>
+  <title>ROS初级<十二> 理解 ROS 坐标转换 一 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -309,7 +315,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -326,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ROS初级<四> 编译ROS程序包</h1>
+          <h1 class="post-title" itemprop="name headline">ROS初级<十二> 理解 ROS 坐标转换 一</h1>
         
 
         <div class="post-meta">
@@ -338,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T15:10:04+08:00">
-                2017-05-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T10:30:19+08:00">
+                2017-06-07
               </time>
             
 
@@ -379,9 +385,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/26/ros-primary-tutorial-4/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/07/ros-primary-tutorial-12/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/26/ros-primary-tutorial-4/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/07/ros-primary-tutorial-12/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -389,7 +395,7 @@
 
           
           
-             <span id="/2017/05/26/ros-primary-tutorial-4/" class="leancloud_visitors" data-flag-title="ROS初级<四> 编译ROS程序包">
+             <span id="/2017/06/07/ros-primary-tutorial-12/" class="leancloud_visitors" data-flag-title="ROS初级<十二> 理解 ROS 坐标转换 一">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -417,20 +423,25 @@
       
 
       
-        <h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>ROS 程序包的编译使用命令 <a href="http://wiki.ros.org/catkin/commands/catkin_make" target="_blank" rel="external">catkin_make</a>。在 catkin 工作空间的根目录下 <em>~/catkin_ws</em> 执行该命令即可编译 catkin 程序包：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make</span></div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>该命令会在 <em>~/catkin_ws</em> 目录下生成 <em>build </em> 和 <em>devel</em> 文件夹，<em>build </em>是 <em>cmake</em> 和 <em>make</em> 命令执行的地方，<em>devel</em> 文件夹内部用于保存编译生成文件，目标文件以及配置文件 setup.*sh等。该命令等价于：<br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> src</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_init_workspace</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ..</span></div><div class="line"><span class="meta">$</span><span class="bash"> mkdir build</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> build</span></div><div class="line"><span class="meta">$</span><span class="bash"> cmake ../src -DCMAKE_INSTALL_PREFIX=../install -DCATKIN_DEVEL_PREFIX=../devel</span></div><div class="line"><span class="meta">$</span><span class="bash"> make</span></div></pre></td></tr></table></figure></p>
-<p>如果只想编译指定的某个包或几个包可以使用以下命令：<br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">catkin_make -DCATKIN_WHITELIST_PACKAGES=<span class="string">"package1;package2"</span></span></div></pre></td></tr></table></figure></p>
-<p>比如我只想编译 mypackage 和 beginner_tutorial这两个包，那么命令可写成：<br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">catkin_make -DCATKIN_WHITELIST_PACKAGES=<span class="string">"mypackage,beginner_tutorial"</span></span></div></pre></td></tr></table></figure></p>
-<p>注意命令中的 = 前后不能有空格。<br>输出：<br>  <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Base <span class="string">path:</span> <span class="regexp">/home/</span>steven/catkin_ws</div><div class="line">Source <span class="string">space:</span> <span class="regexp">/home/</span>steven<span class="regexp">/catkin_ws/</span>src</div><div class="line">Build <span class="string">space:</span> <span class="regexp">/home/</span>steven<span class="regexp">/catkin_ws/</span>build</div><div class="line">Devel <span class="string">space:</span> <span class="regexp">/home/</span>steven<span class="regexp">/catkin_ws/</span>devel</div><div class="line">Install <span class="string">space:</span> <span class="regexp">/home/</span>steven<span class="regexp">/catkin_ws/</span>install</div><div class="line"></div><div class="line"> Running <span class="string">command:</span> <span class="string">"cmake /home/steven/catkin_ws/src -DCATKIN_WHITELIST_PACKAGES=mypackage,beginner_tutorial -DCATKIN_DEVEL_PREFIX=/home/steven/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/steven/catkin_ws/install -G Unix Makefiles"</span> <span class="keyword">in</span> <span class="string">"/home/steven/catkin_ws/build"</span></div><div class="line"></div><div class="line">-- Using <span class="string">CATKIN_DEVEL_PREFIX:</span> <span class="regexp">/home/</span>steven<span class="regexp">/catkin_ws/</span>devel</div><div class="line">-- Using <span class="string">CMAKE_PREFIX_PATH:</span> <span class="regexp">/home/</span>steven<span class="regexp">/catkin_ws/</span>devel;<span class="regexp">/opt/</span>ros/indigo</div><div class="line">-- This workspace <span class="string">overlays:</span> <span class="regexp">/home/</span>steven<span class="regexp">/catkin_ws/</span>devel;<span class="regexp">/opt/</span>ros/indigo</div><div class="line">-- Using <span class="string">PYTHON_EXECUTABLE:</span> <span class="regexp">/usr/</span>bin/python</div><div class="line">-- Using Debian Python <span class="keyword">package</span> layout</div><div class="line">-- Using <span class="string">empy:</span> <span class="regexp">/usr/</span>bin/empy</div><div class="line">-- Using <span class="string">CATKIN_ENABLE_TESTING:</span> ON</div><div class="line">-- Call enable_testing()</div><div class="line">-- Using <span class="string">CATKIN_TEST_RESULTS_DIR:</span> <span class="regexp">/home/</span>steven<span class="regexp">/catkin_ws/</span>build/test_results</div><div class="line">-- Found <span class="string">gtest:</span> gtests will be built</div><div class="line">-- Using Python <span class="string">nosetests:</span> <span class="regexp">/usr/</span>bin/nosetests<span class="number">-2.7</span></div><div class="line">-- catkin <span class="number">0.6</span><span class="number">.18</span></div><div class="line">-- BUILD_SHARED_LIBS is on</div><div class="line">-- Using <span class="string">CATKIN_WHITELIST_PACKAGES:</span> mypackage,beginner_tutorial</div><div class="line">-- Configuring done</div><div class="line">-- Generating done</div><div class="line">-- Build files have been written <span class="string">to:</span> <span class="regexp">/home/</span>steven<span class="regexp">/catkin_ws/</span>build</div><div class="line"></div><div class="line"> Running <span class="string">command:</span> <span class="string">"make -j1 -l1"</span> <span class="keyword">in</span> <span class="string">"/home/steven/catkin_ws/build"</span></div></pre></td></tr></table></figure></p>
-<p>如果想恢复编译所有包使用命令：<br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">catkin_make -DCATKIN_WHITELIST_PACKAGES=<span class="string">""</span></span></div></pre></td></tr></table></figure></p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>编译完成后生成的文件位于 <em>devel</em> 目录下，可以使用以下命令进行安装：<br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make install</span></div></pre></td></tr></table></figure></p>
-<p>以上命令等价于：<br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/build</span></div><div class="line">//If cmake hasn't already been called</div><div class="line"><span class="meta">$</span><span class="bash"> cmake ../src -DCMAKE_INSTALL_PREFIX=../install -DCATKIN_DEVEL_PREFIX=../devel</span></div><div class="line"><span class="meta">$</span><span class="bash"> make</span></div><div class="line"><span class="meta">$</span><span class="bash"> make install</span></div></pre></td></tr></table></figure></p>
-<p>执行完以上命令后会在 <em>~/catkin_ws</em> 目录下生成 <em>install</em> 文件夹，所有编译完成的包都安装到了 <em>install</em> 下。里面包含 <em>setup.bash</em> 配置文件，可以使用 <em>source</em> 让系统可以找到这些编译完后的可执行包。<br>可以通过以下命令改变安装位置：<br>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/indigo install</span></div></pre></td></tr></table></figure></p>
-<p>位置 <em>/opt/ros/indigo</em> 为系统目录，一般不建议将自己的包安装于此。安装完后记得 <em>source</em> 一下才能使用：<br>  <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$source</span> <span class="regexp">/opt/</span>ros<span class="regexp">/indigo/</span>setup.bash</div></pre></td></tr></table></figure></p>
-<p>或者：<br> <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">source</span> ~/catkin_ws/devel/setup.bash</span></div></pre></td></tr></table></figure></p>
-<p>可以将这句话添加到自己的 <em>~/.bashrc</em> 中：<br>  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">source</span> ~<span class="regexp">/catkin_ws/</span>devel<span class="regexp">/setup.bash</span></div></pre></td></tr></table></figure></p>
-<p>参考 <a href="http://wiki.ros.org/catkin/commands/catkin_make" target="_blank" rel="external">catkin_make</a>。</p>
+        <p>一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 。参考 <a href="http://wiki.ros.org/tf/Tutorials/Introduction%20to%20tf" target="_blank" rel="external">Introduction tf</a>。<br><a id="more"></a></p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img src="/2017/06/07/ros-primary-tutorial-12/tf.png" alt=""></p>
+<p>参考 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">官网</a>。<br>通过一个实例来更好的理解  <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a>。<br>启动一个demo:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roslaunch turtle_tf turtle_tf_demo.launch</span></div></pre></td></tr></table></figure></p>
+<p>此时会看到有两个 turtle 同时出现，将光标移动到 terminal 以便于用键盘的方向键来控制其中一个 turtle 的移动，可以看到当一个移动时另外一个一直做跟随运动：<br><img src="/2017/06/07/ros-primary-tutorial-12/follow.jpg" alt=""></p>
+<p>该例子使用 tf 库创建的三个坐标系，一个是全局坐标系，一个是 turtle1 坐标系，另一个是 turtle2 坐标系。它使用 tf 广播发布 turtle 的坐标，另外一个去监听这个坐标，并计算它们之间的位置差，从而移动一个去跟随另一个的位置。</p>
+<h1 id="tf-工具使用"><a href="#tf-工具使用" class="headerlink" title="tf 工具使用"></a>tf 工具使用</h1><p><a href="http://wiki.ros.org/tf#view_frames" target="_blank" rel="external">view_frames</a>：</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun tf view_frames</span></div></pre></td></tr></table></figure>
+<p><a href="http://wiki.ros.org/tf#view_frames" target="_blank" rel="external">view_frames</a> 可以以PDF的形式创建当前坐标广播系统树，命令输出如下：<br>   <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Listening <span class="built_in">to</span> /tf <span class="keyword">for</span> <span class="number">5.000000</span> <span class="built_in">seconds</span></div><div class="line">Done Listening</div><div class="line">dot - graphviz <span class="built_in">version</span> <span class="number">2.36</span><span class="number">.0</span> (<span class="number">20140111.2315</span>)</div><div class="line"></div><div class="line">Detected dot <span class="built_in">version</span> <span class="number">2.36</span></div><div class="line">frames.pdf generated</div></pre></td></tr></table></figure></p>
+<p>它会在当前目录下生成 frames.pdf 文件，可以使用如下命令查看：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> evince frames.pdf</span></div></pre></td></tr></table></figure></p>
+<p><img src="/2017/06/07/ros-primary-tutorial-12/pdf.jpg" alt=""></p>
+<p><a href="http://wiki.ros.org/rqt_tf_tree" target="_blank" rel="external">rqt_tf_tree</a>:</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun rqt_tf_tree rqt_tf_tree</span></div></pre></td></tr></table></figure>
+<p><a href="http://wiki.ros.org/rqt_tf_tree" target="_blank" rel="external">rqt_tf_tree</a> 是一个可视化的实时坐标树查看工具，可以随时点击刷新按钮来实时的查看坐标广播树。<img src="/2017/06/07/ros-primary-tutorial-12/runtime.jpg" alt=""></p>
+<p><a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf_echo</a>:<br>使用：<br>   <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rosrun tf tf_echo <span class="string">[reference_frame]</span> <span class="string">[target_frame]</span></div></pre></td></tr></table></figure></p>
+<p>该命令输出指定的坐标变换关系，如：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun tf tf_echo turtle1 turtle2</span></div></pre></td></tr></table></figure></p>
+<p>输出一般为：<br>   <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">At</span> <span class="selector-tag">time</span> <span class="selector-tag">1496812263</span><span class="selector-class">.516</span></div><div class="line"><span class="selector-tag">-</span> <span class="selector-tag">Translation</span>: <span class="selector-attr">[0.000, 0.000, 0.000]</span></div><div class="line"><span class="selector-tag">-</span> <span class="selector-tag">Rotation</span>: <span class="selector-tag">in</span> <span class="selector-tag">Quaternion</span> <span class="selector-attr">[0.000, 0.000, 0.707, 0.707]</span></div><div class="line">            <span class="selector-tag">in</span> <span class="selector-tag">RPY</span> (radian) <span class="selector-attr">[0.000, -0.000, 1.571]</span></div><div class="line">            <span class="selector-tag">in</span> <span class="selector-tag">RPY</span> (degree) <span class="selector-attr">[0.000, -0.000, 90.000]</span></div><div class="line"><span class="selector-tag">At</span> <span class="selector-tag">time</span> <span class="selector-tag">1496812264</span><span class="selector-class">.205</span></div><div class="line"><span class="selector-tag">-</span> <span class="selector-tag">Translation</span>: <span class="selector-attr">[0.000, 0.000, 0.000]</span></div><div class="line"><span class="selector-tag">-</span> <span class="selector-tag">Rotation</span>: <span class="selector-tag">in</span> <span class="selector-tag">Quaternion</span> <span class="selector-attr">[0.000, 0.000, 0.707, 0.707]</span></div><div class="line">            <span class="selector-tag">in</span> <span class="selector-tag">RPY</span> (radian) <span class="selector-attr">[0.000, -0.000, 1.571]</span></div><div class="line">            <span class="selector-tag">in</span> <span class="selector-tag">RPY</span> (degree) <span class="selector-attr">[0.000, -0.000, 90.000]</span></div><div class="line"><span class="selector-tag">At</span> <span class="selector-tag">time</span> <span class="selector-tag">1496812265</span><span class="selector-class">.213</span></div><div class="line"><span class="selector-tag">-</span> <span class="selector-tag">Translation</span>: <span class="selector-attr">[0.000, 0.000, 0.000]</span></div><div class="line"><span class="selector-tag">-</span> <span class="selector-tag">Rotation</span>: <span class="selector-tag">in</span> <span class="selector-tag">Quaternion</span> <span class="selector-attr">[0.000, 0.000, 0.707, 0.707]</span></div><div class="line">            <span class="selector-tag">in</span> <span class="selector-tag">RPY</span> (radian) <span class="selector-attr">[0.000, -0.000, 1.571]</span></div><div class="line">            <span class="selector-tag">in</span> <span class="selector-tag">RPY</span> (degree) <span class="selector-attr">[0.000, -0.000, 90.000]</span></div><div class="line"><span class="selector-tag">At</span> <span class="selector-tag">time</span> <span class="selector-tag">1496812266</span><span class="selector-class">.205</span></div><div class="line"><span class="selector-tag">-</span> <span class="selector-tag">Translation</span>: <span class="selector-attr">[0.000, 0.000, 0.000]</span></div><div class="line"><span class="selector-tag">-</span> <span class="selector-tag">Rotation</span>: <span class="selector-tag">in</span> <span class="selector-tag">Quaternion</span> <span class="selector-attr">[0.000, 0.000, 0.707, 0.707]</span></div><div class="line">            <span class="selector-tag">in</span> <span class="selector-tag">RPY</span> (radian) <span class="selector-attr">[0.000, -0.000, 1.571]</span></div><div class="line">            <span class="selector-tag">in</span> <span class="selector-tag">RPY</span> (degree) <span class="selector-attr">[0.000, -0.000, 90.000]</span></div></pre></td></tr></table></figure></p>
+<p>它是一直输出的，当控制移动时会实时的观测到坐标的变化。</p>
+<h1 id="rviz"><a href="#rviz" class="headerlink" title="rviz"></a>rviz</h1><p>使用 <a href="">rviz</a> 可视化工具查看坐标系之间的坐标关系<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun rviz rviz <span class="_">-d</span> `rospack find turtle_tf`/rviz/turtle_rviz.rviz</span></div></pre></td></tr></table></figure></p>
+<p>当通过键盘控制 turtle 运动时，可以在 rviz 中观察到两个 turtle 的位置关系及坐标的变换：<br><img src="/2017/06/07/ros-primary-tutorial-12/rviz.jpg" alt=""><br>远处两个小的坐标系分别为 turtle1 和 turtle2 的坐标系，近处这个大的坐标系为系统全局坐标系。本篇先到这里，下一篇进一步学习 tf 坐标变换。</p>
 
       
     </div>
@@ -481,7 +492,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Catkin-make/" rel="tag"># Catkin_make</a>
+            <a href="/tags/ROS-tf/" rel="tag"># ROS tf</a>
           
         </div>
       
@@ -494,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/26/ros-primary-tutorial-3/" rel="next" title="ROS初级<三> 创建ROS程序包">
-                <i class="fa fa-chevron-left"></i> ROS初级<三> 创建ROS程序包
+              <a href="/2017/06/01/ros-primary-tutorial-11/" rel="next" title="ROS初级<十一> 简单的ROS服务器和客户端">
+                <i class="fa fa-chevron-left"></i> ROS初级<十一> 简单的ROS服务器和客户端
               </a>
             
           </div>
@@ -503,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/27/ros-primary-tutorial-5/" rel="prev" title="ROS 初级<五> 理解ROS节点">
-                ROS 初级<五> 理解ROS节点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -734,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#编译"><span class="nav-number">1.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">1.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tf-工具使用"><span class="nav-number">2.</span> <span class="nav-text">tf 工具使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rviz"><span class="nav-number">3.</span> <span class="nav-text">rviz</span></a></li></ol></div>
             
 
           </div>
@@ -898,9 +905,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/';
-          this.page.identifier = '2017/05/26/ros-primary-tutorial-4/';
-          this.page.title = 'ROS初级<四> 编译ROS程序包';
+          this.page.url = 'http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/';
+          this.page.identifier = '2017/06/07/ros-primary-tutorial-12/';
+          this.page.title = 'ROS初级<十二> 理解 ROS 坐标转换 一';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';

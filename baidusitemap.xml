@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/</loc>
+    <lastmod>2017-06-07T05:28:46.105Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级<十二> 理解 ROS 坐标转换 一</title>
+        <pubTime>2017-06-07T02:30:19.000Z</pubTime>
+        
+        <tag>ROS tf</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/18/vim/</loc>
     <lastmod>2017-06-01T04:21:52.515Z</lastmod>
     <data>
@@ -485,26 +505,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo问题汇总</title>
-        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -518,6 +518,26 @@
            
              
               <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo问题汇总</title>
+        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
           
         </display>
     </data>
