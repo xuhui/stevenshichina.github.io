@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ROS Navigation," />
+  <meta name="keywords" content="ROS tf," />
 
 
 
@@ -92,24 +92,17 @@
 
 
 
-<meta name="description" content="在进入实际的机器人运动控制之前，先使用空白地图或现有地图进行ROS导航功能的仿真,以便于更进一步了解机器人的导航控制策略。环境: ubuntu 14.04 LTS 32bits ROS: Indigo">
-<meta name="keywords" content="ROS Navigation">
+<meta name="description" content="本篇继续学习 tf。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换，参考:Writing a tf broadcaster C++ 以及 Writing a tf listener C++">
+<meta name="keywords" content="ROS tf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ROS导航仿真">
-<meta property="og:url" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/index.html">
+<meta property="og:title" content="ROS初级&lt;十三&gt; 理解 ROS 坐标转换 二">
+<meta property="og:url" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-13/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="在进入实际的机器人运动控制之前，先使用空白地图或现有地图进行ROS导航功能的仿真,以便于更进一步了解机器人的导航控制策略。环境: ubuntu 14.04 LTS 32bits ROS: Indigo">
-<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/movebase.png">
-<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/forward.jpg">
-<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/square.jpg">
-<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/obstacle.jpg">
-<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/amcl.jpg">
-<meta property="og:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/amcl-move.jpg">
-<meta property="og:updated_time" content="2017-05-24T06:54:53.570Z">
+<meta property="og:description" content="本篇继续学习 tf。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换，参考:Writing a tf broadcaster C++ 以及 Writing a tf listener C++">
+<meta property="og:updated_time" content="2017-06-07T08:19:27.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ROS导航仿真">
-<meta name="twitter:description" content="在进入实际的机器人运动控制之前，先使用空白地图或现有地图进行ROS导航功能的仿真,以便于更进一步了解机器人的导航控制策略。环境: ubuntu 14.04 LTS 32bits ROS: Indigo">
-<meta name="twitter:image" content="http://stevenshi.me/2017/05/24/ros-navigation-simulation/movebase.png">
+<meta name="twitter:title" content="ROS初级&lt;十三&gt; 理解 ROS 坐标转换 二">
+<meta name="twitter:description" content="本篇继续学习 tf。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换，参考:Writing a tf broadcaster C++ 以及 Writing a tf listener C++">
 
 
 
@@ -137,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/2017/05/24/ros-navigation-simulation/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/06/07/ros-primary-tutorial-13/"/>
 
 
 
 
 
-  <title>ROS导航仿真 | Steven's blog</title>
+  <title>ROS初级<十三> 理解 ROS 坐标转换 二 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -316,7 +309,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/24/ros-navigation-simulation/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/06/07/ros-primary-tutorial-13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -333,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ROS导航仿真</h1>
+          <h1 class="post-title" itemprop="name headline">ROS初级<十三> 理解 ROS 坐标转换 二</h1>
         
 
         <div class="post-meta">
@@ -345,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T13:36:03+08:00">
-                2017-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T13:44:30+08:00">
+                2017-06-07
               </time>
             
 
@@ -386,9 +379,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/24/ros-navigation-simulation/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/07/ros-primary-tutorial-13/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/24/ros-navigation-simulation/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/07/ros-primary-tutorial-13/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -396,7 +389,7 @@
 
           
           
-             <span id="/2017/05/24/ros-navigation-simulation/" class="leancloud_visitors" data-flag-title="ROS导航仿真">
+             <span id="/2017/06/07/ros-primary-tutorial-13/" class="leancloud_visitors" data-flag-title="ROS初级<十三> 理解 ROS 坐标转换 二">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -424,23 +417,25 @@
       
 
       
-        <p>在进入实际的机器人运动控制之前，先使用空白地图或现有地图进行ROS导航功能的仿真,以便于更进一步了解机器人的导航控制策略。<br><em>环境: ubuntu 14.04 LTS 32bits </em><br><em>ROS</em>: <em>Indigo</em><br><a id="more"></a></p>
-<h1 id="Navigation-安装"><a href="#Navigation-安装" class="headerlink" title="Navigation 安装"></a>Navigation 安装</h1><p>在进行导航仿真之前，需要先下载 <em>ROS</em> 官方提供的 <a href="http://wiki.ros.org/cn/navigation" target="_blank" rel="external">ROS-Navigation</a>，安装下载：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws/src</span></div><div class="line"><span class="meta">$</span><span class="bash">git <span class="built_in">clone</span> https://github.com/ros-planning/navigation.git</span></div><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> navigation　</span></div><div class="line"><span class="meta">$</span><span class="bash">git checkout indigo-devel</span></div><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make</span></div><div class="line"><span class="meta">$</span><span class="bash">rospack profile</span></div></pre></td></tr></table></figure></p>
-<p>可能会报错：<br>   <figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">catkin_ws<span class="meta-keyword">/src/</span>navigation/map_server<span class="meta-keyword">/src/</span>image_loader.cpp:<span class="number">43</span>:<span class="number">27</span>: fatal error: SDL/SDL_image.h: No such file or directory</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SDL/SDL_image.h&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>安装 <a href="https://www.libsdl.org/" target="_blank" rel="external">SDL</a>,SDL（Simple DirectMedia Layer）是一套开放源代码的跨平台多媒体开发库，使用C语言写成。SDL提供了数种控制图像、声音、输出入的函数，让开发者只要用相同或是相似的代码就可以开发出跨多个平台（Linux、Windows、Mac OS X等）的应用软件。参考 <a href="https://zh.wikipedia.org/wiki/SDL" target="_blank" rel="external">SDL</a>:<br>   <figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-<span class="built_in">get</span> install libsdl-image1<span class="number">.2</span>-<span class="built_in">dev</span> libsdl1<span class="number">.2</span>-<span class="built_in">dev</span></div></pre></td></tr></table></figure></p>
-<h1 id="使用-arbotix-测试-move-base"><a href="#使用-arbotix-测试-move-base" class="headerlink" title="使用 arbotix 测试 move_base"></a>使用 arbotix 测试 move_base</h1><p><a href="http://wiki.ros.org/move_base" target="_blank" rel="external">move_base</a> 是导航功能里比较重要的一项，它获取传感器数据并负责路径规划、距离计算、成本计算等。</p>
-<p><img src="/2017/05/24/ros-navigation-simulation/movebase.png" alt=""></p>
-<p><em>move_base</em> 节点运行前需要四个配置文件，它们定义了路径规划需要的一些配置参数，包括越过障碍物的代价、机器人的半径、即时距离计算、机器人移动速度等参数。在 <em>ROS by example</em> 中的示例代码 <em>rbx1</em> 中有关于每个机器人的四个配置文件，它们位于 <em>rbx1/rbx1_nav/config</em> 中，每个机器人下面都有对应的四个配置文件：<br><em>base_local_planner_params.yaml</em><br><em>costmap_common_params.yaml</em><br><em>global_costmap_params.yaml</em><br><em>local_costmap_params.yaml</em><br>里面的参数说明可以参考官方文档<a href=""></a><br>下面的命令启动启动一个机器人，使用 <em>move_base</em>使其向前移动 2m：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$roslaunch</span> rbx1_bringup fake_turtlebot<span class="selector-class">.launch</span> <span class="comment">//启动一个机器人 使用ArbotiX模拟器</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_nav fake_move_base_blank_map<span class="selector-class">.launch</span> <span class="comment">///以空白地图启动move_base节点</span></div><div class="line"><span class="variable">$rosrun</span> rviz rviz -d `rospack find rbx1_nav`/<span class="selector-tag">nav</span><span class="selector-class">.rviz</span> <span class="comment">//启动Rviz</span></div><div class="line">$ rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped <span class="string">'&#123;header: &#123;frame_id: "map"&#125;,pose: &#123;position: &#123;x: 1.0,y: 0,z: 0&#125;,orientation: &#123;x: 0,y: 0,z: 0,w: 2&#125;&#125;&#125;'</span> <span class="comment">//向前运动2m</span></div></pre></td></tr></table></figure></p>
-<p>返回原地：<br>   <figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml">$ rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '</span><span class="template-variable">&#123;header: &#123;frame_id: "map"&#125;</span><span class="xml">,pose: </span><span class="template-variable">&#123;position: &#123;x: 0.0,y: 0,z: 0&#125;</span><span class="xml">,orientation: </span><span class="template-variable">&#123;x: 0,y: 0,z: 0,w: 2&#125;</span><span class="xml">&#125;&#125;' //返回</span></div></pre></td></tr></table></figure></p>
-<p><img src="/2017/05/24/ros-navigation-simulation/forward.jpg" alt=""></p>
-<p>让机器人走一个正方形：<br>   <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$rosrun</span> rbx1_nav move_base_square.py<span class="regexp">//</span>让机器人走正方形</div></pre></td></tr></table></figure></p>
-<p><img src="/2017/05/24/ros-navigation-simulation/square.jpg" alt=""></p>
-<h1 id="带障碍物的导航"><a href="#带障碍物的导航" class="headerlink" title="带障碍物的导航"></a>带障碍物的导航</h1><p>将空白地图换做带障碍物的地图再次使机器人运行一个正方形：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$roscore</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_bringup fake_turtlebot<span class="selector-class">.launch</span> <span class="comment">//加载一个模拟机器人</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_nav fake_move_base_map_with_obstacles<span class="selector-class">.launch</span>  <span class="comment">//加载一张带障碍物的地图</span></div><div class="line"><span class="variable">$rosrun</span>  rviz rviz -d `rospack find rbx1_nav`/nav_obstacles<span class="selector-class">.rviz</span> <span class="comment">//加载rviz  带障碍物的导航</span></div><div class="line"><span class="variable">$rosrun</span> rbx1_nav move_base_square<span class="selector-class">.py</span> <span class="comment">//使其自动走一个正方形</span></div></pre></td></tr></table></figure></p>
-<p><img src="/2017/05/24/ros-navigation-simulation/obstacle.jpg" alt=""></p>
-<h1 id="复杂地图导航与蒙特卡洛定位"><a href="#复杂地图导航与蒙特卡洛定位" class="headerlink" title="复杂地图导航与蒙特卡洛定位"></a>复杂地图导航与蒙特卡洛定位</h1><p>使用ROS导航包里现有的复杂地图结合 <a href="http://wiki.ros.org/amcl" target="_blank" rel="external">ACML</a>-(Adaptive Monte Carlo Localization) 进行导航功能的测试。<a href="http://wiki.ros.org/amcl" target="_blank" rel="external">ACML</a> 即自适应蒙特卡罗定位，关于它的原理回头再仔细分析。<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$roscore</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_bringup fake_turtlebot<span class="selector-class">.launch</span> <span class="comment">//运行一个机器人</span></div><div class="line"><span class="variable">$roslaunch</span> rbx1_nav fake_amcl<span class="selector-class">.launch</span> <span class="comment">//运行fake_amcl.launch调用已有的测试地图</span></div><div class="line"><span class="variable">$rosrun</span> rviz rviz -d `rospack find rbx1_nav`/amcl<span class="selector-class">.rviz</span> <span class="comment">//启动rviz 并调用amcl配置文件</span></div></pre></td></tr></table></figure></p>
-<p>也可以手动指定要调用的地图：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$roslaunch</span> rbx1_nav fake_amcl<span class="selector-class">.launch</span> map:=test_map.yaml</div></pre></td></tr></table></figure></p>
-<p><img src="/2017/05/24/ros-navigation-simulation/amcl.jpg" alt=""></p>
-<p>此时点击2D New Goal按钮，让机器人运动到指定目标：<br><img src="/2017/05/24/ros-navigation-simulation/amcl-move.jpg" alt=""></p>
+        <p>本篇继续学习 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a>。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换，参考:<a href="http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20broadcaster%20%28C%2B%2B%29" target="_blank" rel="external">Writing a tf broadcaster C++</a> 以及 <a href="http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%2B%29" target="_blank" rel="external">Writing a tf listener C++</a><br><a id="more"></a></p>
+<h1 id="tf-broadcaster"><a href="#tf-broadcaster" class="headerlink" title="tf broadcaster"></a>tf broadcaster</h1><p>先创建一个程序包，名字随心，这里我们命名为 <em>learning_tf</em>,包的依赖项为 <em>roscpp rospy turtlesim</em></p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/src/</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_create_pkg learning_tf roscpp rospy turtlesim</span></div></pre></td></tr></table></figure>
+<p>为了便于使用 <em>roscd</em> 我们先编译一下这个程序包:</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_make</span></div><div class="line"><span class="meta">$</span><span class="bash"> rospack profile</span></div></pre></td></tr></table></figure>
+<p>此时使用 roscd 输入lean 再按 TAB 即可出现 <em>learning_tf/</em>。进入 <em>learning_tf/src</em> 目录下，新建文件 <em>turtle_tf_broadcaster.cpp</em> 如果不愿意敲代码，可以直接下载官网例程 <a href="https://raw.github.com/ros/geometry_tutorials/hydro-devel/turtle_tf/src/turtle_tf_broadcaster.cpp" target="_blank" rel="external">trutle_tf_broadcaster.cpp</a>，源代码及注解：</p>
+   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tf/transform_broadcaster.h&gt; //tf 广播头文件</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;turtlesim/Pose.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> turtle_name;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">poseCallback</span><span class="params">(<span class="keyword">const</span> turtlesim::PoseConstPtr&amp; msg)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="comment">//创建一个 TransformBroadcaster 对象用于发布坐标变换</span></div><div class="line">  <span class="keyword">static</span> tf::TransformBroadcaster br;</div><div class="line">  </div><div class="line">  <span class="comment">//创建Transform 对象并将2D的坐标转换为3D坐标系</span></div><div class="line">  tf::Transform transform;</div><div class="line">  transform.setOrigin( tf::Vector3(msg-&gt;x, msg-&gt;y, <span class="number">0.0</span>) );</div><div class="line"> </div><div class="line">  tf::Quaternion q;</div><div class="line">  q.setRPY(<span class="number">0</span>, <span class="number">0</span>, msg-&gt;theta);</div><div class="line">  transform.setRotation(q);<span class="comment">//旋转</span></div><div class="line">  <span class="comment">//发布坐标变换</span></div><div class="line">  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), <span class="string">"world"</span>, turtle_name));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></div><div class="line">&#123;</div><div class="line">  ros::init(argc, argv, <span class="string">"my_tf_broadcaster"</span>);</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (argc != <span class="number">2</span>)&#123;ROS_ERROR(<span class="string">"need turtle name as argument"</span>); <span class="keyword">return</span> <span class="number">-1</span>;&#125;;</div><div class="line"> </div><div class="line">  turtle_name = argv[<span class="number">1</span>];</div><div class="line"></div><div class="line">  ros::NodeHandle node;</div><div class="line"> <span class="comment">//订阅 turtle_name 的位置话题，并调用回调函数 poseCallback</span></div><div class="line">  ros::Subscriber sub = node.subscribe(turtle_name+<span class="string">"/pose"</span>, <span class="number">10</span>, &amp;poseCallback);</div><div class="line"></div><div class="line">  ros::spin();</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
+<p>修改CMakeLists.txt:<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">add_executable</span><span class="params">(turtle_tf_broadcaster src/turtle_tf_broadcaster.cpp)</span></span></div><div class="line"><span class="function"><span class="title">target_link_libraries</span><span class="params">(turtle_tf_broadcaster $&#123;catkin_LIBRARIES&#125;)</span></span></div></pre></td></tr></table></figure></p>
+<p>编译：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_make</span></div></pre></td></tr></table></figure></p>
+<p>编译报错：<br>   <figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Linking CXX executable /home/steven/catkin_ws/devel/<span class="keyword">lib</span>/learning_tf/turtle_tf_broadcaster</div><div class="line">CMakeFiles/turtle_tf_broadcaster.dir/src/turtle_tf_broadcaster.cpp.o: <span class="keyword">In</span> <span class="keyword">function</span> `poseCallback(boost::shared_ptr&lt;turtlesim::Pose_&lt;std::allocator&lt;void&gt; &gt; <span class="keyword">const</span>&gt; <span class="keyword">const</span>&amp;)<span class="comment">':</span></div><div class="line">turtle_tf_broadcaster.cpp:(.<span class="keyword">text</span>+<span class="number">0x39</span>): undefined reference <span class="keyword">to</span> `tf::TransformBroadcaster::TransformBroadcaster()<span class="comment">'</span></div><div class="line">turtle_tf_broadcaster.cpp:(.<span class="keyword">text</span>+<span class="number">0x1a3</span>): undefined reference <span class="keyword">to</span> `tf::TransformBroadcaster::sendTransform(tf::StampedTransform <span class="keyword">const</span>&amp;)<span class="comment">'</span></div><div class="line">collect2: ld returned <span class="number">1</span> <span class="keyword">exit</span> status</div><div class="line">make[<span class="number">2</span>]: *** [/home/steven/catkin_ws/devel/<span class="keyword">lib</span>/learning_tf/turtle_tf_broadcaster] <span class="keyword">Error</span> <span class="number">1</span></div><div class="line">make[<span class="number">1</span>]: *** [learning_tf/CMakeFiles/turtle_tf_broadcaster.dir/all] <span class="keyword">Error</span> <span class="number">2</span></div><div class="line">make: *** [all] <span class="keyword">Error</span> <span class="number">2</span></div><div class="line">Invoking <span class="string">"make -j1 -l1"</span> failed</div></pre></td></tr></table></figure></p>
+<p>忘记了在 CMakeLists.txt 文件需要添加 tf 包的依赖：<br>   <figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">find_package(<span class="name">catkin</span> REQUIRED COMPONENTS</div><div class="line">    roscpp</div><div class="line">    rospy</div><div class="line">    turtlesim</div><div class="line">    tf</div><div class="line">  )</div></pre></td></tr></table></figure></p>
+<p>编译完成后在 ~/catkin_ws/devel/lib/learning_tf/ 目录下会看到编译好的可执行文件 turtle_tf_broadcaster<br>接下来创建一个 launch 文件：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> mkdir -p ~/catkin_ws/src/learning_tf/launch</span></div><div class="line"><span class="meta">$</span><span class="bash"> roscd learning_tf/launch/</span></div><div class="line"><span class="meta">$</span><span class="bash"> touch start_demo.launch</span></div></pre></td></tr></table></figure></p>
+<p>输入以下内容：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Turtlesim Node--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"turtlesim"</span> <span class="attr">type</span>=<span class="string">"turtlesim_node"</span> <span class="attr">name</span>=<span class="string">"sim"</span>/&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"turtlesim"</span> <span class="attr">type</span>=<span class="string">"turtle_teleop_key"</span> <span class="attr">name</span>=<span class="string">"teleop"</span> <span class="attr">output</span>=<span class="string">"screen"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Axes --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"scale_linear"</span> <span class="attr">value</span>=<span class="string">"2"</span> <span class="attr">type</span>=<span class="string">"double"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"scale_angular"</span> <span class="attr">value</span>=<span class="string">"2"</span> <span class="attr">type</span>=<span class="string">"double"</span>/&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"learning_tf"</span> <span class="attr">type</span>=<span class="string">"turtle_tf_broadcaster"</span></span></div><div class="line">          <span class="attr">args</span>=<span class="string">"/turtle1"</span> <span class="attr">name</span>=<span class="string">"turtle1_tf_broadcaster"</span> /&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"learning_tf"</span> <span class="attr">type</span>=<span class="string">"turtle_tf_broadcaster"</span></span></div><div class="line">          <span class="attr">args</span>=<span class="string">"/turtle2"</span> <span class="attr">name</span>=<span class="string">"turtle2_tf_broadcaster"</span> /&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;/<span class="name">launch</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="tf-listener"><a href="#tf-listener" class="headerlink" title="tf listener"></a>tf listener</h1><p>前面编写了broadcaster 用于发布 turtle 的位置到坐标 tf，下面来编写 listener 来监听坐标的变换。参考 <a href="http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%2B%29" target="_blank" rel="external">Writing a tf listener C++</a>。在 learning_tf/src 目录下新建文件 <a href="https://raw.github.com/ros/geometry_tutorials/hydro-devel/turtle_tf/src/turtle_tf_listener.cpp" target="_blank" rel="external">turtle_tf_listener.cpp</a> :<br>   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tf/transform_listener.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;geometry_msgs/Twist.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;turtlesim/Spawn.h&gt;</span></span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span>&#123;</div><div class="line">    ros::init(argc, argv, <span class="string">"my_tf_listener"</span>);</div><div class="line"> </div><div class="line">    ros::NodeHandle node;</div><div class="line"></div><div class="line">    ros::service::waitForService(<span class="string">"spawn"</span>);</div><div class="line">    ros::ServiceClient add_turtle =</div><div class="line">     node.serviceClient&lt;turtlesim::Spawn&gt;(<span class="string">"spawn"</span>);</div><div class="line">    turtlesim::Spawn srv;</div><div class="line">    add_turtle.call(srv);</div><div class="line"></div><div class="line">    ros::Publisher turtle_vel =</div><div class="line">    node.advertise&lt;geometry_msgs::Twist&gt;(<span class="string">"turtle2/cmd_vel"</span>, <span class="number">10</span>);</div><div class="line"></div><div class="line">    tf::TransformListener listener;</div><div class="line"></div><div class="line">    ros::<span class="function">Rate <span class="title">rate</span><span class="params">(<span class="number">10.0</span>)</span></span>;</div><div class="line">    <span class="keyword">while</span> (node.ok())&#123;</div><div class="line">      tf::StampedTransform transform;</div><div class="line">      <span class="keyword">try</span>&#123;</div><div class="line">        listener.lookupTransform(<span class="string">"/turtle2"</span>, <span class="string">"/turtle1"</span>,</div><div class="line">                                 ros::Time(<span class="number">0</span>), transform);</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">catch</span> (tf::TransformException &amp;ex) &#123;</div><div class="line">        ROS_ERROR(<span class="string">"%s"</span>,ex.what());</div><div class="line">        ros::Duration(<span class="number">1.0</span>).sleep();</div><div class="line">        <span class="keyword">continue</span>;</div><div class="line">      &#125;</div><div class="line"> </div><div class="line">      geometry_msgs::Twist vel_msg;</div><div class="line">      vel_msg.angular.z = <span class="number">4.0</span> * <span class="built_in">atan2</span>(transform.getOrigin().y(),</div><div class="line">                                      transform.getOrigin().x());</div><div class="line">      vel_msg.linear.x = <span class="number">0.5</span> * <span class="built_in">sqrt</span>(<span class="built_in">pow</span>(transform.getOrigin().x(), <span class="number">2</span>) +</div><div class="line">                                    <span class="built_in">pow</span>(transform.getOrigin().y(), <span class="number">2</span>));</div><div class="line">      turtle_vel.publish(vel_msg);</div><div class="line"> </div><div class="line">      rate.sleep();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure></p>
+<p>在CMakeLists.txt中添加依赖项：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">add_executable</span><span class="params">(turtle_tf_listener src/turtle_tf_listener.cpp)</span></span></div><div class="line"><span class="function"><span class="title">target_link_libraries</span><span class="params">(turtle_tf_listener $&#123;catkin_LIBRARIES&#125;)</span></span></div></pre></td></tr></table></figure></p>
+<p>编译如果提示错误：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">turtle_tf_listener<span class="selector-class">.cpp</span>:<span class="number">3</span>:<span class="number">32</span>: fatal error: turtlesim/Velocity<span class="selector-class">.h</span>: No such file or directory</div><div class="line">compilation terminated.</div></pre></td></tr></table></figure></p>
+<p>则文件使用的为之前版本，应该选择下载 hydro 版本的 参考 <a href="http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%2B%29" target="_blank" rel="external">Writing listener C++</a><br>之后修改start_demo.launch 将listener节点添加进去：<br>   <figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;node pkg=<span class="string">"learning_tf"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"turtle_tf_listener"</span> name=<span class="string">"listener"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>停止之前的launch 文件，然后启动 start_demo.launch：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roslaunch learning_tf start_demo.launch</span></div></pre></td></tr></table></figure></p>
+<p>可以通过以下命令查看坐标广播信息：<br>   <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rosrun tf tf_<span class="keyword">echo</span> <span class="string">/world</span> <span class="string">/turtle1</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -491,7 +486,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ROS-Navigation/" rel="tag"># ROS Navigation</a>
+            <a href="/tags/ROS-tf/" rel="tag"># ROS tf</a>
           
         </div>
       
@@ -504,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/24/ros-simulation/" rel="next" title="ROS机器人仿真">
-                <i class="fa fa-chevron-left"></i> ROS机器人仿真
+              <a href="/2017/06/07/ros-primary-tutorial-12/" rel="next" title="ROS初级<十二> 理解 ROS 坐标转换 一">
+                <i class="fa fa-chevron-left"></i> ROS初级<十二> 理解 ROS 坐标转换 一
               </a>
             
           </div>
@@ -513,10 +508,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/26/ros-primary-tutorial-1/" rel="prev" title="ROS初级<一> 安装与配置">
-                ROS初级<一> 安装与配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -744,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Navigation-安装"><span class="nav-number">1.</span> <span class="nav-text">Navigation 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-arbotix-测试-move-base"><span class="nav-number">2.</span> <span class="nav-text">使用 arbotix 测试 move_base</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#带障碍物的导航"><span class="nav-number">3.</span> <span class="nav-text">带障碍物的导航</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复杂地图导航与蒙特卡洛定位"><span class="nav-number">4.</span> <span class="nav-text">复杂地图导航与蒙特卡洛定位</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tf-broadcaster"><span class="nav-number">1.</span> <span class="nav-text">tf broadcaster</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tf-listener"><span class="nav-number">2.</span> <span class="nav-text">tf listener</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a></li></ol></div>
             
 
           </div>
@@ -908,9 +899,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://stevenshi.me/2017/05/24/ros-navigation-simulation/';
-          this.page.identifier = '2017/05/24/ros-navigation-simulation/';
-          this.page.title = 'ROS导航仿真';
+          this.page.url = 'http://stevenshi.me/2017/06/07/ros-primary-tutorial-13/';
+          this.page.identifier = '2017/06/07/ros-primary-tutorial-13/';
+          this.page.title = 'ROS初级<十三> 理解 ROS 坐标转换 二';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';
