@@ -92,19 +92,19 @@
 
 
 
-<meta name="description" content="本篇学习 ROS 的服务和参数，参考 UnderstandingServicesParams。 ROS 服务Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。rosservice 命令可以使用 ROS 客户端/服务器框架提供的服务，rosservice 提供了很多可以在 topic 上使用的命令：   12345ross">
+<meta name="description" content="本篇学习 ROS 的服务和参数。 ROS 服务Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。rosservice 命令可以使用 ROS 客户端/服务器框架提供的服务，rosservice 提供了很多可以在 topic 上使用的命令：   12345rosservice list         输出可用服务的信息ro">
 <meta name="keywords" content="ROS Services">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ROS初级&lt;七&gt; 理解ROS服务和参数">
 <meta property="og:url" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="本篇学习 ROS 的服务和参数，参考 UnderstandingServicesParams。 ROS 服务Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。rosservice 命令可以使用 ROS 客户端/服务器框架提供的服务，rosservice 提供了很多可以在 topic 上使用的命令：   12345ross">
+<meta property="og:description" content="本篇学习 ROS 的服务和参数。 ROS 服务Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。rosservice 命令可以使用 ROS 客户端/服务器框架提供的服务，rosservice 提供了很多可以在 topic 上使用的命令：   12345rosservice list         输出可用服务的信息ro">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/spawn.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/rosparam.jpg">
-<meta property="og:updated_time" content="2017-05-31T02:15:28.200Z">
+<meta property="og:updated_time" content="2017-06-08T01:59:30.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS初级&lt;七&gt; 理解ROS服务和参数">
-<meta name="twitter:description" content="本篇学习 ROS 的服务和参数，参考 UnderstandingServicesParams。 ROS 服务Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。rosservice 命令可以使用 ROS 客户端/服务器框架提供的服务，rosservice 提供了很多可以在 topic 上使用的命令：   12345ross">
+<meta name="twitter:description" content="本篇学习 ROS 的服务和参数。 ROS 服务Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。rosservice 命令可以使用 ROS 客户端/服务器框架提供的服务，rosservice 提供了很多可以在 topic 上使用的命令：   12345rosservice list         输出可用服务的信息ro">
 <meta name="twitter:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/spawn.jpg">
 
 
@@ -420,7 +420,7 @@
       
 
       
-        <p>本篇学习 ROS 的服务和参数，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingServicesParams" target="_blank" rel="external">UnderstandingServicesParams</a>。</p>
+        <p>本篇学习 ROS 的服务和参数。</p>
 <h1 id="ROS-服务"><a href="#ROS-服务" class="headerlink" title="ROS 服务"></a>ROS 服务</h1><p>Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。<a href="http://wiki.ros.org/rosservice" target="_blank" rel="external">rosservice</a> 命令可以使用 ROS 客户端/服务器框架提供的服务，<a href="http://wiki.ros.org/rosservice" target="_blank" rel="external">rosservice</a> 提供了很多可以在 topic 上使用的命令：<br>   <figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">rosservice <span class="built_in">list</span>         输出可用服务的信息</div><div class="line">rosservice <span class="built_in">call</span>         调用带参数的服务</div><div class="line">rosservice <span class="built_in">type</span>         输出服务类型</div><div class="line">rosservice <span class="built_in">find</span>         依据类型寻找服务<span class="built_in">find</span> services by service <span class="built_in">type</span></div><div class="line">rosservice uri          输出服务的ROSRPC uri</div></pre></td></tr></table></figure></p>
 <p>测试上述命令之前先运行 turtlesim 节点:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
 <p>并用键盘进行控制，显示出运动轨迹。<br><a id="more"></a></p>
@@ -448,6 +448,7 @@
 <p>可以使用 rosparam dump 命令将所有参数进行存储，使用 rosparam load 命令读取所有参数：<br>使用方法：<br>   <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rosparam dump <span class="string">[file_name]</span></div><div class="line">rosparam load <span class="string">[file_name]</span> <span class="string">[namespace]</span></div></pre></td></tr></table></figure></p>
 <p>将所有参数写入文件 myparams.yaml 中：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosparam dump myparams.yaml</span></div></pre></td></tr></table></figure></p>
 <p>载入参数：<br>   <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ rosparam load params.yaml <span class="keyword">copy</span><span class="bash">  //将参数载入 copy 空间</span></div><div class="line">$ rosparam get <span class="keyword">copy</span><span class="bash">/background_r</span></div></pre></td></tr></table></figure></p>
+<p>参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingServicesParams" target="_blank" rel="external">UnderstandingServicesParams</a></p>
 
       
     </div>

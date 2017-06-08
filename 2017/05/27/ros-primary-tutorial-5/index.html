@@ -92,18 +92,18 @@
 
 
 
-<meta name="description" content="本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务。参考 Understanding-Nodes 。">
+<meta name="description" content="本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。">
 <meta name="keywords" content="ROS Node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ROS 初级&lt;五&gt; 理解ROS节点">
 <meta property="og:url" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务。参考 Understanding-Nodes 。">
+<meta property="og:description" content="本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。">
 <meta property="og:image" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/turtlesim.jpg">
-<meta property="og:updated_time" content="2017-05-27T02:52:28.015Z">
+<meta property="og:updated_time" content="2017-06-08T02:00:43.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS 初级&lt;五&gt; 理解ROS节点">
-<meta name="twitter:description" content="本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务。参考 Understanding-Nodes 。">
+<meta name="twitter:description" content="本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。">
 <meta name="twitter:image" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/turtlesim.jpg">
 
 
@@ -419,7 +419,7 @@
       
 
       
-        <p>本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务。参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingNodes" target="_blank" rel="external">Understanding-Nodes</a> 。<br><a id="more"></a></p>
+        <p>本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。<br><a id="more"></a></p>
 <h1 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h1><p><a href="http://wiki.ros.org/Nodes" target="_blank" rel="external">Nodes</a>: 表示 ROS 中的节点，它表现形式为一个可执行文件，它可以通过 ROS 与其它节点进行通信。<br><a href="http://wiki.ros.org/Messages" target="_blank" rel="external">Messages</a>: 表示消息，它是一种 ROS 数据类型，用于订阅或发布到一个话题。<br><a href="http://wiki.ros.org/Topics" target="_blank" rel="external">Topics</a>: 表示话题，节点可以发布消息到话题，也可以订阅话题以接收消息。<br><a href="http://wiki.ros.org/Master" target="_blank" rel="external">Master</a>: 表示节点管理器，它提供 ROS 名称服务，帮助 ROS 节点找到彼此。<br><a href="http://wiki.ros.org/rosout" target="_blank" rel="external">rosout</a>: 类似标准输出 stdout。<br><a href="http://wiki.ros.org/roscore" target="_blank" rel="external">roscore</a>: 相当于 ROS 中的服务器，运行所有节点前必须先运行 roscore。</p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>先运行 roscore:<br>   <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>roscore &amp; <span class="regexp">//</span>后台运行</div></pre></td></tr></table></figure></p>
 <p>可以使用 rosnode 查看节点信息：<br>   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rosnode <span class="built_in">list</span> <span class="comment">//列出活跃的节点</span></div></pre></td></tr></table></figure></p>
@@ -438,7 +438,7 @@
 <p>改变节点名称前，先 kill 掉之前运行的节点 turtlesim_node。此时再输入命令查看节点信息，名字已经改变了：<br>   <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">/my_turtle</span></div><div class="line"><span class="string">/rosout</span></div></pre></td></tr></table></figure></p>
 <p>我们可以使用 ping 命令查看节点通讯是否可达：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosnode ping my_turtle</span></div></pre></td></tr></table></figure></p>
 <p>输出：<br>   <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">rosnode: node is [/my_turtle]</div><div class="line">pinging /my_turtle <span class="keyword">with</span> <span class="keyword">a</span> timeout <span class="keyword">of</span> <span class="number">3.0</span>s</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">1.326084</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.391006</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.315189</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.321150</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.367880</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.342846</span>ms</div></pre></td></tr></table></figure></p>
-<p>至此，关于 ROS 节点的学习告一段落。</p>
+<p>至此，关于 ROS 节点的学习告一段落。<br>参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingNodes" target="_blank" rel="external">Understanding-Nodes</a></p>
 
       
     </div>

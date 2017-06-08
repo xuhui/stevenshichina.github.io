@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://stevenshi.me/2017/06/07/ros-primary-tutorial-13/</loc>
-    <lastmod>2017-06-07T08:19:27.979Z</lastmod>
+    <lastmod>2017-06-08T03:00:51.525Z</lastmod>
     <data>
         <display>
         <title>ROS初级<十三> 理解 ROS 坐标转换 二</title>
@@ -24,8 +24,168 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/</loc>
+    <lastmod>2017-06-08T02:01:38.427Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级<一> 安装与配置</title>
+        <pubTime>2017-05-26T00:23:23.000Z</pubTime>
+        
+        <tag>ROS Installation</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/</loc>
+    <lastmod>2017-06-08T02:00:43.427Z</lastmod>
+    <data>
+        <display>
+        <title>ROS 初级<五> 理解ROS节点</title>
+        <pubTime>2017-05-27T01:34:16.000Z</pubTime>
+        
+        <tag>ROS Node</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/</loc>
+    <lastmod>2017-06-08T02:00:26.939Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级<六> 理解ROS话题</title>
+        <pubTime>2017-05-27T05:13:54.000Z</pubTime>
+        
+        <tag>ROS Topics</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/</loc>
+    <lastmod>2017-06-08T01:59:30.605Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级<七> 理解ROS服务和参数</title>
+        <pubTime>2017-05-31T00:23:36.000Z</pubTime>
+        
+        <tag>ROS Services</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/</loc>
+    <lastmod>2017-06-08T01:59:01.643Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级<八> 使用rqt_console 和 roslaunch</title>
+        <pubTime>2017-05-31T02:26:43.000Z</pubTime>
+        
+        <tag>rqt_console</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-9/</loc>
+    <lastmod>2017-06-08T01:58:34.042Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级<九> 创建 ROS 消息和 ROS 服务</title>
+        <pubTime>2017-05-31T05:31:50.000Z</pubTime>
+        
+        <tag>ROS Messages</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-10/</loc>
+    <lastmod>2017-06-08T01:57:52.026Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级<十> 简单的ROS发布器和订阅器</title>
+        <pubTime>2017-05-31T07:27:20.000Z</pubTime>
+        
+        <tag>Publisher</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/</loc>
+    <lastmod>2017-06-08T01:57:29.515Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级<十一> 简单的ROS服务器和客户端</title>
+        <pubTime>2017-06-01T02:17:27.000Z</pubTime>
+        
+        <tag>ServiceClient</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/</loc>
-    <lastmod>2017-06-07T06:55:54.297Z</lastmod>
+    <lastmod>2017-06-08T01:56:59.098Z</lastmod>
     <data>
         <display>
         <title>ROS初级<十二> 理解 ROS 坐标转换 一</title>
@@ -57,126 +217,6 @@
            
              
               <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/</loc>
-    <lastmod>2017-06-01T03:11:34.671Z</lastmod>
-    <data>
-        <display>
-        <title>ROS初级<十一> 简单的ROS服务器和客户端</title>
-        <pubTime>2017-06-01T02:17:27.000Z</pubTime>
-        
-        <tag>ServiceClient</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-10/</loc>
-    <lastmod>2017-06-01T02:16:16.097Z</lastmod>
-    <data>
-        <display>
-        <title>ROS初级<十> 简单的ROS发布器和订阅器</title>
-        <pubTime>2017-05-31T07:27:20.000Z</pubTime>
-        
-        <tag>Publisher</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-9/</loc>
-    <lastmod>2017-05-31T07:08:31.453Z</lastmod>
-    <data>
-        <display>
-        <title>ROS初级<九> 创建 ROS 消息和 ROS 服务</title>
-        <pubTime>2017-05-31T05:31:50.000Z</pubTime>
-        
-        <tag>ROS Messages</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/</loc>
-    <lastmod>2017-05-31T05:30:00.397Z</lastmod>
-    <data>
-        <display>
-        <title>ROS初级<八> 使用rqt_console 和 roslaunch</title>
-        <pubTime>2017-05-31T02:26:43.000Z</pubTime>
-        
-        <tag>rqt_console</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/</loc>
-    <lastmod>2017-05-31T02:15:28.200Z</lastmod>
-    <data>
-        <display>
-        <title>ROS初级<七> 理解ROS服务和参数</title>
-        <pubTime>2017-05-31T00:23:36.000Z</pubTime>
-        
-        <tag>ROS Services</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/</loc>
-    <lastmod>2017-05-27T07:37:03.213Z</lastmod>
-    <data>
-        <display>
-        <title>ROS初级<六> 理解ROS话题</title>
-        <pubTime>2017-05-27T05:13:54.000Z</pubTime>
-        
-        <tag>ROS Topics</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
           
         </display>
     </data>
@@ -232,46 +272,6 @@
         <pubTime>2017-05-26T01:54:15.000Z</pubTime>
         
         <tag>ROS File&#39;s System</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/</loc>
-    <lastmod>2017-05-27T05:15:34.218Z</lastmod>
-    <data>
-        <display>
-        <title>ROS初级<一> 安装与配置</title>
-        <pubTime>2017-05-26T00:23:23.000Z</pubTime>
-        
-        <tag>ROS Installation</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/</loc>
-    <lastmod>2017-05-27T02:52:28.015Z</lastmod>
-    <data>
-        <display>
-        <title>ROS 初级<五> 理解ROS节点</title>
-        <pubTime>2017-05-27T01:34:16.000Z</pubTime>
-        
-        <tag>ROS Node</tag>
          
          
            

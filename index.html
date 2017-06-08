@@ -417,7 +417,8 @@
 
       
         
-          <p>本篇继续学习 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a>。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换，参考:<a href="http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20broadcaster%20%28C%2B%2B%29" target="_blank" rel="external">Writing a tf broadcaster C++</a> 以及 <a href="http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%2B%29" target="_blank" rel="external">Writing a tf listener C++</a><br></p>
+          <p>本篇继续学习 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a>。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换。</p>
+<h1 id="tf-broadcaster"><a href="#tf-broadcaster" class="headerlink" title="tf broadcaster"></a>tf broadcaster</h1><p>tf broadcaster 用于广播坐标变换，任何节点都可以监听该变换。先创建一个程序包，名字随心，这里我们命名为 <em>learning_tf</em>,包的依赖项为 <em>roscpp rospy turtlesim</em><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/07/ros-primary-tutorial-13/#more" rel="contents">
@@ -577,7 +578,7 @@
 
       
         
-          <p>一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 。参考 <a href="http://wiki.ros.org/tf/Tutorials/Introduction%20to%20tf" target="_blank" rel="external">Introduction tf</a>。<br></p>
+          <p>一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/07/ros-primary-tutorial-12/#more" rel="contents">
@@ -737,7 +738,7 @@
 
       
         
-          <p>本篇学习简单的 ROS 服务器和客户端的编写，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29" target="_blank" rel="external">WritingServiceClient</a>。<br>服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。<br></p>
+          <p>本篇学习简单的 ROS 服务器和客户端的编写，<br>服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/01/ros-primary-tutorial-11/#more" rel="contents">
@@ -897,7 +898,7 @@
 
       
         
-          <p>本篇学习 ROS 中简单的发布器和订阅器节点的编写。节点就是 ROS 网络中的一个可执行文件，它既可以订阅消息也可以发布消息参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29" target="_blank" rel="external">WritingPublisherSubscriber</a>。<br></p>
+          <p>本篇学习 ROS 中简单的发布器和订阅器节点的编写。节点就是 ROS 网络中的一个可执行文件，它既可以订阅消息也可以发布消息。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/31/ros-primary-tutorial-10/#more" rel="contents">
@@ -1057,7 +1058,7 @@
 
       
         
-          <p>本篇学习如何创建并编译 ROS 消息和服务，以及 <a href="http://wiki.ros.org/rosmsg" target="_blank" rel="external">rosmsg</a> <a href="http://wiki.ros.org/srv" target="_blank" rel="external">rossrv</a> <a href="http://wiki.ros.org/rosbash#roscp" target="_blank" rel="external">roscp</a> <a href="http://wiki.ros.org/rosbash#rosed" target="_blank" rel="external">rosed</a> 等命令的使用。参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/CreatingMsgAndSrv" target="_blank" rel="external">CreatingMsgAndSrv</a> 。<br></p>
+          <p>本篇学习如何创建并编译 ROS 消息和服务，以及 <a href="http://wiki.ros.org/rosmsg" target="_blank" rel="external">rosmsg</a> <a href="http://wiki.ros.org/srv" target="_blank" rel="external">rossrv</a> <a href="http://wiki.ros.org/rosbash#roscp" target="_blank" rel="external">roscp</a> <a href="http://wiki.ros.org/rosbash#rosed" target="_blank" rel="external">rosed</a> 等命令的使用。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/31/ros-primary-tutorial-9/#more" rel="contents">
@@ -1217,7 +1218,7 @@
 
       
         
-          <p>本篇学习 <a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 与 <a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 的使用。<a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 属于 ROS 日志框架的一部分，用来显示节点的输出信息。<a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 用于节点的运行，可以同时运行多个节点。<br>使用之前先安装以下程序包，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UsingRqtconsoleRoslaunch" target="_blank" rel="external">UsingRqtconsoleRoslaunch</a> :<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt-common-plugins</span></div></pre></td></tr></table></figure></p>
+          <p>本篇学习 <a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 与 <a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 的使用。<a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 属于 ROS 日志框架的一部分，用来显示节点的输出信息。<a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 用于节点的运行，可以同时运行多个节点。<br>使用之前先安装以下程序包:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt-common-plugins</span></div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/31/ros-primary-tutorial-8/#more" rel="contents">
@@ -1377,7 +1378,7 @@
 
       
         
-          <p>本篇学习 ROS 的服务和参数，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingServicesParams" target="_blank" rel="external">UnderstandingServicesParams</a>。</p>
+          <p>本篇学习 ROS 的服务和参数。</p>
 <h1 id="ROS-服务"><a href="#ROS-服务" class="headerlink" title="ROS 服务"></a>ROS 服务</h1><p>Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。<a href="http://wiki.ros.org/rosservice" target="_blank" rel="external">rosservice</a> 命令可以使用 ROS 客户端/服务器框架提供的服务，<a href="http://wiki.ros.org/rosservice" target="_blank" rel="external">rosservice</a> 提供了很多可以在 topic 上使用的命令：<br>   <figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">rosservice <span class="built_in">list</span>         输出可用服务的信息</div><div class="line">rosservice <span class="built_in">call</span>         调用带参数的服务</div><div class="line">rosservice <span class="built_in">type</span>         输出服务类型</div><div class="line">rosservice <span class="built_in">find</span>         依据类型寻找服务<span class="built_in">find</span> services by service <span class="built_in">type</span></div><div class="line">rosservice uri          输出服务的ROSRPC uri</div></pre></td></tr></table></figure></p>
 <p>测试上述命令之前先运行 turtlesim 节点:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
 <p>并用键盘进行控制，显示出运动轨迹。<br></p>
@@ -1540,7 +1541,7 @@
 
       
         
-          <p>本篇学习 ROS 中的话题 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 以及 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 的使用。源码位于 <a href="https://github.com/ros/ros_comm" target="_blank" rel="external">ROS-communications</a>，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingTopics" target="_blank" rel="external">UnderstandingTopics</a>。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
+          <p>本篇学习 ROS 中的话题 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 以及 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 的使用。源码位于 <a href="https://github.com/ros/ros_comm" target="_blank" rel="external">ROS-communications</a>。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
 <p>开启另外一个 terminal 运行键盘控制节点：<br>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$rosrun</span> turtlesim turtle_teleop_key</span></div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1701,7 +1702,7 @@
 
       
         
-          <p>本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务。参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingNodes" target="_blank" rel="external">Understanding-Nodes</a> 。<br></p>
+          <p>本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/27/ros-primary-tutorial-5/#more" rel="contents">

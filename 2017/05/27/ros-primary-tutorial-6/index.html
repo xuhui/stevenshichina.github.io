@@ -92,21 +92,21 @@
 
 
 
-<meta name="description" content="本篇学习 ROS 中的话题 Topics 以及 Topics 的使用。源码位于 ROS-communications，参考 UnderstandingTopics。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：   12$ roscore &amp;amp;$ rosrun turtlesim turtlesim_node 开启另外一个 termin">
+<meta name="description" content="本篇学习 ROS 中的话题 Topics 以及 Topics 的使用。源码位于 ROS-communications。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：   12$ roscore &amp;amp;$ rosrun turtlesim turtlesim_node 开启另外一个 terminal 运行键盘控制节点：   1$rosrun">
 <meta name="keywords" content="ROS Topics">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ROS初级&lt;六&gt; 理解ROS话题">
 <meta property="og:url" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="本篇学习 ROS 中的话题 Topics 以及 Topics 的使用。源码位于 ROS-communications，参考 UnderstandingTopics。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：   12$ roscore &amp;amp;$ rosrun turtlesim turtlesim_node 开启另外一个 termin">
+<meta property="og:description" content="本篇学习 ROS 中的话题 Topics 以及 Topics 的使用。源码位于 ROS-communications。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：   12$ roscore &amp;amp;$ rosrun turtlesim turtlesim_node 开启另外一个 terminal 运行键盘控制节点：   1$rosrun">
 <meta property="og:image" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/turtlesim.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/rqtgraph.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/topic.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/rqtplot.jpg">
-<meta property="og:updated_time" content="2017-05-27T07:37:03.213Z">
+<meta property="og:updated_time" content="2017-06-08T02:00:26.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS初级&lt;六&gt; 理解ROS话题">
-<meta name="twitter:description" content="本篇学习 ROS 中的话题 Topics 以及 Topics 的使用。源码位于 ROS-communications，参考 UnderstandingTopics。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：   12$ roscore &amp;amp;$ rosrun turtlesim turtlesim_node 开启另外一个 termin">
+<meta name="twitter:description" content="本篇学习 ROS 中的话题 Topics 以及 Topics 的使用。源码位于 ROS-communications。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：   12$ roscore &amp;amp;$ rosrun turtlesim turtlesim_node 开启另外一个 terminal 运行键盘控制节点：   1$rosrun">
 <meta name="twitter:image" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/turtlesim.jpg">
 
 
@@ -422,7 +422,7 @@
       
 
       
-        <p>本篇学习 ROS 中的话题 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 以及 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 的使用。源码位于 <a href="https://github.com/ros/ros_comm" target="_blank" rel="external">ROS-communications</a>，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingTopics" target="_blank" rel="external">UnderstandingTopics</a>。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
+        <p>本篇学习 ROS 中的话题 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 以及 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 的使用。源码位于 <a href="https://github.com/ros/ros_comm" target="_blank" rel="external">ROS-communications</a>。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
 <p>开启另外一个 terminal 运行键盘控制节点：<br>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$rosrun</span> turtlesim turtle_teleop_key</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>现在随便移动键盘的方向键，看看 图画里的 turtle 是否在跟随你的指令移动:</p>
@@ -456,7 +456,8 @@
    <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt-common-plugins</span></div></pre></td></tr></table></figure>
 <p>使用：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun rqt_plot rqt_plot</span></div></pre></td></tr></table></figure></p>
 <p>窗口左上角可以添加需要的话题，右边的减号可以删除不需要的话题。点击那个绿色的对号按钮可以调节时间和坐标等信息：<br><img src="/2017/05/27/ros-primary-tutorial-6/rqtplot.jpg" alt=""></p>
-<p>更多 rqt_plot 的使用请参阅官方文档 <a href="http://wiki.ros.org/rqt_plot" target="_blank" rel="external">rqt_plot</a> 或 <a href="http://rosindex.github.io/p/rqt_plot/#indigo" target="_blank" rel="external">rosindex-rqt_plot</a> 。</p>
+<p>更多 rqt_plot 的使用请参阅官方文档 <a href="http://wiki.ros.org/rqt_plot" target="_blank" rel="external">rqt_plot</a> 或 <a href="http://rosindex.github.io/p/rqt_plot/#indigo" target="_blank" rel="external">rosindex-rqt_plot</a> </p>
+<p>参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingTopics" target="_blank" rel="external">UnderstandingTopics</a></p>
 
       
     </div>

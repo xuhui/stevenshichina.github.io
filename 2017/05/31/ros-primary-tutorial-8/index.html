@@ -92,22 +92,22 @@
 
 
 
-<meta name="description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包，参考 UsingRqtconsoleRoslaunch :   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get">
+<meta name="description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包:   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get install ros-indigo-rqt-commo">
 <meta name="keywords" content="rqt_console">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ROS初级&lt;八&gt; 使用rqt_console 和 roslaunch">
 <meta property="og:url" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包，参考 UsingRqtconsoleRoslaunch :   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get">
+<meta property="og:description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包:   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get install ros-indigo-rqt-commo">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/rqtconsole.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/rqtloglevel.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/info.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/two.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/rqtgraph.jpg">
-<meta property="og:updated_time" content="2017-05-31T05:30:00.397Z">
+<meta property="og:updated_time" content="2017-06-08T01:59:01.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS初级&lt;八&gt; 使用rqt_console 和 roslaunch">
-<meta name="twitter:description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包，参考 UsingRqtconsoleRoslaunch :   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get">
+<meta name="twitter:description" content="本篇学习 rqt_console 与 roslaunch 的使用。rqt_console 属于 ROS 日志框架的一部分，用来显示节点的输出信息。roslaunch 用于节点的运行，可以同时运行多个节点。使用之前先安装以下程序包:   12$ sudo apt-get install ros-indigo-rqt$ sudo apt-get install ros-indigo-rqt-commo">
 <meta name="twitter:image" content="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/rqtconsole.jpg">
 
 
@@ -423,7 +423,7 @@
       
 
       
-        <p>本篇学习 <a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 与 <a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 的使用。<a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 属于 ROS 日志框架的一部分，用来显示节点的输出信息。<a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 用于节点的运行，可以同时运行多个节点。<br>使用之前先安装以下程序包，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UsingRqtconsoleRoslaunch" target="_blank" rel="external">UsingRqtconsoleRoslaunch</a> :<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt-common-plugins</span></div></pre></td></tr></table></figure></p>
+        <p>本篇学习 <a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 与 <a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 的使用。<a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 属于 ROS 日志框架的一部分，用来显示节点的输出信息。<a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 用于节点的运行，可以同时运行多个节点。<br>使用之前先安装以下程序包:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt-common-plugins</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>如果之前已安装，也可忽略。</p>
 <h1 id="rqt-console-与-rqt-logger-level"><a href="#rqt-console-与-rqt-logger-level" class="headerlink" title="rqt_console 与 rqt_logger_level"></a>rqt_console 与 rqt_logger_level</h1><p><a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 显示节点信息， <a href="http://wiki.ros.org/rqt_logger_level" target="_blank" rel="external">rqt_logger_level</a> 用于修改节点运行时输出信息的日志等级。<br>开启 rqt_console 窗口与 rqt_logger_level 窗口：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun rqt_console rqt_console</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun rqt_logger_level rqt_logger_level</span></div></pre></td></tr></table></figure></p>
@@ -440,7 +440,7 @@
 <p> 并在另一个 terminal 下发布运动指令：<br>   <figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rostopic pub /turtlesim1/turtle1/cmd_vel geometry_msgs/Twist -r <span class="number">1</span> -- '[<span class="number">2.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>]' '[<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">-1.8</span>]'</div></pre></td></tr></table></figure></p>
 <p>可以看到两个 turtle 在做同样的圆周运动<img src="/2017/05/31/ros-primary-tutorial-8/two.jpg" alt=""></p>
 <p>也可以通过 <a href="">rqt_graph</a> 来更好的理解 launch文件中所做的事情：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rqt_graph</span></div></pre></td></tr></table></figure></p>
-<p><img src="/2017/05/31/ros-primary-tutorial-8/rqtgraph.jpg" alt=""></p>
+<p><img src="/2017/05/31/ros-primary-tutorial-8/rqtgraph.jpg" alt=""><br>参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UsingRqtconsoleRoslaunch" target="_blank" rel="external">UsingRqtconsoleRoslaunch</a> </p>
 
       
     </div>
