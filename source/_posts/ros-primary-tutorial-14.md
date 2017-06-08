@@ -22,7 +22,7 @@ comments: true
  $ cd ~/catkin_ws/src/
  $ catkin_create_pkg robot_setup_tf roscpp tf geometry_msgs
    ```
-创建一个节点用于广播变换，我们将节点命名为 robot_tf_publisher，在 robot_setup_tf/src 目录下建立文件 tf_broadcaster.cpp，添加以下内容：
+创建一个节点用于广播变换，我们将节点命名为 tf_broadcaster，在 robot_setup_tf/src 目录下建立文件 tf_broadcaster.cpp，添加以下内容：
    ```
  #include <ros/ros.h>
  #include <tf/transform_broadcaster.h>
@@ -40,7 +40,6 @@ comments: true
       //都必须通过调用btQuaternion.现在情况下，我们不想旋转，
       //所以我们在调用btQauternion的时候，将pitch,roll,yaw的参数都置0.
       //第2个参数，btVector3，任何变换过程都需要调用它。
-      //无论怎样，我们确实需要做一个变换，所以我们调用了btVector3，
       //相应的传感器的x方向距离机体基准偏移10cm，z方向20cm。
       //第3个参数，我们需要给定转换关系携带一个时间戳，我们标记为ros::Time::now()。
       //第4个参数，我们需要传递parent节点的名字。
@@ -57,7 +56,7 @@ comments: true
   }
 
    ```
-通过TransformBroadcaster来发送转换关系，需要附带5个参数。第1个参数，我们传递了旋转变换，在两个坐标系的发送的任意旋转，都必须通过调用 btQuaternion。现在我们不想旋转，所以我们在调用 btQauternion 的时候，将 pitch,roll,yaw 的参数都置0。第2个参数 btVector3，任何变换过程都需要调用它。无论怎样，我们确实需要做一个变换，所以我们调用了 btVector3，相应的传感器的 x 方向距离机体基准偏移 10cm，z 方向 20cm。第3个参数，我们需要给定转换关系携带一个时间戳，我们标记为 ros::Time::now()。第4个参数，我们需要传递 parent 节点的名字。第5个参数，传递的是 child 节点的名字。 
+通过TransformBroadcaster来发送转换关系，需要附带5个参数。第1个参数，我们传递了旋转变换，在两个坐标系的发送的任意旋转，都必须通过调用 btQuaternion。现在我们不想旋转，所以我们在调用 btQauternion 的时候，将 pitch,roll,yaw 的参数都置0。第2个参数 btVector3，任何变换过程都需要调用它。相应的传感器的 x 方向距离机体基准偏移 10cm，z 方向 20cm。第3个参数，我们需要给定转换关系携带一个时间戳，我们标记为 ros::Time::now()。第4个参数，我们需要传递 parent 节点的名字。第5个参数，传递的是 child 节点的名字。 
 
 # Using a Transform 调用变换 
 上面的节点用于发布转换关系，即将 *base_laser* 的坐标转换为 *base_link* 的坐标，现在我们利用这个转换关系，将从激光扫描仪获取的数据转换到移动底座对应的坐标系中来，即 *base_laser* 到 *base_link* 的转换。需要建立一个节点用于监听这种变换，在 robot_setup_tf/src 目录下新建文件 tf_listener.cpp 并添加以下代码：
@@ -87,6 +86,7 @@ comments: true
       laser_point.header.stamp = ros::Time();
  
       //just an arbitrary point in space
+      //这里我们给定一个固定点
       laser_point.point.x = 1.0;
       laser_point.point.y = 0.2;
       laser_point.point.z = 0.0;
