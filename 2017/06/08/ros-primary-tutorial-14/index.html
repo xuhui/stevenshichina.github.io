@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ROS Node," />
+  <meta name="keywords" content="ROS tf," />
 
 
 
@@ -92,19 +92,21 @@
 
 
 
-<meta name="description" content="本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。">
-<meta name="keywords" content="ROS Node">
+<meta name="description" content="Transform Configuration 变换配置变换树是一种偏移，体现了不同坐标系之间的变换和旋转。假设有一个简单的机器人，只有移动底座以及一个位于底座上方的激光扫描仪。因此定义两个坐标系，一个对应激光扫描仪的中心点的坐标系，一个对应于移动底座中心点的坐标系，两个坐标系分别取名为 base_laser 和 base_link 。">
+<meta name="keywords" content="ROS tf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ROS 初级&lt;五&gt; 理解ROS节点">
-<meta property="og:url" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/index.html">
+<meta property="og:title" content="ROS初级&lt;十四&gt; tf 配置">
+<meta property="og:url" content="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。">
-<meta property="og:image" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/turtlesim.jpg">
-<meta property="og:updated_time" content="2017-06-08T02:00:43.427Z">
+<meta property="og:description" content="Transform Configuration 变换配置变换树是一种偏移，体现了不同坐标系之间的变换和旋转。假设有一个简单的机器人，只有移动底座以及一个位于底座上方的激光扫描仪。因此定义两个坐标系，一个对应激光扫描仪的中心点的坐标系，一个对应于移动底座中心点的坐标系，两个坐标系分别取名为 base_laser 和 base_link 。">
+<meta property="og:image" content="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/simple_robot.png">
+<meta property="og:image" content="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/tf_robot.png">
+<meta property="og:image" content="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/tf.png">
+<meta property="og:updated_time" content="2017-06-08T07:39:09.050Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ROS 初级&lt;五&gt; 理解ROS节点">
-<meta name="twitter:description" content="本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。">
-<meta name="twitter:image" content="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/turtlesim.jpg">
+<meta name="twitter:title" content="ROS初级&lt;十四&gt; tf 配置">
+<meta name="twitter:description" content="Transform Configuration 变换配置变换树是一种偏移，体现了不同坐标系之间的变换和旋转。假设有一个简单的机器人，只有移动底座以及一个位于底座上方的激光扫描仪。因此定义两个坐标系，一个对应激光扫描仪的中心点的坐标系，一个对应于移动底座中心点的坐标系，两个坐标系分别取名为 base_laser 和 base_link 。">
+<meta name="twitter:image" content="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/simple_robot.png">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/"/>
 
 
 
 
 
-  <title>ROS 初级<五> 理解ROS节点 | Steven's blog</title>
+  <title>ROS初级<十四> tf 配置 | Steven's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -328,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ROS 初级<五> 理解ROS节点</h1>
+          <h1 class="post-title" itemprop="name headline">ROS初级<十四> tf 配置</h1>
         
 
         <div class="post-meta">
@@ -340,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-27T09:34:16+08:00">
-                2017-05-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T11:15:29+08:00">
+                2017-06-08
               </time>
             
 
@@ -381,9 +383,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/27/ros-primary-tutorial-5/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/08/ros-primary-tutorial-14/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/27/ros-primary-tutorial-5/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/08/ros-primary-tutorial-14/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -391,7 +393,7 @@
 
           
           
-             <span id="/2017/05/27/ros-primary-tutorial-5/" class="leancloud_visitors" data-flag-title="ROS 初级<五> 理解ROS节点">
+             <span id="/2017/06/08/ros-primary-tutorial-14/" class="leancloud_visitors" data-flag-title="ROS初级<十四> tf 配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,26 +421,19 @@
       
 
       
-        <p>本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。<br><a id="more"></a></p>
-<h1 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h1><p><a href="http://wiki.ros.org/Nodes" target="_blank" rel="external">Nodes</a>: 表示 ROS 中的节点，它表现形式为一个可执行文件，它可以通过 ROS 与其它节点进行通信。<br><a href="http://wiki.ros.org/Messages" target="_blank" rel="external">Messages</a>: 表示消息，它是一种 ROS 数据类型，用于订阅或发布到一个话题。<br><a href="http://wiki.ros.org/Topics" target="_blank" rel="external">Topics</a>: 表示话题，节点可以发布消息到话题，也可以订阅话题以接收消息。<br><a href="http://wiki.ros.org/Master" target="_blank" rel="external">Master</a>: 表示节点管理器，它提供 ROS 名称服务，帮助 ROS 节点找到彼此。<br><a href="http://wiki.ros.org/rosout" target="_blank" rel="external">rosout</a>: 类似标准输出 stdout。<br><a href="http://wiki.ros.org/roscore" target="_blank" rel="external">roscore</a>: 相当于 ROS 中的服务器，运行所有节点前必须先运行 roscore。</p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>先运行 roscore:<br>   <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>roscore &amp; <span class="regexp">//</span>后台运行</div></pre></td></tr></table></figure></p>
-<p>可以使用 rosnode 查看节点信息：<br>   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rosnode <span class="built_in">list</span> <span class="comment">//列出活跃的节点</span></div></pre></td></tr></table></figure></p>
-<p>此时输出一般为：<br>   <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">/rosout</span></div></pre></td></tr></table></figure></p>
-<p>表示当前只有一个 rosout 节点在运行，这个节点用于收集和记录调试输出信息，它必须先于其它节点运行，并且总是一直在运行。<br>返回特定节点的信息：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosnode info /rosout</span></div></pre></td></tr></table></figure></p>
-<p>此时输出一般为：<br>   <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Node</span> <span class="title">[/rosout</span>]</div><div class="line">Publications:</div><div class="line"> * /rosout_agg [rosgraph_msgs/Log]</div><div class="line"></div><div class="line">Subscriptions:</div><div class="line"> * /rosout [unknown <span class="keyword">type</span>]</div><div class="line"></div><div class="line">Services:</div><div class="line"> * /rosout/set_logger_level</div><div class="line"> * /rosout/get_loggers</div><div class="line"></div><div class="line"></div><div class="line">contacting <span class="keyword">node</span> http:<span class="title">//ubuntu</span>:<span class="number">56062</span>/ ...</div><div class="line">Pid: <span class="number">2811</span></div></pre></td></tr></table></figure></p>
-<p>可以看出，rosout 既发布主题也订阅主题并且提供 log 日志服务。</p>
-<h1 id="运行节点"><a href="#运行节点" class="headerlink" title="运行节点"></a>运行节点</h1><p><a href="http://wiki.ros.org/rosrun" target="_blank" rel="external">rosrun</a> 用于运行某个 ROS 程序包内的节点，而不需要知道这个包的路径，当然前提是这个包已经加入到 ROS 的环境变量中，即 ROS 可以找到它。<br>用法：<br>   <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rosrun <span class="string">[package_name]</span> <span class="string">[node_name]</span></div></pre></td></tr></table></figure></p>
-<p>示例：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
-<p>运行程序包 turtlesim 中的 turtlesim_node 节点。要使用 <a href="http://wiki.ros.org/turtlesim" target="_blank" rel="external">turtlesim</a> 需要事先安装这个包：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-ros-tutorials</span></div></pre></td></tr></table></figure></p>
-<p>或者通过源码下载后自行编译 参考<a href="https://github.com/ros/ros_tutorials" target="_blank" rel="external">ros_tutorials</a> 。运行效果<img src="/2017/05/27/ros-primary-tutorial-5/turtlesim.jpg" alt=""><br>如果此时打开另一个 terminal 并使用前面的命令查看节点信息：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosnode list</span></div></pre></td></tr></table></figure></p>
-<p>此时的输出一般为：<br>   <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">/rosout</span></div><div class="line"><span class="string">/turtlesim</span></div></pre></td></tr></table></figure></p>
-<p>也可以查看 /turtlesim 节点的具体信息：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosnode info /turtlesim</span></div></pre></td></tr></table></figure></p>
-<p>输出一般为：<br>   <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">Node [/turtlesim]</div><div class="line"><span class="string">Publications:</span></div><div class="line"> * <span class="regexp">/turtle1/</span>color_sensor [turtlesim/Color]</div><div class="line"> * <span class="regexp">/rosout [rosgraph_msgs/</span>Log]</div><div class="line"> * <span class="regexp">/turtle1/</span>pose [turtlesim/Pose]</div><div class="line"><span class="symbol"></span></div><div class="line">Subscriptions:</div><div class="line"> * <span class="regexp">/turtle1/</span>cmd_vel [unknown type]</div><div class="line"><span class="symbol"></span></div><div class="line">Services:</div><div class="line"> * <span class="regexp">/turtle1/</span>teleport_absolute</div><div class="line"> * <span class="regexp">/turtlesim/</span>get_loggers</div><div class="line"> * <span class="regexp">/turtlesim/</span>set_logger_level</div><div class="line"> * /reset</div><div class="line"> * /spawn</div><div class="line"> * /clear</div><div class="line"> * <span class="regexp">/turtle1/</span>set_pen</div><div class="line"> * <span class="regexp">/turtle1/</span>teleport_relative</div><div class="line"> * /kill</div><div class="line"></div><div class="line"></div><div class="line">contacting node <span class="string">http:</span><span class="comment">//ubuntu:53732/ ...</span></div><div class="line"><span class="string">Pid:</span> <span class="number">3904</span></div><div class="line"><span class="string">Connections:</span></div><div class="line"> * <span class="string">topic:</span> /rosout</div><div class="line">    * <span class="string">to:</span> /rosout</div><div class="line">    * <span class="string">direction:</span> outbound</div><div class="line">    * <span class="string">transport:</span> TCPROS</div></pre></td></tr></table></figure></p>
-<p>我们也可以通过命令行修改节点名字，使用 ROS 的 <a href="http://wiki.ros.org/Remapping%20Arguments" target="_blank" rel="external">RemappingArguments</a> 改变节点名称：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node __name:=my_turtle</span></div></pre></td></tr></table></figure></p>
-<p>改变节点名称前，先 kill 掉之前运行的节点 turtlesim_node。此时再输入命令查看节点信息，名字已经改变了：<br>   <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">/my_turtle</span></div><div class="line"><span class="string">/rosout</span></div></pre></td></tr></table></figure></p>
-<p>我们可以使用 ping 命令查看节点通讯是否可达：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosnode ping my_turtle</span></div></pre></td></tr></table></figure></p>
-<p>输出：<br>   <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">rosnode: node is [/my_turtle]</div><div class="line">pinging /my_turtle <span class="keyword">with</span> <span class="keyword">a</span> timeout <span class="keyword">of</span> <span class="number">3.0</span>s</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">1.326084</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.391006</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.315189</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.321150</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.367880</span>ms</div><div class="line">xmlrpc reply <span class="built_in">from</span> <span class="keyword">http</span>://ubuntu:<span class="number">40832</span>/  <span class="built_in">time</span>=<span class="number">0.342846</span>ms</div></pre></td></tr></table></figure></p>
-<p>至此，关于 ROS 节点的学习告一段落。<br>参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingNodes" target="_blank" rel="external">Understanding-Nodes</a></p>
+        <h1 id="Transform-Configuration-变换配置"><a href="#Transform-Configuration-变换配置" class="headerlink" title="Transform Configuration 变换配置"></a>Transform Configuration 变换配置</h1><p>变换树是一种偏移，体现了不同坐标系之间的变换和旋转。假设有一个简单的机器人，只有移动底座以及一个位于底座上方的激光扫描仪。因此定义两个坐标系，一个对应激光扫描仪的中心点的坐标系，一个对应于移动底座中心点的坐标系，两个坐标系分别取名为 <em>base_laser</em> 和 <em>base_link</em> 。</p>
+<p><img src="/2017/06/08/ros-primary-tutorial-14/simple_robot.png" alt=""><br><a id="more"></a><br>假设我们已经从激光扫描仪获取了一些数据，但这些数据都是以物体到激光扫描仪的距离给出的，即坐标系是 <em>base_laser</em>。 现在通过这些数据让机器人避开一些障碍物，如果不将这些激光扫描仪获取的数据从 <em>base_laser</em> 转换到 <em>base_link</em> 那么机器人在避开障碍物的过程中有可能失败，因此需要将激光扫描仪获取的数据从 <em>base_laser</em> 坐标系转换到 <em>base_link</em> 坐标系。因此需要知道两个坐标系的关系。看上图，<em>base_laser</em> 中心点位于 <em>base_link</em> 中心点上方 20cm 处，并向右偏移 10cm 。因此从激光扫描仪到移动底座的转换关系为(x:-0.1m,y:0.0m,z:-0.2m),反过来从移动底座到激光扫描仪的转换关系为(x:0.1m,y:0.0m,z:0.2m)。<br>当然这种变换关系我们可以手动去计算保存，需要的时候再调用，但是如果坐标系统增加，变换关系复杂，那么就需要利用 tf 来实现了。使用 tf 来管理坐标转关系，需要将转换关系添加到转换树中，转换树中的每一个节点都对应着一种坐标系，节点之间的连线即是两个坐标相互转换的一种表示，从当前节点到子节点的表示。 tf 利用树结构保证了两个坐标系之间只存在唯一的转换关系，我们假定节点的连线方向从父节点指向子节点。</p>
+<p><img src="/2017/06/08/ros-primary-tutorial-14/tf_robot.png" alt=""></p>
+<p>基于以上描述，我们需要创建两个节点，分别命名为 <em>base_laser</em> 以及 <em>base_link</em>。为了明确两者之间的关系，需要指定谁是父节点 parent，谁是子节点 child。因为 tf 假设所有的转换都是从 parent 到 child。这里我们选择 <em>base_link</em> 为 parent 父节点，<em>base_laser</em> 为 child 子节点，将来如果有其他传感器也将作为子节点添加到移动底座。因此转换关系的数学关系为(x:0.1m,y:0.0m,z:0.2m)。知道这个转换关系 <em>base_link</em> 就可以推理出 <em>base_laser</em> 扫描出的数据跟自己的位置关系，因此可以安全的避开障碍物并规划合理的路径。这个转换实质是将 <em>base_laser</em> 坐标系的点转换到 <em>base_link</em> 坐标系中去。</p>
+<h1 id="Broadcasting-a-Transform-广播变换"><a href="#Broadcasting-a-Transform-广播变换" class="headerlink" title="Broadcasting a Transform 广播变换"></a>Broadcasting a Transform 广播变换</h1><p>创建源码包，添加依赖项：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/src/</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_create_pkg robot_setup_tf roscpp tf geometry_msgs</span></div></pre></td></tr></table></figure></p>
+<p>创建一个节点用于广播变换，我们将节点命名为 robot_tf_publisher，在 robot_setup_tf/src 目录下建立文件 tf_broadcaster.cpp，添加以下内容：<br>   <figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tf/transform_broadcaster.h&gt;</span></span></div><div class="line"> </div><div class="line">  int main(int argc, char** argv)</div><div class="line">  &#123;</div><div class="line"><span class="symbol">      ros:</span>:init(argc, argv, <span class="string">"robot_tf_publisher"</span>);</div><div class="line"><span class="symbol">      ros:</span>:NodeHandle n;</div><div class="line"><span class="symbol"> </span></div><div class="line">      ros::Rate r(<span class="number">100</span>);</div><div class="line">     <span class="comment">//创建TransformBroadcaster对象，用于发布变换关系</span></div><div class="line"><span class="symbol">     tf:</span>:TransformBroadcaster broadcaster;</div><div class="line">     <span class="comment">//通过TransformBroadcaster来发送转换关系，需要附带5个参数。</span></div><div class="line">     <span class="comment">//第1个参数，我们传递了旋转变换，在两个坐标系的发送的任意旋转，</span></div><div class="line">     <span class="comment">//都必须通过调用btQuaternion.现在情况下，我们不想旋转，</span></div><div class="line">     <span class="comment">//所以我们在调用btQauternion的时候，将pitch,roll,yaw的参数都置0.</span></div><div class="line">     <span class="comment">//第2个参数，btVector3，任何变换过程都需要调用它。</span></div><div class="line">     <span class="comment">//无论怎样，我们确实需要做一个变换，所以我们调用了btVector3，</span></div><div class="line">     <span class="comment">//相应的传感器的x方向距离机体基准偏移10cm，z方向20cm。</span></div><div class="line">     <span class="comment">//第3个参数，我们需要给定转换关系携带一个时间戳，我们标记为ros::Time::now()。</span></div><div class="line">     <span class="comment">//第4个参数，我们需要传递parent节点的名字。</span></div><div class="line">     <span class="comment">//第5个参数，传递的是child节点的名字。</span></div><div class="line">     while(n.ok())&#123;</div><div class="line">         broadcaster.sendTransform(</div><div class="line"><span class="symbol">             tf:</span>:StampedTransform(</div><div class="line"><span class="symbol">                 tf:</span>:Transform(<span class="symbol">tf::</span>Quaternion(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>), <span class="symbol">tf::</span>Vector3(<span class="number">0.1</span>, <span class="number">0.0</span>, <span class="number">0.2</span>)),</div><div class="line"><span class="symbol">             ros:</span>:<span class="symbol">Time::</span>now(),<span class="string">"base_link"</span>, <span class="string">"base_laser"</span>));</div><div class="line">         r.sleep();</div><div class="line"></div><div class="line">     &#125;</div><div class="line"></div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>通过TransformBroadcaster来发送转换关系，需要附带5个参数。第1个参数，我们传递了旋转变换，在两个坐标系的发送的任意旋转，都必须通过调用 btQuaternion。现在我们不想旋转，所以我们在调用 btQauternion 的时候，将 pitch,roll,yaw 的参数都置0。第2个参数 btVector3，任何变换过程都需要调用它。无论怎样，我们确实需要做一个变换，所以我们调用了 btVector3，相应的传感器的 x 方向距离机体基准偏移 10cm，z 方向 20cm。第3个参数，我们需要给定转换关系携带一个时间戳，我们标记为 ros::Time::now()。第4个参数，我们需要传递 parent 节点的名字。第5个参数，传递的是 child 节点的名字。 </p>
+<h1 id="Using-a-Transform-调用变换"><a href="#Using-a-Transform-调用变换" class="headerlink" title="Using a Transform 调用变换"></a>Using a Transform 调用变换</h1><p>上面的节点用于发布转换关系，即将 <em>base_laser</em> 的坐标转换为 <em>base_link</em> 的坐标，现在我们利用这个转换关系，将从激光扫描仪获取的数据转换到移动底座对应的坐标系中来，即 <em>base_laser</em> 到 <em>base_link</em> 的转换。需要建立一个节点用于监听这种变换，在 robot_setup_tf/src 目录下新建文件 tf_listener.cpp 并添加以下代码：<br>   <figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></div><div class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;geometry_msgs/PointStamped.h&gt;</span></span></div><div class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tf/transform_listener.h&gt;</span></span></div><div class="line">  </div><div class="line"><span class="comment">//创建一个函数，参数为TransformListener,作用为将“base_laser”坐标系的点，变换到“base_link”坐标系中。</span></div><div class="line"><span class="comment">//这个函数将会以ros::Timer定义的周期，作为一个回调函数周期调用,目前周期是1s</span></div><div class="line"> void transformPoint(const <span class="symbol">tf::</span>TransformListener&amp; listener)&#123;</div><div class="line">       </div><div class="line">     </div><div class="line">      <span class="comment">//此处，我们创建一个虚拟点，作为geometry_msgs::PointStamped。</span></div><div class="line">      <span class="comment">//消息名字最后的“Stamped”的意义是，它包含了一个头部，</span></div><div class="line">      <span class="comment">//允许我们去把时间戳和消息的frame_id相关联起来。</span></div><div class="line">      <span class="comment">//我们将会设置laser_point的时间戳为ros::time(),</span></div><div class="line">      <span class="comment">//即是允许我们请求TransformListener取得最新的变换数据。</span></div><div class="line">      <span class="comment">//对于header里的frame_id，我们设置为“base_laser”,</span></div><div class="line">      <span class="comment">//因为我们是创建的是扫描仪坐标系里的虚拟点。</span></div><div class="line">      <span class="comment">//最后，我们将会设置具体的虚拟点，比如x:1.0,y:0.2,z:0.0 </span></div><div class="line">      <span class="comment">//we'll create a point in the base_laser frame that we'd like to transform to the base_link frame</span></div><div class="line"><span class="symbol">       geometry_msgs:</span>:PointStamped laser_point;</div><div class="line">       laser_point.header.frame_id = <span class="string">"base_laser"</span>;</div><div class="line">  </div><div class="line">      <span class="comment">//we'll just use the most recent transform available for our simple example</span></div><div class="line">      laser_point.header.stamp = <span class="symbol">ros::</span>Time();</div><div class="line"> </div><div class="line">      <span class="comment">//just an arbitrary point in space</span></div><div class="line">      laser_point.point.x = <span class="number">1.0</span>;</div><div class="line">      laser_point.point.y = <span class="number">0.2</span>;</div><div class="line">      laser_point.point.z = <span class="number">0.0</span>;</div><div class="line"> </div><div class="line">      <span class="comment">//我们已经有了从“base_laser”到“base_link”变换的点数据。</span></div><div class="line">      <span class="comment">//进一步，我们通过TransformListener对象，</span></div><div class="line">      <span class="comment">//调用transformPoint(),填充三个参数来进行数据变换。</span></div><div class="line">      <span class="comment">//第1个参数，代表我们想要变换的目标坐标系的名字。</span></div><div class="line">      <span class="comment">//第2个参数填充需要变换的原始坐标系的点对象，</span></div><div class="line">      <span class="comment">//第3个参数填充，目标坐标系的点对象。</span></div><div class="line">      <span class="comment">//所以，在函数调用后，base_point里存储的信息就是变换后的点坐标。 </span></div><div class="line">      try&#123;</div><div class="line"><span class="symbol">          geometry_msgs:</span>:PointStamped base_point;</div><div class="line">          listener.transformPoint(<span class="string">"base_link"</span>, laser_point, base_point);</div><div class="line"> </div><div class="line">          ROS_INFO(<span class="string">"base_laser: (%.2f, %.2f. %.2f) -----&gt; base_link: (%.2f, %.2f, %.2f) at time %.2f"</span>,</div><div class="line">          laser_point.point.x, laser_point.point.y, laser_point.point.z,</div><div class="line">          base_point.point.x, base_point.point.y, base_point.point.z, base_point.header.stamp.toSec());</div><div class="line">      &#125;</div><div class="line">     <span class="comment">//显示异常信息</span></div><div class="line">      catch(<span class="symbol">tf::</span>TransformException&amp; ex)&#123;</div><div class="line">          ROS_ERROR(<span class="string">"Received an exception trying to transform a point from \"base_laser\" to \"base_link\": %s"</span>, ex.what());</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line"> int main(int argc, char** argv)&#123;</div><div class="line"><span class="symbol">      ros:</span>:init(argc, argv, <span class="string">"robot_tf_listener"</span>);</div><div class="line"><span class="symbol">      ros:</span>:NodeHandle n;</div><div class="line">      <span class="comment">//一个TransformListener目标会自动的订阅ROS系统中的变换消息主题，</span></div><div class="line">      <span class="comment">//同时管理所有的该通道上的变换数据</span></div><div class="line"><span class="symbol">      tf:</span>:TransformListener listener(<span class="symbol">ros::</span>Duration(<span class="number">10</span>));</div><div class="line"> </div><div class="line">      <span class="comment">//we'll transform a point once every second</span></div><div class="line"><span class="symbol">      ros:</span>:Timer timer = n.createTimer(<span class="symbol">ros::</span>Duration(<span class="number">1.0</span>), <span class="symbol">boost::</span>bind(&amp;transformPoint, <span class="symbol">boost::</span>ref(listener)));</div><div class="line"><span class="symbol"> </span></div><div class="line">      ros::spin();</div><div class="line"> </div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<h1 id="编译测试"><a href="#编译测试" class="headerlink" title="编译测试"></a>编译测试</h1><p>在编译之前需要修改 CMakeLists.txt 文件，添加构建依赖项<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">add_executable</span><span class="params">(tf_broadcaster src/tf_broadcaster.cpp)</span></span></div><div class="line"><span class="function"><span class="title">add_executable</span><span class="params">(tf_listener src/tf_listener.cpp)</span></span></div><div class="line"><span class="function"><span class="title">target_link_libraries</span><span class="params">(tf_broadcaster $&#123;catkin_LIBRARIES&#125;)</span></span></div><div class="line"><span class="function"><span class="title">target_link_libraries</span><span class="params">(tf_listener $&#123;catkin_LIBRARIES&#125;)</span></span></div></pre></td></tr></table></figure></p>
+<p>编译:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_make</span></div><div class="line"><span class="meta">$</span><span class="bash"> rospack profile</span></div></pre></td></tr></table></figure></p>
+<p>开启三个 terminal 分别运行：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun robot_setup_tf tf_broadcaster</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun robot_setup_tf tf_listener</span></div></pre></td></tr></table></figure></p>
+<p>在 tf_listener 运行后可以看到如下输出，每隔1秒发布一次：</p>
+<p><img src="/2017/06/08/ros-primary-tutorial-14/tf.png" alt=""></p>
 
       
     </div>
@@ -489,7 +484,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ROS-Node/" rel="tag"># ROS Node</a>
+            <a href="/tags/ROS-tf/" rel="tag"># ROS tf</a>
           
         </div>
       
@@ -502,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/26/ros-primary-tutorial-4/" rel="next" title="ROS初级<四> 编译ROS程序包">
-                <i class="fa fa-chevron-left"></i> ROS初级<四> 编译ROS程序包
+              <a href="/2017/06/07/ros-primary-tutorial-13/" rel="next" title="ROS初级<十三> 理解 ROS 坐标转换 二">
+                <i class="fa fa-chevron-left"></i> ROS初级<十三> 理解 ROS 坐标转换 二
               </a>
             
           </div>
@@ -511,10 +506,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/27/ros-primary-tutorial-6/" rel="prev" title="ROS初级<六> 理解ROS话题">
-                ROS初级<六> 理解ROS话题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -742,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关介绍"><span class="nav-number">1.</span> <span class="nav-text">相关介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行节点"><span class="nav-number">3.</span> <span class="nav-text">运行节点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Transform-Configuration-变换配置"><span class="nav-number">1.</span> <span class="nav-text">Transform Configuration 变换配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Broadcasting-a-Transform-广播变换"><span class="nav-number">2.</span> <span class="nav-text">Broadcasting a Transform 广播变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Using-a-Transform-调用变换"><span class="nav-number">3.</span> <span class="nav-text">Using a Transform 调用变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译测试"><span class="nav-number">4.</span> <span class="nav-text">编译测试</span></a></li></ol></div>
             
 
           </div>
@@ -906,9 +897,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/';
-          this.page.identifier = '2017/05/27/ros-primary-tutorial-5/';
-          this.page.title = 'ROS 初级<五> 理解ROS节点';
+          this.page.url = 'http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/';
+          this.page.identifier = '2017/06/08/ros-primary-tutorial-14/';
+          this.page.title = 'ROS初级<十四> tf 配置';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';
