@@ -5,7 +5,7 @@ categories: ROS
 tags: ROS Installation
 comments: true
 ---
-一直想记录一下ROS学习过程中的点滴，先从最基础的 ROS-Beginner-Tutorials开始， 以便于帮助更多的人。本篇是ROS学习的开篇，参考 [ROS-Beginner-Tutorials](http://wiki.ros.org/cn/ROS/Tutorials)。
+一直想记录一下ROS学习过程中的点滴，先从最基础的 ROS-Beginner-Tutorials开始， 以便于帮助更多的人，本篇是ROS学习的开篇。
 # ROS安装
 目前ROS官方还在维护的版本有4个(截至201705),参考 [ROS-Distributions](http://wiki.ros.org/Distributions)：![](ros-primary-tutorial-1/rosv.jpg)
 <!--more-->
@@ -74,5 +74,6 @@ comments: true
 /home/yourusername/catkin_ws/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks
    ```
 至此，ROS的安装与配置已经搭建完成。
+参考 [ROS-Beginner-Tutorials](http://wiki.ros.org/cn/ROS/Tutorials)。
 
  

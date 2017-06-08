@@ -5,7 +5,7 @@ categories: ROS
 tags: ROS Node
 comments: true
 ---
-本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务。参考 [Understanding-Nodes](http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingNodes) 。
+本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。
 <!--more-->
 # 相关介绍
 [Nodes](http://wiki.ros.org/Nodes): 表示 ROS 中的节点，它表现形式为一个可执行文件，它可以通过 ROS 与其它节点进行通信。
@@ -134,3 +134,4 @@ $ rosrun turtlesim turtlesim_node __name:=my_turtle
  xmlrpc reply from http://ubuntu:40832/  time=0.342846ms
    ```
 至此，关于 ROS 节点的学习告一段落。
+参考 [Understanding-Nodes](http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingNodes)

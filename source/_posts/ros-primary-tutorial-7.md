@@ -5,7 +5,7 @@ categories: ROS
 tags: ROS Services
 comments: true
 ---
-本篇学习 ROS 的服务和参数，参考 [UnderstandingServicesParams](http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingServicesParams)。
+本篇学习 ROS 的服务和参数。
 # ROS 服务
 Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。[rosservice](http://wiki.ros.org/rosservice) 命令可以使用 ROS 客户端/服务器框架提供的服务，[rosservice](http://wiki.ros.org/rosservice) 提供了很多可以在 topic 上使用的命令：
    ```
@@ -158,7 +158,7 @@ rosparam load [file_name] [namespace]
  $ rosparam load params.yaml copy  //将参数载入 copy 空间
  $ rosparam get copy/background_r
    ```
-
+参考 [UnderstandingServicesParams](http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingServicesParams)
 
 
 

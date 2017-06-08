@@ -5,7 +5,7 @@ categories: ROS
 tags: ServiceClient
 comments: true
 ---
-本篇学习简单的 ROS 服务器和客户端的编写，参考 [WritingServiceClient](http://wiki.ros.org/cn/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29)。
+本篇学习简单的 ROS 服务器和客户端的编写，
 服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。
 <!--more-->
 # 服务器节点
@@ -122,6 +122,7 @@ comments: true
 $ rosrun beginner_tutorials add_two_ints_client  188 102
    ```
 输出结果看图：![](ros-primary-tutorial-11/service.jpg)
+参考 [WritingServiceClient](http://wiki.ros.org/cn/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29)。
 
 
 

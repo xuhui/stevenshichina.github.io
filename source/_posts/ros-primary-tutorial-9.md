@@ -5,7 +5,7 @@ categories: ROS
 tags: ROS Messages
 comments: true
 ---
-本篇学习如何创建并编译 ROS 消息和服务，以及 [rosmsg](http://wiki.ros.org/rosmsg) [rossrv](http://wiki.ros.org/srv) [roscp](http://wiki.ros.org/rosbash#roscp) [rosed](http://wiki.ros.org/rosbash#rosed) 等命令的使用。参考 [CreatingMsgAndSrv](http://wiki.ros.org/cn/ROS/Tutorials/CreatingMsgAndSrv) 。
+本篇学习如何创建并编译 ROS 消息和服务，以及 [rosmsg](http://wiki.ros.org/rosmsg) [rossrv](http://wiki.ros.org/srv) [roscp](http://wiki.ros.org/rosbash#roscp) [rosed](http://wiki.ros.org/rosbash#rosed) 等命令的使用。
 <!--more-->
 # rosed
 [rosed](http://wiki.ros.org/rosbash#rosed) 是 [rosbash](http://wiki.ros.org/rosbash) 的一部分，相当于 ros + edit。利用 [rosed](http://wiki.ros.org/rosbash#rosed) 可以直接通过 package 名称来获取到待编辑的文件而无需指定该文件的存储路径，使用方法：
@@ -180,4 +180,4 @@ catkin_package(
    ```
 编译完成后，所有在 msg 路径下的 .msg 文件都将转换为 ROS 所支持语言的源代码。生成的 C++ 头文件将会放置在 ~/catkin_ws/devel/include/beginner_tutorials/目录下；Python脚本语言会在~/catkin_ws/devel/lib/python2.7/dist-packages/beginner_tutorials/msg 目录下创建。 lisp 文件会出现在 ~/catkin_ws/devel/share/common-lisp/ros/beginner_tutorials/msg/ 路径下。详细格式参考 [Message_Description_Language](http://wiki.ros.org/ROS/Message_Description_Language) 。
 
-
+参考 [CreatingMsgAndSrv](http://wiki.ros.org/cn/ROS/Tutorials/CreatingMsgAndSrv) 

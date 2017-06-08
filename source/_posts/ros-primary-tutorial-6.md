@@ -5,7 +5,7 @@ categories: ROS
 tags: ROS Topics
 comments: true
 ---
-本篇学习 ROS 中的话题 [Topics](http://wiki.ros.org/rostopic) 以及 [Topics](http://wiki.ros.org/rostopic) 的使用。源码位于 [ROS-communications](https://github.com/ros/ros_comm)，参考 [UnderstandingTopics](http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingTopics)。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：
+本篇学习 ROS 中的话题 [Topics](http://wiki.ros.org/rostopic) 以及 [Topics](http://wiki.ros.org/rostopic) 的使用。源码位于 [ROS-communications](https://github.com/ros/ros_comm)。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：
    ```
  $ roscore &
  $ rosrun turtlesim turtlesim_node
@@ -171,5 +171,7 @@ average rate: 62.534
 窗口左上角可以添加需要的话题，右边的减号可以删除不需要的话题。点击那个绿色的对号按钮可以调节时间和坐标等信息：
 ![](ros-primary-tutorial-6/rqtplot.jpg)
 
-更多 rqt_plot 的使用请参阅官方文档 [rqt_plot](http://wiki.ros.org/rqt_plot) 或 [rosindex-rqt_plot](http://rosindex.github.io/p/rqt_plot/#indigo) 。
+更多 rqt_plot 的使用请参阅官方文档 [rqt_plot](http://wiki.ros.org/rqt_plot) 或 [rosindex-rqt_plot](http://rosindex.github.io/p/rqt_plot/#indigo) 
+
+参考 [UnderstandingTopics](http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingTopics)
 

@@ -5,7 +5,7 @@ categories: ROS
 tags: ROS tf
 comments: true
 ---
-一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 [tf](http://wiki.ros.org/tf) 。参考 [Introduction tf](http://wiki.ros.org/tf/Tutorials/Introduction%20to%20tf)。
+一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 [tf](http://wiki.ros.org/tf) 。
 <!--more-->
 # tf 初理解
 ![](ros-primary-tutorial-12/tf.png)
@@ -93,3 +93,4 @@ $ rosrun rviz rviz -d `rospack find turtle_tf`/rviz/turtle_rviz.rviz
 当通过键盘控制 turtle 运动时，可以在 rviz 中观察到两个 turtle 的位置关系及坐标的变换：
 ![](ros-primary-tutorial-12/rviz.jpg)
 远处两个小的坐标系分别为 turtle1 和 turtle2 的坐标系，左下角为系统全局坐标系。本篇先到这里，下一篇进一步学习 tf 坐标变换。
+参考 [Introduction tf](http://wiki.ros.org/tf/Tutorials/Introduction%20to%20tf)。
