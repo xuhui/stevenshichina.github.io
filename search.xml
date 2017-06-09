@@ -580,6 +580,40 @@
     </entry>
     
     <entry>
+      <title><![CDATA[使用 Qt 编译调试 ROS]]></title>
+      <url>/2017/05/25/debug-ros-using-qt/</url>
+      <content type="html"><![CDATA[<p>其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章  <a href="http://stevenshi.me/2017/05/18/vim/">如何让VIM变的爱不释手</a> 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。<br><a id="more"></a></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>首先找到这个文件 QtProject-qtcreator.desktop 该文件可能位于~/.local/share/applications/，也可能位于/usr/share/applications，可以使用如下命令查找：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo find -name QtProject-qtcreator.desktop</span></div></pre></td></tr></table></figure></p>
+<p>打开该文件，在Exec那一行添加 bash -i –c ：<br>   <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Exec=bash -i -c <span class="regexp">/usr/</span>local<span class="regexp">/qtcreator-3.4.2/</span>bin<span class="regexp">/qtcreator</span></div></pre></td></tr></table></figure></p>
+<p>添加 “bash -i –c” 是为了在通过快捷方式启动Qt Creator的同时加载ROS环境变量，ROS环境变量加载脚本配置在 ~/.bashrc 文件内，类似于加载工作空间里的 <em>devel/setup.bash</em> 。</p>
+<h1 id="打开工程"><a href="#打开工程" class="headerlink" title="打开工程"></a>打开工程</h1><p>在桌面上打开 qt-creator，打开某一个ROS工程，找到 CMakelist.txt 因为 qt 本身支持 cmake 项目:</p>
+<p><img src="/2017/05/25/debug-ros-using-qt/open.jpg" alt=""></p>
+<p>设置编译路径为 catkin_ws 的 build 路径:</p>
+<p><img src="/2017/05/25/debug-ros-using-qt/setup.jpg" alt=""></p>
+<p>设置CMake编译模式：-DCMAKE_BUILD_TYPE=Debug :</p>
+<p><img src="/2017/05/25/debug-ros-using-qt/mode.jpg" alt=""></p>
+<p>最后点击 Run CMake 按钮,然后点击 Finish 按钮就可以编译该工程了：</p>
+<p><img src="/2017/05/25/debug-ros-using-qt/compile.jpg" alt=""></p>
+<p>值得注意的是，在运行前需要新开一个 terminal 运行 roscore,然后再运行编译后的工程节点。</p>
+<h1 id="新建工程"><a href="#新建工程" class="headerlink" title="新建工程"></a>新建工程</h1><p>对于 ROS 新工程的建立需要 <a href="https://www.qt.io/ide/" target="_blank" rel="external">Qt Creator</a> 4.1 以上版本，需要安装 <a href="http://rosindustrial.org/news/2016/6/9/ros-qt-ide-plugin" target="_blank" rel="external">ros_qtc_plugin</a> 插件，该插件位于 <a href="https://github.com/ros-industrial/ros_qtc_plugin" target="_blank" rel="external">github</a>。 因为我安装的版本较低，所以我依然采用 ROS 命令行建立新的 pkg。 至此，可以开始使用 Qt 开发 ROS 了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> ROS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ROS Qt </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ROS导航仿真]]></title>
       <url>/2017/05/24/ros-navigation-simulation/</url>
       <content type="html"><![CDATA[<p>在进入实际的机器人运动控制之前，先使用空白地图或现有地图进行ROS导航功能的仿真,以便于更进一步了解机器人的导航控制策略。<br><em>环境: ubuntu 14.04 LTS 32bits </em><br><em>ROS</em>: <em>Indigo</em><br><a id="more"></a></p>
