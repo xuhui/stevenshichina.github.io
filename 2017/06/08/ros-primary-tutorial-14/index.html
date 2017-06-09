@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/simple_robot.png">
 <meta property="og:image" content="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/tf_robot.png">
 <meta property="og:image" content="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/tf.png">
-<meta property="og:updated_time" content="2017-06-08T07:49:40.160Z">
+<meta property="og:updated_time" content="2017-06-09T00:36:15.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS初级&lt;十四&gt; tf 配置">
 <meta name="twitter:description" content="Transform Configuration 变换配置变换树是一种偏移，体现了不同坐标系之间的变换和旋转。假设有一个简单的机器人，只有移动底座以及一个位于底座上方的激光扫描仪。因此定义两个坐标系，一个对应激光扫描仪的中心点的坐标系，一个对应于移动底座中心点的坐标系，两个坐标系分别取名为 base_laser 和 base_link 。">
@@ -434,6 +434,7 @@
 <p>开启三个 terminal 分别运行：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun robot_setup_tf tf_broadcaster</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun robot_setup_tf tf_listener</span></div></pre></td></tr></table></figure></p>
 <p>在 tf_listener 运行后可以看到如下输出，每隔1秒发布一次：</p>
 <p><img src="/2017/06/08/ros-primary-tutorial-14/tf.png" alt=""></p>
+<p>参考 <a href="http://wiki.ros.org/cn/navigation/Tutorials/RobotSetup/TF" target="_blank" rel="external">RobotSetup/TF</a></p>
 
       
     </div>
