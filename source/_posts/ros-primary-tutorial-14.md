@@ -149,3 +149,5 @@ target_link_libraries(tf_listener ${catkin_LIBRARIES})
 在 tf_listener 运行后可以看到如下输出，每隔1秒发布一次：
 
 ![](ros-primary-tutorial-14/tf.png)
+
+参考 [RobotSetup/TF](http://wiki.ros.org/cn/navigation/Tutorials/RobotSetup/TF)

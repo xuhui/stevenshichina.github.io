@@ -5,8 +5,7 @@ categories: ROS
 tags: ServiceClient
 comments: true
 ---
-本篇学习简单的 ROS 服务器和客户端的编写，
-服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。
+本篇学习简单的 ROS 服务器和客户端的编写，服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。本篇涉及的代码已上传到 [mygithub](https://github.com/StevenShiChina/beginner_tutorials)。
 <!--more-->
 # 服务器节点
 我们将创建一个 service 节点 (add_two_ints_server)，该节点接收两个整形数字，并返回它们的和。客户端可以给服务器发送请求。

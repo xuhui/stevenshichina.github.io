@@ -5,7 +5,7 @@ categories: ROS
 tags: Publisher
 comments: true
 ---
-本篇学习 ROS 中简单的发布器和订阅器节点的编写。节点就是 ROS 网络中的一个可执行文件，它既可以订阅消息也可以发布消息。
+本篇学习 ROS 中简单的发布器和订阅器节点的编写。节点就是 ROS 网络中的一个可执行文件，它既可以订阅消息也可以发布消息。本篇涉及的代码已上传到 [mygithub](https://github.com/StevenShiChina/beginner_tutorials)。
 <!--more-->
 # 发布器
 我们将创建一个发布器节点 talker，它将不断的在 ROS 网络中广播消息。在 beginner_tutorials 目录下新建一个 src 目录
