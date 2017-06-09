@@ -5,7 +5,7 @@ categories: ROS
 tags: ROS tf
 comments: true
 ---
-本篇继续学习 [tf](http://wiki.ros.org/tf)。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换。本篇涉及到的代码我已上传到 [mygithub](https://github.com/StevenShiChina/learning_tf)。
+本篇继续学习 [tf](http://wiki.ros.org/tf)。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换。本篇涉及到的代码已上传到 [mygithub](https://github.com/StevenShiChina/learning_tf)。
 # tf broadcaster
 tf broadcaster 用于广播坐标变换，任何节点都可以监听该变换。先创建一个程序包，名字随心，这里我们命名为 *learning_tf*,包的依赖项为 *roscpp rospy turtlesim*
 <!--more-->
@@ -22,7 +22,7 @@ tf broadcaster 用于广播坐标变换，任何节点都可以监听该变换�
  $ rospack profile
    ```
 
-此时使用 roscd 输入lear 再按 TAB 即可出现 *learning_tf/*。进入 *learning_tf/src* 目录下，新建文件 *turtle_tf_broadcaster.cpp* 如果不愿意敲代码，可以直接下载官网例程 [trutle_tf_broadcaster.cpp](https://raw.github.com/ros/geometry_tutorials/hydro-devel/turtle_tf/src/turtle_tf_broadcaster.cpp)，源代码及注解：
+此时使用 roscd 输入lear 再按 TAB 即可出现 *learning_tf/*。进入 *learning_tf/src* 目录下，新建文件 *turtle_tf_broadcaster.cpp* 添加如下代码：
 
    ```
  #include <ros/ros.h>
@@ -144,7 +144,7 @@ launch文件启动了4个节点，分别是：
  4 learning_tf 包中类型为 turtle_tf_broadcaster 名称为 turtle2_tf_broadcaster 的节点。
 
 # tf listener
-前面编写了broadcaster 用于发布 turtle 的坐标变换到 tf树，下面来编写 listener 来监听坐标的变换。在 learning_tf/src 目录下新建文件 [turtle_tf_listener.cpp](https://raw.github.com/ros/geometry_tutorials/hydro-devel/turtle_tf/src/turtle_tf_listener.cpp) :
+前面编写了broadcaster 用于发布 turtle 的坐标变换到 tf树，下面来编写 listener 来监听坐标的变换。在 learning_tf/src 目录下新建文件 turtle_tf_listener.cpp 添加如下代码:
 
    ```
  #include <ros/ros.h>

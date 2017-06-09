@@ -5,7 +5,7 @@ categories: ROS
 tags: Publisher
 comments: true
 ---
-本篇学习 ROS 中简单的发布器和订阅器节点的编写。节点就是 ROS 网络中的一个可执行文件，它既可以订阅消息也可以发布消息。本篇涉及的代码已上传到 [mygithub](https://github.com/StevenShiChina/beginner_tutorials)。
+本篇学习 ROS 中简单的发布器和订阅器节点的编写。节点就是 ROS 网络中的一个可执行文件，它既可以订阅消息也可以发布消息。本篇涉及的代码已上传至 [mygithub](https://github.com/StevenShiChina/beginner_tutorials)。
 <!--more-->
 # 发布器
 我们将创建一个发布器节点 talker，它将不断的在 ROS 网络中广播消息。在 beginner_tutorials 目录下新建一个 src 目录
@@ -13,11 +13,7 @@ comments: true
  $ mkdir -p ~/catkin_ws/src/beginner_tutorials/src
  $ roscd beginner_tutorials/src/ 
    ```
-src 文件夹用于放置 beginner_tutorials 包的所有源代码，下载 talker.cpp 例子文件：[talker.cpp](https://raw.github.com/ros/ros_tutorials/groovy-devel/roscpp_tutorials/talker/talker.cpp),  将该文件放置到  beginner_tutorials/src/ 目录下：
-   ```
- $ wget https://raw.githubusercontent.com/ros/ros_tutorials/groovy-devel/roscpp_tutorials/talker/talker.cpp
-   ```
-代码及说明：
+src 文件夹用于放置 beginner_tutorials 包的所有源代码，新建 talker.cpp 在 beginner_tutorials/src/ 目录下添加如下代码：
    ```
  #include "ros/ros.h" /*引用ROS系统中发部分常用的头文件*/
 
@@ -102,12 +98,12 @@ src 文件夹用于放置 beginner_tutorials 包的所有源代码，下载 talk
  3 以每秒 10 次的频率在 chatter 上发布消息 
 接下来编写一个订阅器用于接收该节点发布的消息。
 # 订阅器
-下载 [listener.cpp](https://raw.githubusercontent.com/ros/ros_tutorials/groovy-devel/roscpp_tutorials/listener/listener.cpp),放置于 beginner_tutorials 的 src 目录下：
+新建 listener.cpp 放置于 beginner_tutorials 的 src 目录下：
    ```
  $ roscd beginner_tutorials/src/
- $ wget https://raw.githubusercontent.com/ros/ros_tutorials/groovy-devel/roscpp_tutorials/listener/listener.cpp
+ $ vim listener.cpp
    ```
-代码及说明：
+添加如下代码：
    ```
  #include "ros/ros.h"
  #include "std_msgs/String.h"

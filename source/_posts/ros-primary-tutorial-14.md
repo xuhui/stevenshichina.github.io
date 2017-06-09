@@ -15,7 +15,7 @@ comments: true
 
 ![](ros-primary-tutorial-14/tf_robot.png)
 
-基于以上描述，我们需要创建两个节点，分别命名为 *base_laser* 以及 *base_link*。为了明确两者之间的关系，需要指定谁是父节点 parent，谁是子节点 child。因为 tf 假设所有的转换都是从 parent 到 child。这里我们选择 *base_link* 为 parent 父节点，*base_laser* 为 child 子节点，将来如果有其他传感器也将作为子节点添加到移动底座。因此转换关系的数学关系为(x:0.1m,y:0.0m,z:0.2m)。知道这个转换关系 *base_link* 就可以推理出 *base_laser* 扫描出的数据跟自己的位置关系，因此可以安全的避开障碍物并规划合理的路径。这个转换实质是将 *base_laser* 坐标系的点转换到 *base_link* 坐标系中去。
+基于以上描述，我们需要创建两个节点，分别命名为 *base_laser* 以及 *base_link*。为了明确两者之间的关系，需要指定谁是父节点 parent，谁是子节点 child。因为 tf 假设所有的转换都是从 parent 到 child。这里我们选择 *base_link* 为 parent 父节点，*base_laser* 为 child 子节点，将来如果有其他传感器也将作为子节点添加到移动底座。因此转换关系的数学关系为(x:0.1m,y:0.0m,z:0.2m)。知道这个转换关系 *base_link* 就可以推理出 *base_laser* 扫描出的数据跟自己的位置关系，因此可以安全的避开障碍物并规划合理的路径。这个转换实质是将 *base_laser* 坐标系的点转换到 *base_link* 坐标系中去。本篇涉及的代码已上传至 [mygithub](https://github.com/StevenShiChina/robot_setup_tf)。
 # Broadcasting a Transform 广播变换
 创建源码包，添加依赖项：
    ```

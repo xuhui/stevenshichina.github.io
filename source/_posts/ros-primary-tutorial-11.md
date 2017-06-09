@@ -12,7 +12,7 @@ comments: true
    ```
  $ roscd beginner_tutorials/src
    ```
-下载文件 [add_two_ints_server.cpp](https://github.com/ros/catkin_tutorials/blob/master/create_package_srvclient/catkin_ws/src/beginner_tutorials/src/add_two_ints_server.cpp),将文件放置于 beginner_tutorials/src 目录下。源码说明：
+新建 add_two_ints_server.cpp 在  beginner_tutorials/src 目录下，添加源码：
    ```
  #include "ros/ros.h"
 
@@ -47,8 +47,7 @@ comments: true
  }
    ```
 # 客户端节点
-同样将源码下载到目录 beginner_tutorials/src 下，下载 [add_two_ints_client.cpp](https://github.com/ros/catkin_tutorials/blob/master/create_package_srvclient/catkin_ws/src/beginner_tutorials/src/add_two_ints_client.cpp)。
-源码及说明：
+在目录 beginner_tutorials/src 下，新建 add_two_ints_client.cpp 文件添加如下源码：
    ```
  #include "ros/ros.h"
  #include "beginner_tutorials/AddTwoInts.h"
