@@ -20,6 +20,7 @@ $ git clone https://github.com/StevenShiChina/learning_tf.git
    ```
  $ git init
    ```
+<!--more-->
 # 本地修改与更新
 在本地新建文件或修改文件后，要将文件修改提交到暂存区：
    ```
@@ -45,6 +46,13 @@ $ git clone https://github.com/StevenShiChina/learning_tf.git
    ```
  $ git commit -m "your message to add here"
    ```
+ 如果在提交到暂存前提示错误，可以删除 git 的缓存，重新提交到暂存：
+   ```
+ $ git rm -r --cached .
+ $ git add --all
+ $ git commit -m "your message to add here"
+   ```
+
 # 配置
 在将本地代码仓推送至远程之前，我们还需要对本地 git 进行一些必要的配置，包括全局用户名以及邮件，这个可以配置为全局的也可以配置在自己的代码仓下：
    ```
