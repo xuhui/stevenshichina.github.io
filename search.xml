@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title><![CDATA[超经典 ROS 学习电子书]]></title>
+      <url>/2017/06/12/ros-books/</url>
+      <content type="html"><![CDATA[<p>收藏了几本 ROS 学习的超级经典教材，都是高清晰电子版，在这里和大家分享一下。</p>
+<p><img src="/2017/06/12/ros-books/2.jpg" alt=""><br><a id="more"></a><br><img src="/2017/06/12/ros-books/5.jpg" alt=""><img src="/2017/06/12/ros-books/4.jpg" alt=""><br><img src="/2017/06/12/ros-books/1.jpg" alt=""><img src="/2017/06/12/ros-books/3.jpg" alt=""></p>
+<p>下载地址：<a href="https://github.com/StevenShiChina/books" target="_blank" rel="external">ROS-Books</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> ROS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ROS Books </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Putty 远程运行 ubuntu 图形界面程序]]></title>
       <url>/2017/06/12/putty-graphics-ubuntu/</url>
       <content type="html"><![CDATA[<p>远程登录 linux 一般通过 SSH 协议，或 telnet 协议，这两种协议一般都只是命令行界面，而不能远程运行带有图形界面的应用程序。但是 putty 这款软件支持 X11 Forwarding,如果再配合一个 <a href="https://zh.wikipedia.org/wiki/X_Window%E7%B3%BB%E7%B5%B1" target="_blank" rel="external">X server</a> 问题就解决了。一般常用的 <a href="https://zh.wikipedia.org/wiki/X_Window%E7%B3%BB%E7%B5%B1" target="_blank" rel="external">X server</a> 有 <a href="https://sourceforge.net/projects/xming/" target="_blank" rel="external">Xming</a> 和 <a href="https://sourceforge.net/projects/vcxsrv/" target="_blank" rel="external">VcXsrv</a>。基本的原理就是 ubuntu 开启 X11 转发服务，putty 负责数据的转发，而 X Server 进行图形界面的显示。<br><a id="more"></a></p>
