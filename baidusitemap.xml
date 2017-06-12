@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/06/09/git-summary/</loc>
+    <lastmod>2017-06-12T08:05:27.417Z</lastmod>
+    <data>
+        <display>
+        <title>Git 实用命令总结</title>
+        <pubTime>2017-06-09T02:16:08.000Z</pubTime>
+        
+        <tag>Git Command</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/06/12/putty-graphics-ubuntu/</loc>
     <lastmod>2017-06-12T01:47:53.296Z</lastmod>
     <data>
@@ -485,14 +505,14 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
         <display>
-        <title>linux串口数据不连续问题</title>
-        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
+        <title>浮点数与16进制的相互转换</title>
+        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
         
-        <tag>Linux serial</tag>
+        <tag>Linux</tag>
          
          
            
@@ -505,14 +525,14 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
         <display>
-        <title>浮点数与16进制的相互转换</title>
-        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
+        <title>linux串口数据不连续问题</title>
+        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
         
-        <tag>Linux</tag>
+        <tag>Linux serial</tag>
          
          
            
