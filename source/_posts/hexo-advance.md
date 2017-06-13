@@ -115,9 +115,9 @@ plugin:
  　```
  <loc><%- encodeURI("http://stevenshi.me/" + post.path) %></loc>
  　```
-当执行 hexo g 命令后会在站点目录下的 public/ 下生成 baidusitemap.xml 和 sitemap.xml 文件。将 baidusitemap.xml 提交给百度，[百度提交入口](http://www.sousuoyinqingtijiao.com/baidu/tijiao/) 将 sitemap.xml 提交给 google,[Google提交入口]()
-## 验证方式
-关于验证方式，百度提供了三种,这里为了简单选择 html 标签验证。将百度提供的标签信息添加到 主题目录下的 layout/_partials/head.swig 文件内即可：
+当执行 hexo g 命令后会在站点目录下的 public/ 下生成 baidusitemap.xml 和 sitemap.xml 文件。将 baidusitemap.xml 提交给百度，[百度提交入口](http://www.sousuoyinqingtijiao.com/baidu/tijiao/) 将 sitemap.xml 提交给 google,[Google提交入口](https://www.google.com/webmasters/verification/home?hl=en)
+## 百度提交
+先去百度站长平台注册，并添加自己的网站然后开始验证。关于验证方式，百度提供了三种,这里为了简单选择 html 标签验证。将百度提供的标签信息添加到 主题目录下的 layout/_partials/head.swig 文件内即可：
  　```
 {% if theme.baidu_site_verification %}
   <meta name="baidu-site-verification" content=   />
@@ -128,6 +128,11 @@ content 内容为百度提供的验证内容，同时在主题目录中的 _conf
 baidu_site_verification: true
 google-site-verification: true
  　```
+重新部署网站后开始验证，不出意外很快会验证成功。成功之后转到百度站长找到左边的链接提交，选择自己的站点，选择自动提交，添加自己的sitemap:
+![](hexo-advance/sitemap.jpg)
+填入自己的 sitemap 地址：http://stevenshi.me/baidusitemap.xml，剩下的时间就是等待了。
+## 谷歌提交
+
 ## 错误
 
 当在浏览器输入 http://localhost:4000/baidusitemap.xml 时出现错误：
@@ -135,6 +140,13 @@ google-site-verification: true
 ![](hexo-advance/baidusitemap.jpg)
 
 貌似是标题格式问题， baidusitemap.xml 和普通的 sitemap.xml 格式不同，它多一个标题,经过仔细检查原来标题中的<>符号问题，标题中有该符号即报上面的错误，去掉该符号后问题解决。
+
+提交网站 sitemap 百度提示抓取失败：
+
+![](hexo-advance/error.jpg)
+
+原来百度抓取 github 时是被拒绝的，github 屏蔽了百度爬虫，汗..
+
 # 添加侧栏社交链接
 修改主题目录下的配置文件*themes/nexT/_config.yml*
 　　```

@@ -28,7 +28,7 @@
 
 
 {% if theme.baidu_site_verification %}
-  <meta name="baidu-site-verification" content="asjW4F3Kxf" />
+  <meta name="baidu-site-verification" content=" " />
 {% endif %}
 
 
