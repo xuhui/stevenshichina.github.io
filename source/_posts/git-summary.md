@@ -60,6 +60,7 @@ $ git clone https://github.com/StevenShiChina/learning_tf.git
  $ git config --global user.name "your username" //配置远程仓的用户名
  $ git config --global user.email "your_email@youremail.com" //配置邮件地址
    ```
+需要将生成的 SSH Key 添加到 github 具体可参考站内文章 [hexo+github建立个人博客](http://stevenshi.me/2017/05/07/hexo-blog/)。
 可以通过以下命令查看是否能连接到远程：
    ```
  $ ssh -T git@github.com

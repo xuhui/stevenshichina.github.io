@@ -130,12 +130,12 @@ google-site-verification: true
  　```
 重新部署网站后开始验证，不出意外很快会验证成功。成功之后转到百度站长找到左边的链接提交，选择自己的站点，选择自动提交，添加自己的sitemap:
 ![](hexo-advance/sitemap.jpg)
-填入自己的 sitemap 地址：http://stevenshi.me/baidusitemap.xml，剩下的时间就是等待了。
+填入自己的 sitemap 地址： *http://stevenshi.me/baidusitemap.xml*，剩下的时间就是等待了。
 ## 谷歌提交
 
 ## 错误
 
-当在浏览器输入 http://localhost:4000/baidusitemap.xml 时出现错误：
+当在浏览器输入 *localhost:4000/baidusitemap.xml* 时出现错误：
 
 ![](hexo-advance/baidusitemap.jpg)
 
@@ -148,7 +148,7 @@ google-site-verification: true
 原来百度抓取 github 时是被拒绝的，github 屏蔽了百度爬虫，汗..
 
 # 添加侧栏社交链接
-修改主题目录下的配置文件*themes/nexT/_config.yml*
+修改主题目录下的配置文件 *themes/nexT/_config.yml*
 　　```
  # Social Links
  # Key is the link label showing to end users.

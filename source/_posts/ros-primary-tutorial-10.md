@@ -15,7 +15,7 @@ comments: true
    ```
 src 文件夹用于放置 beginner_tutorials 包的所有源代码，新建 talker.cpp 在 beginner_tutorials/src/ 目录下添加如下代码：
    ```
- #include "ros/ros.h" /*引用ROS系统中发部分常用的头文件*/
+ #include "ros/ros.h" /*引用ROS系统头文件*/
 
  #include "std_msgs/String.h" /*消息类型定义*/
 
@@ -27,7 +27,7 @@ src 文件夹用于放置 beginner_tutorials 包的所有源代码，新建 talk
    ros::init(argc, argv, "talker");
 
    /*为该进程创建一个节点句柄 第一个创建的 NodeHandle 会为节点进行初始化，
-   最后一个销毁的 NodeHandle 则会释放该节点所占用的所有资源*
+   最后一个销毁的 NodeHandle 则会释放该节点所占用的所有资源*/
    
    ros::NodeHandle n;
 
