@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/runtime.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/matrix.png">
 <meta property="og:image" content="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/rviz.jpg">
-<meta property="og:updated_time" content="2017-06-13T05:53:36.163Z">
+<meta property="og:updated_time" content="2017-06-13T09:01:20.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS初级十二 理解ROS坐标转换上">
 <meta name="twitter:description" content="一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 tf 。">
@@ -437,7 +437,7 @@
 
       
         <p>一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 。<br><a id="more"></a></p>
-<h1 id="tf-初理解"><a href="#tf-初理解" class="headerlink" title="tf 初理解"></a>tf 初理解</h1><p><img src="/2017/06/07/ros-primary-tutorial-12/tf.png" alt=""><br>tf 是 ROS 中的坐标变换系统，它可以跟踪多个参考坐标系的坐标，使用树形数据结构根据时间缓冲来维护这些坐标及其坐标关系，帮助我们在任意时间完成两个或多个参考系中的坐标变换。 tf 以分布式形式存在，所有节点都可以使用这些变换数据，节点可以监听 tf 变换，接收系统中发布的所有参考坐标系，并查询需要的参考坐标系；节点可以广播 tf 变换，想系统中广播参考系坐标关系，每个节点的参考坐标广播可以直接插入 tf 树中告知系统。</p>
+<h1 id="tf-初理解"><a href="#tf-初理解" class="headerlink" title="tf 初理解"></a>tf 初理解</h1><p><img src="/2017/06/07/ros-primary-tutorial-12/tf.png" alt=""><br>tf 是 ROS 中的坐标变换系统，它可以跟踪多个参考坐标系的坐标，使用树形数据结构根据时间缓冲来维护这些坐标及其坐标关系，帮助我们在任意时间完成两个或多个参考系中的坐标变换。 tf 以分布式形式存在，所有节点都可以使用这些变换数据，节点可以监听 tf 变换，接收系统中发布的所有参考坐标系，并查询需要的参考坐标系；节点可以广播 tf 变换，向系统中广播参考系坐标关系，每个节点的参考坐标广播可以直接插入 tf 树中告知系统。</p>
 <h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>通过一个实例来更好的理解  <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a>，参考 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">官网</a>。<br>启动一个demo:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roslaunch turtle_tf turtle_tf_demo.launch</span></div></pre></td></tr></table></figure></p>
 <p>此时会看到有两个 turtle 同时出现，将光标移动到 terminal 以便于用键盘的方向键来控制其中一个 turtle 的移动，可以看到当一个移动时另外一个一直做跟随运动：<br><img src="/2017/06/07/ros-primary-tutorial-12/follow.jpg" alt=""></p>
 <p>该例子使用 tf 库创建的三个坐标系，一个是全局坐标系，一个是 turtle1 坐标系，另一个是 turtle2 坐标系。它使用 tf 广播发布 turtle 的坐标，另外一个去监听这个坐标，并计算它们之间的位置差，从而移动一个去跟随另一个的位置。</p>
