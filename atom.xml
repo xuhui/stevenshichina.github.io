@@ -160,11 +160,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;十三&gt; 理解 ROS 坐标转换 二</title>
+    <title>ROS初级&lt;十三&gt; 理解 ROS 坐标转换二</title>
     <link href="http://stevenshi.me/2017/06/07/ros-primary-tutorial-13/"/>
     <id>http://stevenshi.me/2017/06/07/ros-primary-tutorial-13/</id>
     <published>2017-06-07T05:44:30.000Z</published>
-    <updated>2017-06-09T03:15:55.516Z</updated>
+    <updated>2017-06-13T01:40:06.968Z</updated>
     
     <content type="html"><![CDATA[<p>本篇继续学习 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a>。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换。本篇涉及到的代码已上传到 <a href="https://github.com/StevenShiChina/learning_tf" target="_blank" rel="external">mygithub</a>。</p>
 <h1 id="tf-broadcaster"><a href="#tf-broadcaster" class="headerlink" title="tf broadcaster"></a>tf broadcaster</h1><p>tf broadcaster 用于广播坐标变换，任何节点都可以监听该变换。先创建一个程序包，名字随心，这里我们命名为 <em>learning_tf</em>,包的依赖项为 <em>roscpp rospy turtlesim</em><br><a id="more"></a><br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/src/</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_create_pkg learning_tf roscpp rospy turtlesim</span></div></pre></td></tr></table></figure></p>
@@ -224,11 +224,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;十二&gt; 理解 ROS 坐标转换 一</title>
+    <title>ROS初级&lt;十二&gt; 理解 ROS 坐标转换一</title>
     <link href="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/"/>
     <id>http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/</id>
     <published>2017-06-07T02:30:19.000Z</published>
-    <updated>2017-06-08T01:56:59.098Z</updated>
+    <updated>2017-06-13T01:40:17.695Z</updated>
     
     <content type="html"><![CDATA[<p>一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 。<br><a id="more"></a></p>
 <h1 id="tf-初理解"><a href="#tf-初理解" class="headerlink" title="tf 初理解"></a>tf 初理解</h1><p><img src="/2017/06/07/ros-primary-tutorial-12/tf.png" alt=""><br>tf 是 ROS 中的坐标变换系统，它可以跟踪多个参考坐标系的坐标，使用树形数据结构根据时间缓冲来维护这些坐标及其坐标关系，帮助我们在任意时间完成两个或多个参考系中的坐标变换。 tf 以分布式形式存在，所有节点都可以使用这些变换数据，节点可以监听 tf 变换，接收系统中发布的所有参考坐标系，并查询需要的参考坐标系；节点可以广播 tf 变换，想系统中广播参考系坐标关系，每个节点的参考坐标广播可以直接插入 tf 树中告知系统。</p>
