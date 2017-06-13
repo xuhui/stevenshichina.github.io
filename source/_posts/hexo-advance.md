@@ -116,6 +116,18 @@ plugin:
  <loc><%- encodeURI("http://stevenshi.me/" + post.path) %></loc>
  　```
 当执行 hexo g 命令后会在站点目录下的 public/ 下生成 baidusitemap.xml 和 sitemap.xml 文件。将 baidusitemap.xml 提交给百度，[百度提交入口](http://www.sousuoyinqingtijiao.com/baidu/tijiao/) 将 sitemap.xml 提交给 google,[Google提交入口]()
+## 验证方式
+关于验证方式，百度提供了三种,这里为了简单选择 html 标签验证。将百度提供的标签信息添加到 主题目录下的 layout/_partials/head.swig 文件内即可：
+ 　```
+{% if theme.baidu_site_verification %}
+  <meta name="baidu-site-verification" content=   />
+{% endif %}
+ 　```
+content 内容为百度提供的验证内容，同时在主题目录中的 _config.ym l中将 google-site-verification 和 baidu_site_verification 的值设置为 true 即可。
+ 　```
+baidu_site_verification: true
+google-site-verification: true
+ 　```
 ## 错误
 
 当在浏览器输入 http://localhost:4000/baidusitemap.xml 时出现错误：
