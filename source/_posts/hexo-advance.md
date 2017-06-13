@@ -70,7 +70,7 @@ tags:
 　　```
  $npm install hexo-generator-feed --save
 　　```
-修改*hexo/_config.yml*根目录下的全局配置文件，添加以下内容:
+修改*hexo/_config.yml*根目录下的站点配置文件，添加以下内容:
 　　```
  #RSS 订阅支持
  plugin:
@@ -86,11 +86,12 @@ tags:
  rss: /atom.xml
 　　```
 # 添加sitemap
+sitemap 插件可以方便的管理网站，并生成符合搜索引擎需要的网站格式，供那些网络爬虫抓取，以便于我们的网站可以被搜索到。
 安装*sitemap*插件:
 　```
  $npm install hexo-generator-sitemap --save
 　　```
-修改*hexo/_config.yml*根目录下的全局配置文件:
+修改*hexo/_config.yml*根目录下的站点配置文件:
 　　```
  sitemap:
 　　　path: sitemap.xml
@@ -99,11 +100,29 @@ tags:
   ```
  $npm install hexo-generator-baidu-sitemap --save
   ```
-修改*hexo/_config.yml*根目录下的全局配置文件:
+修改*hexo/_config.yml*根目录下的站点配置文件:
 　　```
  baidusitemap:
 　　　path: baidusitemap.xml
 　　```
+在站点配置文件中添加：
+　　```
+plugin:
+- hexo-generator-sitemap
+- hexo-generator-baidu-sitemap
+ 　```
+修改文件 node_modules/hexo-generator-baidu-sitemap/baidusitemap.ejs ,添加自己的网站地址：
+ 　```
+ <loc><%- encodeURI("http://stevenshi.me/" + post.path) %></loc>
+ 　```
+当执行 hexo g 命令后会在站点目录下的 public/ 下生成 baidusitemap.xml 和 sitemap.xml 文件。将 baidusitemap.xml 提交给百度，[百度提交入口](http://www.sousuoyinqingtijiao.com/baidu/tijiao/) 将 sitemap.xml 提交给 google,[Google提交入口]()
+## 错误
+
+当在浏览器输入 http://localhost:4000/baidusitemap.xml 时出现错误：
+
+![](hexo-advance/baidusitemap.jpg)
+
+貌似是标题格式问题， baidusitemap.xml 和普通的 sitemap.xml 格式不同，它多一个标题,经过仔细检查原来标题中的<>符号问题，标题中有该符号即报上面的错误，去掉该符号后问题解决。
 # 添加侧栏社交链接
 修改主题目录下的配置文件*themes/nexT/_config.yml*
 　　```
@@ -130,7 +149,7 @@ nexT使用的图标来自[FontAwesome](http://fontawesome.io/)，只要上面有
 　　```
  $npm install hexo-generator-search --save
 　　```
-修改*hexo/_config.yml*根目录下的全局配置文件添加:
+修改*hexo/_config.yml*根目录下的站点配置文件添加:
 　　```
  search:
   path: search.xml

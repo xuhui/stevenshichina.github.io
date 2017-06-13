@@ -1,5 +1,5 @@
 ---
-title: ROS初级<六> 理解ROS话题
+title: ROS初级六 理解ROS话题
 date: 2017-05-27 13:13:54
 categories: ROS
 tags: ROS Topics

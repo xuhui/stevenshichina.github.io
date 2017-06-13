@@ -1,8 +1,8 @@
 ---
-title: ROS初级<十三> 理解 ROS 坐标转换 二
+title: ROS初级十三 理解ROS坐标转换下
 date: 2017-06-07 13:44:30
 categories: ROS
-tags: ROS tf
+tags: ROStf
 comments: true
 ---
 本篇继续学习 [tf](http://wiki.ros.org/tf)。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换。本篇涉及到的代码已上传到 [mygithub](https://github.com/StevenShiChina/learning_tf)。

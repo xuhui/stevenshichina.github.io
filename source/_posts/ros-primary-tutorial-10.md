@@ -1,5 +1,5 @@
 ---
-title: ROS初级<十> 简单的ROS发布器和订阅器
+title: ROS初级十 简单的ROS发布器和订阅器
 date: 2017-05-31 15:27:20
 categories: ROS
 tags: Publisher

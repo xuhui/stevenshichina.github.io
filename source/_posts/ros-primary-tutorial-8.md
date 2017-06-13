@@ -1,5 +1,5 @@
 ---
-title: ROS初级<八> 使用rqt_console 和 roslaunch
+title: ROS初级八 使用rqt_console和roslaunch
 date: 2017-05-31 10:26:43
 categories: ROS
 tags: rqt_console 

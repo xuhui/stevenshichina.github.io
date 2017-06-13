@@ -5,7 +5,7 @@
 # Site
 title: Steven's blog  #博客名
 subtitle:  点一盏灯 给需要的人 #副标题
-description: #用于搜索无直观体现
+description: ROS 学习 #用于搜索无直观体现
 author: Steven Shi #作者
 language: zh-Hans #语言
 timezone: #时区
@@ -73,10 +73,9 @@ deploy:
   branch: master
 
 sitemap:
-　path: sitemap.xml
-
-baidusitemap:
- path: baidusitemap.xml
+path: sitemap.xml
+# baidusitemap:
+	# path: baidusitemap.xml
 search:
  path: search.xml
  field: post
@@ -84,6 +83,8 @@ search:
 #RSS 订阅支持
 plugin:
 - hexo-generator-feed
+- hexo-generator-sitemap
+- hexo-generator-baidu-sitemap
 #feed Atom
 feed:
   type: atom

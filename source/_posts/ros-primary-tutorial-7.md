@@ -1,5 +1,5 @@
 ---
-title: ROS初级<七> 理解ROS服务和参数
+title: ROS初级七 理解ROS服务和参数
 date: 2017-05-31 08:23:36
 categories: ROS
 tags: ROS Services

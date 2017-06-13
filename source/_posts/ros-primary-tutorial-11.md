@@ -1,5 +1,5 @@
 ---
-title: ROS初级<十一> 简单的ROS服务器和客户端
+title: ROS初级十一 简单的ROS服务器和客户端
 date: 2017-06-01 10:17:27
 categories: ROS
 tags: ServiceClient

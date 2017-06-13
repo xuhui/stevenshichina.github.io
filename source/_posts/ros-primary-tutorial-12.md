@@ -1,8 +1,8 @@
 ---
-title: ROS初级<十二> 理解 ROS 坐标转换 一
+title: ROS初级十二 理解ROS坐标转换上
 date: 2017-06-07 10:30:19
 categories: ROS
-tags: ROS tf
+tags: ROStf
 comments: true
 ---
 一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 [tf](http://wiki.ros.org/tf) 。

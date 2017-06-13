@@ -1,5 +1,5 @@
 ---
-title: ROS初级<一> 安装与配置
+title: ROS初级一 安装与配置
 date: 2017-05-26 08:23:23
 categories: ROS
 tags: ROS Installation
