@@ -123,11 +123,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;十四&gt; tf 配置</title>
+    <title>ROS初级十四 tf 配置</title>
     <link href="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/"/>
     <id>http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/</id>
     <published>2017-06-08T03:15:29.000Z</published>
-    <updated>2017-06-09T03:09:16.173Z</updated>
+    <updated>2017-06-13T05:58:03.472Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Transform-Configuration-变换配置"><a href="#Transform-Configuration-变换配置" class="headerlink" title="Transform Configuration 变换配置"></a>Transform Configuration 变换配置</h1><p>变换树是一种偏移，体现了不同坐标系之间的变换和旋转。假设有一个简单的机器人，只有移动底座以及一个位于底座上方的激光扫描仪。因此定义两个坐标系，一个对应激光扫描仪的中心点的坐标系，一个对应于移动底座中心点的坐标系，两个坐标系分别取名为 <em>base_laser</em> 和 <em>base_link</em> 。</p>
 <p><img src="/2017/06/08/ros-primary-tutorial-14/simple_robot.png" alt=""><br><a id="more"></a><br>假设我们已经从激光扫描仪获取了一些数据，但这些数据都是以物体到激光扫描仪的距离给出的，即坐标系是 <em>base_laser</em>。 现在通过这些数据让机器人避开一些障碍物，如果不将这些激光扫描仪获取的数据从 <em>base_laser</em> 转换到 <em>base_link</em> 那么机器人在避开障碍物的过程中有可能失败，因此需要将激光扫描仪获取的数据从 <em>base_laser</em> 坐标系转换到 <em>base_link</em> 坐标系。因此需要知道两个坐标系的关系。看上图，<em>base_laser</em> 中心点位于 <em>base_link</em> 中心点上方 20cm 处，并向右偏移 10cm 。因此从激光扫描仪到移动底座的转换关系为(x:-0.1m,y:0.0m,z:-0.2m),反过来从移动底座到激光扫描仪的转换关系为(x:0.1m,y:0.0m,z:0.2m)。<br>当然这种变换关系我们可以手动去计算保存，需要的时候再调用，但是如果坐标系统增加，变换关系复杂，那么就需要利用 tf 来实现了。使用 tf 来管理坐标转关系，需要将转换关系添加到转换树中，转换树中的每一个节点都对应着一种坐标系，节点之间的连线即是两个坐标相互转换的一种表示，从当前节点到子节点的表示。 tf 利用树结构保证了两个坐标系之间只存在唯一的转换关系，我们假定节点的连线方向从父节点指向子节点。</p>
@@ -160,11 +160,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;十三&gt; 理解 ROS 坐标转换二</title>
+    <title>ROS初级十三 理解ROS坐标转换下</title>
     <link href="http://stevenshi.me/2017/06/07/ros-primary-tutorial-13/"/>
     <id>http://stevenshi.me/2017/06/07/ros-primary-tutorial-13/</id>
     <published>2017-06-07T05:44:30.000Z</published>
-    <updated>2017-06-13T01:40:06.968Z</updated>
+    <updated>2017-06-13T05:52:15.456Z</updated>
     
     <content type="html"><![CDATA[<p>本篇继续学习 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a>。通过编写一个简单的 tf broadcaster 以及 tf listener 来更进一步的理解坐标变换。本篇涉及到的代码已上传到 <a href="https://github.com/StevenShiChina/learning_tf" target="_blank" rel="external">mygithub</a>。</p>
 <h1 id="tf-broadcaster"><a href="#tf-broadcaster" class="headerlink" title="tf broadcaster"></a>tf broadcaster</h1><p>tf broadcaster 用于广播坐标变换，任何节点都可以监听该变换。先创建一个程序包，名字随心，这里我们命名为 <em>learning_tf</em>,包的依赖项为 <em>roscpp rospy turtlesim</em><br><a id="more"></a><br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/src/</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_create_pkg learning_tf roscpp rospy turtlesim</span></div></pre></td></tr></table></figure></p>
@@ -219,16 +219,16 @@
       <category term="ROS" scheme="http://stevenshi.me/categories/ROS/"/>
     
     
-      <category term="ROS tf" scheme="http://stevenshi.me/tags/ROS-tf/"/>
+      <category term="ROStf" scheme="http://stevenshi.me/tags/ROStf/"/>
     
   </entry>
   
   <entry>
-    <title>ROS初级&lt;十二&gt; 理解 ROS 坐标转换一</title>
+    <title>ROS初级十二 理解ROS坐标转换上</title>
     <link href="http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/"/>
     <id>http://stevenshi.me/2017/06/07/ros-primary-tutorial-12/</id>
     <published>2017-06-07T02:30:19.000Z</published>
-    <updated>2017-06-13T01:40:17.695Z</updated>
+    <updated>2017-06-13T05:53:36.163Z</updated>
     
     <content type="html"><![CDATA[<p>一个完整的机器人有腿(或轮子)、有眼睛、有手、有大脑，大脑控制机器人去协调的动作。问题来了，大脑是如何知道腿在哪儿？眼睛在哪儿？手臂在哪儿？要帮主人把房门打开，如何控制手臂去开门？这些都涉及到一个关键的问题-机器人的坐标变换。本篇学习 ROS 中的 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 。<br><a id="more"></a></p>
 <h1 id="tf-初理解"><a href="#tf-初理解" class="headerlink" title="tf 初理解"></a>tf 初理解</h1><p><img src="/2017/06/07/ros-primary-tutorial-12/tf.png" alt=""><br>tf 是 ROS 中的坐标变换系统，它可以跟踪多个参考坐标系的坐标，使用树形数据结构根据时间缓冲来维护这些坐标及其坐标关系，帮助我们在任意时间完成两个或多个参考系中的坐标变换。 tf 以分布式形式存在，所有节点都可以使用这些变换数据，节点可以监听 tf 变换，接收系统中发布的所有参考坐标系，并查询需要的参考坐标系；节点可以广播 tf 变换，想系统中广播参考系坐标关系，每个节点的参考坐标广播可以直接插入 tf 树中告知系统。</p>
@@ -261,16 +261,16 @@
       <category term="ROS" scheme="http://stevenshi.me/categories/ROS/"/>
     
     
-      <category term="ROS tf" scheme="http://stevenshi.me/tags/ROS-tf/"/>
+      <category term="ROStf" scheme="http://stevenshi.me/tags/ROStf/"/>
     
   </entry>
   
   <entry>
-    <title>ROS初级&lt;十一&gt; 简单的ROS服务器和客户端</title>
+    <title>ROS初级十一 简单的ROS服务器和客户端</title>
     <link href="http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/"/>
     <id>http://stevenshi.me/2017/06/01/ros-primary-tutorial-11/</id>
     <published>2017-06-01T02:17:27.000Z</published>
-    <updated>2017-06-09T03:14:39.348Z</updated>
+    <updated>2017-06-13T05:53:48.462Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习简单的 ROS 服务器和客户端的编写，服务器和客户端也是 ROS 网络中的一个节点，服务器可以提供某些服务，客户端发出请求，服务器做出响应。本篇涉及的代码已上传到 <a href="https://github.com/StevenShiChina/beginner_tutorials" target="_blank" rel="external">mygithub</a>。<br><a id="more"></a></p>
 <h1 id="服务器节点"><a href="#服务器节点" class="headerlink" title="服务器节点"></a>服务器节点</h1><p>我们将创建一个 service 节点 (add_two_ints_server)，该节点接收两个整形数字，并返回它们的和。客户端可以给服务器发送请求。<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscd beginner_tutorials/src</span></div></pre></td></tr></table></figure></p>
@@ -297,11 +297,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;十&gt; 简单的ROS发布器和订阅器</title>
+    <title>ROS初级十 简单的ROS发布器和订阅器</title>
     <link href="http://stevenshi.me/2017/05/31/ros-primary-tutorial-10/"/>
     <id>http://stevenshi.me/2017/05/31/ros-primary-tutorial-10/</id>
     <published>2017-05-31T07:27:20.000Z</published>
-    <updated>2017-06-09T03:13:02.934Z</updated>
+    <updated>2017-06-13T05:54:03.687Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习 ROS 中简单的发布器和订阅器节点的编写。节点就是 ROS 网络中的一个可执行文件，它既可以订阅消息也可以发布消息。本篇涉及的代码已上传至 <a href="https://github.com/StevenShiChina/beginner_tutorials" target="_blank" rel="external">mygithub</a>。<br><a id="more"></a></p>
 <h1 id="发布器"><a href="#发布器" class="headerlink" title="发布器"></a>发布器</h1><p>我们将创建一个发布器节点 talker，它将不断的在 ROS 网络中广播消息。在 beginner_tutorials 目录下新建一个 src 目录<br>   <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mkdir -p ~<span class="regexp">/catkin_ws/src</span><span class="regexp">/beginner_tutorials/src</span></div><div class="line"><span class="variable">$ </span>roscd beginner_tutorials/src/</div></pre></td></tr></table></figure></p>
@@ -331,11 +331,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;九&gt; 创建 ROS 消息和 ROS 服务</title>
+    <title>ROS初级九 创建ROS消息和ROS服务</title>
     <link href="http://stevenshi.me/2017/05/31/ros-primary-tutorial-9/"/>
     <id>http://stevenshi.me/2017/05/31/ros-primary-tutorial-9/</id>
     <published>2017-05-31T05:31:50.000Z</published>
-    <updated>2017-06-08T01:58:34.042Z</updated>
+    <updated>2017-06-13T05:54:21.768Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习如何创建并编译 ROS 消息和服务，以及 <a href="http://wiki.ros.org/rosmsg" target="_blank" rel="external">rosmsg</a> <a href="http://wiki.ros.org/srv" target="_blank" rel="external">rossrv</a> <a href="http://wiki.ros.org/rosbash#roscp" target="_blank" rel="external">roscp</a> <a href="http://wiki.ros.org/rosbash#rosed" target="_blank" rel="external">rosed</a> 等命令的使用。<br><a id="more"></a></p>
 <h1 id="rosed"><a href="#rosed" class="headerlink" title="rosed"></a>rosed</h1><p><a href="http://wiki.ros.org/rosbash#rosed" target="_blank" rel="external">rosed</a> 是 <a href="http://wiki.ros.org/rosbash" target="_blank" rel="external">rosbash</a> 的一部分，相当于 ros + edit。利用 <a href="http://wiki.ros.org/rosbash#rosed" target="_blank" rel="external">rosed</a> 可以直接通过 package 名称来获取到待编辑的文件而无需指定该文件的存储路径，使用方法：<br>   <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rosed <span class="string">[package_name]</span> <span class="string">[filename]</span></div></pre></td></tr></table></figure></p>
@@ -386,11 +386,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;八&gt; 使用rqt_console 和 roslaunch</title>
+    <title>ROS初级八 使用rqt_console和roslaunch</title>
     <link href="http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/"/>
     <id>http://stevenshi.me/2017/05/31/ros-primary-tutorial-8/</id>
     <published>2017-05-31T02:26:43.000Z</published>
-    <updated>2017-06-08T01:59:01.643Z</updated>
+    <updated>2017-06-13T05:54:37.258Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习 <a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 与 <a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 的使用。<a href="http://wiki.ros.org/rqt_console" target="_blank" rel="external">rqt_console</a> 属于 ROS 日志框架的一部分，用来显示节点的输出信息。<a href="http://wiki.ros.org/roslaunch" target="_blank" rel="external">roslaunch</a> 用于节点的运行，可以同时运行多个节点。<br>使用之前先安装以下程序包:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-rqt-common-plugins</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
@@ -426,11 +426,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;七&gt; 理解ROS服务和参数</title>
+    <title>ROS初级七 理解ROS服务和参数</title>
     <link href="http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/"/>
     <id>http://stevenshi.me/2017/05/31/ros-primary-tutorial-7/</id>
     <published>2017-05-31T00:23:36.000Z</published>
-    <updated>2017-06-08T01:59:30.605Z</updated>
+    <updated>2017-06-13T05:54:47.881Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习 ROS 的服务和参数。</p>
 <h1 id="ROS-服务"><a href="#ROS-服务" class="headerlink" title="ROS 服务"></a>ROS 服务</h1><p>Services 是 ROS 节点之间通信的另一种方式，服务允许节点发送请求(request)，并获得响应(response)。<a href="http://wiki.ros.org/rosservice" target="_blank" rel="external">rosservice</a> 命令可以使用 ROS 客户端/服务器框架提供的服务，<a href="http://wiki.ros.org/rosservice" target="_blank" rel="external">rosservice</a> 提供了很多可以在 topic 上使用的命令：<br>   <figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">rosservice <span class="built_in">list</span>         输出可用服务的信息</div><div class="line">rosservice <span class="built_in">call</span>         调用带参数的服务</div><div class="line">rosservice <span class="built_in">type</span>         输出服务类型</div><div class="line">rosservice <span class="built_in">find</span>         依据类型寻找服务<span class="built_in">find</span> services by service <span class="built_in">type</span></div><div class="line">rosservice uri          输出服务的ROSRPC uri</div></pre></td></tr></table></figure></p>
@@ -480,11 +480,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;六&gt; 理解ROS话题</title>
+    <title>ROS初级六 理解ROS话题</title>
     <link href="http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/"/>
     <id>http://stevenshi.me/2017/05/27/ros-primary-tutorial-6/</id>
     <published>2017-05-27T05:13:54.000Z</published>
-    <updated>2017-06-08T02:00:26.939Z</updated>
+    <updated>2017-06-13T05:54:56.873Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习 ROS 中的话题 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 以及 <a href="http://wiki.ros.org/rostopic" target="_blank" rel="external">Topics</a> 的使用。源码位于 <a href="https://github.com/ros/ros_comm" target="_blank" rel="external">ROS-communications</a>。开始之前我们先运行 turtlesim 节点，并用键盘来控制它的移动。开一个 terminal 运行：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div><div class="line"><span class="meta">$</span><span class="bash"> rosrun turtlesim turtlesim_node</span></div></pre></td></tr></table></figure></p>
 <p>开启另外一个 terminal 运行键盘控制节点：<br>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$rosrun</span> turtlesim turtle_teleop_key</span></div></pre></td></tr></table></figure></p>
@@ -539,11 +539,11 @@
   </entry>
   
   <entry>
-    <title>ROS 初级&lt;五&gt; 理解ROS节点</title>
+    <title>ROS 初级五 理解ROS节点</title>
     <link href="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/"/>
     <id>http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/</id>
     <published>2017-05-27T01:34:16.000Z</published>
-    <updated>2017-06-08T02:00:43.427Z</updated>
+    <updated>2017-06-13T05:55:05.423Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。<br><a id="more"></a></p>
 <h1 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h1><p><a href="http://wiki.ros.org/Nodes" target="_blank" rel="external">Nodes</a>: 表示 ROS 中的节点，它表现形式为一个可执行文件，它可以通过 ROS 与其它节点进行通信。<br><a href="http://wiki.ros.org/Messages" target="_blank" rel="external">Messages</a>: 表示消息，它是一种 ROS 数据类型，用于订阅或发布到一个话题。<br><a href="http://wiki.ros.org/Topics" target="_blank" rel="external">Topics</a>: 表示话题，节点可以发布消息到话题，也可以订阅话题以接收消息。<br><a href="http://wiki.ros.org/Master" target="_blank" rel="external">Master</a>: 表示节点管理器，它提供 ROS 名称服务，帮助 ROS 节点找到彼此。<br><a href="http://wiki.ros.org/rosout" target="_blank" rel="external">rosout</a>: 类似标准输出 stdout。<br><a href="http://wiki.ros.org/roscore" target="_blank" rel="external">roscore</a>: 相当于 ROS 中的服务器，运行所有节点前必须先运行 roscore。</p>
@@ -581,11 +581,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;四&gt; 编译ROS程序包</title>
+    <title>ROS初级四 编译ROS程序包</title>
     <link href="http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/"/>
     <id>http://stevenshi.me/2017/05/26/ros-primary-tutorial-4/</id>
     <published>2017-05-26T07:10:04.000Z</published>
-    <updated>2017-05-27T05:16:45.292Z</updated>
+    <updated>2017-06-13T05:55:14.257Z</updated>
     
     <content type="html"><![CDATA[<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>ROS 程序包的编译使用命令 <a href="http://wiki.ros.org/catkin/commands/catkin_make" target="_blank" rel="external">catkin_make</a>。在 catkin 工作空间的根目录下 <em>~/catkin_ws</em> 执行该命令即可编译 catkin 程序包：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
@@ -617,11 +617,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;三&gt; 创建ROS程序包</title>
+    <title>ROS初级三 创建ROS程序包</title>
     <link href="http://stevenshi.me/2017/05/26/ros-primary-tutorial-3/"/>
     <id>http://stevenshi.me/2017/05/26/ros-primary-tutorial-3/</id>
     <published>2017-05-26T03:23:13.000Z</published>
-    <updated>2017-05-27T05:16:19.554Z</updated>
+    <updated>2017-06-13T05:55:22.440Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习 ROS 程序包的创建，使用工具 <a href="http://wiki.ros.org/catkin/commands/catkin_create_pkg" target="_blank" rel="external">catkin_create_pkg</a> 创建新程序包。</p>
 <h1 id="ROS程序包的组成"><a href="#ROS程序包的组成" class="headerlink" title="ROS程序包的组成"></a>ROS程序包的组成</h1><p> ROS 程序包必须包含 <a href="http://wiki.ros.org/catkin/package.xml" target="_blank" rel="external">package.xml</a> 文件和 <a href="http://wiki.ros.org/catkin/CMakeLists.txt" target="_blank" rel="external">CMakeLists.txt</a> 文件。<em>package.xml</em> 提供有关程序包的元信息，每个目录下只能有一个程序包：<br>   <figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">beginner_tutorials/ </span>    </div><div class="line"> <span class="meta">include</span>/                   </div><div class="line"> msg/                       </div><div class="line"> src/                        </div><div class="line"> srv/                       </div><div class="line"> CMakeLists.txt              </div><div class="line"> package.xml</div></pre></td></tr></table></figure></p>
@@ -659,11 +659,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;二&gt; 文件系统介绍</title>
+    <title>ROS初级二 文件系统介绍</title>
     <link href="http://stevenshi.me/2017/05/26/ros-primary-tutorial-2/"/>
     <id>http://stevenshi.me/2017/05/26/ros-primary-tutorial-2/</id>
     <published>2017-05-26T01:54:15.000Z</published>
-    <updated>2017-05-27T05:15:43.714Z</updated>
+    <updated>2017-06-13T05:55:32.095Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习 ROS 的文件系统，包括一些命令行工具 <a href="http://wiki.ros.org/rosbash#roscd" target="_blank" rel="external">roscd</a>、 <a href="http://wiki.ros.org/rosbash#rosls" target="_blank" rel="external">rosls</a>、 <a href="http://wiki.ros.org/rospack" target="_blank" rel="external">rospack</a> 等的使用。</p>
 <h1 id="安装-tutorial-程序包："><a href="#安装-tutorial-程序包：" class="headerlink" title="安装 tutorial 程序包："></a>安装 tutorial 程序包：</h1>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get install ros-indigo-ros-tutorials</span></div></pre></td></tr></table></figure>
@@ -698,11 +698,11 @@
   </entry>
   
   <entry>
-    <title>ROS初级&lt;一&gt; 安装与配置</title>
+    <title>ROS初级一 安装与配置</title>
     <link href="http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/"/>
     <id>http://stevenshi.me/2017/05/26/ros-primary-tutorial-1/</id>
     <published>2017-05-26T00:23:23.000Z</published>
-    <updated>2017-06-08T02:01:38.427Z</updated>
+    <updated>2017-06-13T05:55:40.424Z</updated>
     
     <content type="html"><![CDATA[<p>一直想记录一下ROS学习过程中的点滴，先从最基础的 ROS-Beginner-Tutorials开始， 以便于帮助更多的人，本篇是ROS学习的开篇。</p>
 <h1 id="ROS安装"><a href="#ROS安装" class="headerlink" title="ROS安装"></a>ROS安装</h1><p>目前ROS官方还在维护的版本有4个(截至201705),参考 <a href="http://wiki.ros.org/Distributions" target="_blank" rel="external">ROS-Distributions</a>：<img src="/2017/05/26/ros-primary-tutorial-1/rosv.jpg" alt=""><br><a id="more"></a><br>因为我的环境是ubuntu14.04,支持的 ROS 版本为 <a href="http://wiki.ros.org/indigo" target="_blank" rel="external">ROS-Indigo</a>, 因此我选择安装 <a href="http://wiki.ros.org/indigo" target="_blank" rel="external">ROS-Indigo</a>。<br><em>环境： ubuntu 14.04 Trusty LTS 32bits</em><br>安装可以参考官网: <a href="http://wiki.ros.org/indigo/Installation/Ubuntu" target="_blank" rel="external">ROS-Indigo-Installation-ubuntu</a><br>添加代码仓：<br>   <figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> <span class="keyword">sh</span> -c 'echo <span class="string">"deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main"</span> &gt; /etc/apt/sources.<span class="keyword">list</span>.<span class="keyword">d</span>/ros-latest.<span class="keyword">list</span>'</div></pre></td></tr></table></figure></p>

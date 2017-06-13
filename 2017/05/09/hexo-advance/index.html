@@ -99,12 +99,13 @@
 <meta property="og:url" content="http://stevenshi.me/2017/05/09/hexo-advance/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="添加页面页面指的是分类页categories、标签页tags、关于页about等。使用以下命令生成以上页面参考nexT:　　123$hexo new page categories$hexo new page tags$hexo new page about 在 hexo 配置文件 _config.yml 文件中设置 post_asset_folder 为true,当新建页面后会自动生成一个同名文">
+<meta property="og:image" content="http://stevenshi.me/2017/05/09/hexo-advance/baidusitemap.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/09/hexo-advance/pay.jpg">
-<meta property="og:updated_time" content="2017-06-13T01:35:42.619Z">
+<meta property="og:updated_time" content="2017-06-13T05:58:50.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo进阶">
 <meta name="twitter:description" content="添加页面页面指的是分类页categories、标签页tags、关于页about等。使用以下命令生成以上页面参考nexT:　　123$hexo new page categories$hexo new page tags$hexo new page about 在 hexo 配置文件 _config.yml 文件中设置 post_asset_folder 为true,当新建页面后会自动生成一个同名文">
-<meta name="twitter:image" content="http://stevenshi.me/2017/05/09/hexo-advance/pay.jpg">
+<meta name="twitter:image" content="http://stevenshi.me/2017/05/09/hexo-advance/baidusitemap.jpg">
 
 
 
@@ -245,6 +246,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
           </a>
         </li>
       
@@ -435,8 +446,12 @@
 <p>修改<em>hexo/_config.yml</em>根目录下的站点配置文件:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">sitemap:</span></div><div class="line"><span class="symbol">　　　path:</span> sitemap.xml</div></pre></td></tr></table></figure></p>
 <p>添加baidusitemap：<br>  <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$npm</span> install hexo-generator-baidu-sitemap --save</span></div></pre></td></tr></table></figure></p>
 <p>修改<em>hexo/_config.yml</em>根目录下的站点配置文件:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">baidusitemap:</span></div><div class="line"><span class="symbol">　　　path:</span> baidusitemap.xml</div></pre></td></tr></table></figure></p>
-<p>当执行 hexo g 命令后会在站点目录下的 public/ 下生成 baidusitemap.xml 文件。将 baidusitemap.xml 提交给百度，<a href="http://www.sousuoyinqingtijiao.com/baidu/tijiao/" target="_blank" rel="external">百度提交入口</a></p>
-<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>当在浏览器输入 <a href="http://stevenshi.me/baidusitemap.xml">http://stevenshi.me/baidusitemap.xml</a> 时出现错误：<br>　　<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">This page <span class="keyword">contains</span> <span class="keyword">the</span> following errors:</div><div class="line"></div><div class="line"> <span class="keyword">error</span> <span class="keyword">on</span> line <span class="number">91</span> <span class="keyword">at</span> column <span class="number">47</span>: Opening <span class="keyword">and</span> ending tag mismatch: åä¸ line <span class="number">0</span> <span class="keyword">and</span> title</div><div class="line">Below <span class="keyword">is</span> a rendering <span class="keyword">of</span> <span class="keyword">the</span> page up <span class="keyword">to</span> <span class="keyword">the</span> <span class="keyword">first</span> <span class="keyword">error</span>.</div></pre></td></tr></table></figure></p>
+<p>在站点配置文件中添加：<br>　　<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">plugin:</div><div class="line">-<span class="ruby"> hexo-generator-sitemap</span></div><div class="line">-<span class="ruby"> hexo-generator-baidu-sitemap</span></div></pre></td></tr></table></figure></p>
+<p>修改文件 node_modules/hexo-generator-baidu-sitemap/baidusitemap.ejs ,添加自己的网站地址：<br> 　<figure class="highlight erb"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">loc</span>&gt;</span><span class="tag">&lt;<span class="name">%-</span></span></span><span class="ruby"> encodeURI(<span class="string">"http://stevenshi.me/"</span> + post.path) </span><span class="xml"><span class="tag">%&gt;</span><span class="tag">&lt;/<span class="name">loc</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>当执行 hexo g 命令后会在站点目录下的 public/ 下生成 baidusitemap.xml 和 sitemap.xml 文件。将 baidusitemap.xml 提交给百度，<a href="http://www.sousuoyinqingtijiao.com/baidu/tijiao/" target="_blank" rel="external">百度提交入口</a> 将 sitemap.xml 提交给 google,<a href="">Google提交入口</a></p>
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>当在浏览器输入 <a href="http://localhost:4000/baidusitemap.xml" target="_blank" rel="external">http://localhost:4000/baidusitemap.xml</a> 时出现错误：</p>
+<p><img src="/2017/05/09/hexo-advance/baidusitemap.jpg" alt=""></p>
+<p>貌似是标题格式问题， baidusitemap.xml 和普通的 sitemap.xml 格式不同，它多一个标题,经过仔细检查原来标题中的&lt;&gt;符号问题，标题中有该符号即报上面的错误，去掉该符号后问题解决。</p>
 <h1 id="添加侧栏社交链接"><a href="#添加侧栏社交链接" class="headerlink" title="添加侧栏社交链接"></a>添加侧栏社交链接</h1><p>修改主题目录下的配置文件<em>themes/nexT/_config.yml</em><br>　　<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># <span class="selector-tag">Social</span> <span class="selector-tag">Links</span></div><div class="line"># <span class="selector-tag">Key</span> <span class="selector-tag">is</span> <span class="selector-tag">the</span> <span class="selector-tag">link</span> <span class="selector-tag">label</span> <span class="selector-tag">showing</span> <span class="selector-tag">to</span> <span class="selector-tag">end</span> <span class="selector-tag">users</span>.</div><div class="line"># <span class="selector-tag">Value</span> <span class="selector-tag">is</span> <span class="selector-tag">the</span> <span class="selector-tag">target</span> <span class="selector-tag">link</span> (E.g. <span class="attribute">GitHub</span>: <span class="attribute">https</span>:<span class="comment">//github.com/iissnan)</span></div><div class="line"><span class="attribute">social</span>:</div><div class="line">  <span class="attribute">Github</span>: <span class="attribute">https</span>:<span class="comment">//github.com/username</span></div><div class="line">  知乎: <span class="attribute">http</span>:<span class="comment">//www.zhihu.com/people/username</span></div><div class="line">  <span class="attribute">Email</span>: <span class="attribute">mailto</span>: user<span class="variable">@xx</span>.com</div></pre></td></tr></table></figure></p>
 <p>设置链接的图标，对应的字段是<em>social_icons</em>在主题配置文件中:<br>　<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Social Icons</span></div><div class="line"><span class="attr">social_icons:</span></div><div class="line"><span class="attr">enable:</span> <span class="literal">true</span></div><div class="line"><span class="comment"># Icon Mappings</span></div><div class="line"><span class="attr">GitHub:</span> <span class="string">github</span></div><div class="line"><span class="attr">Email:</span> <span class="string">envelope</span></div></pre></td></tr></table></figure></p>
 <p>nexT使用的图标来自<a href="http://fontawesome.io/" target="_blank" rel="external">FontAwesome</a>，只要上面有的都可以配置到nexT使用。</p>
@@ -675,7 +690,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
