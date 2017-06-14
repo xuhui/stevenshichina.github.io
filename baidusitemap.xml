@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://stevenshi.me/2017/05/09/hexo-advance/</loc>
-    <lastmod>2017-06-14T06:45:05.962Z</lastmod>
+    <lastmod>2017-06-14T06:57:22.135Z</lastmod>
     <data>
         <display>
         <title>hexo进阶</title>
@@ -22,6 +22,7 @@
     </data>
     </url>
 
+    
     
     
   <url>
@@ -625,12 +626,12 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
-        <title>hexo 博客备份</title>
-        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
+        <title>hexo问题汇总</title>
+        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
         
         <tag>hexo</tag>
          
@@ -645,12 +646,12 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
-        <title>hexo问题汇总</title>
-        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
+        <title>hexo 博客备份</title>
+        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
         
         <tag>hexo</tag>
          
