@@ -539,11 +539,11 @@
   </entry>
   
   <entry>
-    <title>ROS 初级五 理解ROS节点</title>
+    <title>ROS初级五 理解ROS节点</title>
     <link href="http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/"/>
     <id>http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/</id>
     <published>2017-05-27T01:34:16.000Z</published>
-    <updated>2017-06-13T05:55:05.423Z</updated>
+    <updated>2017-06-14T08:00:18.888Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习 ROS 节点相关知识。节点是 ROS 程序包中的一个可执行文件，它可以与其他节点进行通信，节点可以发布或订阅话题，也可以提供或使用某种服务 。<br><a id="more"></a></p>
 <h1 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h1><p><a href="http://wiki.ros.org/Nodes" target="_blank" rel="external">Nodes</a>: 表示 ROS 中的节点，它表现形式为一个可执行文件，它可以通过 ROS 与其它节点进行通信。<br><a href="http://wiki.ros.org/Messages" target="_blank" rel="external">Messages</a>: 表示消息，它是一种 ROS 数据类型，用于订阅或发布到一个话题。<br><a href="http://wiki.ros.org/Topics" target="_blank" rel="external">Topics</a>: 表示话题，节点可以发布消息到话题，也可以订阅话题以接收消息。<br><a href="http://wiki.ros.org/Master" target="_blank" rel="external">Master</a>: 表示节点管理器，它提供 ROS 名称服务，帮助 ROS 节点找到彼此。<br><a href="http://wiki.ros.org/rosout" target="_blank" rel="external">rosout</a>: 类似标准输出 stdout。<br><a href="http://wiki.ros.org/roscore" target="_blank" rel="external">roscore</a>: 相当于 ROS 中的服务器，运行所有节点前必须先运行 roscore。</p>
