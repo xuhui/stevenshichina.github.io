@@ -5,7 +5,7 @@
 # Site
 title: Steven's blog  #博客名
 subtitle:  点一盏灯 给需要的人 #副标题
-description: ROS 学习 #用于搜索无直观体现
+description: ROS 学习 
 author: Steven Shi #作者
 language: zh-Hans #语言
 timezone: #时区

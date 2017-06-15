@@ -1,5 +1,5 @@
 ---
-title: ROS 初级五 理解ROS节点
+title: ROS初级五 理解ROS节点
 date: 2017-05-27 09:34:16
 categories: ROS
 tags: ROS Node

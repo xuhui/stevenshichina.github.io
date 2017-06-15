@@ -1,5 +1,6 @@
 ---
 title: 关于
+comments: false
 ---
 ......
 
@@ -12,7 +13,7 @@ title: 关于
 
 本站永久链接:  http://stevenshi.me
 ![Alt text](qrh.png)
-Email:  sstianjin@gmail.com
+Email:  1554116385@qq.com
 
 Github: https://github.com/stevenshichina
 
