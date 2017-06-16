@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/06/12/ros-books/</loc>
+    
+    <lastmod>2017-06-16T01:38:09.780Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/about/index.html</loc>
     
     <lastmod>2017-06-15T00:29:47.922Z</lastmod>
@@ -121,13 +128,6 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/06/12/ros-books/</loc>
-    
-    <lastmod>2017-06-12T09:13:59.985Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stevenshi.me/2017/06/12/putty-graphics-ubuntu/</loc>
     
     <lastmod>2017-06-12T01:47:53.296Z</lastmod>
@@ -198,14 +198,14 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
     
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
     
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     
@@ -226,7 +226,7 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
@@ -240,7 +240,7 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
