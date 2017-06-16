@@ -7,6 +7,7 @@ comments: true
 ---
 收藏了几本 ROS 学习的超级经典教材，都是高清晰电子版，在这里和大家分享一下。
 
+![](ros-books/6.jpg)
 ![](ros-books/2.jpg)
 <!--more-->
 ![](ros-books/5.jpg)![](ros-books/4.jpg)
