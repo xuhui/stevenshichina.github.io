@@ -12,5 +12,5 @@ comments: true
 <!--more-->
 ![](ros-books/5.jpg)![](ros-books/4.jpg)
 ![](ros-books/1.jpg)![](ros-books/3.jpg)
-
+![](ros-books/ros.jpg)![](ros-books/ros2.jpg)
 下载地址：[ROS-Books](https://github.com/StevenShiChina/books)
