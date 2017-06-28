@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stevenshi.me/"/>
-  <updated>2017-06-22T05:11:46.929Z</updated>
+  <updated>2017-06-28T08:48:57.745Z</updated>
   <id>http://stevenshi.me/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>三轮全向移动底盘运动学解析</title>
+    <link href="http://stevenshi.me/2017/06/28/omniwheel-kinematical-analysis/"/>
+    <id>http://stevenshi.me/2017/06/28/omniwheel-kinematical-analysis/</id>
+    <published>2017-06-28T05:44:18.000Z</published>
+    <updated>2017-06-28T08:48:57.745Z</updated>
+    
+    <content type="html"><![CDATA[<p>三轮全向移动底盘因其良好的运动性并且结构简单，近年来备受欢迎。三个轮子互相间隔120°，每个全向轮由若干个小滚轮组成，各个滚轮的母线组成一个完整的圆。机器人既可以沿轮面的切线方向移动，也可以沿轮子的轴线方向移动，这两种运动的组合即可以实现平面内任意方向的运动。</p>
+<p><img src="/2017/06/28/omniwheel-kinematical-analysis/omnidiagram.jpg" alt=""></p>
+<a id="more"></a>
+<h1 id="运动学分析"><a href="#运动学分析" class="headerlink" title="运动学分析"></a>运动学分析</h1><p><img src="/2017/06/28/omniwheel-kinematical-analysis/omni.jpg" alt=""><br>为便于运动学分析，我们以理想情况为基础，三个轮子相对于车体的中轴线对称，且物理尺寸重量等完全一致；上层负载均衡，机器人的重心与三个轮子转动轴线的交点重合；三个轮体与地面摩擦力足够大，不会发生打滑现象；机器人中心到三个全向轮的距离相等。<br>定义绝对坐标系 <em>XOY</em>，机器人自身坐标系 <em>X’O’Y’</em>。机器人的姿态角为 <em>θ</em>，即机器人自身坐标相对于绝对坐标的旋转角度。机器人自身旋转的角速度设为 <em>W</em>。 <em>L</em> 为三个轮子相对于机器人中心的距离，$V_A$,$V_B$,$V_C$ 分别表示三个轮子沿驱动方向的速度；角度 <em>ψ</em> 为 轮子与机器人坐标系 <em>X</em> 轴的夹角，这个夹角我们可以算出为 60°。我们假定机器人在任意时刻的速度为 $V = [V_x,V_y,W]$,其中 V_x 和 V_y 分别为机器人在自身坐标系下的  <em>X</em> 轴 <em>Y</em> 轴方向的速度，<em>W</em> 为机器人运动的角速度，假定顺时针方向为正方向。那么可得出机器人运动学方程：<br>$ V_A= V_x + L W $<br>$ V_B= -V_x cosψ + V_y sinψ + L W $<br>$ V_C= -V_x cosψ - V_y sinψ + L W $<br>写成矩阵形式为：<br>$\left[<br>\begin{matrix}<br>V_A \\<br>V_B \\<br>V_C \\<br>\end{matrix}<br>\right] =<br>\left[<br>\begin{matrix}<br>1 &amp; 0 &amp; L \\<br>-cosψ &amp; sinψ &amp; L \\<br>-cosψ &amp; -sinψ &amp; L<br>\end{matrix}<br>\right]<br>\left[<br>\begin{matrix}<br>V_x \\<br>V_y \\<br>W \\<br>\end{matrix}<br>\right] $<br>车轮的线速度还可以表示为：<br>$ V_A = Rω_A $<br>$ V_B = Rω_B $<br>$ V_C = Rω_C $<br>未完 待续…</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;三轮全向移动底盘因其良好的运动性并且结构简单，近年来备受欢迎。三个轮子互相间隔120°，每个全向轮由若干个小滚轮组成，各个滚轮的母线组成一个完整的圆。机器人既可以沿轮面的切线方向移动，也可以沿轮子的轴线方向移动，这两种运动的组合即可以实现平面内任意方向的运动。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/06/28/omniwheel-kinematical-analysis/omnidiagram.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ROS" scheme="http://stevenshi.me/categories/ROS/"/>
+    
+    
+      <category term="omniwheel" scheme="http://stevenshi.me/tags/omniwheel/"/>
+    
+  </entry>
   
   <entry>
     <title>超经典 ROS 学习电子书</title>
@@ -810,44 +837,6 @@
     
     
       <category term="ROS Navigation" scheme="http://stevenshi.me/tags/ROS-Navigation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ROS机器人仿真</title>
-    <link href="http://stevenshi.me/2017/05/24/ros-simulation/"/>
-    <id>http://stevenshi.me/2017/05/24/ros-simulation/</id>
-    <published>2017-05-24T02:07:50.000Z</published>
-    <updated>2017-05-24T05:33:51.089Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在 <em>PC</em> 环境下进行机器人的运动仿真是 <em>ROS</em> 开发者必经的一个环节，<em>ROS</em> 官方提供了好用且强大的3D可视化工具 <a href="http://wiki.ros.org/rviz" target="_blank" rel="external">rviz</a>-3D visualization tool for ROS。<br><em>环境: ubuntu 14.04 LTS 32bits </em><br><em>ROS</em>: <em>Indigo</em><br>开启仿真之旅。<br><a id="more"></a></p>
-<h1 id="安装-rviz"><a href="#安装-rviz" class="headerlink" title="安装 rviz"></a>安装 <a href="http://wiki.ros.org/rviz" target="_blank" rel="external">rviz</a></h1><p>安装之前首先确保在 <em>ubuntu</em> 系统下配置安装好了 <em>ROS</em> 环境，如果没有请参考官网安装，点击 <a href="http://wiki.ros.org/indigo/Installation/Ubuntu" target="_blank" rel="external">ROS-Install-on-Ubuntu</a>。安装3D可视化工具 <a href="http://wiki.ros.org/rviz" target="_blank" rel="external">rviz</a> 参考 <a href="http://wiki.ros.org/rviz/UserGuide" target="_blank" rel="external">Rviz-Installation</a><br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get install ros-indigo-rviz</span></div></pre></td></tr></table></figure></p>
-<p><a href="http://wiki.ros.org/rviz" target="_blank" rel="external">rviz</a> 只是一个3D可视化工具，需要安装一个模拟器 <a href="http://wiki.ros.org/arbotix" target="_blank" rel="external">Arbotix</a> 才能进行机器人的仿真，安装模拟器 <a href="http://wiki.ros.org/arbotix" target="_blank" rel="external">Arbotix</a>：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get install ros-indigo-arbotix*</span></div><div class="line"><span class="meta"><span class="meta-keyword">$rospack</span> profile //更新ros软件包</span></div></pre></td></tr></table></figure></p>
-<h1 id="开始仿真"><a href="#开始仿真" class="headerlink" title="开始仿真"></a>开始仿真</h1><p>仿真之前下载 <a href="https://github.com/pirobot/rbx1" target="_blank" rel="external">ros-by-example</a> 自带的例程代码：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws/src</span></div><div class="line"><span class="meta">$</span><span class="bash">git <span class="built_in">clone</span> https://github.com/pirobot/rbx1.git</span></div><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> rbx1</span></div><div class="line"><span class="meta">$</span><span class="bash">git checkout indigo-devel</span></div><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/catkin_ws</span></div><div class="line"><span class="meta">$</span><span class="bash">catkin_make</span></div><div class="line"><span class="meta">$</span><span class="bash"><span class="built_in">source</span> ~/catkin_ws/devel/setup.bash</span></div><div class="line"><span class="meta">$</span><span class="bash">rospack profile</span></div></pre></td></tr></table></figure></p>
-<p>使用 <em>rbx1</em> 包之前运行包里自带的 <em>rbx1-prereq.sh</em> 文件，安装一下依赖项，如果安装了可以略过：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sh</span> rbx1-prereq.sh　</span></div><div class="line"><span class="meta"><span class="meta-keyword">$rospack</span> profile</span></div></pre></td></tr></table></figure></p>
-<p>运行 <em>roscore</em> 先：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$roscore</span> &amp;</span></div></pre></td></tr></table></figure></p>
-<p>开启一个机器人模型,模型位于<em>/rbx1/rbx1_bringup/launch</em>目录下：<br>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$roslaunch</span> rbx1_bringup fake_pi_robot.launch</span></div></pre></td></tr></table></figure></p>
-<p>也可以选择其他的模型。之后开启 <em>Rviz</em> 可视化工具：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">rosrun rviz rviz <span class="_">-d</span> `rospack find rbx1_nav`/sim.rviz</span></div></pre></td></tr></table></figure></p>
-<p>一定要注意反单引号的使用，否则系统会报错。（ESC下面那个键）<br>此时就可以看到机器人模型：<img src="/2017/05/24/ros-simulation/rviz.jpg" alt=""><br>参数 <em>sim.rviz</em> 是 <em>rviz</em> 的配置文件。机器人目前处于静止状态，我们发布一个命令，让它动起来，命令冒号后的空格必须有：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$rostopic</span> pub -r <span class="number">10</span> <span class="regexp">/cmd_vel geometry_msgs/</span>Twist <span class="string">'&#123;linear: &#123;x: 0.2, y: 0, z: 0&#125;, angular: &#123;x: 0, y: 0, z: 0.5&#125;&#125;'</span></div></pre></td></tr></table></figure></p>
-<p>效果：<img src="/2017/05/24/ros-simulation/rviz-move.jpg" alt=""><br>需要停止机器人，可以在同一个窗口按下 <em>ctrl-c</em> 或者发布一个空的指令：<br>　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$rostopic</span> pub -<span class="number">1</span> <span class="regexp">/cmd_vel geometry_msgs/</span>Twist <span class="string">'&#123;&#125;'</span></div></pre></td></tr></table></figure></p>
-<h1 id="过程分析"><a href="#过程分析" class="headerlink" title="过程分析"></a>过程分析</h1><p><em>fake_pi_robot.launch</em> 文件是机器人的模型描述文件，功能是生成一个pi类型的机器人模型；<br>　<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"/use_sim_time"</span> <span class="attr">value</span>=<span class="string">"false"</span> /&gt;</span></div><div class="line"> </div><div class="line">    <span class="comment">&lt;!-- Load the URDF/Xacro model of our robot --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"urdf_file"</span> <span class="attr">default</span>=<span class="string">"$(find xacro)/xacro.py '$(find rbx1_description)/urdf/pi_robot.xacro'"</span> /&gt;</span></div><div class="line"> </div><div class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"robot_description"</span> <span class="attr">command</span>=<span class="string">"$(arg urdf_file)"</span> /&gt;</span></div><div class="line"> </div><div class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"arbotix"</span> <span class="attr">pkg</span>=<span class="string">"arbotix_python"</span> <span class="attr">type</span>=<span class="string">"arbotix_driver"</span> <span class="attr">output</span>=<span class="string">"screen"</span> <span class="attr">clear_params</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">rosparam</span> <span class="attr">file</span>=<span class="string">"$(find rbx1_bringup)/config/fake_pi_arbotix.yaml"</span> <span class="attr">command</span>=<span class="string">"load"</span> /&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"sim"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">node</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"move_fake_pi_arm_start"</span> <span class="attr">pkg</span>=<span class="string">"rbx1_bringup"</span> <span class="attr">type</span>=<span class="string">"move_fake_pi_arm_start.py"</span> <span class="attr">output</span>=<span class="string">"screen"</span> /&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"robot_state_publisher"</span> <span class="attr">pkg</span>=<span class="string">"robot_state_publisher"</span> <span class="attr">type</span>=<span class="string">"state_publisher"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"publish_frequency"</span> <span class="attr">type</span>=<span class="string">"double"</span> <span class="attr">value</span>=<span class="string">"20.0"</span> /&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">node</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="comment">&lt;!-- Run a static transform between /base_link and /base_footprint needed for SLAM --&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"tf"</span> <span class="attr">type</span>=<span class="string">"static_transform_publisher"</span> <span class="attr">name</span>=<span class="string">"base_footprint_broadcaster"</span> <span class="attr">args</span>=<span class="string">"0 0 0 0 0 0 /base_link /base_footprint 100"</span> /&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"> <span class="tag">&lt;/<span class="name">launch</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>大致过程先加载一个 <em>urdf</em>文件，这个文件用于描述机器人的样子，然后启动 <em>arbotix</em> 仿真，启动仿真节点，发布状态，最后是 <em>tf</em> 坐标变换。<em>sim.rviz</em>配置文件描述了 <em>rviz</em> 的配置，位于目录 <em>rbx1/rbx1_nav</em> 中，它的配置代码很长，大致描述的是一些显示配置，即 <em>rviz</em> 左侧那部分：<img src="/2017/05/24/ros-simulation/rviz-left.jpg" alt=""></p>
-<p>速度发布命令一个是角速度，一个是线速度，参考 <a href="http://wiki.ros.org/cn/ROS/Tutorials/UnderstandingTopics" target="_blank" rel="external">ROStopic</a>。<br>x y z 的方向遵循右手坐标系，机器人正前方为x轴，自地面向上为z轴，y轴垂直于其他两轴位于左方:</p>
-<p><img src="/2017/05/24/ros-simulation/axis.jpg" alt=""><img src="/2017/05/24/ros-simulation/screw-rule.jpg" alt=""></p>
-<p>机器人只能贴着地面运动，只能绕Z轴做旋转运动，不可能沿Z轴做直线运动；也不可能绕着x轴或者绕着y轴做旋转运动。机器人只能向前运动或向后运动，即x方向；做旋转运动可以绕z轴顺时针或者逆时针，逆时针为正方向。旋转方向遵循右手螺旋法则，逆时针为正，顺时针为负。</p>
-<p><em>linear: {x: 0.2, y: 0, z: 0}</em>的意思就是机器人沿着x轴正方向，即向前运动，速度为 <em>0.2m/s</em> ;<br><em>angular: {x: 0, y: 0, z: 0.5}</em> 的意思是机器人沿着z轴做逆时针旋转的角速度为 <em>0.5rad/s</em>;因此会得出以上机器人运动轨迹。<br>关于速度发布的语法遵循 <a href="http://wiki.ros.org/ROS/YAMLCommandLine" target="_blank" rel="external">YAML</a> 。<br>速度单位 <em>m/s</em>-米/秒<br>角速度单位 <em>rad/s</em>-弧度/秒</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在 &lt;em&gt;PC&lt;/em&gt; 环境下进行机器人的运动仿真是 &lt;em&gt;ROS&lt;/em&gt; 开发者必经的一个环节，&lt;em&gt;ROS&lt;/em&gt; 官方提供了好用且强大的3D可视化工具 &lt;a href=&quot;http://wiki.ros.org/rviz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;rviz&lt;/a&gt;-3D visualization tool for ROS。&lt;br&gt;&lt;em&gt;环境: ubuntu 14.04 LTS 32bits &lt;/em&gt;&lt;br&gt;&lt;em&gt;ROS&lt;/em&gt;: &lt;em&gt;Indigo&lt;/em&gt;&lt;br&gt;开启仿真之旅。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ROS" scheme="http://stevenshi.me/categories/ROS/"/>
-    
-    
-      <category term="ROS Simulation" scheme="http://stevenshi.me/tags/ROS-Simulation/"/>
     
   </entry>
   
