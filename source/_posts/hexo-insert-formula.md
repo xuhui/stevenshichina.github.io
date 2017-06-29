@@ -5,7 +5,7 @@ categories: hexo
 tags: formula
 comments: true
 ---
-原生hexo并不支持数学公式，需要安装插件 [mathJax](https://www.mathjax.org/)。[mathJax](https://www.mathjax.org/) 是一款运行于浏览器中的开源数学符号渲染引擎，使用 [mathJax](https://www.mathjax.org/) 可以方便的在浏览器中嵌入数学公式。[mathJax](https://www.mathjax.org/) 使用网络字体产生高质量的排版，因此可适应各种分辨率，它的显示是基于文本的而非图片，因此显示效果更好。这些公式可以被搜索引擎使用，因此公式里的符合一样可以被搜索引擎检索到。先看一下矩阵的显示效果:
+原生hexo并不支持数学公式，需要安装插件 [mathJax](https://www.mathjax.org/)。[mathJax](https://www.mathjax.org/) 是一款运行于浏览器中的开源数学符号渲染引擎，使用 [mathJax](https://www.mathjax.org/) 可以方便的在浏览器中嵌入数学公式。[mathJax](https://www.mathjax.org/) 使用网络字体产生高质量的排版，因此可适应各种分辨率，它的显示是基于文本的而非图片，因此显示效果更好。这些公式可以被搜索引擎使用，因此公式里的符号一样可以被搜索引擎检索到。先看一下矩阵的显示效果:
 
 $\left[
 \begin{matrix}
