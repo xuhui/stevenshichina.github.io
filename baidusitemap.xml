@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/06/28/omniwheel-kinematical-analysis/</loc>
+    <lastmod>2017-06-29T03:13:11.092Z</lastmod>
+    <data>
+        <display>
+        <title>三轮全向移动底盘运动学解析</title>
+        <pubTime>2017-06-28T05:44:18.000Z</pubTime>
+        
+        <tag>omniwheel</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/06/12/ros-books/</loc>
     <lastmod>2017-06-29T01:07:41.244Z</lastmod>
     <data>
@@ -37,26 +57,6 @@
            
              
               <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/06/28/omniwheel-kinematical-analysis/</loc>
-    <lastmod>2017-06-28T08:48:57.745Z</lastmod>
-    <data>
-        <display>
-        <title>三轮全向移动底盘运动学解析</title>
-        <pubTime>2017-06-28T05:44:18.000Z</pubTime>
-        
-        <tag>omniwheel</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
           
         </display>
     </data>
@@ -565,14 +565,14 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
         <display>
-        <title>浮点数与16进制的相互转换</title>
-        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
+        <title>linux串口数据不连续问题</title>
+        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
         
-        <tag>Linux</tag>
+        <tag>Linux serial</tag>
          
          
            
@@ -585,14 +585,14 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
         <display>
-        <title>linux串口数据不连续问题</title>
-        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
+        <title>浮点数与16进制的相互转换</title>
+        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
         
-        <tag>Linux serial</tag>
+        <tag>Linux</tag>
          
          
            
