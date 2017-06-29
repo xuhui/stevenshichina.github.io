@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/06/12/ros-books/</loc>
+    <lastmod>2017-06-29T01:07:41.244Z</lastmod>
+    <data>
+        <display>
+        <title>超经典 ROS 学习电子书</title>
+        <pubTime>2017-06-12T08:55:48.000Z</pubTime>
+        
+        <tag>ROS Books</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/15/raspberryPi/</loc>
     <lastmod>2017-06-29T01:00:52.796Z</lastmod>
     <data>
@@ -32,26 +52,6 @@
         <pubTime>2017-06-28T05:44:18.000Z</pubTime>
         
         <tag>omniwheel</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/06/12/ros-books/</loc>
-    <lastmod>2017-06-22T05:11:46.929Z</lastmod>
-    <data>
-        <display>
-        <title>超经典 ROS 学习电子书</title>
-        <pubTime>2017-06-12T08:55:48.000Z</pubTime>
-        
-        <tag>ROS Books</tag>
          
          
            
@@ -565,14 +565,14 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
         <display>
-        <title>linux串口数据不连续问题</title>
-        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
+        <title>浮点数与16进制的相互转换</title>
+        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
         
-        <tag>Linux serial</tag>
+        <tag>Linux</tag>
          
          
            
@@ -585,14 +585,14 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
         <display>
-        <title>浮点数与16进制的相互转换</title>
-        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
+        <title>linux串口数据不连续问题</title>
+        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
         
-        <tag>Linux</tag>
+        <tag>Linux serial</tag>
          
          
            
@@ -645,26 +645,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo 博客备份</title>
-        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -691,6 +671,26 @@
         <display>
         <title>hexo问题汇总</title>
         <pubTime>2017-05-13T09:42:11.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo 博客备份</title>
+        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
         
         <tag>hexo</tag>
          
