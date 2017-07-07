@@ -32,7 +32,7 @@ pose 参数包含机器人在里程计框架下的位置估计并附带一个可
    ```
 新建cpp文件，并命名为 odometry_publisher.cpp,拷贝如下代码：
    ```
- #include <ros/ros.h>
+   #include <ros/ros.h>
    //包含 tf 以及 nav_msgs 相关的头文件
    #include <tf/transform_broadcaster.h>
    #include <nav_msgs/Odometry.h>
