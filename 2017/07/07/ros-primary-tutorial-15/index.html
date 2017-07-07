@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="ROS odometry," />
 
 
 
@@ -94,20 +94,17 @@
 
 
 
-<meta name="description" content="前言hexo是一个高效简洁的静态博客框架，基于Node.js使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。 #环境：windows10 64bits #所需软件：　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；也可以使用 github-for-windows 里">
-<meta name="keywords" content="hexo">
+<meta name="description" content="ROS导航功能包使用 tf 来决定机器人在环境中的位置并根据传感器的数据生成静态地图。但是 tf 却不能提供机器人速度的任何信息。因此导航功能包需要里程计信息源能够发布包含速度信息的变换及里程计消息。本篇将学习 nav_msgs/Odometry 消息，并且通过代码学习如何通过 ROS 以及 tf 变换发布里程计消息。">
+<meta name="keywords" content="ROS odometry">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo+github建立个人博客">
-<meta property="og:url" content="http://stevenshi.me/2017/05/07/hexo-blog/index.html">
+<meta property="og:title" content="ROS初级十五 发布里程计消息">
+<meta property="og:url" content="http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="前言hexo是一个高效简洁的静态博客框架，基于Node.js使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。 #环境：windows10 64bits #所需软件：　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；也可以使用 github-for-windows 里">
-<meta property="og:image" content="http://stevenshi.me/2017/05/07/hexo-blog/hello-world.jpg">
-<meta property="og:image" content="http://stevenshi.me/2017/05/07/hexo-blog/leancloudc.jpg">
-<meta property="og:updated_time" content="2017-05-23T23:55:18.148Z">
+<meta property="og:description" content="ROS导航功能包使用 tf 来决定机器人在环境中的位置并根据传感器的数据生成静态地图。但是 tf 却不能提供机器人速度的任何信息。因此导航功能包需要里程计信息源能够发布包含速度信息的变换及里程计消息。本篇将学习 nav_msgs/Odometry 消息，并且通过代码学习如何通过 ROS 以及 tf 变换发布里程计消息。">
+<meta property="og:updated_time" content="2017-07-07T03:27:55.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo+github建立个人博客">
-<meta name="twitter:description" content="前言hexo是一个高效简洁的静态博客框架，基于Node.js使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。 #环境：windows10 64bits #所需软件：　　1. Node.js　基于Chrome V8引擎的JavaScript运行环境；　　2. Git-for-windows　windows平台下git 运行环境；也可以使用 github-for-windows 里">
-<meta name="twitter:image" content="http://stevenshi.me/2017/05/07/hexo-blog/hello-world.jpg">
+<meta name="twitter:title" content="ROS初级十五 发布里程计消息">
+<meta name="twitter:description" content="ROS导航功能包使用 tf 来决定机器人在环境中的位置并根据传感器的数据生成静态地图。但是 tf 却不能提供机器人速度的任何信息。因此导航功能包需要里程计信息源能够发布包含速度信息的变换及里程计消息。本篇将学习 nav_msgs/Odometry 消息，并且通过代码学习如何通过 ROS 以及 tf 变换发布里程计消息。">
 
 
 
@@ -135,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/2017/05/07/hexo-blog/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/"/>
 
 
 
 
 
-  <title>hexo+github建立个人博客 | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>ROS初级十五 发布里程计消息 | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -324,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/07/hexo-blog/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -341,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo+github建立个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">ROS初级十五 发布里程计消息</h1>
         
 
         <div class="post-meta">
@@ -353,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T11:07:34+08:00">
-                2017-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T08:40:30+08:00">
+                2017-07-07
               </time>
             
 
@@ -376,8 +373,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/ROS/" itemprop="url" rel="index">
+                    <span itemprop="name">ROS</span>
                   </a>
                 </span>
 
@@ -394,9 +391,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/07/hexo-blog/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/07/ros-primary-tutorial-15/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/07/hexo-blog/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/07/ros-primary-tutorial-15/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -404,7 +401,7 @@
 
           
           
-             <span id="/2017/05/07/hexo-blog/" class="leancloud_visitors" data-flag-title="hexo+github建立个人博客">
+             <span id="/2017/07/07/ros-primary-tutorial-15/" class="leancloud_visitors" data-flag-title="ROS初级十五 发布里程计消息">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,36 +429,16 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><em>hexo</em>是一个高效简洁的静态博客框架，基于<em>Node.js</em>使用Markdown解析文章，几秒内即可利用靓丽的主题生成静态网页。</p>
-<p>#环境：<br><em>windows10 64bits</em></p>
-<p>#所需软件：<br>　　1. <a href="https://nodejs.org/en/" title="Java Script运行环境" target="_blank" rel="external">Node.js</a>　基于Chrome V8引擎的JavaScript运行环境；<br>　　2. <a href="https://github.com/git-for-windows/git/releases" title="git for windows" target="_blank" rel="external">Git-for-windows</a>　windows平台下git 运行环境；也可以使用 <a href="https://github.com/gavincook/githubOfflineInstaller" target="_blank" rel="external">github-for-windows</a> 里的 <em>git shell</em>, 由于在线安装 <a href="https://github.com/gavincook/githubOfflineInstaller" target="_blank" rel="external">github-for-windows</a> 在国内不翻墙是不可能成功的，所以上面的链接是离线版的安装版本。<br>　　3. <a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a>　博客撰写工具</p>
-<p><em>开始之前先去 <a href="www.github.com">github</a> 注册一个账户，并新建一个名为username.github.io的仓库，最后生成的仓库地址：<a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a>  注：username替换为自己的用户名</em></p>
-<h1 id="hexo安装与配置"><a href="#hexo安装与配置" class="headerlink" title="hexo安装与配置"></a>hexo安装与配置</h1><p>首先在本地建立自己的博客文件夹，比如 <em>F:\github\hexo</em>，进入该文件夹内，右键点击<em>Git Bash Here</em>,打开<em>git for windows</em>环境，开始安装 <a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>：<br><a id="more"></a><br>　　<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$npm</span> install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span> <span class="comment">//注: -g表示全局安装</span></div><div class="line">　<span class="variable">$npm</span> install hexo-server -<span class="keyword">g</span> <span class="comment">//注： hexo3.0之后server模块是独立的,需要单独安装</span></div></pre></td></tr></table></figure></p>
-<p>完成之后可以通过命令查看<em>hexo</em>是否安装成功：<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　$</span><span class="bash">hexo -v</span></div></pre></td></tr></table></figure></p>
-<p><em>hexo</em>根目录下的<em>_config.yml</em>文件是全局配置文件，修改该文件实现自己的配置。具体可参考<a href="https://hexo.io/zh-cn/docs/" title="hexo说明" target="_blank" rel="external">hexo</a>官网。</p>
-<h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><p>hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$hexo</span> g <span class="regexp">//</span>等同于hexo generate,用于生成静态文件</div><div class="line">　<span class="variable">$hexo</span> s <span class="regexp">//</span>等同于hexo server,用于启动本地服务器，预览网页</div><div class="line">　<span class="variable">$hexo</span> d <span class="regexp">//</span>等同于hexo deploy,用于部署文件到github</div></pre></td></tr></table></figure></p>
-<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>在自己的博客文件夹下<em>F:\github\hexo</em>,执行命令：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$hexo</span> init <span class="regexp">//</span>初始化，自动下载搭建网站所需的所有文件</div><div class="line">　<span class="variable">$npm</span> install <span class="regexp">//</span>安装依赖包</div><div class="line">　<span class="variable">$hexo</span> g <span class="regexp">//</span>产生静态文件</div><div class="line">　<span class="variable">$hexo</span> s <span class="regexp">//</span>启动本地服务器，开启预览功能</div></pre></td></tr></table></figure></p>
-<p>这个时候在浏览器输入localhost:4000即可查看到生成的静态网页：<img src="/2017/05/07/hexo-blog/hello-world.jpg" alt="Alt text"></p>
-<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>在hexo根目录下找到配置文件_config.yml，使用<a href="http://markdownpad.com/" title="markdown Editor for Windows" target="_blank" rel="external">MarkdownPad</a> 打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：<br>　　<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　<span class="attribute">deploy</span>:</div><div class="line">　　　<span class="attribute">type</span>: git <span class="comment">//注意冒号':'后面的空格一定要有</span></div><div class="line">　　　<span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/username/username.github.io.git</span></div><div class="line">　　　<span class="attribute">branch</span>: master</div></pre></td></tr></table></figure></p>
-<h3 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h3><p>在桌面空白处鼠标右键选择<em>Git Bash Here</em>,输入以下命令配置SSH Key:<br>　　<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ssh-keygen -t rsa -C <span class="string">"your_email@youremail.com"</span></div></pre></td></tr></table></figure></p>
-<p>引号里面的内容输入邮箱地址，然后回车，会提示文件保存的路径，这时候按回车键确认，然后会提示你输入密码，然后会确认输入一次，在<em>c:/user/username/.ssh/</em>文件夹内看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，打开id_rsa.pub然后选中里面的全部内容，复制下来。登录<a href="https://github.com/login" target="_blank" rel="external">github</a>,点击<em>setting</em>,左边有一个<em>SSH and GPG keys</em>选项，进入<em>New SSH</em>选项，<em>title</em>随意，将之前复制的内容粘贴到key里面去。回到<em>Git bash</em>命令行，输入以下命令验证:<br>　　<figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ssh -T git<span class="symbol">@github</span>.com</div></pre></td></tr></table></figure></p>
-<h3 id="配置用户名和密码"><a href="#配置用户名和密码" class="headerlink" title="配置用户名和密码"></a>配置用户名和密码</h3><p>　　<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> config --global user<span class="selector-class">.name</span> <span class="string">"your username"</span>  </div><div class="line"><span class="variable">$git</span> config --global user<span class="selector-class">.email</span> <span class="string">"your_email@youremail.com"</span></div></pre></td></tr></table></figure></p>
-<p>重新生成一下静态文件：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$hexo</span> clean <span class="regexp">//</span>清除缓存文件db.json和已生成的静态文件public</div><div class="line">　<span class="variable">$hexo</span> g <span class="regexp">//</span>产生静态文件</div><div class="line">　<span class="variable">$hexo</span> d <span class="regexp">//</span>部署到github</div></pre></td></tr></table></figure></p>
-<p>在运行<em>hexo d</em>之前需要安装git部署工具<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　$</span><span class="bash">npm install hexo-deployer-git -g</span></div></pre></td></tr></table></figure></p>
-<p>第一次执行<em>hexo d</em>会弹出对话框提示输入github的用户名和密码。此时在浏览器输入：<br><em><a href="https://github.com/username/username.github.io" target="_blank" rel="external">https://github.com/username/username.github.io</a></em>即可看到自己的博客已经搭建成功。<br>注: username替换为自己的用户名.</p>
-<h1 id="nexT主题"><a href="#nexT主题" class="headerlink" title="nexT主题"></a>nexT主题</h1><p>hexo安装完成后，默认的主题是landscape，保存在hexo/themes/文件夹下。<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">nexT</a> 主题需要自行下载。在博客文件目录下F:\github\hexo右键单击Git Bash Here，输入命令:<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　<span class="variable">$git</span> clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/iissnan/</span>hexo-theme-<span class="keyword">next</span>.git themes<span class="regexp">/nexT</span></div></pre></td></tr></table></figure></p>
-<p>下载后的nexT主题会保存在themes目录下。修改hexo根目录下的配置文件_config.yml使主题生效:<br>　　<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">　#</span><span class="bash"> Extensions</span></div><div class="line"><span class="meta">　#</span><span class="bash"><span class="comment"># Plugins: https://hexo.io/plugins/</span></span></div><div class="line"><span class="meta">　#</span><span class="bash"><span class="comment"># Themes: https://hexo.io/themes/</span></span></div><div class="line">　theme: nexT</div></pre></td></tr></table></figure></p>
-<p>接下来选择nexT的Scheme，打开nexT的配置文件themes/nexT/_config.yml中，修改:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　<span class="meta"># Schemes</span></div><div class="line">　<span class="meta">#scheme: Muse <span class="comment">//默认Scheme，黑白主调，大量留白</span></span></div><div class="line">　<span class="meta">#scheme: Mist <span class="comment">//紧凑版本，整洁有序</span></span></div><div class="line"><span class="symbol">　scheme:</span> Pisces <span class="comment">//双栏显示，清新</span></div></pre></td></tr></table></figure></p>
-<p>更多的设置请参考: <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">nexT</a></p>
-<h2 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h2><p>打开hexo的配置文件F:\github\hexo_config.yml，修改:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">　language:</span> zh-Hans <span class="comment">//中文汉字</span></div></pre></td></tr></table></figure></p>
-<h1 id="访问量统计"><a href="#访问量统计" class="headerlink" title="访问量统计"></a>访问量统计</h1><h3 id="文章阅读量统计"><a href="#文章阅读量统计" class="headerlink" title="文章阅读量统计"></a>文章阅读量统计</h3><p>使用 <a href="https://leancloud.cn" target="_blank" rel="external">leancloud</a> 实现文章阅读次数统计。注册完成后，点击访问控制台，选择创建新应用:<img src="/2017/05/07/hexo-blog/leancloudc.jpg" alt="Alt-text"></p>
-<p>创建名为Counter的class。之后找到该应用的AppID、AppKey，将这两个值写入到nexT的主题配置文件中_config.yml:<br>　　<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　<span class="meta"># Show number of visitors to each article.</span></div><div class="line">　<span class="meta"># You can visit https:<span class="comment">//leancloud.cn get AppID and AppKey.</span></span></div><div class="line"><span class="symbol">　leancloud_visitors:</span></div><div class="line"><span class="symbol">  　　enable:</span> true</div><div class="line"><span class="symbol">  　　app_id:</span> <span class="meta">#&lt;app_id&gt; <span class="comment">//复制刚才创建的应用的AppID</span></span></div><div class="line"><span class="symbol">  　　app_key:</span> <span class="meta">#&lt;app_key&gt; <span class="comment">//复制刚才创建的应用的AppKey</span></span></div></pre></td></tr></table></figure></p>
-<p>为了安全，将自己的域名加入安全中心-&gt;web安全域名中，防止恶意修改。完成后部署网站，看效果是不是已经有了文章阅读量显示了。</p>
-<h3 id="站点访问统计"><a href="#站点访问统计" class="headerlink" title="站点访问统计"></a>站点访问统计</h3><p>使用 <a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a> 脚本实现。<br>在themes\nexT\layout_partials目录下找到文件footer.swig，在文件的头部添加:<br>　　<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">　<span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span></div><div class="line">　<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>　　</p>
-<p>　　
-　　</p>
-<p>　　</p>
+        <p>ROS导航功能包使用 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 来决定机器人在环境中的位置并根据传感器的数据生成静态地图。但是 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 却不能提供机器人速度的任何信息。因此导航功能包需要里程计信息源能够发布包含速度信息的变换及里程计消息。本篇将学习 nav_msgs/Odometry 消息，并且通过代码学习如何通过 ROS 以及 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 变换发布里程计消息。<br><a id="more"></a></p>
+<h1 id="nav-msgs-Odometry-消息"><a href="#nav-msgs-Odometry-消息" class="headerlink" title="nav_msgs/Odometry 消息"></a>nav_msgs/Odometry 消息</h1><p>nav_msgs/Odometry 消息包含机器人在自由空间中的位置估计以及速度值。可以使用消息查看命令来查看 nav_msgs/Odometry 消息的详细信息：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosmsg show nav_msgs/Odometry</span></div></pre></td></tr></table></figure></p>
+<p>详细的介绍可参考 <a href="http://docs.ros.org/api/nav_msgs/html/msg/Odometry.html" target="_blank" rel="external">nav_msgs/Odometry.msg</a><br>   <figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># This represents an estimate of a position and velocity in free space.  </span></div><div class="line"><span class="comment"># The pose in this message should be specified in the coordinate frame given by header.frame_id.</span></div><div class="line"><span class="comment"># The twist in this message should be specified in the coordinate frame given by the child_frame_id</span></div><div class="line"><span class="attribute"><span class="nomarkup">Header</span></span> header</div><div class="line"><span class="attribute">string</span> child_frame_id</div><div class="line"><span class="attribute">geometry_msgs</span>/PoseWithCovariance pose</div><div class="line"><span class="attribute">geometry_msgs</span>/TwistWithCovariance twist</div></pre></td></tr></table></figure></p>
+<p>pose 参数包含机器人在里程计框架下的位置估计并附带一个可选的位姿估算协方差。 twist 参数包含机器人在子坐标系下的速度信息，并附带一个可选的速度估算协方差，这个子坐标系通常是机器人移动基座的坐标参考系。</p>
+<h1 id="使用-tf-发布里程计变换"><a href="#使用-tf-发布里程计变换" class="headerlink" title="使用 tf 发布里程计变换"></a>使用 tf 发布里程计变换</h1><p><a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 软件库负责维护机器人坐标系之间的变换树，因此任何里程计源都应该发布它管理的坐标系信息。这一部分的详细使用和说明请参考我的前一篇文章<a href="http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/#more">ROS初级十四 tf 配置</a>。</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>下面我们通过编写一些简单的代码实现里程计消息以及利用 tf 实现变换，模拟一个机器人进行圆周运动。新建包 odometry_publisher_tutorial,依赖项为 tf 以及 nav_msgs:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> catkin_create_pkg odometry_publisher_tutorial tf nav_msgs roscpp</span></div></pre></td></tr></table></figure></p>
+<p>新建cpp文件，并命名为 odometry_publisher.cpp,拷贝如下代码：<br>   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></div><div class="line">  <span class="comment">//包含 tf 以及 nav_msgs 相关的头文件</span></div><div class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tf/transform_broadcaster.h&gt;</span></span></div><div class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;nav_msgs/Odometry.h&gt;</span></span></div><div class="line"> </div><div class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span>&#123;</div><div class="line">    ros::init(argc, argv, <span class="string">"odometry_publisher"</span>);</div><div class="line"></div><div class="line">   ros::NodeHandle n;</div><div class="line"></div><div class="line">   <span class="comment">//创建一个publisher 命名为 odom_pub 消息类型为 nav_msgs::Odometry</span></div><div class="line">   ros::Publisher odom_pub = n.advertise&lt;nav_msgs::Odometry&gt;(<span class="string">"odom"</span>, <span class="number">50</span>);</div><div class="line"></div><div class="line">   <span class="comment">//创建对象 tf 广播变换</span></div><div class="line">   tf::TransformBroadcaster odom_broadcaster;</div><div class="line">   <span class="comment">//假定机器人的起始位置位于odom坐标参考系的原点即0点</span></div><div class="line">   <span class="keyword">double</span> x = <span class="number">0.0</span>;</div><div class="line">   <span class="keyword">double</span> y = <span class="number">0.0</span>;</div><div class="line">   <span class="keyword">double</span> th = <span class="number">0.0</span>;</div><div class="line"></div><div class="line">   <span class="comment">//设定一个初始速度，在 odom 坐标参考系下</span></div><div class="line">   <span class="keyword">double</span> vx = <span class="number">0.1</span>;<span class="comment">// x 方向 0.1m/s</span></div><div class="line">   <span class="keyword">double</span> vy = <span class="number">-0.1</span>;<span class="comment">//  y 方向 -0.1m/s</span></div><div class="line">   <span class="keyword">double</span> vth = <span class="number">0.1</span>;<span class="comment">// 角速度为0.1rad/s</span></div><div class="line"></div><div class="line">   ros::Time current_time, last_time;</div><div class="line">   <span class="comment">//获取系统当前时间</span></div><div class="line">   current_time = ros::Time::now();</div><div class="line">   last_time = ros::Time::now();</div><div class="line"></div><div class="line">   <span class="comment">//以 1HZ频率发布</span></div><div class="line">   ros::<span class="function">Rate <span class="title">r</span><span class="params">(<span class="number">1.0</span>)</span></span>;</div><div class="line">   <span class="keyword">while</span>(n.ok())&#123;</div><div class="line">     current_time = ros::Time::now();</div><div class="line"></div><div class="line">     <span class="comment">//计算里程计信息</span></div><div class="line">     <span class="comment">//compute odometry in a typical way given the velocities of the robot</span></div><div class="line">     <span class="keyword">double</span> dt = (current_time - last_time).toSec();</div><div class="line">     <span class="keyword">double</span> delta_x = (vx * <span class="built_in">cos</span>(th) - vy * <span class="built_in">sin</span>(th)) * dt;</div><div class="line">     <span class="keyword">double</span> delta_y = (vx * <span class="built_in">sin</span>(th) + vy * <span class="built_in">cos</span>(th)) * dt;</div><div class="line">     <span class="keyword">double</span> delta_th = vth * dt;</div><div class="line"></div><div class="line">     <span class="comment">//更新里程计信息</span></div><div class="line">     x += delta_x;</div><div class="line">     y += delta_y;</div><div class="line">     th += delta_th;</div><div class="line"></div><div class="line">     <span class="comment">//以下为了兼容三维系统下的消息结构，将里程计的偏航角转换成四元数</span></div><div class="line">     <span class="comment">//since all odometry is 6DOF we'll need a quaternion created from yaw</span></div><div class="line">     geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);</div><div class="line">        <span class="comment">//first, we'll publish the transform over tf</span></div><div class="line">     <span class="comment">//TransformStamped 类型为tf 发布时需要的类型</span></div><div class="line">     geometry_msgs::TransformStamped odom_trans;</div><div class="line">     <span class="comment">//时间戳</span></div><div class="line">     odom_trans.header.stamp = current_time;</div><div class="line">     <span class="comment">//父参考坐标系 id</span></div><div class="line">     odom_trans.header.frame_id = <span class="string">"odom"</span>;</div><div class="line">     <span class="comment">//子参考系 id</span></div><div class="line">     odom_trans.child_frame_id = <span class="string">"base_link"</span>;</div><div class="line">     <span class="comment">//我们希望发布从odom到base_link的变换，因此这两个坐标系的关系不要搞错</span></div><div class="line"></div><div class="line">     <span class="comment">//填充变换数据</span></div><div class="line">     odom_trans.transform.translation.x = x;</div><div class="line">     odom_trans.transform.translation.y = y;</div><div class="line">     odom_trans.transform.translation.z = <span class="number">0.0</span>;</div><div class="line">     odom_trans.transform.rotation = odom_quat;</div><div class="line"></div><div class="line">     <span class="comment">//发送变换</span></div><div class="line">     <span class="comment">//send the transform</span></div><div class="line">     odom_broadcaster.sendTransform(odom_trans);</div><div class="line"></div><div class="line">     <span class="comment">//填充时间戳，发布nav_msgs/Odometry 里程计消息</span></div><div class="line">     <span class="comment">//以便于导航包可以获取速度信息</span></div><div class="line">     <span class="comment">//还需设置时间戳以及父子参考坐标系</span></div><div class="line">     <span class="comment">//next, we'll publish the odometry message over ROS</span></div><div class="line">     nav_msgs::Odometry odom;</div><div class="line">     odom.header.stamp = current_time;</div><div class="line">     odom.header.frame_id = <span class="string">"odom"</span>;</div><div class="line">     odom.child_frame_id = <span class="string">"base_link"</span>;</div><div class="line"></div><div class="line">     <span class="comment">//最后填充机器人的位置以及速度信息，</span></div><div class="line">     <span class="comment">//并且发布该信息，因为是机器人本体，</span></div><div class="line">     <span class="comment">//所以参考坐标系为 base_link</span></div><div class="line">     <span class="comment">//set the position</span></div><div class="line">     odom.pose.pose.position.x = x;</div><div class="line">     odom.pose.pose.position.y = y;</div><div class="line">     odom.pose.pose.position.z = <span class="number">0.0</span>;</div><div class="line">     odom.pose.pose.orientation = odom_quat;</div><div class="line"></div><div class="line">     <span class="comment">//set the velocity</span></div><div class="line">     odom.twist.twist.linear.x = vx;</div><div class="line">     odom.twist.twist.linear.y = vy;</div><div class="line">     odom.twist.twist.angular.z = vth;</div><div class="line"></div><div class="line">     <span class="comment">//publish the message</span></div><div class="line">     odom_pub.publish(odom);</div><div class="line"></div><div class="line">    last_time = current_time;</div><div class="line">    r.sleep();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>设置 CMakeLists.txt 添加依赖项：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">add_executable</span><span class="params">(odometry_publisher src/odometry_publisher.cpp)</span></span></div><div class="line"><span class="function"><span class="title">if</span><span class="params">(nav_msgs_EXPORTED_TARGETS)</span></span></div><div class="line">	add_dependencies(odometry_publisher $&#123;nav_msgs_EXPORTED_TARGETS&#125;)</div><div class="line"><span class="function"><span class="title">endif</span><span class="params">()</span></span></div><div class="line"><span class="function"><span class="title">target_link_libraries</span><span class="params">(odometry_publisher $&#123;catkin_LIBRARIES&#125;)</span></span></div><div class="line">install(TARGETS odometry_publisher</div><div class="line">	ARCHIVE DESTINATION $&#123;CATKIN_PACKAGE_LIB_DESTINATION&#125;</div><div class="line">	LIBRARY DESTINATION $&#123;CATKIN_PACKAGE_LIB_DESTINATION&#125;</div><div class="line">	RUNTIME DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</div><div class="line">	)</div></pre></td></tr></table></figure></p>
+<p>编译：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/catkin_ws/</span></div><div class="line"><span class="meta">$</span><span class="bash"> catkin_make</span></div></pre></td></tr></table></figure></p>
+<p>参考：<a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup/Odom" target="_blank" rel="external">Publishing Odometry Information Over ROS</a></p>
 
       
     </div>
@@ -512,7 +489,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/ROS-odometry/" rel="tag"># ROS odometry</a>
           
         </div>
       
@@ -525,15 +502,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/28/omniwheel-kinematical-analysis/" rel="next" title="三轮全向移动底盘运动学解析">
+                <i class="fa fa-chevron-left"></i> 三轮全向移动底盘运动学解析
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/07/hexo-backup/" rel="prev" title="hexo 博客备份">
-                hexo 博客备份 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -757,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo安装与配置"><span class="nav-number">2.</span> <span class="nav-text">hexo安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo常用命令"><span class="nav-number">2.1.</span> <span class="nav-text">hexo常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">2.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">2.3.</span> <span class="nav-text">部署到github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH-Key"><span class="nav-number">2.3.1.</span> <span class="nav-text">配置SSH Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置用户名和密码"><span class="nav-number">2.3.2.</span> <span class="nav-text">配置用户名和密码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nexT主题"><span class="nav-number">3.</span> <span class="nav-text">nexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置语言"><span class="nav-number">3.1.</span> <span class="nav-text">设置语言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问量统计"><span class="nav-number">4.</span> <span class="nav-text">访问量统计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章阅读量统计"><span class="nav-number">4.0.1.</span> <span class="nav-text">文章阅读量统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点访问统计"><span class="nav-number">4.0.2.</span> <span class="nav-text">站点访问统计</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nav-msgs-Odometry-消息"><span class="nav-number">1.</span> <span class="nav-text">nav_msgs/Odometry 消息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-tf-发布里程计变换"><span class="nav-number">2.</span> <span class="nav-text">使用 tf 发布里程计变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译"><span class="nav-number">4.</span> <span class="nav-text">编译</span></a></li></ol></div>
             
 
           </div>
@@ -921,9 +898,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://stevenshi.me/2017/05/07/hexo-blog/';
-          this.page.identifier = '2017/05/07/hexo-blog/';
-          this.page.title = 'hexo+github建立个人博客';
+          this.page.url = 'http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/';
+          this.page.identifier = '2017/07/07/ros-primary-tutorial-15/';
+          this.page.title = 'ROS初级十五 发布里程计消息';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';

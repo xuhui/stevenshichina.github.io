@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/</loc>
+    
+    <lastmod>2017-07-07T03:27:55.596Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/06/26/hexo-insert-formula/</loc>
     
     <lastmod>2017-06-29T08:36:10.155Z</lastmod>
@@ -212,14 +219,14 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
     
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
     
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     
@@ -247,14 +254,14 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
