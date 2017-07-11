@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stevenshi.me/"/>
-  <updated>2017-07-10T08:26:38.991Z</updated>
+  <updated>2017-07-10T23:57:36.540Z</updated>
   <id>http://stevenshi.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://stevenshi.me/2017/07/10/ros-intermediate-tutorial-1/"/>
     <id>http://stevenshi.me/2017/07/10/ros-intermediate-tutorial-1/</id>
     <published>2017-07-10T01:41:05.000Z</published>
-    <updated>2017-07-10T08:26:38.991Z</updated>
+    <updated>2017-07-10T23:57:36.540Z</updated>
     
     <content type="html"><![CDATA[<p>本篇学习如何配置 ROS 的 Navigation 功能包以及如何让导航功能在机器人上运行起来。先来看一下 ROS 导航架构图：</p>
 <p><img src="/2017/07/10/ros-intermediate-tutorial-1/overview_navigation.png" alt=""></p>
@@ -53,7 +53,8 @@
 <p>需要修改的地方是更改地图服务器使指向自己的地图，如果是差分驱动的机器人，将 amcl_omni.launch 改为 amcl_diff.launch 。</p>
 <h2 id="AMCL配置"><a href="#AMCL配置" class="headerlink" title="AMCL配置"></a>AMCL配置</h2><p>AMCL 有许多配置选项影响定位的性能，详细可参考 <a href="http://wiki.ros.org/amcl" target="_blank" rel="external">amcl</a></p>
 <h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p>启动两个终端分别运行：<br>   <figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">roslaunch my_robot_configuration.<span class="built_in">launch</span></div><div class="line">roslaunch move_base.<span class="built_in">launch</span></div></pre></td></tr></table></figure></p>
-<p>通过图形化显示给导航功能包发送一个目标信息，可参考<a href="http://wiki.ros.org/navigation/Tutorials/Using%20rviz%20with%20the%20Navigation%20Stack" target="_blank" rel="external">rviz and navigation tutorial</a>，使用代码给导航功能包集发送导航目标，参考 <a href="http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals" target="_blank" rel="external">sending simple navigation goals</a><br>未完，待修改<br>本篇参考：<br>英文 <a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup" target="_blank" rel="external">Setup and Configuration of the Navigation Stack on a Robot</a><br>中文 <a href="http://wiki.ros.org/cn/navigation/Tutorials/RobotSetup" target="_blank" rel="external">在机器人上配置并使用导航功能包集</a></p>
+<p>通过图形化显示给导航功能包发送一个目标信息，可参考<a href="http://wiki.ros.org/navigation/Tutorials/Using%20rviz%20with%20the%20Navigation%20Stack" target="_blank" rel="external">rviz and navigation tutorial</a>，使用代码给导航功能包集发送导航目标，参考 <a href="http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals" target="_blank" rel="external">sending simple navigation goals</a></p>
+<p>参考：<br>英文 <a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup" target="_blank" rel="external">Setup and Configuration of the Navigation Stack on a Robot</a> </p>
 ]]></content>
     
     <summary type="html">
@@ -223,7 +224,7 @@
     <link href="http://stevenshi.me/2017/06/12/ros-books/"/>
     <id>http://stevenshi.me/2017/06/12/ros-books/</id>
     <published>2017-06-12T08:55:48.000Z</published>
-    <updated>2017-06-29T01:07:41.244Z</updated>
+    <updated>2017-07-11T00:29:08.256Z</updated>
     
     <content type="html"><![CDATA[<p>收藏了几本 ROS 学习的超级经典教材，都是高清晰电子版，在这里和大家分享一下。</p>
 <p><img src="/2017/06/12/ros-books/book.jpg" alt=""><br><a id="more"></a></p>

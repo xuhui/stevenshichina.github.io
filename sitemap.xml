@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/06/12/ros-books/</loc>
+    
+    <lastmod>2017-07-11T00:29:08.256Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/07/10/ros-intermediate-tutorial-1/</loc>
     
-    <lastmod>2017-07-10T08:26:38.991Z</lastmod>
+    <lastmod>2017-07-10T23:57:36.540Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://stevenshi.me/2017/06/28/omniwheel-kinematical-analysis/</loc>
     
     <lastmod>2017-06-29T03:13:11.092Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stevenshi.me/2017/06/12/ros-books/</loc>
-    
-    <lastmod>2017-06-29T01:07:41.244Z</lastmod>
     
   </url>
   
@@ -233,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
     
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
     
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     
@@ -261,14 +261,14 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
