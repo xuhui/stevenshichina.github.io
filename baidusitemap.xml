@@ -4,11 +4,31 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/07/10/ros-intermediate-tutorial-1/</loc>
-    <lastmod>2017-07-11T03:43:39.856Z</lastmod>
+    <loc>http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/</loc>
+    <lastmod>2017-07-11T08:15:32.793Z</lastmod>
     <data>
         <display>
-        <title>ROS进阶一 配置并使用ROS导航功能包集</title>
+        <title>ROS中级二 利用Rviz实时观测模拟SLAM过程</title>
+        <pubTime>2017-07-11T07:05:54.000Z</pubTime>
+        
+        <tag>SLAM Rviz</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/07/10/ros-intermediate-tutorial-1/</loc>
+    <lastmod>2017-07-11T07:05:40.509Z</lastmod>
+    <data>
+        <display>
+        <title>ROS中级一 配置并使用ROS导航功能包集</title>
         <pubTime>2017-07-10T01:41:05.000Z</pubTime>
         
         <tag>ROS navigation</tag>
@@ -725,26 +745,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo 博客备份</title>
-        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -778,6 +778,26 @@
            
              
               <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo 博客备份</title>
+        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
           
         </display>
     </data>

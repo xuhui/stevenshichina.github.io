@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="SLAM Rviz," />
 
 
 
@@ -94,15 +94,21 @@
 
 
 
-<meta name="description" content="ROS 学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Steven&#39;s blog">
-<meta property="og:url" content="http://stevenshi.me/tags/ROS-Topics/index.html">
+<meta name="description" content="Rviz 是 ROS 提供的一个非常强大的图形化显示工具，在实际机器人上建图之前我们先使用已有的地图记录进行模拟 SLAM 的过程，加深理解，为随后的真实环境建图打下基础。建立封闭环境下的二维地图是导航、定位、路径规划的前提。SLAM 全称 simultaneous localization and mapping 即时定位与地图构建，SLAM 理论最早在1988年由 Smith、Self以及 C">
+<meta name="keywords" content="SLAM Rviz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROS中级二 利用Rviz实时观测模拟SLAM过程">
+<meta property="og:url" content="http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="ROS 学习">
+<meta property="og:description" content="Rviz 是 ROS 提供的一个非常强大的图形化显示工具，在实际机器人上建图之前我们先使用已有的地图记录进行模拟 SLAM 的过程，加深理解，为随后的真实环境建图打下基础。建立封闭环境下的二维地图是导航、定位、路径规划的前提。SLAM 全称 simultaneous localization and mapping 即时定位与地图构建，SLAM 理论最早在1988年由 Smith、Self以及 C">
+<meta property="og:image" content="http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/addmap.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/addtopic.jpg">
+<meta property="og:image" content="http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/result.jpg">
+<meta property="og:updated_time" content="2017-07-11T08:15:32.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Steven&#39;s blog">
-<meta name="twitter:description" content="ROS 学习">
+<meta name="twitter:title" content="ROS中级二 利用Rviz实时观测模拟SLAM过程">
+<meta name="twitter:description" content="Rviz 是 ROS 提供的一个非常强大的图形化显示工具，在实际机器人上建图之前我们先使用已有的地图记录进行模拟 SLAM 的过程，加深理解，为随后的真实环境建图打下基础。建立封闭环境下的二维地图是导航、定位、路径规划的前提。SLAM 全称 simultaneous localization and mapping 即时定位与地图构建，SLAM 理论最早在1988年由 Smith、Self以及 C">
+<meta name="twitter:image" content="http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/addmap.jpg">
 
 
 
@@ -130,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/tags/ROS-Topics/"/>
+  <link rel="canonical" href="http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/"/>
 
 
 
 
 
-  <title>标签: ROS Topics | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>ROS中级二 利用Rviz实时观测模拟SLAM过程 | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,7 +167,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -309,44 +315,264 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>ROS Topics<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steven Shi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steven's blog">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ROS中级二 利用Rviz实时观测模拟SLAM过程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T15:05:54+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index">
+                    <span itemprop="name">ROS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/11/ros-intermediate-tutorial-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/11/ros-intermediate-tutorial-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/07/11/ros-intermediate-tutorial-2/" class="leancloud_visitors" data-flag-title="ROS中级二 利用Rviz实时观测模拟SLAM过程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p><a href="http://wiki.ros.org/rviz" target="_blank" rel="external">Rviz</a> 是 ROS 提供的一个非常强大的图形化显示工具，在实际机器人上建图之前我们先使用已有的地图记录进行模拟 SLAM 的过程，加深理解，为随后的真实环境建图打下基础。建立封闭环境下的二维地图是导航、定位、路径规划的前提。SLAM 全称 simultaneous localization and mapping 即时定位与地图构建，SLAM 理论最早在1988年由 Smith、Self以及 Cheeseman 共同提出。本篇学习使用 <a href="http://wiki.ros.org/rviz" target="_blank" rel="external">Rviz</a> 实时观测地图构建的过程，需要用到已有的地图建立的数据记录，<a href="http://pr.willowgarage.com/data/gmapping/" target="_blank" rel="external">可在此下载</a>,需要安装 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 包。<br><a id="more"></a></p>
+<h1 id="gmapping-安装"><a href="#gmapping-安装" class="headerlink" title="gmapping 安装"></a>gmapping 安装</h1><p>ROS 目前提供两种方法实现 SLAM，一种叫做 <a href="http://wiki.ros.org/hector_mapping" target="_blank" rel="external">hector_mapping</a>,另外一种叫做 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a>。两种算法不同，<a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 算法较早，它使用粒子滤波并且需要里程计输入，但对传感器性能要求较低，适合初学者；<a href="http://wiki.ros.org/hector_mapping" target="_blank" rel="external">hector_mapping</a> 性能不错，它通过最小二乘法匹配扫描点，并且依赖高精度的激光雷达数据，但是不需要里程计输入。我们先尝试 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a>，安装：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-slam-gmapping</span></div></pre></td></tr></table></figure></p>
+<h1 id="Rviz开启SLAM观测"><a href="#Rviz开启SLAM观测" class="headerlink" title="Rviz开启SLAM观测"></a>Rviz开启SLAM观测</h1><p>ROS 启用重放时的数据中的时间不是现在的本地时间，而是历史时间，因此我们需要告诉 ROS 系统，我们使用历史模拟时间：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosparam <span class="built_in">set</span> use_sim_time <span class="literal">true</span></span></div></pre></td></tr></table></figure></p>
+<p>准备好已有的激光数据记录文件：<br>   <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>wget <span class="symbol">http:</span>/<span class="regexp">/pr.willowgarage.com/data</span><span class="regexp">/gmapping/basic</span>_localization_stage.bag</div></pre></td></tr></table></figure></p>
+<p>记得开启 ROS master :<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div></pre></td></tr></table></figure></p>
+<p> <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 需要两个输入，一个为激光雷达数据，另外一个是全局 tf转换关系，这个 tf 中需要一个里程计数据以构建坐标系。启用 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 监听 base_scan 话题发来的消息，该话题由模拟器发布：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun gmapping slam_gmapping scan:=base_scan</span></div></pre></td></tr></table></figure></p>
+<p>重放激光扫描的数据记录：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosbag play --clock basic_localization_stage.bag</span></div></pre></td></tr></table></figure></p>
+<p>启动 Rviz:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun rviz rviz</span></div></pre></td></tr></table></figure></p>
+<p>此时只是启动了Rviz 并没有给Rviz添加输入，因此它显示为空的网格，<a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 的输出话题为 /map,因此我们将该 topic 添加到Rviz的输入,开启 Rviz 后，点击 add 按钮，选择 map 点击OK，会出现一个空的地图：</p>
+<p><img src="/2017/07/11/ros-intermediate-tutorial-2/addmap.jpg" alt=""> </p>
+<p>之后点击 map 中的topic，再点击 add 添加话题 /map:</p>
+<p><img src="/2017/07/11/ros-intermediate-tutorial-2/addtopic.jpg" alt=""></p>
+<p>最后地图会慢慢的展现出来：</p>
+<p><img src="/2017/07/11/ros-intermediate-tutorial-2/result.jpg" alt=""></p>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/05/27/ros-primary-tutorial-6/" itemprop="url">
-              
-                <span itemprop="name">ROS初级六 理解ROS话题</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持是我原创的动力</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="Steven Shi WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Steven Shi Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-27T13:13:54+08:00"
-              content="2017-05-27" >
-          05-27
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SLAM-Rviz/" rel="tag"># SLAM Rviz</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/10/ros-intermediate-tutorial-1/" rel="next" title="ROS中级一 配置并使用ROS导航功能包集">
+                <i class="fa fa-chevron-left"></i> ROS中级一 配置并使用ROS导航功能包集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -354,6 +580,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -373,8 +610,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -486,6 +732,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gmapping-安装"><span class="nav-number">1.</span> <span class="nav-text">gmapping 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rviz开启SLAM观测"><span class="nav-number">2.</span> <span class="nav-text">Rviz开启SLAM观测</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -620,6 +882,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
@@ -637,6 +903,18 @@
       <script id="dsq-count-scr" src="https://stevenshi-me.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/';
+          this.page.identifier = '2017/07/11/ros-intermediate-tutorial-2/';
+          this.page.title = 'ROS中级二 利用Rviz实时观测模拟SLAM过程';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://stevenshi-me.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

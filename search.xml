@@ -3,7 +3,41 @@
   
     
     <entry>
-      <title><![CDATA[ROS进阶一 配置并使用ROS导航功能包集]]></title>
+      <title><![CDATA[ROS中级二 利用Rviz实时观测模拟SLAM过程]]></title>
+      <url>/2017/07/11/ros-intermediate-tutorial-2/</url>
+      <content type="html"><![CDATA[<p><a href="http://wiki.ros.org/rviz" target="_blank" rel="external">Rviz</a> 是 ROS 提供的一个非常强大的图形化显示工具，在实际机器人上建图之前我们先使用已有的地图记录进行模拟 SLAM 的过程，加深理解，为随后的真实环境建图打下基础。建立封闭环境下的二维地图是导航、定位、路径规划的前提。SLAM 全称 simultaneous localization and mapping 即时定位与地图构建，SLAM 理论最早在1988年由 Smith、Self以及 Cheeseman 共同提出。本篇学习使用 <a href="http://wiki.ros.org/rviz" target="_blank" rel="external">Rviz</a> 实时观测地图构建的过程，需要用到已有的地图建立的数据记录，<a href="http://pr.willowgarage.com/data/gmapping/" target="_blank" rel="external">可在此下载</a>,需要安装 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 包。<br><a id="more"></a></p>
+<h1 id="gmapping-安装"><a href="#gmapping-安装" class="headerlink" title="gmapping 安装"></a>gmapping 安装</h1><p>ROS 目前提供两种方法实现 SLAM，一种叫做 <a href="http://wiki.ros.org/hector_mapping" target="_blank" rel="external">hector_mapping</a>,另外一种叫做 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a>。两种算法不同，<a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 算法较早，它使用粒子滤波并且需要里程计输入，但对传感器性能要求较低，适合初学者；<a href="http://wiki.ros.org/hector_mapping" target="_blank" rel="external">hector_mapping</a> 性能不错，它通过最小二乘法匹配扫描点，并且依赖高精度的激光雷达数据，但是不需要里程计输入。我们先尝试 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a>，安装：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-slam-gmapping</span></div></pre></td></tr></table></figure></p>
+<h1 id="Rviz开启SLAM观测"><a href="#Rviz开启SLAM观测" class="headerlink" title="Rviz开启SLAM观测"></a>Rviz开启SLAM观测</h1><p>ROS 启用重放时的数据中的时间不是现在的本地时间，而是历史时间，因此我们需要告诉 ROS 系统，我们使用历史模拟时间：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosparam <span class="built_in">set</span> use_sim_time <span class="literal">true</span></span></div></pre></td></tr></table></figure></p>
+<p>准备好已有的激光数据记录文件：<br>   <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>wget <span class="symbol">http:</span>/<span class="regexp">/pr.willowgarage.com/data</span><span class="regexp">/gmapping/basic</span>_localization_stage.bag</div></pre></td></tr></table></figure></p>
+<p>记得开启 ROS master :<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div></pre></td></tr></table></figure></p>
+<p> <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 需要两个输入，一个为激光雷达数据，另外一个是全局 tf转换关系，这个 tf 中需要一个里程计数据以构建坐标系。启用 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 监听 base_scan 话题发来的消息，该话题由模拟器发布：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun gmapping slam_gmapping scan:=base_scan</span></div></pre></td></tr></table></figure></p>
+<p>重放激光扫描的数据记录：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosbag play --clock basic_localization_stage.bag</span></div></pre></td></tr></table></figure></p>
+<p>启动 Rviz:<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun rviz rviz</span></div></pre></td></tr></table></figure></p>
+<p>此时只是启动了Rviz 并没有给Rviz添加输入，因此它显示为空的网格，<a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 的输出话题为 /map,因此我们将该 topic 添加到Rviz的输入,开启 Rviz 后，点击 add 按钮，选择 map 点击OK，会出现一个空的地图：</p>
+<p><img src="/2017/07/11/ros-intermediate-tutorial-2/addmap.jpg" alt=""> </p>
+<p>之后点击 map 中的topic，再点击 add 添加话题 /map:</p>
+<p><img src="/2017/07/11/ros-intermediate-tutorial-2/addtopic.jpg" alt=""></p>
+<p>最后地图会慢慢的展现出来：</p>
+<p><img src="/2017/07/11/ros-intermediate-tutorial-2/result.jpg" alt=""></p>
+]]></content>
+      
+        <categories>
+            
+            <category> ROS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> SLAM Rviz </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ROS中级一 配置并使用ROS导航功能包集]]></title>
       <url>/2017/07/10/ros-intermediate-tutorial-1/</url>
       <content type="html"><![CDATA[<p>本篇学习如何配置 ROS 的 Navigation 功能包以及如何让导航功能在机器人上运行起来。先来看一下 ROS 导航架构图：</p>
 <p><img src="/2017/07/10/ros-intermediate-tutorial-1/overview_navigation.png" alt=""></p>

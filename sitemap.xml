@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/</loc>
+    
+    <lastmod>2017-07-11T08:15:32.793Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/07/10/ros-intermediate-tutorial-1/</loc>
     
-    <lastmod>2017-07-11T03:43:39.856Z</lastmod>
+    <lastmod>2017-07-11T07:05:40.509Z</lastmod>
     
   </url>
   
@@ -261,13 +268,6 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
-    
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
@@ -276,6 +276,13 @@
   
   <url>
     <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
