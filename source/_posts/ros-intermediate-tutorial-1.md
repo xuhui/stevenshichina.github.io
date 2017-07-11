@@ -159,7 +159,6 @@ roslaunch my_robot_configuration.launch
 roslaunch move_base.launch
    ```
 通过图形化显示给导航功能包发送一个目标信息，可参考[rviz and navigation tutorial](http://wiki.ros.org/navigation/Tutorials/Using%20rviz%20with%20the%20Navigation%20Stack)，使用代码给导航功能包集发送导航目标，参考 [sending simple navigation goals](http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals)
-未完，待修改
-本篇参考：
+
+参考：
 英文 [Setup and Configuration of the Navigation Stack on a Robot](http://wiki.ros.org/navigation/Tutorials/RobotSetup) 
-中文 [在机器人上配置并使用导航功能包集](http://wiki.ros.org/cn/navigation/Tutorials/RobotSetup)
