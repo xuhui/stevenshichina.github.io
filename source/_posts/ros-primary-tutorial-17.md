@@ -137,5 +137,48 @@ b,圆柱体的中心正好位于网格中心即 base_link原点，因此，圆�
   </robot>
 
    ```
+由代码可看出，两个 link 即两个零件由名称为 base_to_right_leg 的 joint 连接，joint 的原点相对于 base_link 的原点偏移为x方向0，y 方向-0.22，z 方向 0.25，因此 child link 即 right_leg 的原点位于base_link 的上方 0.25 右方0.22 的位置。如果不指定 child link 的姿态角，它将和base_link具有相同的姿态角，即子坐标系和父坐标系姿态角相同。上述代码既定义了right_leg 在xyz方向的偏移，同时也定义了rpy 姿态角(roll pitch yaw),相对于joint 原点即子坐标参考系，right_leg 在z方向上下移了0.3,俯仰角为pi/2弧度，即相对于之前绕Y轴旋转了90度，之前为水平，现在变为垂直。可以通过 Rviz 查看：
+   ```
+ $ roslaunch urdf_tutorial display.launch model:=urdf/03-origins.urdf
+   ```
+姿态角的定义如图：
+![](ros-primary-tutorial-17/rpy.png)
+机身前方为 Roll 轴，一般定义为 X 轴，绕 X 轴的旋转角度称为 Roll 即翻滚角，绕 Pitch 轴的旋转称为俯仰角，此处一般定义为 Y 轴，绕 Yaw 轴的旋转称为偏航角，一般定义为 Z 轴。
+另外也可以定义机体组件的颜色，可以添加不同形状的组件可以参考 04-materials.urdf 以及 05-visual.urdf。
+# 构建可移动机器人模型
+对应文件为 06-flexible.urdf
+## 头部
+   ```
+ <joint name="head_swivel" type="continuous">
+   <parent link="base_link"/>
+   <child link="head"/>
+   <axis xyz="0 0 1"/>
+   <origin xyz="0 0 0.3"/>
+  </joint>
+   ```
+定义的joint用于连接 base_link 与 head ，类型为 continuous,意思是它可以旋转任意角度，因此这个连接是可移动的连接。需要注意的是必须指定它旋转的轴，上面指定旋转的矢量为 [0,0,1] 即只能绕Z轴旋转。
+## 抓手
+   ```
+ <joint name="left_gripper_joint" type="revolute">
+   <axis xyz="0 0 1"/>
+   <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+   <origin rpy="0 0 0" xyz="0.2 0.01 0"/>
+   <parent link="gripper_pole"/>
+   <child link="left_gripper"/>
+ </joint>
+   ```
+joint 为 revolute 即旋转类型，它和 continuous 类型类似，但 revolute 类型有极限约束，指定上下极限位置的同时，还需要指定最大速度以及 effort。注意这里的上下极限是单位是弧度。
+## 夹臂
+   ```
+  <joint name="gripper_extension" type="prismatic">
+     <parent link="base_link"/>
+     <child link="gripper_pole"/>
+     <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+     <origin rpy="0 0 0" xyz="0.19 0 0.2"/>
+  </joint>
+   ```
+夹臂是一种不同的 joint，称为柱状 joint,也就是说它沿着一个轴运动，而不是绕着轴运动。这里的极限与抓手不同的是极限单位是米而不是弧度。还有两种其它类型的 joint，柱状 joint 只能做一维运动，一个平面 joint 可以做二维运动，一个浮动的 joint 可以做三维运动。
+## 指定姿态
+当在 Rviz 中滑动滑块时，会看到模型移动。首先GUI解析URDF文件，找到所有非固定的 joint 以及他们的运动约束极限，然后，利用滑块的值发布消息 [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) ,之后 [robot_state_publisher](http://wiki.ros.org/robot_state_publisher) 计算在不同的部件之间的所有变换，变换后的 tf 坐标树被用来在 Rviz 中显示这些形状。
 未完
 参考：[urdf/tutorial](http://wiki.ros.org/urdf/Tutorials)
