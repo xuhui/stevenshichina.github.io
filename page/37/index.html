@@ -97,7 +97,7 @@
 <meta name="description" content="ROS 学习">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Steven&#39;s blog">
-<meta property="og:url" content="http://stevenshi.me/page/5/index.html">
+<meta property="og:url" content="http://stevenshi.me/page/37/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="ROS 学习">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/page/5/"/>
+  <link rel="canonical" href="http://stevenshi.me/page/37/"/>
 
 
 
@@ -321,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/07/08/ros-primary-tutorial-17/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/15/raspberryPi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -340,7 +340,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/08/ros-primary-tutorial-17/" itemprop="url">ROS初级十七 URDF解读</a></h1>
+                <a class="post-title-link" href="/2017/05/15/raspberryPi/" itemprop="url">树莓派3B使用前的配置</a></h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T09:19:45+08:00">
-                2017-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T09:32:02+08:00">
+                2017-05-15
               </time>
             
 
@@ -375,8 +375,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ROS/" itemprop="url" rel="index">
-                    <span itemprop="name">ROS</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -393,9 +393,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/08/ros-primary-tutorial-17/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/15/raspberryPi/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/08/ros-primary-tutorial-17/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/15/raspberryPi/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -403,7 +403,7 @@
 
           
           
-             <span id="/2017/07/08/ros-primary-tutorial-17/" class="leancloud_visitors" data-flag-title="ROS初级十七 URDF解读">
+             <span id="/2017/05/15/raspberryPi/" class="leancloud_visitors" data-flag-title="树莓派3B使用前的配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,11 +432,11 @@
 
       
         
-          <p>URDF的全称为 Unified Robot Description Format，通用机器人描述格式，它是一种特殊的 xml 格式文件，它能够抽象的描述现实中的机器人硬件，包括外形和组件。URDF 包括很多不同的功能包以及组件，它们之间的关系如图所描述：</p>
-<p><img src="/2017/07/08/ros-primary-tutorial-17/urdf_diagram.png" alt=""><br></p>
+          <p>前段时间入手一块树莓派<a href="https://www.raspberrypi.org/" target="_blank" rel="external">raspberryPi</a>型号为3B。关于它的介绍这里就不多说了，可自行<a href="https://www.google.com" target="_blank" rel="external">google</a>。使用前需要准备一张SD卡用于安装系统镜像。容量尽可能大，最好不低于16G。树莓派支持多种平台，因后续要安装<a href="http://www.ros.org/" target="_blank" rel="external">ROS</a>，考虑到官方支持的稳定性，选用 <em>Raspbian</em> 平台镜像。因为<em>Raspbian</em> 是官方推荐的支持的操作系统，而<a href="http://wiki.ros.org/cn/indigo" target="_blank" rel="external">Ros-indigo</a>也刚好有基于该平台的安装包。</p>
+<h1 id="镜像安装"><a href="#镜像安装" class="headerlink" title="镜像安装"></a>镜像安装</h1><p>参考官网<a href="https://www.raspberrypi.org/documentation/installation/installing-images/" target="_blank" rel="external">Install-Images</a>。我安装的版本为<em>2017-03-02-raspbian-jessie.img</em><br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/08/ros-primary-tutorial-17/#more" rel="contents">
+            <a class="btn" href="/2017/05/15/raspberryPi/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -477,7 +477,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/36/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/38/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 

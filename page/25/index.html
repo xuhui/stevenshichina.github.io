@@ -97,7 +97,7 @@
 <meta name="description" content="ROS 学习">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Steven&#39;s blog">
-<meta property="og:url" content="http://stevenshi.me/page/5/index.html">
+<meta property="og:url" content="http://stevenshi.me/page/25/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="ROS 学习">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://stevenshi.me/page/5/"/>
+  <link rel="canonical" href="http://stevenshi.me/page/25/"/>
 
 
 
@@ -321,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/07/08/ros-primary-tutorial-17/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/05/26/ros-primary-tutorial-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -340,7 +340,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/08/ros-primary-tutorial-17/" itemprop="url">ROS初级十七 URDF解读</a></h1>
+                <a class="post-title-link" href="/2017/05/26/ros-primary-tutorial-2/" itemprop="url">ROS初级二 文件系统介绍</a></h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T09:19:45+08:00">
-                2017-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T09:54:15+08:00">
+                2017-05-26
               </time>
             
 
@@ -393,9 +393,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/08/ros-primary-tutorial-17/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/26/ros-primary-tutorial-2/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/08/ros-primary-tutorial-17/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/26/ros-primary-tutorial-2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -403,7 +403,7 @@
 
           
           
-             <span id="/2017/07/08/ros-primary-tutorial-17/" class="leancloud_visitors" data-flag-title="ROS初级十七 URDF解读">
+             <span id="/2017/05/26/ros-primary-tutorial-2/" class="leancloud_visitors" data-flag-title="ROS初级二 文件系统介绍">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,11 +432,12 @@
 
       
         
-          <p>URDF的全称为 Unified Robot Description Format，通用机器人描述格式，它是一种特殊的 xml 格式文件，它能够抽象的描述现实中的机器人硬件，包括外形和组件。URDF 包括很多不同的功能包以及组件，它们之间的关系如图所描述：</p>
-<p><img src="/2017/07/08/ros-primary-tutorial-17/urdf_diagram.png" alt=""><br></p>
+          <p>本篇学习 ROS 的文件系统，包括一些命令行工具 <a href="http://wiki.ros.org/rosbash#roscd" target="_blank" rel="external">roscd</a>、 <a href="http://wiki.ros.org/rosbash#rosls" target="_blank" rel="external">rosls</a>、 <a href="http://wiki.ros.org/rospack" target="_blank" rel="external">rospack</a> 等的使用。</p>
+<h1 id="安装-tutorial-程序包："><a href="#安装-tutorial-程序包：" class="headerlink" title="安装 tutorial 程序包："></a>安装 tutorial 程序包：</h1>   <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get install ros-indigo-ros-tutorials</span></div></pre></td></tr></table></figure>
+<p>源码位于: <a href="https://github.com/ros/ros_tutorials.git" target="_blank" rel="external">ros_tutorials</a>。<br> 一般一个 ROS 软件包中包括 <em>CMakeLists.txt</em>、  <em>include</em>、   <em>package.xml</em>、  <em>src</em> 等几个文件及文件目录。Packages 软件包是ROS 应用程序代码的组织单元，每个软件包都可以包含程序库、可执行文件、脚本或者其它手动创建的东西。 Manifest (package.xml): 清单，是对于软件包相关信息的描述,用于定义软件包相关元信息之间的依赖关系，这些信息包括版本、维护者和许可协议等。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/08/ros-primary-tutorial-17/#more" rel="contents">
+            <a class="btn" href="/2017/05/26/ros-primary-tutorial-2/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -477,7 +478,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/24/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/26/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
