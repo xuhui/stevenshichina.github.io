@@ -321,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Shi">
@@ -340,7 +340,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/11/ros-intermediate-tutorial-2/" itemprop="url">ROS中级二 利用Rviz实时观测模拟SLAM过程</a></h1>
+                <a class="post-title-link" href="/2017/07/07/ros-primary-tutorial-15/" itemprop="url">ROS初级十五 发布里程计消息</a></h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T15:05:54+08:00">
-                2017-07-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T08:40:30+08:00">
+                2017-07-07
               </time>
             
 
@@ -393,9 +393,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/11/ros-intermediate-tutorial-2/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/07/ros-primary-tutorial-15/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/11/ros-intermediate-tutorial-2/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/07/ros-primary-tutorial-15/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -403,7 +403,7 @@
 
           
           
-             <span id="/2017/07/11/ros-intermediate-tutorial-2/" class="leancloud_visitors" data-flag-title="ROS中级二 利用Rviz实时观测模拟SLAM过程">
+             <span id="/2017/07/07/ros-primary-tutorial-15/" class="leancloud_visitors" data-flag-title="ROS初级十五 发布里程计消息">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,10 +432,653 @@
 
       
         
-          <p><a href="http://wiki.ros.org/rviz" target="_blank" rel="external">Rviz</a> 是 ROS 提供的一个非常强大的图形化显示工具，在实际机器人上建图之前我们先使用已有的地图记录进行模拟 SLAM 的过程，加深理解，为随后的真实环境建图打下基础。建立封闭环境下的二维地图是导航、定位、路径规划的前提。SLAM 全称 simultaneous localization and mapping 即时定位与地图构建，SLAM 理论最早在1988年由 Smith、Self以及 Cheeseman 共同提出。本篇学习使用 <a href="http://wiki.ros.org/rviz" target="_blank" rel="external">Rviz</a> 实时观测地图构建的过程，需要用到已有的地图建立的数据记录，<a href="http://pr.willowgarage.com/data/gmapping/" target="_blank" rel="external">可在此下载</a>,需要安装 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 包。<br></p>
+          <p>ROS导航功能包使用 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 来决定机器人在环境中的位置并根据传感器的数据生成静态地图。但是 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 却不能提供机器人速度的任何信息。因此导航功能包需要里程计信息源能够发布包含速度信息的变换及里程计消息。本篇将学习 nav_msgs/Odometry 消息，并且通过代码学习如何通过 ROS 以及 <a href="http://wiki.ros.org/tf" target="_blank" rel="external">tf</a> 变换发布里程计消息。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/11/ros-intermediate-tutorial-2/#more" rel="contents">
+            <a class="btn" href="/2017/07/07/ros-primary-tutorial-15/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/06/28/omniwheel-kinematical-analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steven Shi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steven's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/28/omniwheel-kinematical-analysis/" itemprop="url">三轮全向移动底盘运动学解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-28T13:44:18+08:00">
+                2017-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index">
+                    <span itemprop="name">ROS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/28/omniwheel-kinematical-analysis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/28/omniwheel-kinematical-analysis/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/28/omniwheel-kinematical-analysis/" class="leancloud_visitors" data-flag-title="三轮全向移动底盘运动学解析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>三轮全向移动底盘因其良好的运动性并且结构简单，近年来备受欢迎。三个轮子互相间隔120°，每个全向轮由若干个小滚轮组成，各个滚轮的母线组成一个完整的圆。机器人既可以沿轮面的切线方向移动，也可以沿轮子的轴线方向移动，这两种运动的组合即可以实现平面内任意方向的运动。</p>
+<p><img src="/2017/06/28/omniwheel-kinematical-analysis/omnidiagram.jpg" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/28/omniwheel-kinematical-analysis/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/06/26/hexo-insert-formula/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steven Shi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steven's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/26/hexo-insert-formula/" itemprop="url">hexo中插入数学公式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-26T11:28:55+08:00">
+                2017-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/26/hexo-insert-formula/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/26/hexo-insert-formula/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/26/hexo-insert-formula/" class="leancloud_visitors" data-flag-title="hexo中插入数学公式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>原生hexo并不支持数学公式，需要安装插件 <a href="https://www.mathjax.org/" target="_blank" rel="external">mathJax</a>。<a href="https://www.mathjax.org/" target="_blank" rel="external">mathJax</a> 是一款运行于浏览器中的开源数学符号渲染引擎，使用 <a href="https://www.mathjax.org/" target="_blank" rel="external">mathJax</a> 可以方便的在浏览器中嵌入数学公式。<a href="https://www.mathjax.org/" target="_blank" rel="external">mathJax</a> 使用网络字体产生高质量的排版，因此可适应各种分辨率，它的显示是基于文本的而非图片，因此显示效果更好。这些公式可以被搜索引擎使用，因此公式里的符号一样可以被搜索引擎检索到。先看一下矩阵的显示效果:</p>
+<p>$\left[<br>\begin{matrix}<br>V_A \\<br>V_B \\<br>V_C \\<br>\end{matrix}<br>\right] =<br>\left[<br>\begin{matrix}<br>1 &amp; 0 &amp; L \\<br>-cosψ &amp; sinψ &amp; L \\<br>-cosψ &amp; -sinψ &amp; L<br>\end{matrix}<br>\right]<br>\left[<br>\begin{matrix}<br>V_x \\<br>V_y \\<br>W \\<br>\end{matrix}<br>\right] $</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/26/hexo-insert-formula/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/06/12/ros-books/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steven Shi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steven's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/12/ros-books/" itemprop="url">超经典 ROS 学习电子书</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T16:55:48+08:00">
+                2017-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ROS/" itemprop="url" rel="index">
+                    <span itemprop="name">ROS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/12/ros-books/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/12/ros-books/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/12/ros-books/" class="leancloud_visitors" data-flag-title="超经典 ROS 学习电子书">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>收藏了几本 ROS 学习的超级经典教材，都是高清晰电子版，在这里和大家分享一下。</p>
+<p><img src="/2017/06/12/ros-books/book.jpg" alt=""><br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/12/ros-books/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/06/12/putty-graphics-ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steven Shi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steven's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/12/putty-graphics-ubuntu/" itemprop="url">Putty 远程运行 ubuntu 图形界面程序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T08:16:20+08:00">
+                2017-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/12/putty-graphics-ubuntu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/12/putty-graphics-ubuntu/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/12/putty-graphics-ubuntu/" class="leancloud_visitors" data-flag-title="Putty 远程运行 ubuntu 图形界面程序">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>远程登录 linux 一般通过 SSH 协议，或 telnet 协议，这两种协议一般都只是命令行界面，而不能远程运行带有图形界面的应用程序。但是 putty 这款软件支持 X11 Forwarding,如果再配合一个 <a href="https://zh.wikipedia.org/wiki/X_Window%E7%B3%BB%E7%B5%B1" target="_blank" rel="external">X server</a> 问题就解决了。一般常用的 <a href="https://zh.wikipedia.org/wiki/X_Window%E7%B3%BB%E7%B5%B1" target="_blank" rel="external">X server</a> 有 <a href="https://sourceforge.net/projects/xming/" target="_blank" rel="external">Xming</a> 和 <a href="https://sourceforge.net/projects/vcxsrv/" target="_blank" rel="external">VcXsrv</a>。基本的原理就是 ubuntu 开启 X11 转发服务，putty 负责数据的转发，而 X Server 进行图形界面的显示。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/12/putty-graphics-ubuntu/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -476,7 +1119,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
