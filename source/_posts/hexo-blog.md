@@ -81,6 +81,49 @@ hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令
 第一次执行*hexo d*会弹出对话框提示输入github的用户名和密码。此时在浏览器输入：
 *https://github.com/username/username.github.io*即可看到自己的博客已经搭建成功。
 注: username替换为自己的用户名.
+## 文章置顶
+
+修改 hexo-generator-index 插件，位于  node_modules/hexo-generator-index/lib目录下，文件名为 generator.js,将该文件内容修改为：
+　　```
+'use strict';
+var pagination = require('hexo-pagination');
+module.exports = function(locals){
+  var config = this.config;
+  var posts = locals.posts;
+    posts.data = posts.data.sort(function(a, b) {
+        if(a.top && b.top) { // 两篇文章top都有定义
+            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排
+            else return b.top - a.top; // 否则按照top值降序排
+        }
+        else if(a.top && !b.top) { // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）
+            return -1;
+        }
+        else if(!a.top && b.top) {
+            return 1;
+        }
+        else return b.date - a.date; // 都没定义按照文章日期降序排
+    });
+  var paginationDir = config.pagination_dir || 'page';
+  return pagination('', posts, {
+    perPage: config.index_generator.per_page,
+    layout: ['index', 'archive'],
+    format: paginationDir + '/%d/',
+    data: {
+      __index: true
+    }
+  });
+};
+　　```
+参考 [generator.js](https://github.com/ehlxr/java-utils/blob/master/resources/generator.js),在要置顶的文章中添加 top 值，值越大文章越靠前：
+　　```
+ ---
+ title: ROS 学习
+ categories: ROS
+ tags: [picture,naruto]
+ date: 2017-05-02 11:30:04
+ top: 1000
+ ---
+　　```
 # nexT主题
 hexo安装完成后，默认的主题是landscape，保存在hexo/themes/文件夹下。[nexT](http://theme-next.iissnan.com/) 主题需要自行下载。在博客文件目录下F:\github\hexo右键单击Git Bash Here，输入命令:
 　　```
@@ -127,48 +170,8 @@ hexo安装完成后，默认的主题是landscape，保存在hexo/themes/文件�
 　<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 　</script>
 　　```
-# 文章置顶
-修改 hexo-generator-index 插件，位于  node_modules/hexo-generator-index/lib目录下，文件名为 generator.js,将该文件内容修改为：
-　　```
-'use strict';
-var pagination = require('hexo-pagination');
-module.exports = function(locals){
-  var config = this.config;
-  var posts = locals.posts;
-    posts.data = posts.data.sort(function(a, b) {
-        if(a.top && b.top) { // 两篇文章top都有定义
-            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排
-            else return b.top - a.top; // 否则按照top值降序排
-        }
-        else if(a.top && !b.top) { // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）
-            return -1;
-        }
-        else if(!a.top && b.top) {
-            return 1;
-        }
-        else return b.date - a.date; // 都没定义按照文章日期降序排
-    });
-  var paginationDir = config.pagination_dir || 'page';
-  return pagination('', posts, {
-    perPage: config.index_generator.per_page,
-    layout: ['index', 'archive'],
-    format: paginationDir + '/%d/',
-    data: {
-      __index: true
-    }
-  });
-};
-　　```
-参考 [generator.js](https://github.com/ehlxr/java-utils/blob/master/resources/generator.js),在要置顶的文章中添加 top 值，值越大文章越靠前：
-　　```
- ---
- title: ROS 学习
- categories: ROS
- tags: [picture,naruto]
- date: 2017-05-02 11:30:04
- top: 1000
- ---
-　　```
+
+
 
 
 　　
