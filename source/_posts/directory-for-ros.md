@@ -37,3 +37,4 @@ top: 1000
    [2. ROS中级二 利用Rviz实时观测模拟SLAM过程](http://stevenshi.me/2017/07/11/ros-intermediate-tutorial-2/)
 ## ROS实战
    [1. 三轮全向移动底盘运动学解析](http://stevenshi.me/2017/06/28/omniwheel-kinematical-analysis/)
+   [2. 通过串口控制移动底座](http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/)
