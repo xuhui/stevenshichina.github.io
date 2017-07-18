@@ -128,7 +128,7 @@
       applicationID: '',
       apiKey: '',
       indexName: '',
-      hits: {"per_page":10},
+      hits: {"per_page":1},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
@@ -435,7 +435,7 @@
       
         <p><a href="http://wiki.ros.org/rviz" target="_blank" rel="external">Rviz</a> 是 ROS 提供的一个非常强大的图形化显示工具，在实际机器人上建图之前我们先使用已有的地图记录进行模拟 SLAM 的过程，加深理解，为随后的真实环境建图打下基础。建立封闭环境下的二维地图是导航、定位、路径规划的前提。SLAM 全称 simultaneous localization and mapping 即时定位与地图构建，SLAM 理论最早在1988年由 Smith、Self以及 Cheeseman 共同提出。本篇学习使用 <a href="http://wiki.ros.org/rviz" target="_blank" rel="external">Rviz</a> 实时观测地图构建的过程，需要用到已有的地图建立的数据记录，<a href="http://pr.willowgarage.com/data/gmapping/" target="_blank" rel="external">可在此下载</a>,需要安装 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 包。<br><a id="more"></a></p>
 <h1 id="gmapping-安装"><a href="#gmapping-安装" class="headerlink" title="gmapping 安装"></a>gmapping 安装</h1><p>ROS 目前提供两种方法实现 SLAM，一种叫做 <a href="http://wiki.ros.org/hector_mapping" target="_blank" rel="external">hector_mapping</a>,另外一种叫做 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a>。两种算法不同，<a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 算法较早，它使用粒子滤波并且需要里程计输入，但对传感器性能要求较低，适合初学者；<a href="http://wiki.ros.org/hector_mapping" target="_blank" rel="external">hector_mapping</a> 性能不错，它通过最小二乘法匹配扫描点，并且依赖高精度的激光雷达数据，但是不需要里程计输入。我们先尝试 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a>，安装：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install ros-indigo-slam-gmapping</span></div></pre></td></tr></table></figure></p>
-<h1 id="Rviz开启SLAM观测"><a href="#Rviz开启SLAM观测" class="headerlink" title="Rviz开启SLAM观测"></a>Rviz开启SLAM观测</h1><p>ROS 启用重放时的数据中的时间不是现在的本地时间，而是历史时间，因此我们需要告诉 ROS 系统，我们使用历史模拟时间：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosparam <span class="built_in">set</span> use_sim_time <span class="literal">true</span></span></div></pre></td></tr></table></figure></p>
+<h1 id="rviz开启slam观测"><a href="#Rviz开启SLAM观测" class="headerlink" title="Rviz开启SLAM观测"></a>Rviz开启SLAM观测</h1><p>ROS 启用重放时的数据中的时间不是现在的本地时间，而是历史时间，因此我们需要告诉 ROS 系统，我们使用历史模拟时间：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosparam <span class="built_in">set</span> use_sim_time <span class="literal">true</span></span></div></pre></td></tr></table></figure></p>
 <p>准备好已有的激光数据记录文件：<br>   <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>wget <span class="symbol">http:</span>/<span class="regexp">/pr.willowgarage.com/data</span><span class="regexp">/gmapping/basic</span>_localization_stage.bag</div></pre></td></tr></table></figure></p>
 <p>记得开启 ROS master :<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> roscore &amp;</span></div></pre></td></tr></table></figure></p>
 <p> <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 需要两个输入，一个为激光雷达数据，另外一个是全局 tf转换关系，这个 tf 中需要一个里程计数据以构建坐标系。启用 <a href="http://wiki.ros.org/gmapping" target="_blank" rel="external">gmapping</a> 监听 base_scan 话题发来的消息，该话题由模拟器发布：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rosrun gmapping slam_gmapping scan:=base_scan</span></div></pre></td></tr></table></figure></p>
@@ -519,6 +519,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/18/directory-for-ros/" rel="prev" title="ROS 探索">
+                ROS 探索 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -635,7 +639,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -657,7 +661,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -742,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gmapping-安装"><span class="nav-number">1.</span> <span class="nav-text">gmapping 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rviz开启SLAM观测"><span class="nav-number">2.</span> <span class="nav-text">Rviz开启SLAM观测</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gmapping-安装"><span class="nav-number">1.</span> <span class="nav-text">gmapping 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rviz开启slam观测"><span class="nav-number">2.</span> <span class="nav-text">Rviz开启SLAM观测</span></a></li></ol></div>
             
 
           </div>
