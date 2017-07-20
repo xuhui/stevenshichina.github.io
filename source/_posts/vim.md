@@ -1,7 +1,7 @@
 ---
 title: 如何让Vim变的爱不释手
 date: 2017-05-18 09:02:06
-categories: Linux
+categories: linux
 tags: Vim
 comments: true
 ---

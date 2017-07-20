@@ -1,7 +1,7 @@
 ---
 title: Putty 远程运行 ubuntu 图形界面程序
 date: 2017-06-12 08:16:20
-categories: Linux
+categories: linux
 tags: PuttyGraphics
 comments: true
 ---

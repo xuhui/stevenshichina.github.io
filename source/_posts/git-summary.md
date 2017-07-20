@@ -1,7 +1,7 @@
 ---
 title: Git 实用命令总结
 date: 2017-06-09 10:16:08
-categories: Linux
+categories: linux
 tags: Git命令
 comments: true
 ---
