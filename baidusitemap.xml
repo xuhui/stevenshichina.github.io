@@ -4,8 +4,228 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/18/vim/</loc>
+    <lastmod>2017-07-20T07:23:08.512Z</lastmod>
+    <data>
+        <display>
+        <title>如何让Vim变的爱不释手</title>
+        <pubTime>2017-05-18T01:02:06.000Z</pubTime>
+        
+        <tag>Vim</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/</loc>
+    <lastmod>2017-07-20T07:20:07.488Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级十五 发布里程计消息</title>
+        <pubTime>2017-07-07T00:40:30.000Z</pubTime>
+        
+        <tag>ROS odometry</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/</loc>
+    <lastmod>2017-07-20T07:16:00.784Z</lastmod>
+    <data>
+        <display>
+        <title>ROS初级五 理解ROS节点</title>
+        <pubTime>2017-05-27T01:34:16.000Z</pubTime>
+        
+        <tag>ROS Node</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/24/ros-navigation-simulation/</loc>
+    <lastmod>2017-07-20T07:14:15.777Z</lastmod>
+    <data>
+        <display>
+        <title>ROS导航仿真</title>
+        <pubTime>2017-05-24T05:36:03.000Z</pubTime>
+        
+        <tag>ROS Navigation</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/23/ros-navigation-compile/</loc>
+    <lastmod>2017-07-20T07:13:25.999Z</lastmod>
+    <data>
+        <display>
+        <title>贝叶斯滤波库在树莓派上的移植</title>
+        <pubTime>2017-05-23T05:05:18.000Z</pubTime>
+        
+        <tag>BayesianFiltering</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/07/10/ros-intermediate-tutorial-1/</loc>
+    <lastmod>2017-07-20T07:11:20.280Z</lastmod>
+    <data>
+        <display>
+        <title>ROS中级一 配置并使用ROS导航功能包集</title>
+        <pubTime>2017-07-10T01:41:05.000Z</pubTime>
+        
+        <tag>ROS navigation</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/15/ros-indigo-raspberry/</loc>
+    <lastmod>2017-07-20T07:07:28.970Z</lastmod>
+    <data>
+        <display>
+        <title>树莓派3b安装ROS-Indigo</title>
+        <pubTime>2017-05-15T03:24:49.000Z</pubTime>
+        
+        <tag>raspberryPi ros-indigo jessie</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/15/raspberryPi/</loc>
+    <lastmod>2017-07-20T07:06:25.011Z</lastmod>
+    <data>
+        <display>
+        <title>树莓派3B使用前的配置</title>
+        <pubTime>2017-05-15T01:32:02.000Z</pubTime>
+        
+        <tag>raspberryPi</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <lastmod>2017-07-20T07:04:32.705Z</lastmod>
+    <data>
+        <display>
+        <title>linux串口数据不连续问题</title>
+        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
+        
+        <tag>Linux串口</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <lastmod>2017-07-20T07:03:59.441Z</lastmod>
+    <data>
+        <display>
+        <title>hexo问题汇总</title>
+        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/07/hexo-blog/</loc>
+    <lastmod>2017-07-20T07:03:34.368Z</lastmod>
+    <data>
+        <display>
+        <title>hexo+github建立个人博客</title>
+        <pubTime>2017-05-07T03:07:34.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/09/hexo-advance/</loc>
-    <lastmod>2017-07-20T06:12:32.851Z</lastmod>
+    <lastmod>2017-07-20T07:02:15.776Z</lastmod>
     <data>
         <display>
         <title>hexo进阶</title>
@@ -24,8 +244,48 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/06/09/git-summary/</loc>
+    <lastmod>2017-07-20T06:58:47.889Z</lastmod>
+    <data>
+        <display>
+        <title>Git 实用命令总结</title>
+        <pubTime>2017-06-09T02:16:08.000Z</pubTime>
+        
+        <tag>Git命令</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <lastmod>2017-07-20T06:57:03.043Z</lastmod>
+    <data>
+        <display>
+        <title>浮点数与16进制的相互转换</title>
+        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
+        
+        <tag>浮点与16进制</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/07/01/directory-for-ros/</loc>
-    <lastmod>2017-07-20T02:32:01.040Z</lastmod>
+    <lastmod>2017-07-20T06:55:45.969Z</lastmod>
     <data>
         <display>
         <title>ROS 探索</title>
@@ -44,8 +304,28 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/25/debug-ros-using-qt/</loc>
+    <lastmod>2017-07-20T06:33:49.508Z</lastmod>
+    <data>
+        <display>
+        <title>使用 Qt 编译调试 ROS</title>
+        <pubTime>2017-05-25T06:06:45.000Z</pubTime>
+        
+        <tag>ROS Qt</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
-    <lastmod>2017-07-20T01:58:58.034Z</lastmod>
+    <lastmod>2017-07-20T06:32:41.955Z</lastmod>
     <data>
         <display>
         <title>ROS通过串口控制移动底座</title>
@@ -72,26 +352,6 @@
         <pubTime>2017-06-26T03:28:55.000Z</pubTime>
         
         <tag>formula</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-blog/</loc>
-    <lastmod>2017-07-18T03:17:42.750Z</lastmod>
-    <data>
-        <display>
-        <title>hexo+github建立个人博客</title>
-        <pubTime>2017-05-07T03:07:34.000Z</pubTime>
-        
-        <tag>hexo</tag>
          
          
            
@@ -144,26 +404,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/07/10/ros-intermediate-tutorial-1/</loc>
-    <lastmod>2017-07-11T07:05:40.509Z</lastmod>
-    <data>
-        <display>
-        <title>ROS中级一 配置并使用ROS导航功能包集</title>
-        <pubTime>2017-07-10T01:41:05.000Z</pubTime>
-        
-        <tag>ROS navigation</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/06/12/ros-books/</loc>
     <lastmod>2017-07-11T00:29:08.256Z</lastmod>
     <data>
@@ -204,26 +444,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/</loc>
-    <lastmod>2017-07-07T06:10:54.622Z</lastmod>
-    <data>
-        <display>
-        <title>ROS初级十五 发布里程计消息</title>
-        <pubTime>2017-07-07T00:40:30.000Z</pubTime>
-        
-        <tag>ROS odometry</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/06/28/omniwheel-kinematical-analysis/</loc>
     <lastmod>2017-06-29T03:13:11.092Z</lastmod>
     <data>
@@ -243,46 +463,6 @@
     </url>
 
     
-  <url>
-    <loc>http://stevenshi.me/2017/05/15/raspberryPi/</loc>
-    <lastmod>2017-06-29T01:00:52.796Z</lastmod>
-    <data>
-        <display>
-        <title>树莓派3B使用前的配置</title>
-        <pubTime>2017-05-15T01:32:02.000Z</pubTime>
-        
-        <tag>raspberryPi</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/27/ros-primary-tutorial-5/</loc>
-    <lastmod>2017-06-14T08:00:18.888Z</lastmod>
-    <data>
-        <display>
-        <title>ROS初级五 理解ROS节点</title>
-        <pubTime>2017-05-27T01:34:16.000Z</pubTime>
-        
-        <tag>ROS Node</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-10/</loc>
@@ -318,26 +498,6 @@
            
              
               <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/06/09/git-summary/</loc>
-    <lastmod>2017-06-13T08:57:01.540Z</lastmod>
-    <data>
-        <display>
-        <title>Git 实用命令总结</title>
-        <pubTime>2017-06-09T02:16:08.000Z</pubTime>
-        
-        <tag>Git Command</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
           
         </display>
     </data>
@@ -585,46 +745,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/25/debug-ros-using-qt/</loc>
-    <lastmod>2017-06-09T06:43:07.528Z</lastmod>
-    <data>
-        <display>
-        <title>使用 Qt 编译调试 ROS</title>
-        <pubTime>2017-05-25T06:06:45.000Z</pubTime>
-        
-        <tag>ROS Qt</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/18/vim/</loc>
-    <lastmod>2017-06-01T04:21:52.515Z</lastmod>
-    <data>
-        <display>
-        <title>如何让Vim变的爱不释手</title>
-        <pubTime>2017-05-18T01:02:06.000Z</pubTime>
-        
-        <tag>Vim</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/23/ubuntu-hexo/</loc>
     <lastmod>2017-05-27T01:16:39.526Z</lastmod>
     <data>
@@ -645,26 +765,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/24/ros-navigation-simulation/</loc>
-    <lastmod>2017-05-24T06:54:53.570Z</lastmod>
-    <data>
-        <display>
-        <title>ROS导航仿真</title>
-        <pubTime>2017-05-24T05:36:03.000Z</pubTime>
-        
-        <tag>ROS Navigation</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/24/ros-simulation/</loc>
     <lastmod>2017-05-24T05:33:51.089Z</lastmod>
     <data>
@@ -673,26 +773,6 @@
         <pubTime>2017-05-24T02:07:50.000Z</pubTime>
         
         <tag>ROS Simulation</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/23/ros-navigation-compile/</loc>
-    <lastmod>2017-05-23T23:50:31.492Z</lastmod>
-    <data>
-        <display>
-        <title>贝叶斯滤波库在树莓派上的移植</title>
-        <pubTime>2017-05-23T05:05:18.000Z</pubTime>
-        
-        <tag>BayesianFiltering</tag>
          
          
            
@@ -725,46 +805,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
-    <lastmod>2017-05-19T09:11:08.071Z</lastmod>
-    <data>
-        <display>
-        <title>linux串口数据不连续问题</title>
-        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
-        
-        <tag>Linux serial</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
-    <lastmod>2017-05-19T09:11:08.071Z</lastmod>
-    <data>
-        <display>
-        <title>浮点数与16进制的相互转换</title>
-        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/17/ros-serial/</loc>
     <lastmod>2017-05-17T05:52:53.457Z</lastmod>
     <data>
@@ -773,26 +813,6 @@
         <pubTime>2017-05-17T02:03:49.000Z</pubTime>
         
         <tag>ROS serial</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/15/ros-indigo-raspberry/</loc>
-    <lastmod>2017-05-15T08:12:20.396Z</lastmod>
-    <data>
-        <display>
-        <title>树莓派3b安装ROS-Indigo</title>
-        <pubTime>2017-05-15T03:24:49.000Z</pubTime>
-        
-        <tag>raspberryPi ros-indigo jessie</tag>
          
          
            
@@ -831,26 +851,6 @@
         <display>
         <title>hexo 博客备份</title>
         <pubTime>2017-05-07T13:25:07.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo问题汇总</title>
-        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
         
         <tag>hexo</tag>
          

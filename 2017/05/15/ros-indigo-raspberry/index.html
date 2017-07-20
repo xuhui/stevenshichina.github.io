@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="前言目前对于基于ROS的可移动平台，有两种方案较为流行，用户较多，可参考的资料也多。一种是使用英伟达的TK1，另外一种是使用raspberryPi。相对于TK1，树莓派在价格上更亲民，虽然性能上差一些，在计算SLAM时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。">
+<meta name="description" content="前言目前对于基于 ROS 的可移动平台，有两种方案较为流行用户较多，可参考的资料也多。一种是使用英伟达的 TK1，另外一种是使用 raspberryPi。相对于 TK1，树莓派在价格上更亲民，虽然性能上差一些，在计算 SLAM 时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。">
 <meta name="keywords" content="raspberryPi ros-indigo jessie">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派3b安装ROS-Indigo">
 <meta property="og:url" content="http://stevenshi.me/2017/05/15/ros-indigo-raspberry/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="前言目前对于基于ROS的可移动平台，有两种方案较为流行，用户较多，可参考的资料也多。一种是使用英伟达的TK1，另外一种是使用raspberryPi。相对于TK1，树莓派在价格上更亲民，虽然性能上差一些，在计算SLAM时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。">
+<meta property="og:description" content="前言目前对于基于 ROS 的可移动平台，有两种方案较为流行用户较多，可参考的资料也多。一种是使用英伟达的 TK1，另外一种是使用 raspberryPi。相对于 TK1，树莓派在价格上更亲民，虽然性能上差一些，在计算 SLAM 时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。">
 <meta property="og:image" content="http://stevenshi.me/2017/05/15/ros-indigo-raspberry/catkin.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/15/ros-indigo-raspberry/roscore.jpg">
-<meta property="og:updated_time" content="2017-05-15T08:12:20.396Z">
+<meta property="og:updated_time" content="2017-07-20T07:07:28.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派3b安装ROS-Indigo">
-<meta name="twitter:description" content="前言目前对于基于ROS的可移动平台，有两种方案较为流行，用户较多，可参考的资料也多。一种是使用英伟达的TK1，另外一种是使用raspberryPi。相对于TK1，树莓派在价格上更亲民，虽然性能上差一些，在计算SLAM时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。">
+<meta name="twitter:description" content="前言目前对于基于 ROS 的可移动平台，有两种方案较为流行用户较多，可参考的资料也多。一种是使用英伟达的 TK1，另外一种是使用 raspberryPi。相对于 TK1，树莓派在价格上更亲民，虽然性能上差一些，在计算 SLAM 时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。">
 <meta name="twitter:image" content="http://stevenshi.me/2017/05/15/ros-indigo-raspberry/catkin.jpg">
 
 
@@ -432,7 +432,7 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>目前对于基于<a href="http://www.ros.org/" target="_blank" rel="external">ROS</a>的可移动平台，有两种方案较为流行，用户较多，可参考的资料也多。一种是使用英伟达的<a href="http://www.nvidia.cn/object/jetson-tk1-embedded-dev-kit-cn.html" target="_blank" rel="external">TK1</a>，另外一种是使用<a href="https://www.raspberrypi.org/" target="_blank" rel="external">raspberryPi</a>。相对于<a href="http://www.nvidia.cn/object/jetson-tk1-embedded-dev-kit-cn.html" target="_blank" rel="external">TK1</a>，树莓派在价格上更亲民，虽然性能上差一些，在计算<a href="https://zh.wikipedia.org/wiki/%E5%8D%B3%E6%97%B6%E5%AE%9A%E4%BD%8D%E4%B8%8E%E5%9C%B0%E5%9B%BE%E6%9E%84%E5%BB%BA" target="_blank" rel="external">SLAM</a>时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。<br><a id="more"></a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>目前对于基于 <a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 的可移动平台，有两种方案较为流行用户较多，可参考的资料也多。一种是使用英伟达的 <a href="http://www.nvidia.cn/object/jetson-tk1-embedded-dev-kit-cn.html" target="_blank" rel="external">TK1</a>，另外一种是使用 <a href="https://www.raspberrypi.org/" target="_blank" rel="external">raspberryPi</a>。相对于 <a href="http://www.nvidia.cn/object/jetson-tk1-embedded-dev-kit-cn.html" target="_blank" rel="external">TK1</a>，树莓派在价格上更亲民，虽然性能上差一些，在计算 <a href="https://zh.wikipedia.org/wiki/%E5%8D%B3%E6%97%B6%E5%AE%9A%E4%BD%8D%E4%B8%8E%E5%9C%B0%E5%9B%BE%E6%9E%84%E5%BB%BA" target="_blank" rel="external">SLAM</a> 时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。<br><a id="more"></a></p>
 <h1 id="树莓派3b上安装ros-indigo"><a href="#树莓派3B上安装ROS-Indigo" class="headerlink" title="树莓派3B上安装ROS-Indigo"></a>树莓派3B上安装ROS-Indigo</h1><p> <em>环境</em>： <em>Raspbian OS Jessie</em><br> <em>硬件</em>： <em>raspberryPi 3B</em>以及一张<em>16G SD 卡</em><br> <em>参考</em>： <a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Indigo%20on%20Raspberry%20Pi" target="_blank" rel="external">InstallROSIndigoOnRaspberryPi</a></p>
 <h2 id="添加ros代码仓"><a href="#添加ROS代码仓" class="headerlink" title="添加ROS代码仓"></a>添加ROS代码仓</h2><p>添加ROS源以及key<br>　　<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> <span class="keyword">sh</span> -c 'echo <span class="string">"deb http://packages.ros.org/ros/ubuntu jessie main"</span> &gt; /etc/apt/sources.<span class="keyword">list</span>.<span class="keyword">d</span>/ros-latest.<span class="keyword">list</span>'</div><div class="line"><span class="variable">$wget</span> https:<span class="comment">//raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -</span></div></pre></td></tr></table></figure></p>
 <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>　　<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get update</span></div><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> apt-get upgrade</span></div></pre></td></tr></table></figure></p>

@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章  如何让VIM变的爱不释手 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。">
+<meta name="description" content="其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章 如何让VIM变的爱不释手 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。">
 <meta name="keywords" content="ROS Qt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Qt 编译调试 ROS">
 <meta property="og:url" content="http://stevenshi.me/2017/05/25/debug-ros-using-qt/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章  如何让VIM变的爱不释手 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。">
+<meta property="og:description" content="其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章 如何让VIM变的爱不释手 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。">
 <meta property="og:image" content="http://stevenshi.me/2017/05/25/debug-ros-using-qt/open.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/25/debug-ros-using-qt/setup.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/25/debug-ros-using-qt/mode.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/05/25/debug-ros-using-qt/compile.jpg">
-<meta property="og:updated_time" content="2017-06-09T06:43:07.528Z">
+<meta property="og:updated_time" content="2017-07-20T06:33:49.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Qt 编译调试 ROS">
-<meta name="twitter:description" content="其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章  如何让VIM变的爱不释手 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。">
+<meta name="twitter:description" content="其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章 如何让VIM变的爱不释手 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。">
 <meta name="twitter:image" content="http://stevenshi.me/2017/05/25/debug-ros-using-qt/open.jpg">
 
 
@@ -434,7 +434,7 @@
       
 
       
-        <p>其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章  <a href="http://stevenshi.me/2017/05/18/vim/">如何让VIM变的爱不释手</a> 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。<br><a id="more"></a></p>
+        <p>其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章 <a href="/2017/05/18/vim/" title="如何让VIM变的爱不释手">如何让VIM变的爱不释手</a> 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。<br><a id="more"></a></p>
 <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>首先找到这个文件 QtProject-qtcreator.desktop 该文件可能位于~/.local/share/applications/，也可能位于/usr/share/applications，可以使用如下命令查找：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo find -name QtProject-qtcreator.desktop</span></div></pre></td></tr></table></figure></p>
 <p>打开该文件，在Exec那一行添加 bash -i –c ：<br>   <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Exec=bash -i -c <span class="regexp">/usr/</span>local<span class="regexp">/qtcreator-3.4.2/</span>bin<span class="regexp">/qtcreator</span></div></pre></td></tr></table></figure></p>
 <p>添加 “bash -i –c” 是为了在通过快捷方式启动Qt Creator的同时加载ROS环境变量，ROS环境变量加载脚本配置在 ~/.bashrc 文件内，类似于加载工作空间里的 <em>devel/setup.bash</em> 。</p>

@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="前言计划在树莓派上仿真一下ROS 的导航功能，需要安装 navigation包，结果编译 navigation包 时提示错误：　　123456– package ‘orocos-bfl’ not found CMake Error at /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake:283 (message): A required packag">
+<meta name="description" content="前言计划在树莓派上仿真一下ROS 的导航功能，需要安装 navigation包，结果编译 navigation 包时提示错误：　　123456– package ‘orocos-bfl’ not found CMake Error at /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake:283 (message): A required packag">
 <meta name="keywords" content="BayesianFiltering">
 <meta property="og:type" content="article">
 <meta property="og:title" content="贝叶斯滤波库在树莓派上的移植">
 <meta property="og:url" content="http://stevenshi.me/2017/05/23/ros-navigation-compile/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="前言计划在树莓派上仿真一下ROS 的导航功能，需要安装 navigation包，结果编译 navigation包 时提示错误：　　123456– package ‘orocos-bfl’ not found CMake Error at /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake:283 (message): A required packag">
+<meta property="og:description" content="前言计划在树莓派上仿真一下ROS 的导航功能，需要安装 navigation包，结果编译 navigation 包时提示错误：　　123456– package ‘orocos-bfl’ not found CMake Error at /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake:283 (message): A required packag">
 <meta property="og:image" content="http://stevenshi.me/2017/05/23/ros-navigation-compile/ltierror.jpg">
-<meta property="og:updated_time" content="2017-05-23T23:50:31.492Z">
+<meta property="og:updated_time" content="2017-07-20T07:13:25.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝叶斯滤波库在树莓派上的移植">
-<meta name="twitter:description" content="前言计划在树莓派上仿真一下ROS 的导航功能，需要安装 navigation包，结果编译 navigation包 时提示错误：　　123456– package ‘orocos-bfl’ not found CMake Error at /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake:283 (message): A required packag">
+<meta name="twitter:description" content="前言计划在树莓派上仿真一下ROS 的导航功能，需要安装 navigation包，结果编译 navigation 包时提示错误：　　123456– package ‘orocos-bfl’ not found CMake Error at /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake:283 (message): A required packag">
 <meta name="twitter:image" content="http://stevenshi.me/2017/05/23/ros-navigation-compile/ltierror.jpg">
 
 
@@ -431,7 +431,7 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>计划在树莓派上仿真一下<a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 的导航功能，需要安装 <a href="https://github.com/ros-planning/navigation" target="_blank" rel="external">navigation</a>包，结果编译 <a href="https://github.com/ros-planning/navigation" target="_blank" rel="external">navigation</a>包 时提示错误：<br>　　<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">– <span class="keyword">package</span> ‘orocos-bfl’ not found </div><div class="line">CMake Error at <span class="regexp">/usr/</span>share<span class="regexp">/cmake-2.8/</span>Modules/FindPkgConfig.<span class="string">cmake:</span><span class="number">283</span> (message): </div><div class="line">A required <span class="keyword">package</span> was not found </div><div class="line">Call Stack (most recent call first): </div><div class="line"><span class="regexp">/usr/</span>share<span class="regexp">/cmake-2.8/</span>Modules/FindPkgConfig.<span class="string">cmake:</span><span class="number">337</span> (_pkg_check_modules_internal) </div><div class="line">robot_pose_ekf/CMakeLists.<span class="string">txt:</span><span class="number">6</span> (pkg_check_modules)</div></pre></td></tr></table></figure></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>计划在树莓派上仿真一下<a href="http://www.ros.org/" target="_blank" rel="external">ROS</a> 的导航功能，需要安装 <a href="https://github.com/ros-planning/navigation" target="_blank" rel="external">navigation</a>包，结果编译 <a href="https://github.com/ros-planning/navigation" target="_blank" rel="external">navigation</a> 包时提示错误：<br>　　<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">– <span class="keyword">package</span> ‘orocos-bfl’ not found </div><div class="line">CMake Error at <span class="regexp">/usr/</span>share<span class="regexp">/cmake-2.8/</span>Modules/FindPkgConfig.<span class="string">cmake:</span><span class="number">283</span> (message): </div><div class="line">A required <span class="keyword">package</span> was not found </div><div class="line">Call Stack (most recent call first): </div><div class="line"><span class="regexp">/usr/</span>share<span class="regexp">/cmake-2.8/</span>Modules/FindPkgConfig.<span class="string">cmake:</span><span class="number">337</span> (_pkg_check_modules_internal) </div><div class="line">robot_pose_ekf/CMakeLists.<span class="string">txt:</span><span class="number">6</span> (pkg_check_modules)</div></pre></td></tr></table></figure></p>
 <p>于是填了后面的坑…<br><a id="more"></a></p>
 <h1 id="贝叶斯滤波库"><a href="#贝叶斯滤波库" class="headerlink" title="贝叶斯滤波库"></a>贝叶斯滤波库</h1><p> <em>package ‘orocos-bfl’</em>是贝叶斯滤波库，参考 <a href="http://www.orocos.org/bfl" target="_blank" rel="external">BFL</a>。贝叶斯滤波库能够为动态贝叶斯网络的推理提供一个应用程序独立框架，以及递归信息处理和基于贝叶斯规则的估计算法,如卡尔曼滤波器,粒子过滤器、蒙特卡洛方法等，多应用于机器人的导航中。</p>
 <h2 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h2><p>首先下载源码：<br>　　<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$wget</span> http:<span class="regexp">//</span>people.mech.kuleuven.be<span class="regexp">/~tdelaet/</span>bfl_tar<span class="regexp">/orocos-bfl-0.6.1-src.tar.bz2</span></div></pre></td></tr></table></figure></p>

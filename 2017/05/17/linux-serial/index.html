@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux serial," />
+  <meta name="keywords" content="Linux串口," />
 
 
 
@@ -95,14 +95,14 @@
 
 
 <meta name="description" content="前言linux 下编写串口应用程序，无论是中断模式，还是 select/poll 模式，每次接收到的数据不一定是自己希望得到的数据。比如数据帧长度为40，有可能先接收到18个字节，接着接收到了12个字节，最后接收到了10个字节。不管怎么折腾，一帧数据总是不能一次接收完全。查阅相关资料，貌似是串口芯片缓存所致。串口芯片缓存满或着超时时间到都会触发读或写中断，这个说法是否真的如此，暂且不管，能不能用一">
-<meta name="keywords" content="Linux serial">
+<meta name="keywords" content="Linux串口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux串口数据不连续问题">
 <meta property="og:url" content="http://stevenshi.me/2017/05/17/linux-serial/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="前言linux 下编写串口应用程序，无论是中断模式，还是 select/poll 模式，每次接收到的数据不一定是自己希望得到的数据。比如数据帧长度为40，有可能先接收到18个字节，接着接收到了12个字节，最后接收到了10个字节。不管怎么折腾，一帧数据总是不能一次接收完全。查阅相关资料，貌似是串口芯片缓存所致。串口芯片缓存满或着超时时间到都会触发读或写中断，这个说法是否真的如此，暂且不管，能不能用一">
 <meta property="og:image" content="http://stevenshi.me/2017/05/17/linux-serial/libcssl.jpg">
-<meta property="og:updated_time" content="2017-05-19T09:11:08.071Z">
+<meta property="og:updated_time" content="2017-07-20T07:04:32.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux串口数据不连续问题">
 <meta name="twitter:description" content="前言linux 下编写串口应用程序，无论是中断模式，还是 select/poll 模式，每次接收到的数据不一定是自己希望得到的数据。比如数据帧长度为40，有可能先接收到18个字节，接着接收到了12个字节，最后接收到了10个字节。不管怎么折腾，一帧数据总是不能一次接收完全。查阅相关资料，貌似是串口芯片缓存所致。串口芯片缓存满或着超时时间到都会触发读或写中断，这个说法是否真的如此，暂且不管，能不能用一">
@@ -484,7 +484,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux-serial/" rel="tag"># Linux serial</a>
+            <a href="/tags/Linux串口/" rel="tag"># Linux串口</a>
           
         </div>
       

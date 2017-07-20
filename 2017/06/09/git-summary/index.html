@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Git Command," />
+  <meta name="keywords" content="Git命令," />
 
 
 
@@ -95,13 +95,13 @@
 
 
 <meta name="description" content="使用 Git 那么久也没来得及总结一下，今天抽空将 Git 经常用到的一些命令记录下来，以备不时之需。 创建代码仓如果远程已有代码仓可以直接 clone 至本地：   1$ git clone https://github.com/username/repository.git 使用时请将 username 和 repository 替换成自己需要的远程代码仓地址，比如 clone 我的 lear">
-<meta name="keywords" content="Git Command">
+<meta name="keywords" content="Git命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 实用命令总结">
 <meta property="og:url" content="http://stevenshi.me/2017/06/09/git-summary/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="使用 Git 那么久也没来得及总结一下，今天抽空将 Git 经常用到的一些命令记录下来，以备不时之需。 创建代码仓如果远程已有代码仓可以直接 clone 至本地：   1$ git clone https://github.com/username/repository.git 使用时请将 username 和 repository 替换成自己需要的远程代码仓地址，比如 clone 我的 lear">
-<meta property="og:updated_time" content="2017-06-13T08:57:01.540Z">
+<meta property="og:updated_time" content="2017-07-20T06:58:47.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 实用命令总结">
 <meta name="twitter:description" content="使用 Git 那么久也没来得及总结一下，今天抽空将 Git 经常用到的一些命令记录下来，以备不时之需。 创建代码仓如果远程已有代码仓可以直接 clone 至本地：   1$ git clone https://github.com/username/repository.git 使用时请将 username 和 repository 替换成自己需要的远程代码仓地址，比如 clone 我的 lear">
@@ -442,7 +442,7 @@
 <p>为了区分每次提交的不同可以附加消息提交：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">"your message to add here"</span></span></div></pre></td></tr></table></figure></p>
 <p> 如果在提交到暂存前提示错误，可以删除 git 的缓存，重新提交到暂存：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git rm -r --cached .</span></div><div class="line"><span class="meta">$</span><span class="bash"> git add --all</span></div><div class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">"your message to add here"</span></span></div></pre></td></tr></table></figure></p>
 <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>在将本地代码仓推送至远程之前，我们还需要对本地 git 进行一些必要的配置，包括全局用户名以及邮件，这个可以配置为全局的也可以配置在自己的代码仓下：<br>   <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@youremail.com"</span>  <span class="comment">// 生成SSH Key</span></div><div class="line">$ git config --global user<span class="selector-class">.name</span> <span class="string">"your username"</span> <span class="comment">//配置远程仓的用户名</span></div><div class="line">$ git config --global user<span class="selector-class">.email</span> <span class="string">"your_email@youremail.com"</span> <span class="comment">//配置邮件地址</span></div></pre></td></tr></table></figure></p>
-<p>需要将生成的 SSH Key 添加到 github 具体可参考站内文章 <a href="http://stevenshi.me/2017/05/07/hexo-blog/">hexo+github建立个人博客</a>。<br>可以通过以下命令查看是否能连接到远程：<br>   <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@github</span>.com</div></pre></td></tr></table></figure></p>
+<p>需要将生成的 SSH Key 添加到 github 具体可参考站内文章 <a href="/2017/05/07/hexo-blog/" title="hexo+github建立个人博客">hexo+github建立个人博客</a> 。<br>可以通过以下命令查看是否能连接到远程：<br>   <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@github</span>.com</div></pre></td></tr></table></figure></p>
 <h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>如果是本地新建的代码仓，需要通过以下命令将远程主机的代码仓与本地对应起来：<br>   <figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote <span class="built_in">add</span> origin http<span class="variable">s:</span>//github.<span class="keyword">com</span>/username/repository.git</div></pre></td></tr></table></figure></p>
 <p>查看远程分支：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git remote -v</span></div><div class="line"><span class="meta">$</span><span class="bash"> git remote show &lt;分支名&gt; //查看某个分支信息</span></div></pre></td></tr></table></figure></p>
 <p>如果远程有多个分支，可以通过以下命令切换：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git checkout &lt;分支名&gt;</span></div><div class="line"><span class="meta">$</span><span class="bash"> git checkout -b &lt;分支名&gt; //该命令可以创建分支并切换到分支</span></div></pre></td></tr></table></figure></p>
@@ -503,7 +503,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git-Command/" rel="tag"># Git Command</a>
+            <a href="/tags/Git命令/" rel="tag"># Git命令</a>
           
         </div>
       
