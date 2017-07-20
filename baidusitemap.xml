@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/09/hexo-advance/</loc>
+    <lastmod>2017-07-20T06:12:32.851Z</lastmod>
+    <data>
+        <display>
+        <title>hexo进阶</title>
+        <pubTime>2017-05-09T06:32:38.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/07/01/directory-for-ros/</loc>
-    <lastmod>2017-07-20T02:00:11.240Z</lastmod>
+    <lastmod>2017-07-20T02:32:01.040Z</lastmod>
     <data>
         <display>
         <title>ROS 探索</title>
@@ -258,26 +278,6 @@
            
              
               <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/09/hexo-advance/</loc>
-    <lastmod>2017-06-14T07:25:45.047Z</lastmod>
-    <data>
-        <display>
-        <title>hexo进阶</title>
-        <pubTime>2017-05-09T06:32:38.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
           
         </display>
     </data>
@@ -725,14 +725,14 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
         <display>
-        <title>浮点数与16进制的相互转换</title>
-        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
+        <title>linux串口数据不连续问题</title>
+        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
         
-        <tag>Linux</tag>
+        <tag>Linux serial</tag>
          
          
            
@@ -745,14 +745,14 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
     <lastmod>2017-05-19T09:11:08.071Z</lastmod>
     <data>
         <display>
-        <title>linux串口数据不连续问题</title>
-        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
+        <title>浮点数与16进制的相互转换</title>
+        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
         
-        <tag>Linux serial</tag>
+        <tag>Linux</tag>
          
          
            
@@ -805,19 +805,19 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
-        <title>hexo问题汇总</title>
-        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
+        <title>Qt如何在指定位置显示控件</title>
+        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>Qt</tag>
          
          
            
              
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
           
         </display>
     </data>
@@ -845,19 +845,19 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
         <display>
-        <title>Qt如何在指定位置显示控件</title>
-        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
+        <title>hexo问题汇总</title>
+        <pubTime>2017-05-13T09:42:11.000Z</pubTime>
         
-        <tag>Qt</tag>
+        <tag>hexo</tag>
          
          
            
              
-              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
           
         </display>
     </data>
