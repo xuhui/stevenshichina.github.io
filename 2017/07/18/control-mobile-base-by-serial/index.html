@@ -97,15 +97,15 @@
 <meta name="description" content="移动底座与ROS上层的通信一般采用串口或者CAN接口，本次设计选用串口与ROS上层通信。Navigation Stack 中发布给 base_controller 的话题为 cmd_vel ，因此需要设计一个节点用于接收 cmd_vel 话题，获取该话题中的消息将其转换成移动底座可识别的速度及角速度指令，通过串口发送给移动底座，从而控制移动底座按既定要求运动。该节点还需要接收底座的通过串口上传过来">
 <meta name="keywords" content="ROS serial">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过串口控制移动底座">
+<meta property="og:title" content="ROS通过串口控制移动底座">
 <meta property="og:url" content="http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="移动底座与ROS上层的通信一般采用串口或者CAN接口，本次设计选用串口与ROS上层通信。Navigation Stack 中发布给 base_controller 的话题为 cmd_vel ，因此需要设计一个节点用于接收 cmd_vel 话题，获取该话题中的消息将其转换成移动底座可识别的速度及角速度指令，通过串口发送给移动底座，从而控制移动底座按既定要求运动。该节点还需要接收底座的通过串口上传过来">
 <meta property="og:image" content="http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/cmd_vel.jpg">
 <meta property="og:image" content="http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/odom.jpg">
-<meta property="og:updated_time" content="2017-07-20T01:45:01.810Z">
+<meta property="og:updated_time" content="2017-07-20T01:58:58.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通过串口控制移动底座">
+<meta name="twitter:title" content="ROS通过串口控制移动底座">
 <meta name="twitter:description" content="移动底座与ROS上层的通信一般采用串口或者CAN接口，本次设计选用串口与ROS上层通信。Navigation Stack 中发布给 base_controller 的话题为 cmd_vel ，因此需要设计一个节点用于接收 cmd_vel 话题，获取该话题中的消息将其转换成移动底座可识别的速度及角速度指令，通过串口发送给移动底座，从而控制移动底座按既定要求运动。该节点还需要接收底座的通过串口上传过来">
 <meta name="twitter:image" content="http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/cmd_vel.jpg">
 
@@ -141,7 +141,7 @@
 
 
 
-  <title>通过串口控制移动底座 | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>ROS通过串口控制移动底座 | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -341,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">通过串口控制移动底座</h1>
+          <h1 class="post-title" itemprop="name headline">ROS通过串口控制移动底座</h1>
         
 
         <div class="post-meta">
@@ -404,7 +404,7 @@
 
           
           
-             <span id="/2017/07/18/control-mobile-base-by-serial/" class="leancloud_visitors" data-flag-title="通过串口控制移动底座">
+             <span id="/2017/07/18/control-mobile-base-by-serial/" class="leancloud_visitors" data-flag-title="ROS通过串口控制移动底座">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -959,7 +959,7 @@
         var disqus_config = function () {
           this.page.url = 'http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/';
           this.page.identifier = '2017/07/18/control-mobile-base-by-serial/';
-          this.page.title = '通过串口控制移动底座';
+          this.page.title = 'ROS通过串口控制移动底座';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';

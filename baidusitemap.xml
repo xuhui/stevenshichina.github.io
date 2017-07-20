@@ -4,19 +4,19 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/06/26/hexo-insert-formula/</loc>
-    <lastmod>2017-07-20T01:49:14.449Z</lastmod>
+    <loc>http://stevenshi.me/2017/07/01/directory-for-ros/</loc>
+    <lastmod>2017-07-20T02:00:11.240Z</lastmod>
     <data>
         <display>
-        <title>hexo中插入数学公式</title>
-        <pubTime>2017-06-26T03:28:55.000Z</pubTime>
+        <title>ROS 探索</title>
+        <pubTime>2017-07-01T01:23:20.000Z</pubTime>
         
-        <tag>formula</tag>
+        <tag>ROS</tag>
          
          
            
              
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
           
         </display>
     </data>
@@ -25,10 +25,10 @@
     
   <url>
     <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
-    <lastmod>2017-07-20T01:45:01.810Z</lastmod>
+    <lastmod>2017-07-20T01:58:58.034Z</lastmod>
     <data>
         <display>
-        <title>通过串口控制移动底座</title>
+        <title>ROS通过串口控制移动底座</title>
         <pubTime>2017-07-18T07:08:51.000Z</pubTime>
         
         <tag>ROS serial</tag>
@@ -44,19 +44,19 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/07/01/directory-for-ros/</loc>
-    <lastmod>2017-07-18T07:42:23.464Z</lastmod>
+    <loc>http://stevenshi.me/2017/06/26/hexo-insert-formula/</loc>
+    <lastmod>2017-07-20T01:49:14.449Z</lastmod>
     <data>
         <display>
-        <title>ROS 探索</title>
-        <pubTime>2017-07-01T01:23:20.000Z</pubTime>
+        <title>hexo中插入数学公式</title>
+        <pubTime>2017-06-26T03:28:55.000Z</pubTime>
         
-        <tag>ROS</tag>
+        <tag>formula</tag>
          
          
            
              
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
           
         </display>
     </data>
@@ -825,26 +825,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>Qt如何在指定位置显示控件</title>
-        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
-        
-        <tag>Qt</tag>
-         
-         
-           
-             
-              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -858,6 +838,26 @@
            
              
               <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>Qt如何在指定位置显示控件</title>
+        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
+        
+        <tag>Qt</tag>
+         
+         
+           
+             
+              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
           
         </display>
     </data>
