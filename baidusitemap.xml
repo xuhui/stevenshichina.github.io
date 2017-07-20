@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://stevenshi.me/2017/05/26/hexo-add-copyright/</loc>
-    <lastmod>2017-07-20T08:21:12.709Z</lastmod>
+    <lastmod>2017-07-20T08:22:33.588Z</lastmod>
     <data>
         <display>
         <title>hexo文章末尾添加版权信息</title>
@@ -845,26 +845,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>Qt如何在指定位置显示控件</title>
-        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
-        
-        <tag>Qt</tag>
-         
-         
-           
-             
-              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -878,6 +858,26 @@
            
              
               <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>Qt如何在指定位置显示控件</title>
+        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
+        
+        <tag>Qt</tag>
+         
+         
+           
+             
+              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
           
         </display>
     </data>
