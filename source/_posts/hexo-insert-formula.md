@@ -151,6 +151,23 @@ n & \text{Left} & \text{Center} & \text{Right} \\\\
 2 & -11 & 19 & -80 \\\\
 3 & 70 & 209 & 1+i \\\\
 \end{array}$$
+表格的插入也可以使用以下方式：
+　　```
+名称|说明
+---|---|---
+temperature|  室内温度
+set temperature|  设定温度
+height|  室内高度
+　　```
+显示效果：
+
+名称|说明
+---|---|---
+temperature|  室内温度
+set temperature|  设定温度
+height|  室内高度
+
+
 矩阵显示和表格很相似
 　　```
 $$\left[
