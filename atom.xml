@@ -513,7 +513,7 @@
     <link href="http://stevenshi.me/2017/06/12/putty-graphics-ubuntu/"/>
     <id>http://stevenshi.me/2017/06/12/putty-graphics-ubuntu/</id>
     <published>2017-06-12T00:16:20.000Z</published>
-    <updated>2017-06-12T01:47:53.296Z</updated>
+    <updated>2017-07-20T08:39:15.430Z</updated>
     
     <content type="html"><![CDATA[<p>远程登录 linux 一般通过 SSH 协议，或 telnet 协议，这两种协议一般都只是命令行界面，而不能远程运行带有图形界面的应用程序。但是 putty 这款软件支持 X11 Forwarding,如果再配合一个 <a href="https://zh.wikipedia.org/wiki/X_Window%E7%B3%BB%E7%B5%B1" target="_blank" rel="external">X server</a> 问题就解决了。一般常用的 <a href="https://zh.wikipedia.org/wiki/X_Window%E7%B3%BB%E7%B5%B1" target="_blank" rel="external">X server</a> 有 <a href="https://sourceforge.net/projects/xming/" target="_blank" rel="external">Xming</a> 和 <a href="https://sourceforge.net/projects/vcxsrv/" target="_blank" rel="external">VcXsrv</a>。基本的原理就是 ubuntu 开启 X11 转发服务，putty 负责数据的转发，而 X Server 进行图形界面的显示。<br><a id="more"></a></p>
 <h1 id="ssh-配置"><a href="#SSH-配置" class="headerlink" title="SSH 配置"></a>SSH 配置</h1><p>配置 ubuntu 允许 X11 转发，打开 /etc/ssh/sshd_config 使能 X11 forwarding:<br>   <figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">X11Forwarding</span> <span class="literal">yes</span></div></pre></td></tr></table></figure></p>
@@ -533,7 +533,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://stevenshi.me/categories/Linux/"/>
+      <category term="linux" scheme="http://stevenshi.me/categories/linux/"/>
     
     
       <category term="PuttyGraphics" scheme="http://stevenshi.me/tags/PuttyGraphics/"/>
@@ -545,7 +545,7 @@
     <link href="http://stevenshi.me/2017/06/09/git-summary/"/>
     <id>http://stevenshi.me/2017/06/09/git-summary/</id>
     <published>2017-06-09T02:16:08.000Z</published>
-    <updated>2017-07-20T06:58:47.889Z</updated>
+    <updated>2017-07-20T08:39:15.851Z</updated>
     
     <content type="html"><![CDATA[<p>使用 Git 那么久也没来得及总结一下，今天抽空将 Git 经常用到的一些命令记录下来，以备不时之需。</p>
 <h1 id="创建代码仓"><a href="#创建代码仓" class="headerlink" title="创建代码仓"></a>创建代码仓</h1><p>如果远程已有代码仓可以直接 clone 至本地：<br>   <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="keyword">clone</span> <span class="title">https</span>://github.com/username/repository.git</div></pre></td></tr></table></figure></p>
@@ -582,7 +582,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://stevenshi.me/categories/Linux/"/>
+      <category term="linux" scheme="http://stevenshi.me/categories/linux/"/>
     
     
       <category term="Git命令" scheme="http://stevenshi.me/tags/Git%E5%91%BD%E4%BB%A4/"/>

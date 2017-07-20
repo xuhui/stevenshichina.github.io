@@ -4,6 +4,126 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/18/vim/</loc>
+    <lastmod>2017-07-20T08:39:47.499Z</lastmod>
+    <data>
+        <display>
+        <title>如何让Vim变的爱不释手</title>
+        <pubTime>2017-05-18T01:02:06.000Z</pubTime>
+        
+        <tag>Vim</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/15/raspberryPi/</loc>
+    <lastmod>2017-07-20T08:39:31.203Z</lastmod>
+    <data>
+        <display>
+        <title>树莓派3B使用前的配置</title>
+        <pubTime>2017-05-15T01:32:02.000Z</pubTime>
+        
+        <tag>raspberryPi</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
+    <lastmod>2017-07-20T08:39:15.852Z</lastmod>
+    <data>
+        <display>
+        <title>linux串口数据不连续问题</title>
+        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
+        
+        <tag>Linux串口</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/06/09/git-summary/</loc>
+    <lastmod>2017-07-20T08:39:15.851Z</lastmod>
+    <data>
+        <display>
+        <title>Git 实用命令总结</title>
+        <pubTime>2017-06-09T02:16:08.000Z</pubTime>
+        
+        <tag>Git命令</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/06/12/putty-graphics-ubuntu/</loc>
+    <lastmod>2017-07-20T08:39:15.430Z</lastmod>
+    <data>
+        <display>
+        <title>Putty 远程运行 ubuntu 图形界面程序</title>
+        <pubTime>2017-06-12T00:16:20.000Z</pubTime>
+        
+        <tag>PuttyGraphics</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
+    <lastmod>2017-07-20T08:38:50.107Z</lastmod>
+    <data>
+        <display>
+        <title>浮点数与16进制的相互转换</title>
+        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
+        
+        <tag>浮点与16进制</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/26/hexo-add-copyright/</loc>
     <lastmod>2017-07-20T08:22:33.588Z</lastmod>
     <data>
@@ -17,26 +137,6 @@
            
              
               <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/18/vim/</loc>
-    <lastmod>2017-07-20T07:23:08.512Z</lastmod>
-    <data>
-        <display>
-        <title>如何让Vim变的爱不释手</title>
-        <pubTime>2017-05-18T01:02:06.000Z</pubTime>
-        
-        <tag>Vim</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
           
         </display>
     </data>
@@ -164,46 +264,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/15/raspberryPi/</loc>
-    <lastmod>2017-07-20T07:06:25.011Z</lastmod>
-    <data>
-        <display>
-        <title>树莓派3B使用前的配置</title>
-        <pubTime>2017-05-15T01:32:02.000Z</pubTime>
-        
-        <tag>raspberryPi</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/17/linux-serial/</loc>
-    <lastmod>2017-07-20T07:04:32.705Z</lastmod>
-    <data>
-        <display>
-        <title>linux串口数据不连续问题</title>
-        <pubTime>2017-05-17T06:51:26.000Z</pubTime>
-        
-        <tag>Linux串口</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/13/hexo-error/</loc>
     <lastmod>2017-07-20T07:03:59.441Z</lastmod>
     <data>
@@ -257,46 +317,6 @@
            
              
               <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/06/09/git-summary/</loc>
-    <lastmod>2017-07-20T06:58:47.889Z</lastmod>
-    <data>
-        <display>
-        <title>Git 实用命令总结</title>
-        <pubTime>2017-06-09T02:16:08.000Z</pubTime>
-        
-        <tag>Git命令</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/05/11/float-to-byte/</loc>
-    <lastmod>2017-07-20T06:57:03.043Z</lastmod>
-    <data>
-        <display>
-        <title>浮点数与16进制的相互转换</title>
-        <pubTime>2017-05-11T05:35:03.000Z</pubTime>
-        
-        <tag>浮点与16进制</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
           
         </display>
     </data>
@@ -745,26 +765,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/06/12/putty-graphics-ubuntu/</loc>
-    <lastmod>2017-06-12T01:47:53.296Z</lastmod>
-    <data>
-        <display>
-        <title>Putty 远程运行 ubuntu 图形界面程序</title>
-        <pubTime>2017-06-12T00:16:20.000Z</pubTime>
-        
-        <tag>PuttyGraphics</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://stevenshi.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/23/ubuntu-hexo/</loc>
     <lastmod>2017-05-27T01:16:39.526Z</lastmod>
     <data>
@@ -845,26 +845,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>hexo 博客备份</title>
-        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -878,6 +858,26 @@
            
              
               <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>hexo 博客备份</title>
+        <pubTime>2017-05-07T13:25:07.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
           
         </display>
     </data>
