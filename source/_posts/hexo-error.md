@@ -32,7 +32,7 @@ categories: hexo
  多数是网络问题，重来一次即可。
 ## Cannot GET /
  当启动服务器后，浏览器输入*http://localhost:4000*，却提示错误：*Cannot GET*
- 一般是配置文件错误，当在其他电脑从远程clone下来代码仓后，安装必要的工具使用 *hexo clean* 以及 *hexo g* 后产生的 *public* 文件与本地电脑原有源码仓生成的 *public* 不一样，查看里面并没有生成以日期命名的文章文件，怀疑是配置文件出了问题，对比两个配置文件都一样，最后发现 *node_modules* 文件夹问题，就是hexo的配置和安装问题，其他文件都推送到远程仓库，唯独没有推送这个文件夹，它保存有hexo的一些可执行文件。按照hexo安装教程在clone下来的代码仓重新安装一遍hexo，最后还是不行。使用[WinMerge](http://winmerge.org/)比较原电脑中和现在电脑中的两个node_modules文件的不同，发现hexo的很多二进制文件都不同。无语-
+ 一般是配置文件错误，当在其他电脑从远程clone下来代码仓后，安装必要的工具使用 *hexo clean* 以及 *hexo g* 后产生的 *public* 文件与本地电脑原有源码仓生成的 *public* 不一样，查看里面并没有生成以日期命名的文章文件，怀疑是配置文件出了问题，对比两个配置文件都一样，最后发现 *node_modules* 文件夹问题，就是hexo的配置和安装问题，其他文件都推送到远程仓库，唯独没有推送这个文件夹，它保存有hexo的一些可执行文件。按照hexo安装教程在clone下来的代码仓重新安装一遍hexo，最后还是不行。使用 [WinMerge](http://winmerge.org/) 比较原电脑中和现在电脑中的两个node_modules文件的不同，发现hexo的很多二进制文件都不同。无语-
  当使用 *hexo init* 后，再把远程仓库的配置文件覆盖到本地电脑后，可以正常生成静态网页。肯定是 *hexo* 安装不完整缺少某些依赖项。
  所以，当在一台新电脑部署 *hexo* 的正确做法是安装好 *hexo* 之后需要 *hexo init* 一下，这样会安装依赖项，得到完整的 *node_modules*文件夹：
 　　```
@@ -62,7 +62,7 @@ categories: hexo
  error: failed to execute prompt script (exit code 1)
  fatal: could not read Username for 'https://github.com': Invalid argument.
 　　```
- 出现该现象是 *windows* 环境下的*git bash shell*配置问题，当改用 *github for windows* 下的*git bash shell* 再次部署时问题解决。由于国内的网络问题，官网下载很难安装成功，这里附上一个CSDN上的大神的离线安装包地址[GithubforWindows](http://download.csdn.net/user/devsplash)。
+ 出现该现象是 *windows* 环境下的*git bash shell*配置问题，当改用 *github for windows* 下的*git bash shell* 再次部署时问题解决。由于国内的网络问题，官网下载很难安装成功，这里附上一个CSDN上的大神的离线安装包地址 [GithubforWindows](http://download.csdn.net/user/devsplash)。
 # Permission denied (publickey).
  当部署博客文件时提示错误：
 　　```

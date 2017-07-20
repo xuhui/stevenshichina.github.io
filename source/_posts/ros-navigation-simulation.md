@@ -39,8 +39,7 @@ comments: true
 *costmap_common_params.yaml*
 *global_costmap_params.yaml*
 *local_costmap_params.yaml*
-里面的参数说明可以参考官方文档[]()
-下面的命令启动启动一个机器人，使用 *move_base*使其向前移动 2m：
+里面的参数说明可以参考官方文档。下面的命令启动启动一个机器人，使用 *move_base*使其向前移动 2m：
    ```
  $roslaunch rbx1_bringup fake_turtlebot.launch //启动一个机器人 使用ArbotiX模拟器
  $roslaunch rbx1_nav fake_move_base_blank_map.launch ///以空白地图启动move_base节点

@@ -2,7 +2,7 @@
 title: linux串口数据不连续问题
 date: 2017-05-17 14:51:26
 categories: Linux
-tags:  Linux serial
+tags:  Linux串口
 comments: true
 ---
 # 前言

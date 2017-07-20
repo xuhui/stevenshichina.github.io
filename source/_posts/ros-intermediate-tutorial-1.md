@@ -19,11 +19,11 @@ c,导航功能包起初以正方形机器人为模型开发，因此对正方形
 从上图中可以看出， navigation 功能包集的输入有 传感器 tf 变换 (sensor transforms)、里程计 (odometry source) 以及激光雷达或者点云数据 (sensor sources)，输出是 cmd_vel 速度消息 (base controller)。框内部分为 navigation 的核心 move_base 功能，它负责规划整个导航所需的流程，它是导航所必须的，灰色框内部分是可选的，蓝色框内是需要我们提供的组件。一般在 ROS 中进行导航功能使用到的三个包分别为 move_base、gmapping、amcl; move_base 根据获取的传感器消息进行路径规划，并移动机器人到达指定位置；gmapping 根据获取的激光雷达数据或者深度相机建立地图；amcl可以根据已有地图进行机器人的定位。
 # 机器人配置
 ## TF变换
-导航功能包集需要机器人不断的使用 [tf](http://wiki.ros.org/tf) 发布机器人的坐标系之间的变换关系，关于这一块可以参考 [TF配置](http://wiki.ros.org/cn/navigation/Tutorials/RobotSetup/TF) 也可以参考本站文章 [tf 配置](http://stevenshi.me/2017/06/08/ros-primary-tutorial-14/).
+导航功能包集需要机器人不断的使用 [tf](http://wiki.ros.org/tf) 发布机器人的坐标系之间的变换关系，关于这一块可以参考 [TF配置](http://wiki.ros.org/cn/navigation/Tutorials/RobotSetup/TF) 也可以参考本站文章 {% post_link ros-primary-tutorial-14 ROS初级十四 tf配置%}。
 ## 传感器信息(sensor source)
-机器人要想避开现实环境中的障碍物离不开传感器信息的实时获取，这里的传感器我们假定为激光雷达或点云数据，传感器需要不断的发布 sensor_msgs/LaserScan 或者 sensor_msgs/PointCloud 消息。关于如何发布这些消息可以参考站内文章 [发布传感器数据流](http://stevenshi.me/2017/07/07/ros-primary-tutorial-16/#more) 或者参考 [在ROS上发布传感器数据流](http://wiki.ros.org/cn/navigation/Tutorials/RobotSetup/Sensors)。
+机器人要想避开现实环境中的障碍物离不开传感器信息的实时获取，这里的传感器我们假定为激光雷达或点云数据，传感器需要不断的发布 sensor_msgs/LaserScan 或者 sensor_msgs/PointCloud 消息。关于如何发布这些消息可以参考站内文章 {% post_link ros-primary-tutorial-16 ROS初级十六发布传感器数据流 %} 或者参考 [在ROS上发布传感器数据流](http://wiki.ros.org/cn/navigation/Tutorials/RobotSetup/Sensors)。
 ## 里程计消息(odometry source)
-ROS 导航功能包集在正确的导航之前需要获取底层传过来的里程计消息，里程计消息使用 [tf](http://wiki.ros.org/tf) 和 nav_msgs/Odometry 发布，关于如何发布可参考 [Publishing Odometry Information over ROS](http://wiki.ros.org/navigation/Tutorials/RobotSetup/Odom) 也可参考站内文章 [发布里程计消息](http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/)。
+ROS 导航功能包集在正确的导航之前需要获取底层传过来的里程计消息，里程计消息使用 [tf](http://wiki.ros.org/tf) 和 nav_msgs/Odometry 发布，关于如何发布可参考 [Publishing Odometry Information over ROS](http://wiki.ros.org/navigation/Tutorials/RobotSetup/Odom) 也可参考站内文章 {% post_link ros-primary-tutorial-15 ROS初级十五 发布里程计消息 %}。
 ## 基座控制器(base controller)
 ROS 导航功能包集 navigation 可以通过 cmd_vel 话题发布 geometry_msgs/Twist 类型的消息，这个消息基于机器人的基座坐标系 base_link ,它负责将运动命令传递给移动基座。也就是必须有一个节点负责定制 cmd_vel 话题，并将该话题上的速度(vx, vy, vtheta)指令转化为电机指令(cmd_vel.linear.x, cmd_vel.linear.y, cmd_vel.angular.z)发送到移动底座，使机器人按既定要求移动。
 ## 地图(map_server)

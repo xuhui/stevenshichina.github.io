@@ -2,7 +2,7 @@
 title: Git 实用命令总结
 date: 2017-06-09 10:16:08
 categories: Linux
-tags: Git Command
+tags: Git命令
 comments: true
 ---
 使用 Git 那么久也没来得及总结一下，今天抽空将 Git 经常用到的一些命令记录下来，以备不时之需。
@@ -60,7 +60,7 @@ $ git clone https://github.com/StevenShiChina/learning_tf.git
  $ git config --global user.name "your username" //配置远程仓的用户名
  $ git config --global user.email "your_email@youremail.com" //配置邮件地址
    ```
-需要将生成的 SSH Key 添加到 github 具体可参考站内文章 [hexo+github建立个人博客](http://stevenshi.me/2017/05/07/hexo-blog/)。
+需要将生成的 SSH Key 添加到 github 具体可参考站内文章 {% post_link hexo-blog hexo+github建立个人博客 %} 。
 可以通过以下命令查看是否能连接到远程：
    ```
  $ ssh -T git@github.com

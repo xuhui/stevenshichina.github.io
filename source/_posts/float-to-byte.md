@@ -2,7 +2,7 @@
 title: 浮点数与16进制的相互转换
 date: 2017-05-11 13:35:03
 categories: Linux
-tags: Linux
+tags: 浮点与16进制
 comments: true
 ---
 # 前言

@@ -6,7 +6,7 @@ categories: ROS
 comments: true
 ---
 # 前言
-目前对于基于[ROS](http://www.ros.org/)的可移动平台，有两种方案较为流行，用户较多，可参考的资料也多。一种是使用英伟达的[TK1](http://www.nvidia.cn/object/jetson-tk1-embedded-dev-kit-cn.html)，另外一种是使用[raspberryPi](https://www.raspberrypi.org/)。相对于[TK1](http://www.nvidia.cn/object/jetson-tk1-embedded-dev-kit-cn.html)，树莓派在价格上更亲民，虽然性能上差一些，在计算[SLAM](https://zh.wikipedia.org/wiki/%E5%8D%B3%E6%97%B6%E5%AE%9A%E4%BD%8D%E4%B8%8E%E5%9C%B0%E5%9B%BE%E6%9E%84%E5%BB%BA)时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。
+目前对于基于 [ROS](http://www.ros.org/) 的可移动平台，有两种方案较为流行用户较多，可参考的资料也多。一种是使用英伟达的 [TK1](http://www.nvidia.cn/object/jetson-tk1-embedded-dev-kit-cn.html)，另外一种是使用 [raspberryPi](https://www.raspberrypi.org/)。相对于 [TK1](http://www.nvidia.cn/object/jetson-tk1-embedded-dev-kit-cn.html)，树莓派在价格上更亲民，虽然性能上差一些，在计算 [SLAM](https://zh.wikipedia.org/wiki/%E5%8D%B3%E6%97%B6%E5%AE%9A%E4%BD%8D%E4%B8%8E%E5%9C%B0%E5%9B%BE%E6%9E%84%E5%BB%BA) 时会有卡顿现象，但对于入门级用户来说，也是个不错的选择。
 <!--more-->
 # 树莓派3B上安装ROS-Indigo
  *环境*： *Raspbian OS Jessie*

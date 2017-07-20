@@ -5,7 +5,7 @@ categories: ROS
 tags: ROS Qt
 comments: true
 ---
-其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章  [如何让VIM变的爱不释手](http://stevenshi.me/2017/05/18/vim/) 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。
+其实 vim 配置好后可以很方便的调试 ROS ，就是 Vim 配置比较麻烦，可以参考我的站内文章 {% post_link vim 如何让VIM变的爱不释手 %} 。 相信很多人都用过 Qt ，它原生支持 CMake ，因此 Qt 可以很好的支持 ROS，本篇学习如何使用 Qt 进行 ROS 的开发。
 <!--more-->
 # 配置
 首先找到这个文件 QtProject-qtcreator.desktop 该文件可能位于~/.local/share/applications/，也可能位于/usr/share/applications，可以使用如下命令查找：

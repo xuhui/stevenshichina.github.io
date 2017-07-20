@@ -177,7 +177,7 @@ baidu_site_verification: true
  GitHub: github
  Email: envelope
 　　```
-nexT使用的图标来自[FontAwesome](http://fontawesome.io/)，只要上面有的都可以配置到nexT使用。
+nexT使用的图标来自 [FontAwesome](http://fontawesome.io/)，只要上面有的都可以配置到nexT使用。
 # 添加本地搜索
 安装*hexo-generator-serarch*
 　　```
@@ -195,9 +195,9 @@ nexT使用的图标来自[FontAwesome](http://fontawesome.io/)，只要上面有
  avatar: /images/avatar.jpg
 　　```
 # 生成网站二维码
-二维码生成工具很多，这个[Custom QR Code Generator](https://www.unitag.io/qrcode)比较不错。生成后将二维码添加到关于页面。
+二维码生成工具很多，这个 [Custom QR Code Generator](https://www.unitag.io/qrcode) 比较不错。生成后将二维码添加到关于页面。
 # 设置代码高亮主题
-NexT 使用[TomorrowTheme](https://github.com/chriskempson/tomorrow-theme)作为代码高亮，共有5款主题供选择。 打开主题配置文件*themes/nexT/_config.yml*修改:
+NexT 使用 [TomorrowTheme](https://github.com/chriskempson/tomorrow-theme) 作为代码高亮，共有5款主题供选择。 打开主题配置文件*themes/nexT/_config.yml*修改:
 　　```
  # Code Highlight theme
  # Available value:
@@ -236,7 +236,7 @@ NexT 使用[TomorrowTheme](https://github.com/chriskempson/tomorrow-theme)作为
  canvas_nest: true
 　　```
 # 开启JiaThis分享
-[Jiathis](http://www.jiathis.com/)为文章提供社会化分享功能。修改主题配置文件*themes/next/_config.yml*:
+[Jiathis](http://www.jiathis.com/) 为文章提供社会化分享功能。修改主题配置文件*themes/next/_config.yml*:
 　　```
  # Share
  jiathis: true
@@ -258,7 +258,7 @@ NexT 使用[TomorrowTheme](https://github.com/chriskempson/tomorrow-theme)作为
 
 　　```
 # 添加DISQUS评论
-修改主题配置文件开启[DISQUS](https://disqus.com/)功能：
+修改主题配置文件开启 [DISQUS](https://disqus.com/) 功能：
 　　```
  # Disqus
  disqus:
@@ -266,27 +266,27 @@ NexT 使用[TomorrowTheme](https://github.com/chriskempson/tomorrow-theme)作为
   shortname:
   count: true
 　　```
-去[DISQUS](https://disqus.com/)官网注册，并获取自己的shortname,填写至主题配置文件中的对应字段中。取消一篇文章的评论只需要在文章的头部修改：
+去 [DISQUS](https://disqus.com/) 官网注册，并获取自己的shortname,填写至主题配置文件中的对应字段中。取消一篇文章的评论只需要在文章的头部修改：
 　　```
  comments: false
 　　```
 # 设置网站图标
-图标制作网站[faviconer](http://www.faviconer.com/)，制作完成自己的网站图标后放到*hexo/source*根目录下，并修改主题配置文件：
+图标制作网站 [faviconer](http://www.faviconer.com/)，制作完成自己的网站图标后放到*hexo/source*根目录下，并修改主题配置文件：
 　　```
 # Put your favicon.ico into `hexo-site/source/` directory.
 favicon: /favicon.ico
 　　```
 # 页面中插入图片
-图片的插入可以使用[MarkdownPad](http://markdownpad.com/ "markdown Editor for Windows")的语法：
+图片的插入可以使用 [MarkdownPad](http://markdownpad.com/ "markdown Editor for Windows") 的语法：
 　　```
  ![图片名称](图片地址)
 　　```
-图片可以放在本地，也可以放在云端。建议放在云端，因为github的空间有限，云端可以使用[七牛云存储](https://www.qiniu.com/)。
-本地图片的插入有两种方法，早期的[hexo](https://hexo.io/zh-cn/docs/ "hexo说明")需要将图片放在网站根目录下的*source/*文件夹中比如*source/images/*文件夹，将图片放到该处，即可在页面中引用：
+图片可以放在本地，也可以放在云端。建议放在云端，因为github的空间有限，云端可以使用 [七牛云存储](https://www.qiniu.com/)。
+本地图片的插入有两种方法，早期的 [hexo](https://hexo.io/zh-cn/docs/ "hexo说明") 需要将图片放在网站根目录下的*source/*文件夹中比如*source/images/*文件夹，将图片放到该处，即可在页面中引用：
 　　```
  ![test](source/images/test.jgp)
 　　```
-[hexo](https://hexo.io/zh-cn/docs/ "hexo说明")2.0之后，引入新方法，参考[CodeFalling/hexo-asset-image](https://github.com/CodeFalling/hexo-asset-image)
+[hexo](https://hexo.io/zh-cn/docs/ "hexo说明") 2.0之后，引入新方法，参考 [CodeFalling/hexo-asset-image](https://github.com/CodeFalling/hexo-asset-image)
 安装插件：
 　　```
  $npm install hexo-asset-image --save
@@ -304,5 +304,14 @@ favicon: /favicon.ico
  ![xx](my-Publish/my.jpg)
 　　```
 即可插入图片，*xx*可以随意。
-
+# 站内链接
+在自己的博客内链接站内文章，以前都直接加上永久链接地址，这种做法有一定的弊端，如果域名更换那就坏了。站内链接简单的做法如下：
+　　```
+{% post_link 文章文件名（不要后缀） 文章标题（可选） %}
+　　```
+比如直接链接本篇文章，使用以下代码：
+　　```
+{% post_link hexo-advance hexo进阶 %}
+　　```
+效果：{% post_link hexo-advance hexo进阶 %}
  

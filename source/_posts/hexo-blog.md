@@ -27,7 +27,7 @@ comments: true
 　　```
 　$hexo -v
 　　```
-*hexo*根目录下的*_config.yml*文件是全局配置文件，修改该文件实现自己的配置。具体可参考[hexo](https://hexo.io/zh-cn/docs/ "hexo说明")官网。
+*hexo*根目录下的*_config.yml*文件是全局配置文件，修改该文件实现自己的配置。具体可参考 [hexo](https://hexo.io/zh-cn/docs/ "hexo说明") 官网。
 ## hexo常用命令
 hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令：
 　　```
@@ -46,7 +46,7 @@ hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令
 　　```
 这个时候在浏览器输入localhost:4000即可查看到生成的静态网页：![Alt text](hexo-blog/hello-world.jpg)
 ## 部署到github
-在hexo根目录下找到配置文件_config.yml，使用[MarkdownPad](http://markdownpad.com/ "markdown Editor for Windows") 打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：
+在hexo根目录下找到配置文件_config.yml，使用 [MarkdownPad](http://markdownpad.com/ "markdown Editor for Windows") 打开，编辑最后的deploy字段，将自己的github仓库地址输入进去：
 　　```
 　deploy:
 　　　type: git //注意冒号':'后面的空格一定要有
@@ -58,7 +58,7 @@ hexo常用命令可以参考hexo的帮助说明，下面列举几个常用命令
 　　```
  $ssh-keygen -t rsa -C "your_email@youremail.com"
 　　```
-引号里面的内容输入邮箱地址，然后回车，会提示文件保存的路径，这时候按回车键确认，然后会提示你输入密码，然后会确认输入一次，在*c:/user/username/.ssh/*文件夹内看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，打开id_rsa.pub然后选中里面的全部内容，复制下来。登录[github](https://github.com/login),点击*setting*,左边有一个*SSH and GPG keys*选项，进入*New SSH*选项，*title*随意，将之前复制的内容粘贴到key里面去。回到*Git bash*命令行，输入以下命令验证:
+引号里面的内容输入邮箱地址，然后回车，会提示文件保存的路径，这时候按回车键确认，然后会提示你输入密码，然后会确认输入一次，在*c:/user/username/.ssh/*文件夹内看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，打开id_rsa.pub然后选中里面的全部内容，复制下来。登录 [github](https://github.com/login),点击*setting*,左边有一个*SSH and GPG keys*选项，进入*New SSH*选项，*title*随意，将之前复制的内容粘贴到key里面去。回到*Git bash*命令行，输入以下命令验证:
 　　```
  $ssh -T git@github.com
 　　```

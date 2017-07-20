@@ -64,7 +64,7 @@ $ rosrun turtlesim turtlesim_node
    ```
 $ sudo apt-get install ros-indigo-ros-tutorials
    ```
-或者通过源码下载后自行编译 参考[ros_tutorials](https://github.com/ros/ros_tutorials) 。运行效果![](ros-primary-tutorial-5/turtlesim.jpg)
+或者通过源码下载后自行编译 参考 [ros_tutorials](https://github.com/ros/ros_tutorials) 。运行效果![](ros-primary-tutorial-5/turtlesim.jpg)
 如果此时打开另一个 terminal 并使用前面的命令查看节点信息：
    ```
  $ rosnode list

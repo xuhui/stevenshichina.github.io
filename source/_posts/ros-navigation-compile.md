@@ -6,7 +6,7 @@ tags: BayesianFiltering
 comments: true
 ---
 # 前言
-计划在树莓派上仿真一下[ROS](http://www.ros.org/) 的导航功能，需要安装 [navigation](https://github.com/ros-planning/navigation)包，结果编译 [navigation](https://github.com/ros-planning/navigation)包 时提示错误：
+计划在树莓派上仿真一下[ROS](http://www.ros.org/) 的导航功能，需要安装 [navigation](https://github.com/ros-planning/navigation)包，结果编译 [navigation](https://github.com/ros-planning/navigation) 包时提示错误：
 　　```
  – package ‘orocos-bfl’ not found 
  CMake Error at /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake:283 (message): 

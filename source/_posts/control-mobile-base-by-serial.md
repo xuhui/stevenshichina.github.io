@@ -8,7 +8,7 @@ comments: true
 移动底座与ROS上层的通信一般采用串口或者CAN接口，本次设计选用串口与ROS上层通信。Navigation Stack 中发布给 base_controller 的话题为 cmd_vel ，因此需要设计一个节点用于接收 cmd_vel 话题，获取该话题中的消息将其转换成移动底座可识别的速度及角速度指令，通过串口发送给移动底座，从而控制移动底座按既定要求运动。该节点还需要接收底座的通过串口上传过来的里程编码消息并转换成里程计消息发布到 ROS 上层，为 ROS 导航提供必须的里程计消息。
 <!--more-->
 # 订阅cmd_vel话题
-设计一个节点，我们暂时命名为 my_serial_node ,在该节点中借助 [ros-serial](https://github.com/wjwwood/serial)实现串口的收发功能，并订阅话题 cmd_vel, 为了方便测试我们这里暂时订阅 /turtle1/cmd_vel 话题，详细看代码：
+设计一个节点，我们暂时命名为 my_serial_node ,在该节点中借助 [ros-serial](https://github.com/wjwwood/serial) 实现串口的收发功能，并订阅话题 cmd_vel, 为了方便测试我们这里暂时订阅 /turtle1/cmd_vel 话题，详细看代码：
    ```
   #include <ros/ros.h>
   #include <serial/serial.h>
@@ -71,7 +71,7 @@ $ rosrun my_serial_node my_serial_node
 head|head|A-speed|B-speed|C-speed|CRC
 ---|---|---
 0xff|0xfe|float|float|float|u8
-因此串口发送的总字节数是15字节，在获取到cmd_vel话题后提取有效数据并打包送至底层，串口发送借助 [ros-serial](https://github.com/wjwwood/serial)的 write 函数功能即可。
+因此串口发送的总字节数是15字节，在获取到cmd_vel话题后提取有效数据并打包送至底层，串口发送借助 [ros-serial](https://github.com/wjwwood/serial) 的 write 函数功能即可。
 　　```
 serial.write(buffer,buffersize)
 　　```
@@ -82,7 +82,8 @@ head|head|x-position|y-position|x-speed|y-speed|angular-speed|pose-angular|CRC
 ---|---|---
 0xff|0xae|float|float|float|float|float|float|u8
 
-因此串口接收数据总字节数为27字节，串口接收完成后通过校验分析数据无误后，提取对应数据填充到 odometry 消息中，并发布出去。串口接收 [ros-serial](https://github.com/wjwwood/serial) 提供了很多接口函数，因为底层发送的都是16进制格式，因为数据接收我选择了 Serial::read (uint8_t *buffer, size_t size) 函数，这个可以从[ros-serial](https://github.com/wjwwood/serial) 的源码中查到。里程计消息的发布可以参考站内文章 [发布里程计消息](http://stevenshi.me/2017/07/07/ros-primary-tutorial-15/)贴一下本次设计的串口节点的完整代码：
+因此串口接收数据总字节数为27字节，串口接收完成后通过校验分析数据无误后，提取对应数据填充到 odometry 消息中，并发布出去。串口接收 [ros-serial](https://github.com/wjwwood/serial) 提供了很多接口函数，因为底层发送的都是16进制格式，因此数据接收我选择了 Serial::read (uint8_t *buffer, size_t size) 函数，这个可以从 [ros-serial](https://github.com/wjwwood/serial) 的源码中查到。里程计消息的发布可以参考站内文章: {% post_link ros-primary-tutorial-15 ROS初级十五 发布里程计消息 %} 
+贴一下本次设计的串口节点的完整代码：
 　　```
 /*********************************
  * 串口节点，订阅cmd_vel话题并发布odometry话题
@@ -340,4 +341,4 @@ $ rostopic echo /odom
 可以看到串口接收到底层送来的数据并实时的进行发布：
 ![](control-mobile-base-by-serial/odom.jpg)
 
-源码开放，欢迎交流，请勿用于商业。
+

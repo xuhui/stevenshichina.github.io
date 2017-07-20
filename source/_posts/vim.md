@@ -196,7 +196,7 @@ $./install.py --clang-completer --system-libclang
 　　```
  $cmake –G “Unix Makefiles” /home/steven/software/llvm –DCMAKE_BUILD_TYPE=RELEASE –DLLVM_TARGETS_TO_BUILD=X86 –DLLVM_OPTIMIZED_TABLEGEN=ON –DCMAKE_INSTALL_PREFIX=/usr/local/llvm
 　　```
-编译参考[llvm-cmake](http://llvm.org/docs/CMake.html)：
+编译参考 [llvm-cmake](http://llvm.org/docs/CMake.html)：
 3.7.0以后，不允许在源码树中进行构建，我们可以在llvm源码目录同级目录中创建一个目录build，然后使用绝对路径进行构建。
 退出llvm目录，在llvm同级目录下建立build目录，进入到build目录
 
