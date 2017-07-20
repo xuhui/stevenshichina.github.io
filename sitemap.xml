@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/05/26/hexo-add-copyright/</loc>
+    
+    <lastmod>2017-07-20T08:21:12.709Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/05/18/vim/</loc>
     
     <lastmod>2017-07-20T07:23:08.512Z</lastmod>
@@ -296,14 +303,14 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     

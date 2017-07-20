@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/05/26/hexo-add-copyright/</loc>
+    <lastmod>2017-07-20T08:21:12.709Z</lastmod>
+    <data>
+        <display>
+        <title>hexo文章末尾添加版权信息</title>
+        <pubTime>2017-05-26T07:56:25.000Z</pubTime>
+        
+        <tag>Copyright</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/18/vim/</loc>
     <lastmod>2017-07-20T07:23:08.512Z</lastmod>
     <data>
