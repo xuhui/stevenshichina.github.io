@@ -123,12 +123,7 @@ typedef union{
 }float_union;
 
 serial::Serial ser;
-/*
-void write_callback(const std_msgs::String::ConstPtr& msg){
-    ROS_INFO_STREAM("Writing to serial port" << msg->data);
-    ser.write(msg->data);
-}
-*/
+
 /**********************************************************
  * 运动学解析函数 将获取的 x y 方向的线速度以及角速度转变成
  * 移动底座三个轮子的速度，并通过串口发送出去
@@ -207,10 +202,10 @@ int main (int argc, char** argv){
     ros::init(argc, argv, "my_serial_node");
     ros::NodeHandle nh;
 
-    //ros::Subscriber write_sub = nh.subscribe("command", 1000, write_callback);
+    
 	//订阅/turtle1/cmd_vel话题用于测试 $ rosrun turtlesim turtle_teleop_key
 	ros::Subscriber write_sub = nh.subscribe("/turtle1/cmd_vel",1000,cmd_vel_callback);
- 	//ros::Publisher read_pub = nh.advertise<std_msgs::String>("sensor", 1000);
+ 	
 	//发布里程计话题 odom
 	ros::Publisher read_pub = nh.advertise<nav_msgs::Odometry>("odom",1000);
 
