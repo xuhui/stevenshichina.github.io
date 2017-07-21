@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
+    <lastmod>2017-07-21T00:29:57.568Z</lastmod>
+    <data>
+        <display>
+        <title>ROS通过串口控制移动底座</title>
+        <pubTime>2017-07-18T07:08:51.000Z</pubTime>
+        
+        <tag>ROS serial</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/05/18/vim/</loc>
     <lastmod>2017-07-20T08:39:47.499Z</lastmod>
     <data>
@@ -352,26 +372,6 @@
         <pubTime>2017-05-25T06:06:45.000Z</pubTime>
         
         <tag>ROS Qt</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
-    <lastmod>2017-07-20T06:32:41.955Z</lastmod>
-    <data>
-        <display>
-        <title>ROS通过串口控制移动底座</title>
-        <pubTime>2017-07-18T07:08:51.000Z</pubTime>
-        
-        <tag>ROS serial</tag>
          
          
            

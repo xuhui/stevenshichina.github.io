@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
+    
+    <lastmod>2017-07-21T00:29:57.568Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/05/18/vim/</loc>
     
     <lastmod>2017-07-20T08:39:47.499Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>http://stevenshi.me/2017/05/25/debug-ros-using-qt/</loc>
     
     <lastmod>2017-07-20T06:33:49.508Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
-    
-    <lastmod>2017-07-20T06:32:41.955Z</lastmod>
     
   </url>
   
@@ -303,14 +303,14 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
