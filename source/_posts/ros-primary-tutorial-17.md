@@ -180,5 +180,39 @@ joint 为 revolute 即旋转类型，它和 continuous 类型类似，但 revolu
 夹臂是一种不同的 joint，称为柱状 joint,也就是说它沿着一个轴运动，而不是绕着轴运动。这里的极限与抓手不同的是极限单位是米而不是弧度。还有两种其它类型的 joint，柱状 joint 只能做一维运动，一个平面 joint 可以做二维运动，一个浮动的 joint 可以做三维运动。
 ## 指定姿态
 当在 Rviz 中滑动滑块时，会看到模型移动。首先GUI解析URDF文件，找到所有非固定的 joint 以及他们的运动约束极限，然后，利用滑块的值发布消息 [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) ,之后 [robot_state_publisher](http://wiki.ros.org/robot_state_publisher) 计算在不同的部件之间的所有变换，变换后的 tf 坐标树被用来在 Rviz 中显示这些形状。
+# 添加物理属性和碰撞属性
+## 碰撞属性
+为了使机器人能在 [Gazebo](http://www.gazebosim.org/) 中仿真，需要定义机器人的碰撞属性。这部分的例子可以参考 07-physics.urdf
+   ```
+<link name="base_link">
+	<visual>
+         <geometry>
+           <cylinder length="0.6" radius="0.2"/>
+         </geometry>
+         <material name="blue"/>
+	</visual>
+	<collision>
+        <geometry>
+           <cylinder length="0.6" radius="0.2"/>
+         </geometry>
+	</collision>
+ 	<inertial>
+         <mass value="10"/>
+         <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+	</inertial>
+</link>
+
+   ```
+代码中可见，collision 元素与 visual 元素同级，都属于 link 的直接子元素; collision 元素定义它的外形方式与 visual 元素一样，都使用 geometry 实现。也可以与 visual 一样使用相同的方式指定一个原点。很多情况下我们希望 collision 的几何外形和原点与 visual 的几何外形和原点一样，但是有两种特殊情况：一种情况是快速处理，做碰撞检测的两个网格比两个简单的几何尺寸的计算要复杂的多，因此在碰撞元素中更倾向于使用简单的几何尺寸来代替网格以便于减少计算复杂度。另外一种情况是安全区域，你可能希望限制接近于敏感设备的运动，比如，我们不希望任何东西与R2D2的头部相撞，我们可能会定义碰撞的几何尺寸为一个圆柱，用于防止任何东西靠近它的头部。
+## 物理属性
+在 [Gazebo](http://www.gazebosim.org/) 中仿真需要定义机器人的物理属性，包括 inertial 惯性、contact coefficients 连接系数 以及 joint dynamics 关节动力等属性。转动惯量可以使用一个3x3的矩阵表示：
+
+\begin{matrix}
+ixx & ixy & ixz \\\\
+ixy & iyy & iyz \\\\
+ixz & iyz & izz
+\end{matrix}
+因为它是对称的，因此可以仅使用6个元素来表示。这部分同样可参考 07-physics.urdf。
+
 未完
 参考：[urdf/tutorial](http://wiki.ros.org/urdf/Tutorials)
