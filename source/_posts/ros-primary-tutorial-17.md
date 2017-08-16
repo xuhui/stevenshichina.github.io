@@ -179,6 +179,13 @@ joint 为 revolute 即旋转类型，它和 continuous 类型类似，但 revolu
    ```
 夹臂是一种不同的 joint，称为柱状 joint,也就是说它沿着一个轴运动，而不是绕着轴运动。这里的极限与抓手不同的是极限单位是米而不是弧度。还有两种其它类型的 joint，柱状 joint 只能做一维运动，一个平面 joint 可以做二维运动，一个浮动的 joint 可以做三维运动。
 ## 指定姿态
+进入到目录urdf_tutorial/urdf_tutorial中，运行命令：
+   ```
+$ roslaunch urdf_tutorial display.launch model:=urdf/06-flexible.urdf
+   ```
+可以看大如下机器人模型以及 Joint State Publisher 的控制界面：
+![](ros-primary-tutorial-17/pose.png)
+
 当在 Rviz 中滑动滑块时，会看到模型移动。首先GUI解析URDF文件，找到所有非固定的 joint 以及他们的运动约束极限，然后，利用滑块的值发布消息 [sensor_msgs/JointState](http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html) ,之后 [robot_state_publisher](http://wiki.ros.org/robot_state_publisher) 计算在不同的部件之间的所有变换，变换后的 tf 坐标树被用来在 Rviz 中显示这些形状。
 # 添加物理属性和碰撞属性
 ## 碰撞属性
