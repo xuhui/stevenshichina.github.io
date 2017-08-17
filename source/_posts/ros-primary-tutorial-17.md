@@ -213,13 +213,46 @@ $ roslaunch urdf_tutorial display.launch model:=urdf/06-flexible.urdf
 代码中可见，collision 元素与 visual 元素同级，都属于 link 的直接子元素; collision 元素定义它的外形方式与 visual 元素一样，都使用 geometry 实现。也可以与 visual 一样使用相同的方式指定一个原点。很多情况下我们希望 collision 的几何外形和原点与 visual 的几何外形和原点一样，但是有两种特殊情况：一种情况是快速处理，做碰撞检测的两个网格比两个简单的几何尺寸的计算要复杂的多，因此在碰撞元素中更倾向于使用简单的几何尺寸来代替网格以便于减少计算复杂度。另外一种情况是安全区域，你可能希望限制接近于敏感设备的运动，比如，我们不希望任何东西与R2D2的头部相撞，我们可能会定义碰撞的几何尺寸为一个圆柱，用于防止任何东西靠近它的头部。
 ## 物理属性
 在 [Gazebo](http://www.gazebosim.org/) 中仿真需要定义机器人的物理属性，包括 inertial 惯性、contact coefficients 连接系数 以及 joint dynamics 关节动力等属性。转动惯量可以使用一个3x3的矩阵表示：
-
+\left[
 \begin{matrix}
 ixx & ixy & ixz \\\\
 ixy & iyy & iyz \\\\
 ixz & iyz & izz
 \end{matrix}
+\right]
 因为它是对称的，因此可以仅使用6个元素来表示。这部分同样可参考 07-physics.urdf。
-
+## 使用 Xacro 简化 URDF 文件
+[xacro](http://wiki.ros.org/xacro) 是一宏语言，可以压缩 URDF 文件的大小，增加文件的可读性和可维护性。这部分代码可参考 08-macroed.urdf.xacro ，为了使用 xacro 我们需要指定一个命名空间，以便文件能被正确的解析，一般在文件的头部会加入以下：
+   ```
+ <?xml version="1.0"?>
+   <robot name="macroed" xmlns:xacro="http://ros.org/wiki/xacro">
+   ```
+模型的名称此处定义为 macroed 。使用 xacro 声明常量能够避免在很多行重复使用同一个值，当修改该值时只需要修改一处即可，可增加代码维护性。常量的声明方法：
+   ```
+<xacro:property name="width" value="0.2" />
+<xacro:property name="bodylen" value="0.6" />
+   ```
+使用时可以直接使用变量名来引用：
+   ```
+<cylinder radius="${width}" length="${bodylen}"/>
+   ```
+也可以在${}结构中加入四则运算：
+   ```
+<cylinder radius="${wheeldiam/2}" length="0.1"/>
+<origin xyz="${baselen*reflect/3} 0 -${wheeldiam/2+.05}" rpy="0 0 0"/>
+   ```
+也可以使用宏更进一步简化：
+   ```
+<xacro:macro name="default_inertial" params="mass">
+  <inertial>
+       <mass value="${mass}" />
+       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+   </inertial>
+</xacro:macro>
+   ```
+使用：
+   ```
+<xacro:default_inertial mass="10"/>
+   ```
 未完
 参考：[urdf/tutorial](http://wiki.ros.org/urdf/Tutorials)
