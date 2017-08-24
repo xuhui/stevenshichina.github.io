@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title><![CDATA[也来聊聊CAN总线]]></title>
+      <url>/2017/08/24/can-bus/</url>
+      <content type="html"><![CDATA[<h1 id="can-的特点"><a href="#CAN-的特点" class="headerlink" title="CAN 的特点"></a>CAN 的特点</h1><p>为什么汽车行业都用 CAN 总线？它有什么特点？它为什么能存在于工业界这么多年至今仍被广泛应用着？它到底有什么过人之处？因项目需要，特别了解了一下 CAN 总线：<br>1、差分信号传输，它的实时性高，传输可靠且有效传输距离远，最远可达10公里；<br>2、多主结构，节点不分主从，方便组网；<br>3、节点不以地址区分，理论上一条总线可挂接任意台设备，但根据各个控制器的特性不同，可挂接的设备是有限制的；<br>4、三根线即可实现通信，CAN_H、CAN_L、GND；<br>5、错误检测，出错的 CAN 节点可自动切断与总线的连接，不影响其他节点通信；<br><a id="more"></a><br>待续</p>
+]]></content>
+      
+        <categories>
+            
+            <category> linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CAN </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ROS通过串口控制移动底座]]></title>
       <url>/2017/07/18/control-mobile-base-by-serial/</url>
       <content type="html"><![CDATA[<p>移动底座与ROS上层的通信一般采用串口或者CAN接口，本次设计选用串口与ROS上层通信。Navigation Stack 中发布给 base_controller 的话题为 cmd_vel ，因此需要设计一个节点用于接收 cmd_vel 话题，获取该话题中的消息将其转换成移动底座可识别的速度及角速度指令，通过串口发送给移动底座，从而控制移动底座按既定要求运动。该节点还需要接收底座的通过串口上传过来的里程编码消息并转换成里程计消息发布到 ROS 上层，为 ROS 导航提供必须的里程计消息。<br><a id="more"></a></p>

@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://stevenshi.me/2017/08/24/can-bus/</loc>
+    <lastmod>2017-08-24T09:17:15.432Z</lastmod>
+    <data>
+        <display>
+        <title>也来聊聊CAN总线</title>
+        <pubTime>2017-08-24T07:35:54.000Z</pubTime>
+        
+        <tag>CAN</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://stevenshi.me/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://stevenshi.me/2017/07/08/ros-primary-tutorial-17/</loc>
     <lastmod>2017-08-18T00:27:22.018Z</lastmod>
     <data>

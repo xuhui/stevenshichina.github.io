@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/08/24/can-bus/</loc>
+    
+    <lastmod>2017-08-24T09:17:15.432Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/07/08/ros-primary-tutorial-17/</loc>
     
     <lastmod>2017-08-18T00:27:22.018Z</lastmod>
