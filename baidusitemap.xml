@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://stevenshi.me/2017/08/24/can-bus/</loc>
-    <lastmod>2017-08-25T07:20:00.495Z</lastmod>
+    <lastmod>2017-08-25T07:49:27.094Z</lastmod>
     <data>
         <display>
         <title>也来聊聊CAN总线</title>
@@ -865,26 +865,6 @@
 
     
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
-    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
-    <data>
-        <display>
-        <title>Qt如何在指定位置显示控件</title>
-        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
-        
-        <tag>Qt</tag>
-         
-         
-           
-             
-              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     <data>
@@ -898,6 +878,26 @@
            
              
               <breadCrumb title="hexo" url="http://stevenshi.me/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <lastmod>2017-05-14T23:56:22.522Z</lastmod>
+    <data>
+        <display>
+        <title>Qt如何在指定位置显示控件</title>
+        <pubTime>2017-05-09T01:20:14.000Z</pubTime>
+        
+        <tag>Qt</tag>
+         
+         
+           
+             
+              <breadCrumb title="Qt" url="http://stevenshi.me/categories/Qt/"/>
           
         </display>
     </data>
