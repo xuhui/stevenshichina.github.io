@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stevenshi.me/"/>
-  <updated>2017-08-24T09:17:15.432Z</updated>
+  <updated>2017-08-25T07:15:13.465Z</updated>
   <id>http://stevenshi.me/</id>
   
   <author>
@@ -20,14 +20,20 @@
     <link href="http://stevenshi.me/2017/08/24/can-bus/"/>
     <id>http://stevenshi.me/2017/08/24/can-bus/</id>
     <published>2017-08-24T07:35:54.000Z</published>
-    <updated>2017-08-24T09:17:15.432Z</updated>
+    <updated>2017-08-25T07:15:13.465Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="can-的特点"><a href="#CAN-的特点" class="headerlink" title="CAN 的特点"></a>CAN 的特点</h1><p>为什么汽车行业都用 CAN 总线？它有什么特点？它为什么能存在于工业界这么多年至今仍被广泛应用着？它到底有什么过人之处？因项目需要，特别了解了一下 CAN 总线：<br>1、差分信号传输，它的实时性高，传输可靠且有效传输距离远，最远可达10公里；<br>2、多主结构，节点不分主从，方便组网；<br>3、节点不以地址区分，理论上一条总线可挂接任意台设备，但根据各个控制器的特性不同，可挂接的设备是有限制的；<br>4、三根线即可实现通信，CAN_H、CAN_L、GND；<br>5、错误检测，出错的 CAN 节点可自动切断与总线的连接，不影响其他节点通信；<br><a id="more"></a><br>待续</p>
+    <content type="html"><![CDATA[<h1 id="can-的特点"><a href="#CAN-的特点" class="headerlink" title="CAN 的特点"></a>CAN 的特点</h1><p>为什么汽车行业都用 CAN 总线？它有什么特点？它为什么能存在于工业界这么多年至今仍被广泛应用着？它到底有什么过人之处？因项目需要，重拾 CAN 总线，关于 CAN 的资料浩如烟海，这里只聊干货。<br><a id="more"></a></p>
+<h2 id="差分传输"><a href="#差分传输" class="headerlink" title="差分传输"></a>差分传输</h2><p>由于 CAN 总线使用差分信号传输，只需要三个线，CAN_H,CAN_L,GND，其中 GND 作为屏蔽层使用。这种设计方式使得它的传输距离远、可靠性高，最远可达10公里。</p>
+<h2 id="多主结构"><a href="#多主结构" class="headerlink" title="多主结构"></a>多主结构</h2><p>由于 CAN 设备不需要使用地址标识每个挂接在总线上的设备，而只需要ID来标识，因此 CAN 总线上的设备没有主从之分，任意节点都可以发起通信；</p>
+<h2 id="错误检测"><a href="#错误检测" class="headerlink" title="错误检测"></a>错误检测</h2><p>出错的 CAN 节点可自动切断与总线的连接，不影响其他节点通信，自动传输破坏的报文；</p>
+<h1 id="can-通信"><a href="#CAN-通信" class="headerlink" title="CAN 通信"></a>CAN 通信</h1><p>CAN 总线上的设备不分主从，任意设备都可以主动发送消息到总线，所有挂接在总线上的设备都可以收到该消息；当某一时刻出现两个或以上的节点同时操作总线时，CAN 设备在发送消息的同时也检测总线状态，如果自己发送的数据与检测回来的数据不同，则主动放弃总线使用权。举例说明该情况，假如某一时刻有两个 CAN 节点同时操作总线，消息的前面都会附加11位的 ID 新版提升为29位，这个 ID 决定了消息的优先级，ID 数字越小优先级则越高：<br>   <figure class="highlight dns"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">节点  ID </div><div class="line"> <span class="keyword">A</span>    <span class="number">11110001000</span></div><div class="line"> B    <span class="number">11101110111</span></div><div class="line">总线   <span class="number">11100000000</span></div></pre></td></tr></table></figure></p>
+<p>CAN 总线使用仲裁来判定哪个节点最终拥有总线使用权，它利用线与特性，当一个节点发送1，另外一节点发送0时，则线与后总线为0，那么发送0的节点则拥有了总线使用权，它可以继续发送数据，而发送1的节点则退出总线使用权。如上面，两个节点A B 同时发送信息，在发送到 ID 的第4位时，B节点发送的是0，A节点发送的是1，线与之后总线为0，因此B节点获取了总线使用权，A节点退出。CAN 总线上的0称为显性，1称为隐性，因为0总是拥有总线使用权。</p>
+<h1 id="数据帧结构"><a href="#数据帧结构" class="headerlink" title="数据帧结构"></a>数据帧结构</h1><p><img src="/2017/08/24/can-bus/dataframe.png" alt=""><br>这张图片摘自 wikipedia,CAN 数据的帧结构包括仲裁、控制域、数据域、CRC校验以及结束部分。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;CAN-的特点&quot;&gt;&lt;a href=&quot;#CAN-的特点&quot; class=&quot;headerlink&quot; title=&quot;CAN 的特点&quot;&gt;&lt;/a&gt;CAN 的特点&lt;/h1&gt;&lt;p&gt;为什么汽车行业都用 CAN 总线？它有什么特点？它为什么能存在于工业界这么多年至今仍被广泛应用着？它到底有什么过人之处？因项目需要，特别了解了一下 CAN 总线：&lt;br&gt;1、差分信号传输，它的实时性高，传输可靠且有效传输距离远，最远可达10公里；&lt;br&gt;2、多主结构，节点不分主从，方便组网；&lt;br&gt;3、节点不以地址区分，理论上一条总线可挂接任意台设备，但根据各个控制器的特性不同，可挂接的设备是有限制的；&lt;br&gt;4、三根线即可实现通信，CAN_H、CAN_L、GND；&lt;br&gt;5、错误检测，出错的 CAN 节点可自动切断与总线的连接，不影响其他节点通信；&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;CAN-的特点&quot;&gt;&lt;a href=&quot;#CAN-的特点&quot; class=&quot;headerlink&quot; title=&quot;CAN 的特点&quot;&gt;&lt;/a&gt;CAN 的特点&lt;/h1&gt;&lt;p&gt;为什么汽车行业都用 CAN 总线？它有什么特点？它为什么能存在于工业界这么多年至今仍被广泛应用着？它到底有什么过人之处？因项目需要，重拾 CAN 总线，关于 CAN 的资料浩如烟海，这里只聊干货。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
