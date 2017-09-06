@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/09/06/stm32-dma-printf/</loc>
+    
+    <lastmod>2017-09-06T08:59:08.109Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/08/24/can-bus/</loc>
     
     <lastmod>2017-08-25T07:52:40.896Z</lastmod>
