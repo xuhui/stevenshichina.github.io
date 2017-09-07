@@ -1,8 +1,8 @@
 ---
-title: stm32如何在dma模式下实现printf
+title: STM32如何在DMA模式下实现printf
 date: 2017-09-06 15:32:26
 categories: linux
-tags:  stm32-dma-printf
+tags:  STM32 DMA Printf
 comments: true
 ---
 # 前言
@@ -47,13 +47,13 @@ PUTCHAR_PROTOTYPE
 　　```
 int remote_data_x_usart_dma_ctl(void) 
 { 	
-	uint32_t num=0; 	uint8_t ch; 	
+	uint32_t num=0; 	uint8_t data; 	
 	if(DMA_GetCurrDataCounter(USARTm_Tx_DMA_Channe)==0) 
 	{
 		DMA_Cmd(USARTm_Tx_DMA_Channe,DISABLE); 		
-		while((remote_data_x_usart_Out_Queue(&ch))!=0)//数据出列	
+		while((remote_data_x_usart_Out_Queue(&data))!=0)//数据出列	
 		{	 			
-			USARTmTxBuffer[num]=ch; 			
+			USARTmTxBuffer[num]=data; 			
 			num++; 			
 			if(num==USARTm_Tx_BUFFER_SIZE) 			
 				break; 		
@@ -68,6 +68,58 @@ int remote_data_x_usart_dma_ctl(void)
 		return 1; 
 }
 　　```
-这样即可实现DMA模式下的 printf 功能。不过每次调用printf时必须调用一次 remote_data_x_usart_dma_ctl 函数。为了减少麻烦可以将该函数放到 sysTick 中断中，让CPU每次判断队列是否不为空，这样可能会降低系统效率，但也没降低多少性能。测试时sysTick我设置的是1ms中断，系统连接一个ADS1118采集4路模拟量并采集片内温度，显示效果：
+这样即可实现DMA模式下的 printf 功能。不过每次调用printf时必须调用一次 remote_data_x_usart_dma_ctl 函数。为了减少麻烦可以将该函数放到 sysTick 中断中，让CPU每次判断队列是否不为空，这样可能会降低系统效率，但也没降低多少性能。
+　　```
+void SysTick_Handler()
+{
+
+	if (usTicks != 0)
+	{
+		usTicks--;
+	}
+	
+	remote_data_x_usart_dma_ctl();
+}
+　　```
+数据的入列与出列可以简单设置如下：
+　　```
+//将数据插入队列
+uint32_t remote_data_x_usart_In_Queue(uint8_t data) 
+{ 	
+	if(USARTm_Tx_Buf_Queue.USARTm_Tx_COUNTER <USARTm_Tx_BUFFER_SIZE)//判断队列是否满，不满才进行以下操作
+		{
+			if(USARTm_Tx_Buf_Queue.USARTm_Tx_PTR_HEAD >= USARTm_Tx_BUFFER_SIZE) //队列头指针超出队列宽度
+				USARTm_Tx_Buf_Queue.USARTm_Tx_PTR_HEAD = 0; //头指针归零 		
+			USARTm_Tx_Buf_Queue.USARTm_Tx_Buffer[USARTm_Tx_Buf_Queue.USARTm_Tx_PTR_HEAD] = data; //将数据入列		
+			USARTm_Tx_Buf_Queue.USARTm_Tx_PTR_HEAD++; 	//头指针移动加一	
+			USARTm_Tx_Buf_Queue.USARTm_Tx_COUNTER++;  	//队列宽度加一
+			return 0; 	
+		} 		
+	return 1;	 	 
+}
+//从队列中获取一个数
+uint32_t remote_data_x_usart_Out_Queue(uint8_t *data) 
+{ 	
+	uint32_t num;
+	if(USARTm_Tx_Buf_Queue.USARTm_Tx_COUNTER > 0) 	//判断队列是否为空，不为空才能提取
+		{ 		
+			if(USARTm_Tx_Buf_Queue.USARTm_Tx_PTR_TAIL >= USARTm_Tx_BUFFER_SIZE)//盘对尾指针是否超出队列宽度			
+				USARTm_Tx_Buf_Queue.USARTm_Tx_PTR_TAIL = 0;//超出就归零
+			num = USARTm_Tx_Buf_Queue.USARTm_Tx_COUNTER;//获取队列宽度	
+			*data = USARTm_Tx_Buf_Queue.USARTm_Tx_Buffer[USARTm_Tx_Buf_Queue.USARTm_Tx_PTR_TAIL]; //获取一个数据	
+			USARTm_Tx_Buf_Queue.USARTm_Tx_PTR_TAIL++; //尾指针移动加一	
+			USARTm_Tx_Buf_Queue.USARTm_Tx_COUNTER--; //数据被提取，队列宽度减一		
+			return num; //返回队列宽度
+		} 	
+	else 	
+		{ 		
+			*data = 0xFF;//队列为空填充一个值
+			return 0; //返回队列宽度
+		} 
+}
+　　```
+关于DMA的配置可参考STM32官方库，或者可以参考我的 [remote_data_x.c](https://github.com/StevenShiChina/stm32-ads1118/blob/master/User/remote_data_x.c) 以及 [remote_data_x.h](https://github.com/StevenShiChina/stm32-ads1118/blob/master/User/remote_data_x.h) 
+
+测试时sysTick设置的是1ms中断，系统连接一个ADS1118采集4路模拟量并采集片内温度，显示效果：
+
 ![](stm32-dma-printf/printf.png)
-如有需要可以下载完整代码 [github](https://github.com/StevenShiChina/stm32-ads1118)
