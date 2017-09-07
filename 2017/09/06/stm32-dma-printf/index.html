@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -76,7 +76,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="stm32-dma-printf," />
+  <meta name="keywords" content="STM32 DMA Printf," />
 
 
 
@@ -95,16 +95,16 @@
 
 
 <meta name="description" content="前言在调试stm32f103芯片时，想在串口打印一些调试信息，总感觉没有linux下那么顺手。搜索一番，官方有解决方案，但限于使用一般串口模式，而如果使用DMA则实现起来麻烦一些，为了在DMA模式下使用printf，特做此记录。">
-<meta name="keywords" content="stm32-dma-printf">
+<meta name="keywords" content="STM32 DMA Printf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stm32如何在dma模式下实现printf">
+<meta property="og:title" content="STM32如何在DMA模式下实现printf">
 <meta property="og:url" content="http://stevenshi.me/2017/09/06/stm32-dma-printf/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
 <meta property="og:description" content="前言在调试stm32f103芯片时，想在串口打印一些调试信息，总感觉没有linux下那么顺手。搜索一番，官方有解决方案，但限于使用一般串口模式，而如果使用DMA则实现起来麻烦一些，为了在DMA模式下使用printf，特做此记录。">
 <meta property="og:image" content="http://stevenshi.me/2017/09/06/stm32-dma-printf/printf.png">
-<meta property="og:updated_time" content="2017-09-07T02:10:09.223Z">
+<meta property="og:updated_time" content="2017-09-07T02:23:47.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stm32如何在dma模式下实现printf">
+<meta name="twitter:title" content="STM32如何在DMA模式下实现printf">
 <meta name="twitter:description" content="前言在调试stm32f103芯片时，想在串口打印一些调试信息，总感觉没有linux下那么顺手。搜索一番，官方有解决方案，但限于使用一般串口模式，而如果使用DMA则实现起来麻烦一些，为了在DMA模式下使用printf，特做此记录。">
 <meta name="twitter:image" content="http://stevenshi.me/2017/09/06/stm32-dma-printf/printf.png">
 
@@ -114,7 +114,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -140,7 +140,7 @@
 
 
 
-  <title>stm32如何在dma模式下实现printf | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>STM32如何在DMA模式下实现printf | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">stm32如何在dma模式下实现printf</h1>
+          <h1 class="post-title" itemprop="name headline">STM32如何在DMA模式下实现printf</h1>
         
 
         <div class="post-meta">
@@ -403,7 +403,7 @@
 
           
           
-             <span id="/2017/09/06/stm32-dma-printf/" class="leancloud_visitors" data-flag-title="stm32如何在dma模式下实现printf">
+             <span id="/2017/09/06/stm32-dma-printf/" class="leancloud_visitors" data-flag-title="STM32如何在DMA模式下实现printf">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -497,7 +497,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2017/09/06/stm32-dma-printf/" title="stm32如何在dma模式下实现printf">2017/09/06/stm32-dma-printf/</a>
+        <a href="/2017/09/06/stm32-dma-printf/" title="STM32如何在DMA模式下实现printf">2017/09/06/stm32-dma-printf/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权： </strong>
@@ -509,7 +509,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/stm32-dma-printf/" rel="tag"># stm32-dma-printf</a>
+            <a href="/tags/STM32-DMA-Printf/" rel="tag"># STM32 DMA Printf</a>
           
         </div>
       
@@ -531,6 +531,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/07/stm32-ads1118/" rel="prev" title="STM32F103驱动ADS1118">
+                STM32F103驱动ADS1118 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -647,7 +651,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -669,7 +673,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -798,7 +802,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>  
 
 </div>
@@ -890,13 +894,6 @@
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
-
-
-
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
@@ -924,7 +921,7 @@
         var disqus_config = function () {
           this.page.url = 'http://stevenshi.me/2017/09/06/stm32-dma-printf/';
           this.page.identifier = '2017/09/06/stm32-dma-printf/';
-          this.page.title = 'stm32如何在dma模式下实现printf';
+          this.page.title = 'STM32如何在DMA模式下实现printf';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://stevenshi-me.disqus.com/embed.js';

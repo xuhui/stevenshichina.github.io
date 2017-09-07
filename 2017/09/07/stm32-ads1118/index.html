@@ -1,0 +1,1487 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content=" " />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="STM32F103 ADS1118," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Steven's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="ADS1118 作为常用温度测量芯片被越来越多的开发者熟知，TI官方给出的是基于 MSP430 的驱动测试程序，由于 STM32 的普及，闲暇中移植了 MSP430 的 ADS1118 驱动程序到 STM32F103 平台下，并进行了测试，特在此记录，以飨读者。">
+<meta name="keywords" content="STM32F103 ADS1118">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STM32F103驱动ADS1118">
+<meta property="og:url" content="http://stevenshi.me/2017/09/07/stm32-ads1118/index.html">
+<meta property="og:site_name" content="Steven&#39;s blog">
+<meta property="og:description" content="ADS1118 作为常用温度测量芯片被越来越多的开发者熟知，TI官方给出的是基于 MSP430 的驱动测试程序，由于 STM32 的普及，闲暇中移植了 MSP430 的 ADS1118 驱动程序到 STM32F103 平台下，并进行了测试，特在此记录，以飨读者。">
+<meta property="og:image" content="http://stevenshi.me/2017/09/07/stm32-ads1118/time.png">
+<meta property="og:image" content="http://stevenshi.me/2017/09/07/stm32-ads1118/16bits.png">
+<meta property="og:image" content="http://stevenshi.me/2017/09/07/stm32-ads1118/32bits.png">
+<meta property="og:image" content="http://stevenshi.me/2017/09/07/stm32-ads1118/spi.png">
+<meta property="og:image" content="http://stevenshi.me/2017/09/07/stm32-ads1118/result.png">
+<meta property="og:updated_time" content="2017-09-07T06:57:10.709Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="STM32F103驱动ADS1118">
+<meta name="twitter:description" content="ADS1118 作为常用温度测量芯片被越来越多的开发者熟知，TI官方给出的是基于 MSP430 的驱动测试程序，由于 STM32 的普及，闲暇中移植了 MSP430 的 ADS1118 驱动程序到 STM32F103 平台下，并进行了测试，特在此记录，以飨读者。">
+<meta name="twitter:image" content="http://stevenshi.me/2017/09/07/stm32-ads1118/time.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":1},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://stevenshi.me/2017/09/07/stm32-ads1118/"/>
+
+
+
+
+
+  <title>STM32F103驱动ADS1118 | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Steven's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">点一盏灯 给需要的人</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://stevenshi.me/2017/09/07/stm32-ads1118/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steven Shi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steven's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">STM32F103驱动ADS1118</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T10:21:04+08:00">
+                2017-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/07/stm32-ads1118/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/07/stm32-ads1118/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/09/07/stm32-ads1118/" class="leancloud_visitors" data-flag-title="STM32F103驱动ADS1118">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+    
+      
+      
+
+      
+        <p>ADS1118 作为常用温度测量芯片被越来越多的开发者熟知，TI官方给出的是基于 MSP430 的驱动测试程序，由于 STM32 的普及，闲暇中移植了 MSP430 的 ADS1118 驱动程序到 STM32F103 平台下，并进行了测试，特在此记录，以飨读者。<br><a id="more"></a></p>
+<h1 id="硬件连接"><a href="#硬件连接" class="headerlink" title="硬件连接"></a>硬件连接</h1><p>使用 STM32F103 的 SPI2 接口连接 ADS1118 的通信接口：</p>
+<table>
+<thead>
+<tr>
+<th>STM32F103</th>
+<th>ADS1118</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PB12</td>
+<td>CS</td>
+</tr>
+<tr>
+<td>PB13</td>
+<td>SCLK</td>
+</tr>
+<tr>
+<td>PB14</td>
+<td>DOUT</td>
+</tr>
+<tr>
+<td>PB15</td>
+<td>DIN</td>
+</tr>
+</tbody>
+</table>
+<p>ADS1118 手册建议数据线之间接一个50欧电阻，实际测试可不接。ADS1118 电源接3.3V并加滤波电容。</p>
+<h1 id="spi-配置"><a href="#SPI-配置" class="headerlink" title="SPI 配置"></a>SPI 配置</h1><p>ADS1118 接口的时序要求如图：<br><img src="/2017/09/07/stm32-ads1118/time.png" alt=""></p>
+<p>DIN 接口接收控制器送过来的配置数据，并且在 SCLK 的下降沿将数据锁存读入 ADS1118 内部，并且在 SCLK 的上升沿中将数据送出到 DOUT。基于此将 STM32F103 的 SPI 接口做如下配置，CPOL=0，CPHA = 1;<br>　　<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">void SPI_config(void)&#123;</div><div class="line">	SPI_Cmd(SPI_MASTER, DISABLE);//配置之前先关闭SPI接口</div><div class="line"></div><div class="line">	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;<span class="comment">//全双工</span></div><div class="line">	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;<span class="comment">//主模式</span></div><div class="line">	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;<span class="comment">//8bits</span></div><div class="line">	SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;<span class="comment">// CPOL=0</span></div><div class="line">	SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;<span class="comment">//CPHA=1</span></div><div class="line">	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;<span class="comment">//CS设置为软件配置</span></div><div class="line">	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_64;<span class="comment">//通信速率</span></div><div class="line">	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;<span class="comment">//高位在前</span></div><div class="line">	SPI_InitStructure.SPI_CRCPolynomial = <span class="number">7</span>;</div><div class="line">	SPI_Init(SPI_MASTER, &amp;SPI_InitStructure);</div><div class="line">	</div><div class="line">	SPI_Cmd(SPI_MASTER, ENABLE);//配置完成使能SPI接口</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对应 GPIO 的配置：<br>　　<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> SPI<span class="number">_G</span>PIO<span class="number">_</span>Configuration(<span class="keyword">void</span>)</div><div class="line">&#123;</div><div class="line">	GPIO<span class="number">_</span>InitTypeDef GPIO<span class="number">_</span>InitStructure;</div><div class="line"></div><div class="line">	<span class="comment">/* Configure SPI_MASTER pins-*/</span></div><div class="line"></div><div class="line">	<span class="comment">// Pin PB13 (SCLK) must be configured as as 50MHz push pull</span></div><div class="line">	GPIO<span class="number">_</span>StructInit(&amp;GPIO<span class="number">_</span>InitStructure);</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_P</span><span class="keyword">in</span> = SPI<span class="number">_M</span>ASTER<span class="number">_P</span>IN<span class="number">_</span>SCK;</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_M</span>ode = GPIO<span class="number">_M</span>ode<span class="number">_</span>AF<span class="number">_P</span>P;</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_</span>Speed = GPIO<span class="number">_</span>Speed<span class="number">_50M</span>Hz;</div><div class="line">	GPIO<span class="number">_</span>Init(SPI<span class="number">_M</span>ASTER<span class="number">_G</span>PIO, &amp;GPIO<span class="number">_</span>InitStructure);</div><div class="line"></div><div class="line">	<span class="comment">// Pin PB14 (MISO) must be configured as as input pull-up</span></div><div class="line">	GPIO<span class="number">_</span>StructInit(&amp;GPIO<span class="number">_</span>InitStructure);</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_P</span><span class="keyword">in</span> = SPI<span class="number">_M</span>ASTER<span class="number">_P</span>IN<span class="number">_M</span>ISO;</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_M</span>ode = GPIO<span class="number">_M</span>ode<span class="number">_</span>IN<span class="number">_</span>FLOATING;</div><div class="line">	GPIO<span class="number">_</span>Init(SPI<span class="number">_M</span>ASTER<span class="number">_G</span>PIO, &amp;GPIO<span class="number">_</span>InitStructure);</div><div class="line"></div><div class="line">	<span class="comment">// Pin PB15 (MOSI) must be configured as as 50MHz push pull</span></div><div class="line">	GPIO<span class="number">_</span>StructInit(&amp;GPIO<span class="number">_</span>InitStructure);</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_P</span><span class="keyword">in</span> = SPI<span class="number">_M</span>ASTER<span class="number">_P</span>IN<span class="number">_M</span>OSI;</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_M</span>ode = GPIO<span class="number">_M</span>ode<span class="number">_</span>AF<span class="number">_P</span>P;</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_</span>Speed = GPIO<span class="number">_</span>Speed<span class="number">_50M</span>Hz;</div><div class="line">	GPIO<span class="number">_</span>Init(SPI<span class="number">_M</span>ASTER<span class="number">_G</span>PIO, &amp;GPIO<span class="number">_</span>InitStructure);</div><div class="line">	</div><div class="line">	<span class="comment">//SPI1 NSS </span></div><div class="line">	GPIO<span class="number">_</span>StructInit(&amp;GPIO<span class="number">_</span>InitStructure);</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_P</span><span class="keyword">in</span> = SPI<span class="number">_M</span>ASTER<span class="number">_P</span>IN<span class="number">_</span>NSS;</div><div class="line">	GPIO<span class="number">_</span>InitStructure.GPIO<span class="number">_M</span>ode = GPIO<span class="number">_M</span>ode<span class="number">_</span>Out<span class="number">_P</span>P;</div><div class="line">	GPIO<span class="number">_</span>Init(SPI<span class="number">_M</span>ASTER<span class="number">_G</span>PIO, &amp;GPIO<span class="number">_</span>InitStructure);</div><div class="line"></div><div class="line">	GPIO<span class="number">_</span>SetBits(SPI<span class="number">_M</span>ASTER<span class="number">_G</span>PIO, SPI<span class="number">_M</span>ASTER<span class="number">_P</span>IN<span class="number">_</span>NSS);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>另外记得使能端口时钟：<br>　　<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">SPI_RCC_Configuration</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</div><div class="line">	<span class="comment">/* Enable GPIO clock for SPI_MASTER */</span></div><div class="line">	RCC_APB2PeriphClockCmd(SPI_MASTER_GPIO_CLK | RCC_APB2Periph_AFIO, ENABLE);</div><div class="line">	<span class="comment">/* Enable SPI_MASTER Periph clock */</span></div><div class="line">	RCC_APB1PeriphClockCmd(SPI_MASTER_CLK, ENABLE); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="读写实现"><a href="#读写实现" class="headerlink" title="读写实现"></a>读写实现</h1><p>ADS1118 在发送寄存器配置的同时会传输转换结果，手册中提到既支持16bits 模式也支持32bits模式。</p>
+<p>16bits模式：</p>
+<p><img src="/2017/09/07/stm32-ads1118/16bits.png" alt=""></p>
+<p>32bits模式：</p>
+<p><img src="/2017/09/07/stm32-ads1118/32bits.png" alt=""></p>
+<p>DIN 接口接收寄存器配置的同时DOUT接口输出转换结果，在32bits模式下发送完寄存器配置后第二次可以发送数据0，具体可参考手册。基于此设计数据发送读取函数：<br>　　<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//读写寄存器16bits模式</span></div><div class="line"><span class="keyword">uint16_t</span> SPI_read_write_Reg(<span class="keyword">uint16_t</span> CofigReg)</div><div class="line">&#123;</div><div class="line"></div><div class="line">	getdata1=SPI_send_Byte((<span class="keyword">uint8_t</span>)(CofigReg&gt;&gt;<span class="number">8</span>));</div><div class="line">	getdata2=SPI_send_Byte((<span class="keyword">uint8_t</span>)CofigReg);</div><div class="line"></div><div class="line">	getdata= (<span class="keyword">uint16_t</span>)getdata2|((<span class="keyword">uint16_t</span>)getdata1&lt;&lt;<span class="number">8</span>);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> getdata;</div><div class="line">&#125;</div><div class="line"><span class="keyword">uint8_t</span> SPI_send_Byte(<span class="keyword">uint8_t</span> byte)</div><div class="line">&#123;</div><div class="line"> </div><div class="line">	<span class="keyword">while</span>(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET)&#123;&#125;</div><div class="line">	</div><div class="line">	SPI_I2S_SendData(SPI2, byte);</div><div class="line">	</div><div class="line">	<span class="keyword">while</span>(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET)&#123;&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> SPI_I2S_ReceiveData(SPI2);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>获取 ADS1118 的片内温度需要将 ADS1118 的寄存器的第4bit修改为1，启动单次转换将第15bit写1即可：<br>　　<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">float</span> ads1118_get_temperature(void)</div><div class="line">&#123;</div><div class="line">	uint16_t <span class="keyword">adc=0;</span></div><div class="line">	float value<span class="number">=0</span><span class="comment">;</span></div><div class="line">	adsConfigReg.<span class="keyword">stru.NOP </span>    =  DATA_VALID<span class="comment">;</span></div><div class="line">	adsConfigReg.<span class="keyword">stru.TS_MODE </span>=  TEMPERATURE_MODE<span class="comment">;</span></div><div class="line">	adsConfigReg.<span class="keyword">stru.DR </span>     =  DR_8_SPS<span class="comment">;</span></div><div class="line">	adsConfigReg.<span class="keyword">stru.MODE </span>   =  SIGNLE_SHOT<span class="comment">;</span></div><div class="line">	adsConfigReg.<span class="keyword">stru.OS </span>     =  SINGLE_CONVER_START<span class="comment">;   </span></div><div class="line">	</div><div class="line">	ADS1118_ENABLE<span class="comment">;</span></div><div class="line"> </div><div class="line">	<span class="keyword">adc </span>= SPI_read_write_Reg(adsConfigReg<span class="meta">.word</span>)<span class="comment">;</span></div><div class="line">	</div><div class="line">	//conver to temperture</div><div class="line">	<span class="meta">if</span>(<span class="keyword">adc&amp;0x8000)</span></div><div class="line">	&#123;</div><div class="line">		//-xx.xxx c</div><div class="line">		<span class="keyword">adc&gt;&gt;=2;</span></div><div class="line">		value=(<span class="number">0x3fff</span>-<span class="keyword">adc+1)*(-0.03125);</span></div><div class="line">	&#125;</div><div class="line">	<span class="meta">else</span></div><div class="line">	&#123;</div><div class="line">		//+xx.xxx c</div><div class="line">		<span class="keyword">adc&gt;&gt;=2;</span></div><div class="line">		value<span class="symbol">=adc</span>*<span class="number">0</span>.<span class="number">03125</span><span class="comment">;     </span></div><div class="line">	&#125;</div><div class="line">	ADS1118_DISABLE<span class="comment">;</span></div><div class="line">	return value<span class="comment">;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>ADS1118默认开启ADC模式，通过配置寄存器的12-14bit可以选择开启哪个通道，具体可参考手册。另外关于片内温度模式时，使用的是14bit左对齐模式。而且ADS1118的转换结果中，负数使用二进制补码格式，因此需要做一个转换，每个值代表0.03125℃<br>关于详细的代码可参考<a href="https://github.com/StevenShiChina/stm32-ads1118" target="_blank" rel="external">mygithub</a>，测试中的SPI通信数据：</p>
+<p><img src="/2017/09/07/stm32-ads1118/spi.png" alt=""></p>
+<p>测试时没有连接4路输入模拟量的输入，交替采集片内温度传感器的值：<br><img src="/2017/09/07/stm32-ads1118/result.png" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持是我原创的动力</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="Steven Shi WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Steven Shi Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+	<div>    
+     
+     
+    <ul class="post-copyright">
+      <li class="post-copyright-author">
+          <strong>本文作者：</strong>Steven Shi
+      </li>
+      <li class="post-copyright-link">
+        <strong>本文链接：</strong>
+        <a href="/2017/09/07/stm32-ads1118/" title="STM32F103驱动ADS1118">2017/09/07/stm32-ads1118/</a>
+      </li>
+      <li class="post-copyright-license">
+        <strong>版权： </strong>
+        本站文章均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议，请勿用于商业，转载请注明出处！
+      </li>
+    </ul>
+    
+    </div>
+      
+        <div class="post-tags">
+          
+            <a href="/tags/STM32F103-ADS1118/" rel="tag"># STM32F103 ADS1118</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/06/stm32-dma-printf/" rel="next" title="STM32如何在DMA模式下实现printf">
+                <i class="fa fa-chevron-left"></i> STM32如何在DMA模式下实现printf
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Steven Shi" />
+          <p class="site-author-name" itemprop="name">Steven Shi</p>
+           
+              <p class="site-description motion-element" itemprop="description">ROS 学习</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/stevenshichina" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/stevenshichina" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:steven_1825@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Friendly links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.lentinjoseph.com/" title="Lentin Joseph" target="_blank">Lentin Joseph</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.pstech360.com/" title="普斯泰科技" target="_blank">普斯泰科技</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#硬件连接"><span class="nav-number">1.</span> <span class="nav-text">硬件连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spi-配置"><span class="nav-number">2.</span> <span class="nav-text">SPI 配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读写实现"><span class="nav-number">3.</span> <span class="nav-text">读写实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Steven Shi</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>  
+
+</div>
+
+
+<div>
+<span id="busuanzi_container_site_pv">
+    Total Visit <span id="busuanzi_value_site_pv"></span> Times
+</span>
+
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://stevenshi-me.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://stevenshi.me/2017/09/07/stm32-ads1118/';
+          this.page.identifier = '2017/09/07/stm32-ads1118/';
+          this.page.title = 'STM32F103驱动ADS1118';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://stevenshi-me.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Rl4DMMLJTksfMN0XewEEvk7R-gzGzoHsz", "rqwUMTDlgGAAaNXMr68s01md");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
