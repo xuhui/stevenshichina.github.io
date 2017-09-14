@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/about/index.html</loc>
+    
+    <lastmod>2017-09-14T01:24:08.045Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/09/07/stm32-ads1118/</loc>
     
     <lastmod>2017-09-07T06:57:10.709Z</lastmod>
@@ -198,13 +205,6 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/about/index.html</loc>
-    
-    <lastmod>2017-06-19T03:35:28.752Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://stevenshi.me/2017/05/31/ros-primary-tutorial-10/</loc>
     
     <lastmod>2017-06-13T09:06:24.771Z</lastmod>
@@ -324,14 +324,14 @@
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
+    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://stevenshi.me/2017/05/09/qt-widget-designated-location/</loc>
+    <loc>http://stevenshi.me/2017/05/07/hexo-backup/</loc>
     
     <lastmod>2017-05-14T23:56:22.522Z</lastmod>
     
