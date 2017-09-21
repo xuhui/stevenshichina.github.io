@@ -118,8 +118,6 @@ uint32_t remote_data_x_usart_Out_Queue(uint8_t *data)
 		} 
 }
 　　```
-关于DMA的配置可参考STM32官方库，或者可以参考我的 [remote_data_x.c](https://github.com/StevenShiChina/stm32-ads1118/blob/master/User/remote_data_x.c) 以及 [remote_data_x.h](https://github.com/StevenShiChina/stm32-ads1118/blob/master/User/remote_data_x.h) 
-
-测试时sysTick设置的是1ms中断，系统连接一个ADS1118采集4路模拟量并采集片内温度，显示效果：
+关于DMA的配置可参考STM32官方库，测试时sysTick设置的是1ms中断，系统连接一个ADS1118采集4路模拟量并采集片内温度，显示效果：
 
 ![](stm32-dma-printf/printf.png)
