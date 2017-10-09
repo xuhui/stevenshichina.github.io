@@ -2,15 +2,18 @@
 comments: false
 ---
 
-十余年嵌入式系统开发从业经历，专注于嵌入式linux、物联网、智能硬件
+
+码农，躬耕于嵌入式领域十余载
+
+专注于嵌入式系统开发、linux开发、物联网技术、智能硬件技术
+
+热衷于工业实时控制技术、机器人控制技术以及ROS系统
 
 
 
-Email:  steven_1825@163.com
 
-Github: https://github.com/stevenshichina
 
-知乎: http://www.zhihu.com/people/stevenshichina
+
 
 
 
