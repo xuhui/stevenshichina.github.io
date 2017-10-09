@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
+    
+    <lastmod>2017-10-09T07:08:11.943Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/about/index.html</loc>
     
     <lastmod>2017-09-21T06:48:28.267Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://stevenshi.me/2017/07/08/ros-primary-tutorial-17/</loc>
     
     <lastmod>2017-08-18T00:27:22.018Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
-    
-    <lastmod>2017-07-21T00:29:57.568Z</lastmod>
     
   </url>
   

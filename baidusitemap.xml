@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
+    <lastmod>2017-10-09T07:08:11.943Z</lastmod>
+    <data>
+        <display>
+        <title>ROS通过串口控制移动底座</title>
+        <pubTime>2017-07-18T07:08:51.000Z</pubTime>
+        
+        <tag>ROS serial</tag>
+         
+         
+           
+             
+              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://stevenshi.me/2017/09/06/stm32-dma-printf/</loc>
@@ -73,26 +93,6 @@
         <pubTime>2017-07-08T01:19:45.000Z</pubTime>
         
         <tag>URDF</tag>
-         
-         
-           
-             
-              <breadCrumb title="ROS" url="http://stevenshi.me/categories/ROS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
-    <lastmod>2017-07-21T00:29:57.568Z</lastmod>
-    <data>
-        <display>
-        <title>ROS通过串口控制移动底座</title>
-        <pubTime>2017-07-18T07:08:51.000Z</pubTime>
-        
-        <tag>ROS serial</tag>
          
          
            
