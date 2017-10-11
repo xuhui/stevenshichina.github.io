@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/07/01/directory-for-ros/</loc>
+    
+    <lastmod>2017-10-11T03:49:38.978Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/10/11/stm32-serial-port-ros/</loc>
     
-    <lastmod>2017-10-11T03:46:49.385Z</lastmod>
+    <lastmod>2017-10-11T03:48:39.482Z</lastmod>
     
   </url>
   
@@ -159,13 +166,6 @@
     <loc>http://stevenshi.me/2017/05/09/hexo-advance/</loc>
     
     <lastmod>2017-07-20T07:02:15.776Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://stevenshi.me/2017/07/01/directory-for-ros/</loc>
-    
-    <lastmod>2017-07-20T06:55:45.969Z</lastmod>
     
   </url>
   

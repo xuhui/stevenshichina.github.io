@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[stm32串口到底如何与ROS实现信息交互]]></title>
+      <title><![CDATA[详解stm32串口到底如何与ROS实现信息交互]]></title>
       <url>/2017/10/11/stm32-serial-port-ros/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一直有朋友咨询STM32到底如何与ROS实现信息交互，ROS如何获取移动底座的位置、速度、偏航角等信息，移动底座又是如何实时接收ROS的速度控制命令。为了更清晰的描述这些问题，最近特意进行了总结归纳，从底层的STM32，到ROS的节点设置做一个详细的论述，放到这里给那些共同学习ROS的童鞋一个方向。<br><a id="more"></a><br>#</p>
 ]]></content>
@@ -439,7 +439,8 @@
       <url>/2017/07/01/directory-for-ros/</url>
       <content type="html"><![CDATA[<h2 id="ros实战"><a href="#ROS实战" class="headerlink" title="ROS实战"></a>ROS实战</h2><ol>
 <li><a href="/2017/06/28/omniwheel-kinematical-analysis/" title="三轮全向移动底盘运动学解析">三轮全向移动底盘运动学解析</a></li>
-<li><a href="/2017/07/18/control-mobile-base-by-serial/" title="ROS通过串口控制移动底座">ROS通过串口控制移动底座</a>
+<li><a href="/2017/07/18/control-mobile-base-by-serial/" title="ROS通过串口控制移动底座">ROS通过串口控制移动底座</a></li>
+<li><a href="/2017/10/11/stm32-serial-port-ros/" title="详解stm32串口到底如何与ROS实现信息交互">详解stm32串口到底如何与ROS实现信息交互</a>
 </li>
 </ol>
 <h2 id="ros中级教程"><a href="#ROS中级教程" class="headerlink" title="ROS中级教程"></a>ROS中级教程</h2><ol>
