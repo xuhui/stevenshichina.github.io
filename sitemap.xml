@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://stevenshi.me/2017/10/11/stm32-serial-port-ros/</loc>
+    
+    <lastmod>2017-10-11T03:46:49.385Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://stevenshi.me/2017/07/18/control-mobile-base-by-serial/</loc>
     
-    <lastmod>2017-10-09T07:08:11.943Z</lastmod>
+    <lastmod>2017-10-11T03:34:13.756Z</lastmod>
     
   </url>
   
