@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/rosup.png">
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/stm32odom.png">
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/echoodom.png">
-<meta property="og:updated_time" content="2017-10-11T07:08:43.866Z">
+<meta property="og:updated_time" content="2017-10-11T08:56:00.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解stm32串口到底如何与ROS实现信息交互">
 <meta name="twitter:description" content="前言一直有朋友咨询STM32到底如何与ROS实现信息交互，ROS如何获取移动底座的位置、速度、偏航角等信息，移动底座又是如何实时接收ROS的速度控制命令等。为了更清晰的描述这些问题，最近特意进行了总结归纳，从底层的STM32，到ROS的节点设计都做了详细的论述，放到这里给共同学习ROS的童鞋一个方向。">
@@ -467,7 +467,7 @@
 </tr>
 </tbody>
 </table>
-<p>velocity_x 表示 x 方向线速度，velocity_y 表示 y 方向线速度，angular_v 表示绕 z 轴的角速度，因为移动底座为贴地面运行，因此只有绕 z 轴的角速度，数据发送的总长度为15字节。<br>串口接收的数据格式也就是一定底座发送的数据包格式可以定义为：</p>
+<p>velocity_x 表示 x 方向线速度，velocity_y 表示 y 方向线速度，angular_v 表示绕 z 轴的角速度，因为移动底座为贴地面运行，因此只有绕 z 轴的角速度，数据发送的总长度为15字节。<br>串口接收的数据格式也就是移动底座发送的数据包格式可以定义为：</p>
 <table>
 <thead>
 <tr>

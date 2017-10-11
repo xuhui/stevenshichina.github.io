@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://stevenshi.me/"/>
-  <updated>2017-10-11T07:08:43.866Z</updated>
+  <updated>2017-10-11T08:56:00.849Z</updated>
   <id>http://stevenshi.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/"/>
     <id>http://stevenshi.me/2017/10/11/stm32-serial-port-ros/</id>
     <published>2017-10-11T03:09:07.000Z</published>
-    <updated>2017-10-11T07:08:43.866Z</updated>
+    <updated>2017-10-11T08:56:00.849Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一直有朋友咨询STM32到底如何与ROS实现信息交互，ROS如何获取移动底座的位置、速度、偏航角等信息，移动底座又是如何实时接收ROS的速度控制命令等。为了更清晰的描述这些问题，最近特意进行了总结归纳，从底层的STM32，到ROS的节点设计都做了详细的论述，放到这里给共同学习ROS的童鞋一个方向。<br><a id="more"></a></p>
 <h1 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h1><p>有的朋友使用全向移动底座，有的使用两轮差动或四轮驱动实现移动底座；为了保持代码通用性，运动学解析这一部分没有特别的说明，移动底座只接收 x 与 y 两个方向的线速度以及一个绕 z 轴的角速度；针对不同的移动底座，还需要设计不同的运动学解析函数，以便于将线速度与角速度转变成电机运动指令，从而控制电机运动。ROS 部分实现一个节点，该节点订阅 cmd_vel 话题，并将该话题转变成 x y 两个方向的线速度以及一个绕 z 轴的角速度，通过串口发送到移动底座，即给STM32；另外该节点还需要发布导航需要的 odom 消息，这个消息需要移动底座提供，通过STM32的串口发送机器人的位置、速度、偏航角等信息，经过特殊的变换之后再发布。</p>
@@ -54,7 +54,7 @@
 </tr>
 </tbody>
 </table>
-<p>velocity_x 表示 x 方向线速度，velocity_y 表示 y 方向线速度，angular_v 表示绕 z 轴的角速度，因为移动底座为贴地面运行，因此只有绕 z 轴的角速度，数据发送的总长度为15字节。<br>串口接收的数据格式也就是一定底座发送的数据包格式可以定义为：</p>
+<p>velocity_x 表示 x 方向线速度，velocity_y 表示 y 方向线速度，angular_v 表示绕 z 轴的角速度，因为移动底座为贴地面运行，因此只有绕 z 轴的角速度，数据发送的总长度为15字节。<br>串口接收的数据格式也就是移动底座发送的数据包格式可以定义为：</p>
 <table>
 <thead>
 <tr>
