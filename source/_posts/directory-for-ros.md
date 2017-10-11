@@ -10,6 +10,7 @@ top: 1000
 
    1. {% post_link omniwheel-kinematical-analysis 三轮全向移动底盘运动学解析 %}
    2. {% post_link control-mobile-base-by-serial ROS通过串口控制移动底座 %}
+   3. {% post_link stm32-serial-port-ros 详解stm32串口到底如何与ROS实现信息交互 %}
    
 ## ROS中级教程
 
