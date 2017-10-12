@@ -82,42 +82,42 @@ head|head|velocity_x|velocity_y|angular_v|CRC
 0xff|0xff|float|float|float|unsigned char
 
 velocity_x 表示 x 方向线速度，velocity_y 表示 y 方向线速度，angular_v 表示绕 z 轴的角速度，因为移动底座为贴地面运行，因此只有绕 z 轴的角速度，数据发送的总长度为15字节。
-串口接收的数据格式也就是一定底座发送的数据包格式可以定义为：
+串口接收的数据格式也就是移动底座发送的数据包格式可以定义为：
 
 head|head|x-position|y-position|x-speed|y-speed|angular-speed|pose-angular|CRC
 ---|---|---
 0xaa|0xaa|float|float|float|float|float|float|u8
 
-x-position 表示机器人实时 x 坐标位置，y-position表示机器人实时 y 坐标位置，x-velocity表示机器人实时 x 坐标方向速度，y-velocity表示机器人实时 y 坐标方向速度，angular velocity表示机器人当前角速度，pose angular表示机器人当前偏航角。数据上传的总长度为27字节。校验和从有效数据开始取异或即可。
+x-position 表示机器人实时 x 坐标位置，y-position表示机器人实时 y 坐标位置，x-velocity表示机器人实时 x 坐标方向速度，y-velocity表示机器人实时 y 坐标方向速度，angular velocity表示机器人当前角速度，pose angular表示机器人当前偏航角。数据上传的总长度为27字节。校验和从有效数据开始取异或即可，如下示例：
 　　```
 data[8] = data[2]^data[3]^data[4]^data[5]^data[6]^data[7];//不计算数据包的头
 					
 　　```
-需要注意的是，ROS 中需要将偏航角转换成四元数才能进行发布：
+ROS 端串口的数据发送与数据读取可以参考站内文章{% post_link ros-serial ROS串口通信 %}，需要注意的是在订阅 cmd_vel 话题时的回调函数中，参数类型选择 const geometry_msgs::Twist，另外在从串口获取到里程计信息后需要将偏航角转换成四元数才能进行发布：
 　　```
  //将偏航角转换成四元数才能发布
-   odom_quat = tf::createQuaternionMsgFromYaw(yaw.fvalue);
+ odom_quat = tf::createQuaternionMsgFromYaw(yaw.fvalue);
 
  //发布坐标变换父子坐标系
-   odom_trans.header.frame_id = "odom";
-   odom_trans.child_frame_id = "base_link";
- //填充获取的数据
-   odom_trans.transform.translation.x = posx.fvalue;//x坐标
-   odom_trans.transform.translation.y = posy.fvalue;//y坐标
-   odom_trans.transform.translation.z = 0;//z坐标
-   odom_trans.transform.rotation = odom_quat;//偏航角
+  odom_trans.header.frame_id = "odom";
+  odom_trans.child_frame_id = "base_link";
+  
+  //发布tf坐标变换
+  odom_broadcaster.sendTransform(odom_trans);
+  //获取当前时间
+  current_time = ros::Time::now();
+  //载入里程计时间戳
+  odom.header.stamp = current_time;
  
- //获取当前时间
-   current_time = ros::Time::now();
+  //里程计位置数据
+  odom.pose.pose.position.x = posx.fvalue;
 
- //载入线速度和角速度
-   odom.twist.twist.linear.x = vx.fvalue;
-   odom.twist.twist.linear.y = vy.fvalue;
-   odom.twist.twist.angular.z = va.fvalue;
- //发布里程计消息
-   read_pub.publish(odom);
-   ROS_INFO("publish odometry");
-   last_time = current_time;
+  //载入线速度和角速度
+  odom.twist.twist.linear.x = vx.fvalue;
+  odom.twist.twist.angular.z = va.fvalue;
+  //发布里程计消息
+  read_pub.publish(odom);
+  ROS_INFO("publish odometry");
 　　```
 # 测试
 为了更直观的观察代码可用性，使用时我直接使用了 ROS 中的 turtlesim turtle_teleop_key 来使用键盘的方向键来键入速度、角速度等。测试时开三个terminal,分别运行：
