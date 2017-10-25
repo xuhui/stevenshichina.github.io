@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/rosup.png">
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/stm32odom.png">
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/echoodom.png">
-<meta property="og:updated_time" content="2017-10-16T00:25:32.493Z">
+<meta property="og:updated_time" content="2017-10-25T07:53:30.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解stm32串口到底如何与ROS实现信息交互">
 <meta name="twitter:description" content="前言一直有朋友咨询STM32到底如何与ROS实现信息交互，ROS如何获取移动底座的位置、速度、偏航角等信息，移动底座又是如何实时接收ROS的速度控制命令等。为了更清晰的描述这些问题，最近特意进行了总结归纳，从底层的STM32，到ROS的节点设计都做了详细的论述，放到这里给共同学习ROS的童鞋一个方向。">
@@ -509,7 +509,7 @@
 <p><img src="/2017/10/11/stm32-serial-port-ros/stm32odom.png" alt=""></p>
 <p>此时我们在ROS端可以非常清晰的查看到该信息已经发布，并被我们捕捉到，开一个终端，输入rostopic echo /odom 进行查看：</p>
 <p><img src="/2017/10/11/stm32-serial-port-ros/echoodom.png" alt=""></p>
-<p>至此，已经完全实现了STM32的串口与ROS进行数据交互，并且测试成功，实际使用时只要添加对应的移动底座运动学解析部分即可。全部源码稍后会放出，您也可以随意打赏，更快的获取源码。</p>
+<p>至此，已经完全实现了STM32的串口与ROS进行数据交互，并且测试成功，实际使用时只要添加对应的移动底座运动学解析部分即可。全部源码稍后会放出，您也可以通过打赏19.9的方式更快的获取源码。近期打赏的朋友较多，为了方便区分，请打赏后邮件联系确认，获取源码。</p>
 
       
     </div>
