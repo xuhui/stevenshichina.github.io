@@ -82,7 +82,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Steven's blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Steven's space" type="application/atom+xml" />
 
 
 
@@ -99,14 +99,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="详解stm32串口到底如何与ROS实现信息交互">
 <meta property="og:url" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/index.html">
-<meta property="og:site_name" content="Steven&#39;s blog">
+<meta property="og:site_name" content="Steven&#39;s space">
 <meta property="og:description" content="前言一直有朋友咨询STM32到底如何与ROS实现信息交互，ROS如何获取移动底座的位置、速度、偏航角等信息，移动底座又是如何实时接收ROS的速度控制命令等。为了更清晰的描述这些问题，最近特意进行了总结归纳，从底层的STM32，到ROS的节点设计都做了详细的论述，放到这里给共同学习ROS的童鞋一个方向。">
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/up.png">
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/stm32up.png">
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/rosup.png">
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/stm32odom.png">
 <meta property="og:image" content="http://stevenshi.me/2017/10/11/stm32-serial-port-ros/echoodom.png">
-<meta property="og:updated_time" content="2017-10-25T07:57:32.282Z">
+<meta property="og:updated_time" content="2017-10-30T00:39:39.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解stm32串口到底如何与ROS实现信息交互">
 <meta name="twitter:description" content="前言一直有朋友咨询STM32到底如何与ROS实现信息交互，ROS如何获取移动底座的位置、速度、偏航角等信息，移动底座又是如何实时接收ROS的速度控制命令等。为了更清晰的描述这些问题，最近特意进行了总结归纳，从底层的STM32，到ROS的节点设计都做了详细的论述，放到这里给共同学习ROS的童鞋一个方向。">
@@ -144,7 +144,7 @@
 
 
 
-  <title>详解stm32串口到底如何与ROS实现信息交互 | Steven's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>详解stm32串口到底如何与ROS实现信息交互 | Steven's space</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -180,7 +180,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Steven's blog</span>
+        <span class="site-title">Steven's space</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -336,7 +336,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Steven's blog">
+      <meta itemprop="name" content="Steven's space">
     </span>
 
     
@@ -509,7 +509,7 @@
 <p><img src="/2017/10/11/stm32-serial-port-ros/stm32odom.png" alt=""></p>
 <p>此时我们在ROS端可以非常清晰的查看到该信息已经发布，并被我们捕捉到，开一个终端，输入rostopic echo /odom 进行查看：</p>
 <p><img src="/2017/10/11/stm32-serial-port-ros/echoodom.png" alt=""></p>
-<p>至此，已经完全实现了STM32的串口与ROS进行数据交互，并且测试成功，实际使用时只要添加对应的移动底座运动学解析部分即可。全部源码稍后会放出，您也可以通过打赏19.9的方式更快的获取源码。近期打赏的朋友较多，为了方便区分，请打赏时在留言中附上邮箱地址。</p>
+<p>至此，已经完全实现了STM32的串口与ROS进行数据交互，并且测试成功，实际使用时只要添加对应的移动底座运动学解析部分即可，全部源码稍后会放出。</p>
 
       
     </div>
@@ -708,7 +708,7 @@
                alt="Steven Shi" />
           <p class="site-author-name" itemprop="name">Steven Shi</p>
            
-              <p class="site-description motion-element" itemprop="description">ROS 学习</p>
+              <p class="site-description motion-element" itemprop="description">码农</p>
           
         </div>
         <nav class="site-state motion-element">
